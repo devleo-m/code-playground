@@ -81,14 +81,13 @@ class Carro
         @cor = cor
     end
 
-    def imprimir_informacoes
+    def informacoes_carro
         puts "Carro: #{@modelo} da cor #{@cor}"
     end
 end
 
 carro = Carro.new("Volvo", "Cinza")
-carro.imprimir_informacoes
-
+carro.informacoes_carro
 
 
 
