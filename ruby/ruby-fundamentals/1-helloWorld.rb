@@ -3,7 +3,6 @@
 #e tambem e claro, sair da maldicao hahaha
 
 puts "Hello world";
-puts 'Hello world 2';
 
 #Desta forma voce aprendeu a da o famoso printl/ console.log ou escreval
 ########################################################################
