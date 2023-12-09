@@ -1,4 +1,4 @@
-# Estrutura de um Método
+# 1 Estrutura de um Método
 # Definição de um método
 
 def sobrenome(nome)
@@ -15,7 +15,7 @@ sobrenome("fulano")
 # saudacao é o nome do método sendo chamado.
 # "fulano" é o argumento passado para o parâmetro nome.
 
-# Parâmetros e Retorno
+# 2 Parâmetros e Retorno
 # Os métodos podem aceitar zero ou mais parâmetros.
 
 def soma(x, y)
@@ -26,7 +26,7 @@ end
 # O valor retornado de um método é a última expressão avaliada.
 soma(4,4)
 
-# Escopo de Variáveis:
+# 3 Escopo de Variáveis:
 # Variáveis locais:
 
 # Variáveis declaradas dentro de um método são locais para esse método.
@@ -49,7 +49,7 @@ end
 
 mensagem #executando o metodo
 
-# Métodos e Blocos:
+# 4 Métodos e Blocos:
 # Métodos podem receber blocos de código como argumentos usando yield.
 def executando_bloco
     puts "1: antes do bloco"
@@ -61,7 +61,7 @@ executando_bloco { puts "2: dentro do bloco"}
 # yield: invoca o bloco passado como argumento para o método.
 
 #ULTIMO
-#Metodos de utilizacao
+#5 Metodos de utilizacao
 def calcula_media(numeros)
     total = numeros.reduce(0) { |sum, num| sum + num }
     media = total.to_f / numeros.length
