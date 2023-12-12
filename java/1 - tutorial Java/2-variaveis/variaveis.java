@@ -35,6 +35,6 @@ boolean- armazena valores com dois estados: verdadeiro ou falso
         //Você pode criar constantes em Java usando a palavra-chave final. 
         //O valor de uma constante não pode ser alterado uma vez que tenha sido 
         //atribuído.
-        final double PI = 3.14159;
+        
     }
 }
