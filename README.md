@@ -9,6 +9,7 @@ Welcome to my learning space! 🌟 Here, I've gathered my coding journey across 
 - **JavaScript (JS)**: Explore JavaScript through exercises and projects.
 - **Java**: Discover the essence of Java programming.
 - **C++ Activities**: Engage with various activities and challenges in C++.
+- **C#**: Explore C# through exercises.
 
 ### 📂 Repository Structure:
 - **/code**: Snippets and smaller projects.
