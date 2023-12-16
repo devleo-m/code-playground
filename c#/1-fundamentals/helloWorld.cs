@@ -1,5 +1,3 @@
-using System;
-
 namespace helloWorld
 {
     class Program
