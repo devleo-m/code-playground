@@ -33,7 +33,7 @@ else
 }
 
 //Loops / while / do-while / for
-
+    
 int loop = 0; // Variavel padrao de todos os loops
 
 //while
