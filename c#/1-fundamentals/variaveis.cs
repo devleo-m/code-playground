@@ -14,8 +14,11 @@ namespace variaveis
 
             Console.WriteLine($"nome: {nome} idade: {idade} anos."); //Melhor forma de concatenar
 
-            const double test = 3.4567; //desta forma se cria uma constante
-
+            //constantes
+            const double pi = 3.14159; //desta forma se cria uma constante
+            //Se não quiser que outras pessoas (ou você mesmo) substituam os valores existentes, adicione a palavra-chave const na frente do tipo de variável.
+            //Isso declarará a variável como "constante", o que significa imutável e somente leitura:
+            //pi = 20; // error
             //-----------------------------------------------------------------------------------
 
             //entrada de usuario;
@@ -24,6 +27,9 @@ namespace variaveis
 
             Console.WriteLine($"Ola, {nomeUser}");
 
+            //Multiplas variveis
+            int x, y, j, z = 10, 20, 30, 40;
+            Console.WriteLine(y);
 
         }
     }
