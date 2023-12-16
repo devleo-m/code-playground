@@ -28,8 +28,18 @@ namespace variaveis
             Console.WriteLine($"Ola, {nomeUser}");
 
             //Multiplas variveis
-            int x, y, j, z = 10, 20, 30, 40;
-            Console.WriteLine(y);
+            int x = 10, y = 20, j = 30, z = 40;
+            Console.WriteLine((x + y + j + z)/4); //media
+
+            /*
+            As regras gerais para nomear variáveis ​​são:
+
+            Os nomes podem conter letras, dígitos e o caractere sublinhado (_)
+            Os nomes devem começar com uma letra ou sublinhado
+            Os nomes devem começar com letra minúscula e não podem conter espaços em branco
+            Os nomes diferenciam maiúsculas de minúsculas ("myVar" e "myvar" são variáveis ​​diferentes)
+            Palavras reservadas (como palavras-chave C#, como int ou double) não podem ser usados ​​como nomes
+             */
 
         }
     }
