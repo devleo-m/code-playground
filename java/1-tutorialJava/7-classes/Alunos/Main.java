@@ -1,12 +1,6 @@
 
 public class Main {
-    public class Aluno {
-        String nome;
-        String cpf;
-        int idade;
-        String matricula;
-        char turma;
-    }
+
     public static void main(String[] args){
         Aluno mario = new Aluno();
         mario.nome = "Mario";
