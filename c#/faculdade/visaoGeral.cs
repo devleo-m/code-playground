@@ -6,7 +6,6 @@
 
 //Booleans:
 using System.Runtime.Intrinsics.X86;
-
 bool a = true;
 bool b = false;
 
@@ -99,7 +98,6 @@ else
 //Switch/Case.
 //A sintaxe de switch/case do C# é igual à do Java. Variando apenas em opções diferentes que o bloco Switch pode receber para condicionar.
 //No C# temos variações do Switch que aceitam strings, pattern matching, entre outras.
-
 int teste = 10;
 switch (teste)
 {
@@ -140,6 +138,7 @@ foreach (var item in nome)
 {
     Console.WriteLine(item);
 }
+
 //foreach eh mais comum sendo utilizado em arrays, vamos estudar sobre isso depois
 //A sintaxe do bloco foreach no C# é igual às demais linguagens imperativas. No caso do C#, recebemos uma variável que implementa a
 //interface IEnumerable. A partir disso, o código irá iterar sobre itens desta variável (vamos abordar isso de forma mais detalhada
@@ -168,7 +167,6 @@ while (cool.Length > 0) // Enquanto o comprimento da string cool for maior que z
 
 //Em resumo, esse código começa com a string "c# eh legal" e, em cada iteração do loop while, ele imprime a string atual, remove o
 //último caractere dela e verifica se o último caractere é #. Se for, a string cool se torna vazia, encerrando o loop.
-
 
 //PROPRIEDADES, MODIFICADORES DE ACESSO, INTERFACES E OUTROS
 //No C#, temos um “tipo de campo” chamado Propriedade (property), que é padrão da linguagem e fornece algumas características
@@ -215,8 +213,6 @@ class Pessoa2 // Declaração da classe Pessoa2
     }
 }
 
-
-
 //Podemos notar que o comportamento de alterar o valor do campo (field) idade depende do método “SetIdade” e “GetIdade”.
 //Já na propriedade Nome, esse comportamento é automático.
 //A linguagem gera (dentro do CIL) o get e set necessários para que a propriedade tenha o mesmo comportamento do campo idade,
@@ -251,6 +247,7 @@ interface IComestivel
         return "possibilita o comportamento de mastigar um alimento!";
     }
 }
+
 //É uma convenção no C# usarmos a leta “I” maiúscula na frente do nome da interface para diferenciá-la de uma classe.
 
 //# MODIFICADORES DE ACESSO
