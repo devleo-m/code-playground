@@ -3,9 +3,9 @@
 #include <locale.h>
 int main()
 {
-    setlocale(LC_ALL, ""); // acentuação PT-BR
+    setlocale(LC_ALL, ""); // Acentuação PT-BR
 
-    char nome[1][34] = {"Leonardo Madeira"}; //Vou ser sincero, não estou conseguindo declarar o nome digitando ele com printf e scanf.
+    char nome[1][34] = {"Leonardo Madeira"}; // Vou ser sincero, não estou conseguindo declarar o nome digitando ele com printf e scanf.
     int ru = 3235609;
     float sal , IMP, total;
     
@@ -21,9 +21,9 @@ int main()
 
     printf("\n\n");
     printf("Salário: ");
-    scanf_s("%f", &sal); //Registrar o salário do usuario.
+    scanf_s("%f", &sal); // Registrar o salário do usuario.
 
-    IMP = (sal); //Jogando o salario na variavel IMP
+    IMP = (sal); // Jogando o salario na variavel IMP
     if (IMP <= 1637.11) // Caso o salario do usuario for menor que 1637, nao paga nada de imposto.
     {printf("0 de imposto");}
     else if (IMP >= 1637.12 && IMP <= 2453.50)// Caso o salario do usuario for maior que 1637 e menor que 2453.50, vai pagar 7,5 de Aliq imposto.
