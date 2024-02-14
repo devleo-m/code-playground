@@ -13,6 +13,7 @@ public class Veiculo {
 }
 
 class Carro extends Veiculo {
+    public String Modelo;
     int numPortas;
 
     public void abrirPortas() {
