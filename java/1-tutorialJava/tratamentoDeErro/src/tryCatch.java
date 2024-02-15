@@ -3,8 +3,18 @@
 // exceções e fornece um mecanismo para lidar com essas exceções de maneira controlada.
 public class tryCatch {
     //Aqui está a estrutura básica do bloco try-catch:
-
-    //
+    public static void main(String[] args) {
+        int num1 = 40;
+        int num2 = 0;
+        int total = num1/num2;
+        try {
+            System.out.println(total);
+        }catch (ArithmeticException e){
+            System.out.println("Error: "+ e);
+        }finally {
+            System.out.println("Executando Finally!!!");
+        }
+    }
 
     //try: Este é o bloco onde você coloca o código que pode gerar uma exceção.
     //
