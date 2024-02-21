@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/java/1-tutorialJava/7-classes/Interface/Interface.iml" filepath="$PROJECT_DIR$/java/1-tutorialJava/7-classes/Interface/Interface.iml" />
       <module fileurl="file://$PROJECT_DIR$/java/atividades java/atividades java.iml" filepath="$PROJECT_DIR$/java/atividades java/atividades java.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/code-playground.iml" filepath="$PROJECT_DIR$/.idea/code-playground.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java/1-tutorialJava/data/data.iml" filepath="$PROJECT_DIR$/java/1-tutorialJava/data/data.iml" />
       <module fileurl="file://$PROJECT_DIR$/java/1-tutorialJava/tratamentoDeErro/tratamentoDeErro.iml" filepath="$PROJECT_DIR$/java/1-tutorialJava/tratamentoDeErro/tratamentoDeErro.iml" />
     </modules>
   </component>
