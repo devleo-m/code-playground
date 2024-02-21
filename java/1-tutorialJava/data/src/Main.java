@@ -1,5 +1,6 @@
 import java.time.LocalDate; // import the LocalDate class
 import java.time.LocalTime; // import the LocalTime class
+import java.time.LocalDateTime; // import the LocalDateTime class
 
 public class Main {
     public static void main(String[] args) {
@@ -29,8 +30,14 @@ public class Main {
         //import java.time.LocalTime; // import the LocalTime class
         LocalTime horarioLocal = LocalTime.now();
         System.out.println(horarioLocal);
+        //23:02:39.635744 //Horas que foi printada no momento
 
-
-
+        //Exibir data e hora atuais
+        //Para exibir a data e hora atuais, importe a java.time.LocalDateTimeclasse e
+        // use seu now()método:
+        LocalDateTime diaHorario = LocalDateTime.now();
+        System.out.println(diaHorario);
+        //2024-02-20T23:02:39.636025
+        //Dia e hora printada no momento do metodo chamado
     }
 }
