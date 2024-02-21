@@ -1,4 +1,6 @@
-import java.time.LocalDate;
+import java.time.LocalDate; // import the LocalDate class
+import java.time.LocalTime; // import the LocalTime class
+
 public class Main {
     public static void main(String[] args) {
         //Datas Java
@@ -16,10 +18,19 @@ public class Main {
         //Para exibir a data atual, importe a java.time.LocalDateclasse e use seu now()método:
 
         //import java.time.LocalDate; // import the LocalDate class
-        LocalDate myObj = LocalDate.now(); // Create a date object
-        System.out.println(myObj); // Display the current date
+        LocalDate diaHoje = LocalDate.now(); // Create a date object
+        System.out.println(diaHoje); // Display the current date
         //2024-02-20 // Exemplo da data exibida nesse dia que printei
         //OBS; EU BATI O CARRO NESSE DIA KKK
+
+        //Exibir hora atual
+        //Para exibir a hora atual (hora, minuto, segundo e nanossegundos), importe a
+        // java.time.LocalTimeclasse e use seu now()método:
+        //import java.time.LocalTime; // import the LocalTime class
+        LocalTime horarioLocal = LocalTime.now();
+        System.out.println(horarioLocal);
+
+
 
     }
 }
