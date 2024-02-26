@@ -6,11 +6,11 @@ Welcome to my coding journey across various programming languages! This reposito
 
 ### 🚀 Languages Explored:
 
-- **JavaScript (JS)**: Embark on a journey into the world of JavaScript with exercises and projects.
 - **Java**: Explore the core concepts and intricacies of Java programming.
+- **JavaScript (JS)**: Embark on a journey into the world of JavaScript with exercises and projects.
 - **Ruby**: Immerse yourself in the realm of Ruby programming!
-- **C++ Challenges**: Engage with diverse activities and challenges in C++.
 - **C#**: Discover C# through practical exercises.
+- **C++ Challenges**: Engage with diverse activities and challenges in C++.
 - **Swift**: Delve into Swift programming through a series of exercises.
 
 ### 📂 Repository Structure:
