@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/java/1-tutorialJava/1-tutorialJava.iml" filepath="$PROJECT_DIR$/java/1-tutorialJava/1-tutorialJava.iml" />
-      <module fileurl="file://$PROJECT_DIR$/java/1-tutorialJava/7-classes/7-classes.iml" filepath="$PROJECT_DIR$/java/1-tutorialJava/7-classes/7-classes.iml" />
-      <module fileurl="file://$PROJECT_DIR$/java/1-tutorialJava/7-classes/Enums/Enums.iml" filepath="$PROJECT_DIR$/java/1-tutorialJava/7-classes/Enums/Enums.iml" />
-      <module fileurl="file://$PROJECT_DIR$/java/1-tutorialJava/7-classes/Interface/Interface.iml" filepath="$PROJECT_DIR$/java/1-tutorialJava/7-classes/Interface/Interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java/Tutorial/ClassesMetodos/ClassesMetodos.iml" filepath="$PROJECT_DIR$/java/Tutorial/ClassesMetodos/ClassesMetodos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java/Tutorial/7-classes/Enums/Enums.iml" filepath="$PROJECT_DIR$/java/Tutorial/7-classes/Enums/Enums.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java/Tutorial/FundamentalsJava/FundamentalsJava.iml" filepath="$PROJECT_DIR$/java/Tutorial/FundamentalsJava/FundamentalsJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java/Tutorial/7-classes/Interface/Interface.iml" filepath="$PROJECT_DIR$/java/Tutorial/7-classes/Interface/Interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java/Tutorial/Java.iml" filepath="$PROJECT_DIR$/java/Tutorial/Java.iml" />
       <module fileurl="file://$PROJECT_DIR$/java/atividades java/atividades java.iml" filepath="$PROJECT_DIR$/java/atividades java/atividades java.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/code-playground.iml" filepath="$PROJECT_DIR$/.idea/code-playground.iml" />
-      <module fileurl="file://$PROJECT_DIR$/java/1-tutorialJava/data/data.iml" filepath="$PROJECT_DIR$/java/1-tutorialJava/data/data.iml" />
-      <module fileurl="file://$PROJECT_DIR$/java/1-tutorialJava/interface/interface.iml" filepath="$PROJECT_DIR$/java/1-tutorialJava/interface/interface.iml" />
-      <module fileurl="file://$PROJECT_DIR$/java/1-tutorialJava/tratamentoDeErro/tratamentoDeErro.iml" filepath="$PROJECT_DIR$/java/1-tutorialJava/tratamentoDeErro/tratamentoDeErro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java/Tutorial/data/data.iml" filepath="$PROJECT_DIR$/java/Tutorial/data/data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java/Tutorial/interface/interface.iml" filepath="$PROJECT_DIR$/java/Tutorial/interface/interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java/Tutorial/tratamentoDeErro/tratamentoDeErro.iml" filepath="$PROJECT_DIR$/java/Tutorial/tratamentoDeErro/tratamentoDeErro.iml" />
     </modules>
   </component>
 </project>
