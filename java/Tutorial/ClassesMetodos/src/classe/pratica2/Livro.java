@@ -4,7 +4,6 @@ public class Livro {
     private String autor;
     private int anoPublicacao;
     private LivroStatus status = LivroStatus.DISPONIVEL; //Livre para ser emprestado
-
     public Livro(String titulo, String autor, int anoPublicacao) {
         this.titulo = titulo;
         this.autor = autor;
@@ -19,6 +18,7 @@ public class Livro {
                 ", status=" + status +
                 '}';
     }
+
     public String getTitulo() {
         return titulo;
     }
