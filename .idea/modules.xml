@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/java/Tutorial/ArrayCollections/ArrayCollections.iml" filepath="$PROJECT_DIR$/java/Tutorial/ArrayCollections/ArrayCollections.iml" />
       <module fileurl="file://$PROJECT_DIR$/java/Tutorial/ClassesMetodos/ClassesMetodos.iml" filepath="$PROJECT_DIR$/java/Tutorial/ClassesMetodos/ClassesMetodos.iml" />
       <module fileurl="file://$PROJECT_DIR$/java/Tutorial/7-classes/Enums/Enums.iml" filepath="$PROJECT_DIR$/java/Tutorial/7-classes/Enums/Enums.iml" />
       <module fileurl="file://$PROJECT_DIR$/java/Tutorial/FundamentalsJava/FundamentalsJava.iml" filepath="$PROJECT_DIR$/java/Tutorial/FundamentalsJava/FundamentalsJava.iml" />
