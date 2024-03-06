@@ -9,10 +9,7 @@ public class Cliente {
 
     public Cliente(String nome) {
         this.nome = nome;
-    }
-
-    public Cliente(ArrayList<Livro> livroEmprestadoCliente) {
-        this.livroEmprestadoCliente = livroEmprestadoCliente;
+        this.livroEmprestadoCliente = new ArrayList<>();
     }
 
     @Override

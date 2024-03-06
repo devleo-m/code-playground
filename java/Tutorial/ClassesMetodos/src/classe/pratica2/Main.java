@@ -65,18 +65,33 @@ public class Main {
     public static void emprestarLivro(){
         Scanner scanner = new Scanner(System.in);
         visualizarLivros();
-        System.out.println("Voce deseja emprestar qual livro? ");
+        System.out.println("Qual livro deseja emprestar? Digite o índice do livro: ");
         int indiceLivro = scanner.nextInt();
-        if (indiceLivro >=0 && indiceLivro < livros.size()){
-            livros.get(indiceLivro);
-            System.out.println("Digite o indice do cliente para emprestar a ele: ");
-            int indiceCliente = scanner.nextInt();
-            if (indiceCliente >= 0 && indiceCliente < clientes.size()){
-                clientes.add(livros.get(indiceLivro));
+        if (indiceLivro >= 0 && indiceLivro < livros.size()) {
+            Livro livroSelecionado = livros.get(indiceLivro);
+            if (livroSelecionado.getStatus() == LivroStatus.DISPONIVEL) {
+                System.out.println("Digite o índice do cliente para emprestar o livro a ele: ");
+                System.out.println("Clientes cadastrados");
+                for (int i = 0; i < clientes.size(); i++) {
+                    System.out.println(i + ": "+ clientes.get(i));
+                }
+                int indiceCliente = scanner.nextInt();
+                if (indiceCliente >= 0 && indiceCliente < clientes.size()) {
+                    Cliente clienteSelecionado = clientes.get(indiceCliente);
+                    // Adiciona o livro à lista de livros emprestados do cliente
+                    clienteSelecionado.getLivroEmprestadoCliente().add(livroSelecionado);
+                    // Atualiza o status do livro para EMPRESTADO
+                    livroSelecionado.setStatus(LivroStatus.EMPRESTADO);
+                    System.out.println("O Livro "+livroSelecionado.getTitulo()+" emprestado com sucesso para o cliente " + clienteSelecionado.getNome());
+                } else {
+                    System.out.println("Cliente não encontrado!");
+                }
+            } else {
+                System.out.println("Livro não está disponível para empréstimo.");
             }
-        }else {
-            System.out.println("Livro nao existe ou nao encontrado!");
+        } else {
+            System.out.println("Livro não existe ou não encontrado!");
         }
-
     }
+
 }
