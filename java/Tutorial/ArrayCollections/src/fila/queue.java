@@ -1,4 +1,4 @@
-package EqualsHashcode.fila;
+package fila;
 
 import java.util.Collection;
 import java.util.Iterator;

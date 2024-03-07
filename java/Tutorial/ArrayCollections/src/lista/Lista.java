@@ -1,4 +1,4 @@
-package EqualsHashcode.lista;
+package lista;
 
 import java.util.ArrayList;
 
