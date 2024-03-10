@@ -3,15 +3,19 @@ package relacionamento.UmParaMuitos;
 import java.util.ArrayList;
 
 public class Compra {
-    String nomeCliente;
+
+    Cliente cliente;
     ArrayList<Item> itens = new ArrayList<>();
-    public double valorTotal(){
-        double precoTotal = 0;
 
+    @Override
+    public String toString() {
+        return cliente +" "+itens;
+    }
+    public double getPrecoTotal(){
+        double total = 0;
         for (Item key : itens){
-            precoTotal += key.quantidade * key.preco;
+            total += key.getQuantidade() * key.getPreco();
         }
-
-        return precoTotal;
+        return total;
     }
 }
