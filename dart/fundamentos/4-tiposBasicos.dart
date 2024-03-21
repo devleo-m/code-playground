@@ -17,7 +17,7 @@ main() {
   //------------------------------------------------//
 
   List aprovados = ["Pedro", "Amanda", "Beatriz", "Rafael"];
-  print(aprovados is List);
+  //print(aprovados is List);
   print(aprovados);
   print(aprovados.elementAt(2));
   print(aprovados[0]);
@@ -31,7 +31,7 @@ main() {
     'Dayane': '+55 (48) 98653-85432'
   };
 
-  print(telefone is Map);
+  //print(telefone is Map);
   print(telefone);
   print(telefone['Dayane']);
   print(telefone.length);
@@ -40,7 +40,7 @@ main() {
   print(telefone.entries);
 
   Set times = {'Flamengo', 'Vasco', 'São Paulo'};
-  print(times is Set);
+  //print(times is Set);
   times.add('Vasco');
   times.add('Flamengo');
   times.add('Palmeiras');
