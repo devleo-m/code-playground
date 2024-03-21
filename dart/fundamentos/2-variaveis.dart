@@ -10,6 +10,9 @@ main() {
     print("$nome tem $idade anos. Menor de idade");
   }
 
+  print(
+      "$nome tem $idade anos, com um patrimonio de R\$$dinheiro e é casado: $casado");
+
   var b = 2;
   var c = 1.99;
   print(b + c);
