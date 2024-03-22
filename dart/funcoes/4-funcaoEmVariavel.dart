@@ -14,12 +14,13 @@ main(){
 
   print(soma3(1, 1));
 
-  var soma4(int q, int w){
+  int soma4(int q, int w){
     return q + w;
   }
   print(soma4(10,10));
 }
 
-int somaFn(int a, int b){
-  return a + b;
-}
+  int somaFn(int a, int b){
+    return a + b;
+  }
+

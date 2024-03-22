@@ -3,7 +3,7 @@ main(){
   var impar = () => print("Numero impar!");
   var par = () => print("Numero par!");
 
-  parOuImpar(par(), impar());
+  parOuImpar(par, impar);
 }
 
   void parOuImpar(Function fnPar, Function fnImpar){
