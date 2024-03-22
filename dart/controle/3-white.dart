@@ -1,11 +1,11 @@
 import "dart:io";
 
-main(){
+main() {
   String sair = 'sair';
-  String digitado = ''; 
+  String digitado = '';
 
-  while(digitado != sair){
-    print('Digite algo ou sair')
+  while (digitado != sair) {
+    print('Digite algo ou sair');
     digitado = stdin.readLineSync()!;
     print(digitado);
   }
