@@ -70,14 +70,17 @@ class _CalculadoraState extends State<Calculadora> {
 
   Widget buildButton(String buttonText) {
     return Expanded(
-      child: OutlineButton(
-        padding: EdgeInsets.all(24.0),
-        onPressed: () => buttonPressed(buttonText),
-        child: Text(
-          buttonText,
-          style: TextStyle(
-            fontSize: 20.0,
-            fontWeight: FontWeight.bold,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: OutlineButton(
+          padding: EdgeInsets.all(24.0),
+          onPressed: () => buttonPressed(buttonText),
+          child: Text(
+            buttonText,
+            style: TextStyle(
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),
