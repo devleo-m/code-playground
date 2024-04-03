@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(CalculadoraApp());
-}
+void main() => runApp(CalculadoraApp());
+
 
 class CalculadoraApp extends StatelessWidget {
   @override
@@ -16,12 +15,10 @@ class CalculadoraApp extends StatelessWidget {
     );
   }
 }
-
 class Calculadora extends StatefulWidget {
   @override
   _CalculadoraState createState() => _CalculadoraState();
 }
-
 class _CalculadoraState extends State<Calculadora> {
   String _output = '0';
   double num1 = 0.0;
