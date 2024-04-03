@@ -24,12 +24,55 @@ class Calculadora extends StatefulWidget {
 
 class _CalculadoraState extends State<Calculadora> {
   String _output = '0';
+  double num1 = 0.0;
+  double num2 = 0.0;
+  String operand = '';
+
+  buttonPressed(String buttonText) {
+    if (buttonText == 'Limpar') {
+      _output = '0';
+      num1 = 0.0;
+      num2 = 0.0;
+      operand = '';
+    } else if (buttonText == '+' || buttonText == '-' || buttonText == '/' || buttonText == 'x') {
+      num1 = double.parse(_output);
+      operand = buttonText;
+      _output = '0';
+    } else if (buttonText == '=') {
+      num2 = double.parse(_output);
+      if (operand == '+') {
+        _output = (num1 + num2).toString();
+      }
+      if (operand == '-') {
+        _output = (num1 - num2).toString();
+      }
+      if (operand == 'x') {
+        _output = (num1 * num2).toString();
+      }
+      if (operand == '/') {
+        _output = (num1 / num2).toString();
+      }
+      num1 = 0.0;
+      num2 = 0.0;
+      operand = '';
+    } else {
+      if (_output == '0') {
+        _output = buttonText;
+      } else {
+        _output += buttonText;
+      }
+    }
+
+    setState(() {
+      _output;
+    });
+  }
 
   Widget buildButton(String buttonText) {
     return Expanded(
       child: OutlineButton(
         padding: EdgeInsets.all(24.0),
-        onPressed: () {},
+        onPressed: () => buttonPressed(buttonText),
         child: Text(
           buttonText,
           style: TextStyle(
