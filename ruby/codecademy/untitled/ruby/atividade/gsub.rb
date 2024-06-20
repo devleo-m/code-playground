@@ -2,7 +2,7 @@
 # tem um S no nome e troque o "s" por um "th"
 
 print "qual seu nome?"
-user_input = gets.chomp
+user_input = gets.upcase!
 user_input.downcase!
 
 if user_input.include? "s"
