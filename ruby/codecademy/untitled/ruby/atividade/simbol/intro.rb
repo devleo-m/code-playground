@@ -94,8 +94,25 @@ strings.each do |s|
 end
 print symbols
 
+#Muitos caminhos para o mesmo cume
+# Lembre-se, sempre há muitas maneiras de realizar algo em Ruby.
+# Converter strings em símbolos não é diferente!
+# Além de usar .to_sym, você também pode usar .intern. Isso internalizará
+# a string em um símbolo e funcionará exatamente como .to_sym:
+puts ""
+"hello".intern
+# ==> :hello
 
+#Ao examinar o código de outra pessoa, você poderá ver .to_symou .intern(ou ambos!)
+# ao converter strings em símbolos.
 
+strings2 = ["Nodejs", "Angular", "React", "Rails", "Spring"]
+symbols2 = []
+
+strings2.each do |s|
+  symbols2.push(s.intern)
+end
+print symbols2
 
 
 
