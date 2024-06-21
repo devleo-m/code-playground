@@ -95,3 +95,30 @@ else
   puts "Error!"
 end
 
+#Vamos desenvolver cada parte do case, um passo de cada vez. Começaremos com o branch “add”.
+
+movies = {
+  StarWars: 4.8,
+  Divergent: 4.7
+}
+
+puts "What would you like to do? "
+
+choice = gets.chomp
+
+case choice
+when "add"
+  puts "What movie would you like to add? "
+  title = gets.chomp
+  puts "What rating does the movie have? "
+  rating = gets.chomp
+  movies[title.to_s] = rating
+when "update"
+  puts "Updated!"
+when "display"
+  puts "Movies!"
+when "delete"
+  puts "Deleted!"
+else
+  puts "Error!"
+end
