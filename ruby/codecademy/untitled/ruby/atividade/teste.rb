@@ -68,3 +68,30 @@ puts "-- Type 'display' to display all movies."
 puts "-- Type 'delete' to delete a movie."
 
 choice = gets.chomp
+
+#Agora queremos criar o corpo principal do nosso programa: a caseinstrução, que decidirá quais ações tomar com base no que o usuário digitar.
+#
+# ife elsesão poderosos, mas podemos ficar atolados em ifs e elsifs se tivermos muitas condições para verificar. Felizmente, Ruby nos fornece uma alternativa concisa: a casedeclaração. A sintaxe é semelhante a esta:
+
+movies = {
+  StarWars: 4.8,
+  Divergent: 4.7
+}
+
+puts "What would you like to do? "
+
+choice = gets.chomp
+
+case choice
+when "add"
+  puts "Added!"
+when "update"
+  puts "Updated!"
+when "display"
+  puts "Movies!"
+when "delete"
+  puts "Deleted!"
+else
+  puts "Error!"
+end
+
