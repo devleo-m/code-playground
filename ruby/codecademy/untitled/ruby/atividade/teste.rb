@@ -1,4 +1,5 @@
-# Clique em Executar para testar nosso programa de classificação de filmes e começar a criar o seu próprio.
+# Clique em Executar para testar nosso programa de classificação de filmes e
+# começar a criar o seu próprio.
 
 movies = {
   Memento: 3,
@@ -53,7 +54,9 @@ else
   puts "Sorry, I didn't understand you."
 end
 
-#Comecemos pelo princípio: vamos criar um hash para armazenar nossos filmes e suas classificações. A seguir, vamos solicitar a entrada do usuário para que possamos eventualmente armazenar pares de filmes/classificações em nosso hash.
+#Comecemos pelo princípio: vamos criar um hash para armazenar nossos filmes e suas
+# classificações. A seguir, vamos solicitar a entrada do usuário para que possamos
+# eventualmente armazenar pares de filmes/classificações em nosso hash.
 
 
 movies = {
@@ -69,9 +72,12 @@ puts "-- Type 'delete' to delete a movie."
 
 choice = gets.chomp
 
-#Agora queremos criar o corpo principal do nosso programa: a caseinstrução, que decidirá quais ações tomar com base no que o usuário digitar.
+#Agora queremos criar o corpo principal do nosso programa: a caseinstrução,
+# que decidirá quais ações tomar com base no que o usuário digitar.
 #
-# ife elsesão poderosos, mas podemos ficar atolados em ifs e elsifs se tivermos muitas condições para verificar. Felizmente, Ruby nos fornece uma alternativa concisa: a casedeclaração. A sintaxe é semelhante a esta:
+# ife elsesão poderosos, mas podemos ficar atolados em ifs e elsifs se tivermos
+# muitas condições para verificar. Felizmente, Ruby nos fornece uma alternativa
+# concisa: a casedeclaração. A sintaxe é semelhante a esta:
 
 movies = {
   StarWars: 4.8,
