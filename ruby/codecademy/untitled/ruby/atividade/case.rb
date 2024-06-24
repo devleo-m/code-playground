@@ -65,14 +65,10 @@ end
 variavel = [1, 2, 3]
 
 case variavel
-when String
-  puts "É uma string"
-when Array
-  puts "É um array"
-when Hash
-  puts "É um hash"
-else
-  puts "Tipo desconhecido"
+when String then puts "É uma string"
+when Array then puts "É um array"
+when Hash then puts "É um hash"
+else puts "Tipo desconhecido"
 end
 
 
