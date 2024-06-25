@@ -171,10 +171,10 @@ console.log(textoConvertido); // 123.45
 
 /*
 Atividade 3: Conversão de Tipos
-Converta uma string para um número usando Number().
-Converta um número para uma string usando String().
-Converta uma string para um número de ponto flutuante usando parseFloat().
-Exiba os resultados no console.
+3.1 Converta uma string para um número usando Number().
+3.2 Converta um número para uma string usando String().
+3.3 Converta uma string para um número de ponto flutuante usando parseFloat().
+3.4 Exiba os resultados no console.
 */
 
 let name2 = "Leo"
