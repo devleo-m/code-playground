@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manipulação do DOM</title>
+</head>
+<body>
+    <div id="minhaDiv" class="minhaClasse">Conteúdo da Div</div>
+    <p class="minhaClasse">Parágrafo 1</p>
+    <p class="minhaClasse">Parágrafo 2</p>
+    <script>
+        
+        // A seleção de elementos é o primeiro passo para manipular o DOM. 
+        // Para isso, usamos métodos como: 
+        // getElementById, 
+        // getElementsByClassName, 
+        // getElementsByTagName, 
+        // querySelector e 
+        // querySelectorAll.
+
+        // Selecionar elemento pelo ID
+        let div = document.getElementById('minhaDiv');
+        console.log(div); // <div id="minhaDiv" class="minhaClasse">Conteúdo da Div</div>
+
+        // Selecionar elementos pela classe
+        let paragrafos = document.getElementsByClassName('minhaClasse');
+        console.log(paragrafos); // HTMLCollection(3) [div.minhaClasse, p.minhaClasse, p.minhaClasse]
+
+        // Selecionar elementos pela tag
+        let tags = document.getElementsByTagName('p');
+        console.log(tags); // HTMLCollection(2) [p.minhaClasse, p.minhaClasse]
+
+        // Selecionar elemento com querySelector
+        let primeiroParagrafo = document.querySelector('.minhaClasse');
+        console.log(primeiroParagrafo); // <div id="minhaDiv" class="minhaClasse">Conteúdo da Div</div>
+
+        // Selecionar todos os elementos com querySelectorAll
+        let todosParagrafos = document.querySelectorAll('.minhaClasse');
+        console.log(todosParagrafos); // NodeList(3) [div.minhaClasse, p.minhaClasse, p.minhaClasse]
+    </script>
+</body>
+</html>
