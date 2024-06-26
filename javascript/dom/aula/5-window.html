@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diálogos de Janela</title>
+</head>
+<body>
+    <button onclick="mostrarAlerta()">Mostrar Alerta</button>
+    <button onclick="mostrarConfirmacao()">Mostrar Confirmação</button>
+    <button onclick="mostrarPrompt()">Mostrar Prompt</button>
+    <script>
+        function mostrarAlerta() {
+            window.alert('Esta é uma mensagem de alerta!');
+        }
+
+        function mostrarConfirmacao() {
+            var resultado = window.confirm('Você confirma esta ação?');
+            if (resultado) {
+                alert('Ação confirmada!');
+            } else {
+                alert('Ação cancelada!');
+            }
+        }
+
+        function mostrarPrompt() {
+            var nome = window.prompt('Qual é o seu nome?');
+            if (nome) {
+                alert('Olá, ' + nome + '!');
+            } else {
+                alert('Você não inseriu um nome.');
+            }
+        }
+    </script>
+</body>
+</html>
