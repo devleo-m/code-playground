@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adição e Remoção de Elementos</title>
+</head>
+<body>
+    <div id="container">
+        <p id="p1">Parágrafo 1</p>
+        <p id="p2">Parágrafo 2</p>
+    </div>
+    <script>
+        var container = document.getElementById('container');
+        var novoParagrafo = document.createElement('p');
+        novoParagrafo.textContent = 'Parágrafo 3';
+
+        // Adicionar novo parágrafo ao container
+        container.appendChild(novoParagrafo);
+
+        // Remover o primeiro parágrafo
+        var p1 = document.getElementById('p1');
+        container.removeChild(p1);
+
+        // Inserir novo parágrafo antes do parágrafo 2
+        var p2 = document.getElementById('p2');
+        container.insertBefore(novoParagrafo, p2);
+
+        // Substituir o parágrafo 2 pelo novo parágrafo
+        var substituto = document.createElement('p');
+        substituto.textContent = 'Parágrafo substituto';
+        container.replaceChild(substituto, p2);
+    </script>
+</body>
+</html>

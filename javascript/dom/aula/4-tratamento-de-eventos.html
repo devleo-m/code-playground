@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tratamento de Eventos</title>
+</head>
+<body>
+    <button id="meuBotao">Clique aqui</button>
+    <p id="meuParagrafo">Passe o mouse aqui</p>
+    <script>
+        var botao = document.getElementById('meuBotao');
+        var paragrafo = document.getElementById('meuParagrafo');
+
+        // Adicionar evento de clique ao botão
+        botao.addEventListener('click', function() {
+            alert('Botão clicado!');
+        });
+
+        // Adicionar evento de mouseover ao parágrafo
+        paragrafo.addEventListener('mouseover', function() {
+            paragrafo.style.color = 'blue';
+        });
+
+        // Adicionar evento de mouseout ao parágrafo
+        paragrafo.addEventListener('mouseout', function() {
+            paragrafo.style.color = 'black';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manipulação de Atributos e Conteúdo</title>
+</head>
+<body>
+    <img id="minhaImagem" src="imagem1.jpg" alt="Imagem Inicial">
+    <p id="meuParagrafo">Texto inicial</p>
+    <script>
+        // Podemos alterar atributos e o conteúdo de elementos HTML usando métodos e propriedades como 
+        // setAttribute, 
+        // getAttribute, 
+        // innerHTML, 
+        // textContent 
+        // e propriedades específicas como src, href, etc.
+        var imagem = document.getElementById('minhaImagem');
+        var paragrafo = document.getElementById('meuParagrafo');
+
+        // Alterar o atributo src da imagem
+        imagem.setAttribute('src', 'imagem2.jpg');
+        console.log(imagem.getAttribute('src')); // 'imagem2.jpg'
+
+        // Alterar o conteúdo de texto do parágrafo
+        paragrafo.textContent = 'Texto alterado';
+        console.log(paragrafo.textContent); // 'Texto alterado'
+
+        // Alterar o conteúdo HTML do parágrafo
+        paragrafo.innerHTML = '<strong>Texto em negrito</strong>';
+        console.log(paragrafo.innerHTML); // '<strong>Texto em negrito</strong>'
+    </script>
+</body>
+</html>
