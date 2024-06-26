@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manipulação de Formulários</title>
+</head>
+<body>
+    <form id="meuFormulario">
+        <input type="text" id="meuInput" placeholder="Digite algo">
+        <select id="meuSelect">
+            <option value="opcao1">Opção 1</option>
+            <option value="opcao2">Opção 2</option>
+        </select>
+        <button type="submit">Enviar</button>
+    </form>
+    <script>
+        var formulario = document.getElementById('meuFormulario');
+        var input = document.getElementById('meuInput');
+        var select = document.getElementById('meuSelect');
+
+        // Evento de input
+        input.addEventListener('input', function() {
+            console.log('Você digitou: ' + input.value);
+        });
+
+        // Evento de mudança de seleção
+        select.addEventListener('change', function() {
+            console.log('Você selecionou: ' + select.value);
+        });
+
+        // Evento de submissão do formulário
+        formulario.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevenir o envio do formulário
+            console.log('Formulário enviado!');
+        });
+    </script>
+</body>
+</html>
