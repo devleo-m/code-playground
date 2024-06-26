@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eventos de Clique e Teclado</title>
+</head>
+<body>
+    <button id="botaoClique">Clique aqui</button>
+    <input type="text" id="inputTeclado" placeholder="Digite algo">
+    <script>
+        var botao = document.getElementById('botaoClique');
+        var input = document.getElementById('inputTeclado');
+
+        // Evento de clique
+        botao.addEventListener('click', function() {
+            alert('Botão clicado!');
+        });
+
+        // Evento de duplo clique
+        botao.addEventListener('dblclick', function() {
+            alert('Botão duplamente clicado!');
+        });
+
+        // Evento de pressionar tecla
+        input.addEventListener('keydown', function(event) {
+            console.log('Tecla pressionada: ' + event.key);
+        });
+
+        // Evento de soltar tecla
+        input.addEventListener('keyup', function(event) {
+            console.log('Tecla liberada: ' + event.key);
+        });
+    </script>
+</body>
+</html>
