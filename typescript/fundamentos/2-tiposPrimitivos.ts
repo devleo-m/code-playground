@@ -65,6 +65,6 @@ let valorIndefinido: undefined = undefined;
 // void
 // É comumente utilizado para indicar que uma função não retorna nenhum valor.
 
-function mostrarMensagem(): void {
+function mostrarMensagem2(): void {
     console.log("Esta função não retorna nenhum valor.");
 }
