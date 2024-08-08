@@ -17,8 +17,8 @@ var variavelVar = "Similar ao let, mas com escopo de função";
 
 /*Tipagem de Variáveis
 A tipagem pode ser explícita ou implícita. TypeScript infere o tipo quando não é explicitamente definido. */
-let nome: string = "Leo" // tipagem explícita
-let idade = 27 // tipagem implícita
+// let nome: string = "Leo" // tipagem explícita
+// let idade = 27 // tipagem implícita
 
 //Tipos de Dados Básicos
 // String

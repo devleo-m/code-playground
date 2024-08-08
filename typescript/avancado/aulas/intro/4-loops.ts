@@ -62,8 +62,8 @@ for (const chave in pessoa9) {
 // Exemplo 1: Usando for Loop para Iterar sobre um Array
 
 let frutas9: string[] = ["Maçã", "Banana", "Manga", "Laranja"];
-for (let i = 0; i < frutas.length; i++) {
-    console.log(frutas[i]);
+for (let i = 0; i < frutas9.length; i++) {
+    console.log(frutas9[i]);
 }
 
 //Exemplo 2: Usando while Loop para Contagem Regressiva

@@ -33,7 +33,7 @@ numbers.push(6); // [1, 2, 3, 4, 5, 6]
 numbers.pop(); // [1, 2, 3, 4, 5]
 
 let numerosPares = numbers.filter(num => num % 2 === 0); // [2, 4]
-let soma = numeros.reduce((acumulador, valorAtual) => acumulador + valorAtual, 0); // 15
+let soma = numbers.reduce((acumulador, valorAtual) => acumulador + valorAtual, 0); // 15
 
 /*
 Tuples
@@ -49,8 +49,8 @@ let pessoa4: [string, number] = ["Alice", 25];
 // Acessando elementos de uma Tuple
 // Você pode acessar elementos de uma tuple usando índices, assim como em arrays.
 let pessoa5: [string, number] = ["Alice", 25];
-let nome5: string = pessoa[0]; // "Alice"
-let idade5: number = pessoa[1]; // 25
+let nome5: string = pessoa5[0]; // "Alice"
+let idade5: number = pessoa5[1]; // 25
 
 //Alterando valores em uma Tuple
 pessoa5[1] = 26; // { nome: "Alice", idade: 26 }
