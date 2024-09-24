@@ -75,10 +75,10 @@ for (let i: number = 0; i < 5; i++) {
 }
 
 //while
-let contador: number = 0;
-while (contador < 5) {
-    console.log(contador);
-    contador++;
+let contador99: number = 0;
+while (contador99 < 5) {
+    console.log(contador99);
+    contador99++;
 }
 /**
 Boas Práticas:::
