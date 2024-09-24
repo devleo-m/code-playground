@@ -6,7 +6,7 @@
 
 // let novoArray = array.map(callback);
 // Exemplo:
-const numeros = [1, 2, 3, 4];
+const numeros7 = [1, 2, 3, 4];
 const dobrados = numeros.map(num => num * 2);
 console.log(dobrados); // [2, 4, 6, 8]
 // Aqui, dobrados é um novo array onde cada elemento foi multiplicado por 2.
@@ -21,16 +21,16 @@ console.log(pares); // [2, 4]
 
 // reduce
 // O método reduce aplica uma função acumuladora contra um acumulador e cada elemento do array (da esquerda para a direita) para reduzi-lo a um único valor.
-const numeros3 = [1, 2, 3, 4];
-const soma = numeros.reduce((acumulador, valorAtual) => acumulador + valorAtual, 0);
+const numeros8 = [1, 2, 3, 4];
+const soma4 = numeros.reduce((acumulador, valorAtual) => acumulador + valorAtual, 0);
 console.log(soma); // 10
 
 //forEach
 // O método forEach executa uma função para cada elemento do array.
 
 // Sintaxe:
-const numeros4 = [1, 2, 3, 4];
-numeros4.forEach(num => console.log(num));
+const numeros9 = [1, 2, 3, 4];
+numeros9.forEach(num => console.log(num));
 
 //some
 // O método some verifica se pelo menos um elemento do array passa em um teste (função de callback).
