@@ -4,7 +4,25 @@
 
     /*
     Agora, vamos explorar os principais métodos de arrays e como utilizá-los.
+    */
 
+    /*
+    - length
+    Retorna o comprimento do array.
+    */
+
+    console.log(`O comprimento do array 'frutas' é ${frutas.length}`);
+
+    /*
+    indexOf()
+    Retorna o índice da primeira ocorrência de um elemento no array. Se o elemento não for encontrado, retorna -1.
+    */
+
+    let indexLaranja = frutas.indexOf("laranja")
+    console.log(`O índice de 'laranja' é ${indexLaranja}`)
+
+
+    /*
     - push()
     Adiciona um ou mais elementos ao final do array e retorna o novo comprimento do array.
     */
@@ -28,6 +46,13 @@
     console.log(primeiraFruta)
     frutas.shift();
     console.log(frutas); // ["laranja", "uva"]
+
+    /*
+    - splice()
+    Remove um ou mais elementos de um array e, em seguida, adiciona novos elementos no lugar.
+    */
+    frutas.splice(indexLaranja, 1);
+    console.log(frutas); // 
 
     /*
     - unshift()
@@ -101,5 +126,4 @@
     console.log(pessoas); // [{ nome: "Leonardo", idade: 28 }, { nome: "Gabriel", idade: 28 }]
     console.log(pessoasMaiorQue25); // [{ nome: "Leonardo", idade: 28 }, { nome: "Gabriel", idade: 28 }]
     console.log(nomes); // ["Leonardo", "Gabriel"]
-    
 }
