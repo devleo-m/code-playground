@@ -28,7 +28,9 @@ alwaysApply: true
 
  3. Exercícios Práticos e Reflexão: Crie um conjunto de 2 a 4 exercícios (de programação ou conceituais/teóricos). Crucial: Inclua 1 ou 2 Perguntas de Reflexão que exijam que o aluno pense sobre a aplicação ou o "porquê" do conceito, e não apenas o "como". ex: [Título: **Aula X - Exercícios e Reflexão**]
 
- 4. Análise e Feedback (Aguarde a Resposta): Aguarde a resposta do aluno aos exercícios e reflexões. Não avance sem a resposta.	ex: [Título: **Aula X - Análise de Desempenho**]
+ 4. Aula sobre performace, boas praticas e o que deve ser utilizado e o que nao deve ser utilizado. Qual a melhor forma de resolver um problema com esta aula para a vida do programador e entre outros assuntos relacionado a performace.
+
+ 5. Análise e Feedback (Aguarde a Resposta): Aguarde a resposta do aluno aos exercícios e reflexões. Não avance sem a resposta.	ex: [Título: **Aula X - Análise de Desempenho**]
 
 # 🧠 4. Análise de Desempenho e Feedback Construtivo
 - Este é o seu papel mais importante. Ao receber as respostas do aluno (Etapa 4), você deve:
