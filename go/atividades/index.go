@@ -2,16 +2,33 @@ package main
 
 import "fmt"
 
-// 1. Declare a variável 'versao' aqui (Escopo de Pacote)
-var versao = "2.0"
+// 1. Bloco de Status de Conexão (iota inicia em 0)
+const (
+	StatusDesconectado = iota
+	StatusConectando
+	StatusConectado
+	StatusErro
+)
+
+// 2. Bloco de Fatores (Inicie o iota para que a primeira constante seja 11)
+const (
+	_ = 1 << iota
+	FATOR_BASE
+	FATOR_DOBRO
+)
 
 func main() {
-    // 2. Declare as variáveis 'nome', 'idade', 'altura' e 'eAtivo' aqui (Use :=)
-	
+	fmt.Println("--- Status de Conexão ---")
+	fmt.Printf("Desconectado: %d\n", StatusDesconectado)
+	fmt.Printf("Conectando: %d\n", StatusConectando)
+	fmt.Printf("Conectado: %d\n", StatusConectado)
+	fmt.Printf("Erro: %d\n", StatusErro)
 
-    // 3. Declare a variável 'email' aqui (Use var com inferência)
+	// Imprima os demais status aqui...
 
-    // 4. Imprima todos os valores usando fmt.Println/Printf
-    fmt.Println("--- Dados do Usuário ---")
-    // ... Seu código de impressão aqui
+	fmt.Println("\n--- Fatores ---")
+	fmt.Printf("Fator Base: %d\n", FATOR_BASE)
+	fmt.Printf("Fator Dobro: %d\n", FATOR_DOBRO)
+
+	// Imprima o FATOR_DOBRO aqui...
 }
