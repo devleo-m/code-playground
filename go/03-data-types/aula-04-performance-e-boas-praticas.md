@@ -303,3 +303,4 @@ Lembre-se: **Código é lido muito mais vezes do que escrito**. Priorize clareza
 
 Na próxima etapa, você completará os exercícios e eu analisarei seu desempenho. Boa sorte!
 
+

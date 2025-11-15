@@ -107,3 +107,4 @@ Crie arquivos `.go` separados para cada exercício (ex: `exercicio1.go`, `exerci
 
 Após completar os exercícios e reflexões, envie suas respostas para que eu possa analisar seu desempenho e fornecer feedback construtivo!
 
+
