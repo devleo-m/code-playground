@@ -442,3 +442,4 @@ Agora que você entendeu os conceitos de forma simplificada, na próxima aula va
 
 Até lá, tente pensar em situações do seu dia a dia que se parecem com cada um desses conceitos. Isso vai ajudar a fixar o aprendizado!
 
+
