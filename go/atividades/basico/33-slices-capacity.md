@@ -28,3 +28,4 @@ Length: 7, Capacity: 12 (dobrou!)
 - Quando length = capacity, `append` cria novo array (capacity dobra)
 - Capacity sempre >= length
 
+

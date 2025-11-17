@@ -91,3 +91,4 @@ type OpcaoResultado struct {
 - [ ] Sistema de comentários
 - [ ] Enquetes privadas (com senha)
 
+

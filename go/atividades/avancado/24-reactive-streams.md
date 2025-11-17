@@ -40,3 +40,4 @@ Solicitações: 100
 ## Desafio Extra
 Implemente hot vs cold publishers e error handling.
 
+

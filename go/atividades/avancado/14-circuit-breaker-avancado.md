@@ -43,3 +43,4 @@ Próxima tentativa em: 28s
 ## Desafio Extra
 Implemente adaptive circuit breaker que ajusta thresholds automaticamente.
 
+

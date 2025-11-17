@@ -26,3 +26,4 @@ Desconto VIP 20%: R$ 800.00
 - Troque estratégia atribuindo nova implementação
 - Útil para algoritmos intercambiáveis
 
+

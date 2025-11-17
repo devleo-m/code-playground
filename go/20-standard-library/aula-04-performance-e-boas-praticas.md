@@ -425,3 +425,4 @@ A Standard Library do Go é poderosa, mas precisa ser usada corretamente. As pri
 
 Com essas práticas, você estará escrevendo código Go profissional, eficiente e manutenível!
 
+

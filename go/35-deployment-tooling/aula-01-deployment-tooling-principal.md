@@ -842,3 +842,4 @@ Essas ferramentas são fundamentais para qualquer desenvolvedor Go profissional.
 
 Na próxima parte desta aula, vamos simplificar esses conceitos com analogias do dia a dia para fixar melhor o aprendizado!
 
+

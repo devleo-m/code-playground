@@ -31,3 +31,4 @@ Tentativa de transição inválida: erro
 - Callbacks permitem ações durante transições
 - Útil para fluxos de trabalho complexos
 
+

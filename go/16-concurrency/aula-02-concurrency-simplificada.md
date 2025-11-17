@@ -426,3 +426,4 @@ for resultado := range merge(c1, c2, c3) {
 Na próxima aula, vamos colocar tudo isso em prática com exercícios! 🚀
 
 
+

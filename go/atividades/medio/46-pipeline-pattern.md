@@ -31,3 +31,4 @@ Resultado final: [12, 16]
 - Encadeie: `stage3(stage2(stage1(dados)))`
 - Útil para processamento de dados em etapas
 
+

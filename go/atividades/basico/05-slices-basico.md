@@ -25,3 +25,4 @@ Tamanho do slice: 6
 - Sempre atribua o resultado do `append`
 - Use `len()` para obter o tamanho
 
+

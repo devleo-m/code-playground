@@ -36,3 +36,4 @@ Visitor Buscar "doc": encontrado doc1.txt
 - Double dispatch: elemento escolhe método do visitor
 - Útil para operações em estruturas complexas
 
+

@@ -31,3 +31,4 @@ debug=true
 - Detecte seções com `strings.HasPrefix(line, "[")`
 - Trate espaços com `strings.TrimSpace`
 
+

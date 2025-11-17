@@ -23,3 +23,4 @@ Idade 200: erro: idade inválida: 200 (muito alta)
 - Use verbos: `%d` (int), `%s` (string), `%v` (valor padrão)
 - Sempre verifique erros antes de usar resultados
 
+

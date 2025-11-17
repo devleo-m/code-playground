@@ -1041,3 +1041,4 @@ Dominar esses 9 comandos core do Go é fundamental para:
 
 Na próxima parte desta aula, vamos simplificar esses conceitos com analogias do dia a dia para fixar melhor o aprendizado!
 
+

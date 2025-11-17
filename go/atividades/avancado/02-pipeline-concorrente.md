@@ -39,3 +39,4 @@ Latência média: 2ms por item
 ## Desafio Extra
 Implemente retry automático em estágios que falham e circuit breaker.
 
+

@@ -31,3 +31,4 @@ Defer 1
 - Útil para cleanup, fechar recursos
 - `defer` avalia argumentos imediatamente, executa depois
 
+

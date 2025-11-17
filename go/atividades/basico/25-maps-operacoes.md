@@ -29,3 +29,4 @@ Estoque:
 - Iterar: `for chave, valor := range map { }`
 - Deletar: `delete(map, chave)`
 
+

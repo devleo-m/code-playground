@@ -30,3 +30,4 @@ Similaridade: 66.67%
 - Use algoritmo simples ou LCS (Longest Common Subsequence)
 - Marque diferenças durante comparação
 
+

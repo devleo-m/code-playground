@@ -964,3 +964,4 @@ A escolha depende do seu projeto, equipe e requisitos. Muitas vezes, você pode 
 
 Na próxima aula, vamos explorar outros tópicos avançados de Go. Até lá, pratique criando aplicações com diferentes abordagens de acesso a banco de dados!
 
+

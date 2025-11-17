@@ -33,3 +33,4 @@ Lista: [Hello World]
 - Cada comando sabe como se desfazer
 - Útil para operações reversíveis
 
+

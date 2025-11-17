@@ -38,3 +38,4 @@ Memória vs HashSet: 9.6MB vs 120MB (92% economia)
 ## Desafio Extra
 Implemente Counting Bloom Filter (permite remoção) e Scalable Bloom Filter.
 
+

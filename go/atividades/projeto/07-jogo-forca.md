@@ -88,3 +88,4 @@ type Estatisticas struct {
 - [ ] Modo contra o tempo
 - [ ] Palavras customizadas
 
+

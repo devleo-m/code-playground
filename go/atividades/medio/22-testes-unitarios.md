@@ -28,3 +28,4 @@ func TestSomar(t *testing.T) {
 - Tabela de testes: slice de structs com casos
 - Benchmark: `func BenchmarkNome(b *testing.B)`
 
+

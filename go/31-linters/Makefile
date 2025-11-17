@@ -91,3 +91,4 @@ all: format vet lint-fast test ## Executa tudo (formato, vet, lint rápido, test
 
 ci: format vet lint-golangci test ## Executa tudo para CI/CD (formato, vet, lint completo, testes)
 
+

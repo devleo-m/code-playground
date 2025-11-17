@@ -37,3 +37,4 @@ service := container.Resolve("service").(Service)
 ## Desafio Extra
 Implemente scoped lifetime (por request) e decorators/interceptors.
 
+

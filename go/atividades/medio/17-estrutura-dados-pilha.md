@@ -36,3 +36,4 @@ Infixa: "a+b*c" -> Pós-fixa: "abc*+"
 - Parênteses: push '(' e pop quando encontrar ')'
 - Pós-fixa: use pilha para operadores
 
+

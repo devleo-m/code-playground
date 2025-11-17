@@ -55,3 +55,4 @@ As atividades intermediárias são mais desafiadoras que as básicas e exigem:
 - Testam entendimento profundo
 - Encorajam boas práticas e otimização
 
+

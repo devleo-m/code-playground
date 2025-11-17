@@ -28,3 +28,4 @@ Tipo bool: true
 - `switch v := valor.(type) { case int: ... }` (type switch)
 - Use `fallthrough` para continuar no próximo case
 
+

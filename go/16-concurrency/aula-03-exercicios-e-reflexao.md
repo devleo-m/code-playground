@@ -295,3 +295,4 @@ Após completar os exercícios e reflexões:
 Na próxima aula, vamos aprender sobre performance, boas práticas e quando usar cada ferramenta de concorrência! 🚀
 
 
+

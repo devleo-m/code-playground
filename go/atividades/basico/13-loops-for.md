@@ -24,3 +24,4 @@ Pares: 2 4 6 8 10
 - `for { }` (infinito, use break para sair)
 - `continue` pula para próxima iteração
 
+

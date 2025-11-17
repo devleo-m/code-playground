@@ -26,3 +26,4 @@ Carregando: 2 itens carregados
 - `strings.Split` para parsing
 - Type assertion para converter de volta ao tipo concreto
 
+

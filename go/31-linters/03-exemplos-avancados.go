@@ -73,3 +73,4 @@ func main() {
 	fmt.Printf("Média: %.2f\n", average)
 }
 
+

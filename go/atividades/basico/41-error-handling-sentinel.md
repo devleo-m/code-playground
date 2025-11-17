@@ -28,3 +28,4 @@ Autenticando 'admin' com senha 'admin123':
 - Verifique: `if errors.Is(err, ErrUsuarioNaoEncontrado) { }`
 - Use prefixo do pacote na mensagem
 
+

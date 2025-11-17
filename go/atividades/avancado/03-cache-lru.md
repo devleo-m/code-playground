@@ -39,3 +39,4 @@ Tempo médio Put: 0.08ms
 ## Desafio Extra
 Implemente variantes: LFU (Least Frequently Used) e ARC (Adaptive Replacement Cache).
 
+

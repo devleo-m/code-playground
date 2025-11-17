@@ -42,3 +42,4 @@ Novo líder: Node 1 (termo 2)
 ## Desafio Extra
 Implemente log replication completo e snapshot.
 
+

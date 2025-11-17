@@ -500,3 +500,4 @@ Nesta aula aprendemos:
 - [Go Memory Model](https://go.dev/ref/mem)
 - [unsafe.Pointer rules](https://pkg.go.dev/unsafe#Pointer)
 
+

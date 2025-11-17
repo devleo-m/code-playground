@@ -29,3 +29,4 @@ Processando true: tipo não suportado
 - Use `%T` para imprimir tipo
 - Prefira generics (Go 1.18+) quando possível
 
+

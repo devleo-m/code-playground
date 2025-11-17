@@ -31,3 +31,4 @@ Aplicando middlewares: Logging -> Autenticação -> Tempo
 - Cada middleware pode modificar requisição/resposta
 - Útil para cross-cutting concerns
 
+

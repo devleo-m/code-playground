@@ -88,3 +88,4 @@ type Repositorio struct {
 - [ ] Busca avançada (fuzzy search)
 - [ ] Histórico de alterações
 
+

@@ -40,3 +40,4 @@ Throughput: 500 msg/segundo
 ## Desafio Extra
 Implemente partições, replicação e consumer groups.
 
+

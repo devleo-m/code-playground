@@ -80,3 +80,4 @@ Em que situações reais plugins do Go seriam a melhor solução? Dê exemplos c
 
 **🎉 Parabéns por completar todas as aulas de tópicos avançados em Go!**
 
+

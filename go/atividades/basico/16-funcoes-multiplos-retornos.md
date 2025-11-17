@@ -28,3 +28,4 @@ Estatísticas de [10 20 30 40 50]:
 - Verifique erro: `if err != nil { }`
 - Ignore valor: `_, err := funcao()`
 
+

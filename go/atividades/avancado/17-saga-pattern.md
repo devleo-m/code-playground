@@ -40,3 +40,4 @@ Saga compensada com sucesso
 ## Desafio Extra
 Implemente saga paralela (steps executam em paralelo) e idempotência.
 
+

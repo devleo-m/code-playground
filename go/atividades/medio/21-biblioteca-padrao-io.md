@@ -26,3 +26,4 @@ Arquivo copiado com sucesso
 - `bufio.Scanner` para leitura linha por linha
 - Sempre feche arquivos com `defer file.Close()`
 
+

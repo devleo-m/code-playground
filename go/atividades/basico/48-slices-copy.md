@@ -28,3 +28,4 @@ Slices [1 2 3] e [1 2 4]: diferentes
 - Retorna número de elementos copiados
 - Comparação: itere e compare elemento por elemento (não use `==` diretamente)
 
+

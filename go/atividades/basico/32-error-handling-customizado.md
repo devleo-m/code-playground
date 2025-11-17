@@ -25,3 +25,4 @@ Email 'joao@email.com': válido
 - Verifique: `if err != nil { fmt.Println(err) }`
 - `err.Error()` retorna string do erro
 
+

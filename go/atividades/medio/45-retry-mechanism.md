@@ -28,3 +28,4 @@ Total de tentativas: 4
 - Use `time.Sleep` para aguardar
 - Limite máximo de tentativas para evitar loops infinitos
 
+

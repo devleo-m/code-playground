@@ -27,3 +27,4 @@ Descomprimido: "AAAABBBCCDDD" ✓
 - Parse números ao descomprimir
 - Cuidado com números no texto original
 
+

@@ -25,3 +25,4 @@ Array modificado: [10 20 100 40 50]
 - Acesse elementos com `array[indice]`
 - Primeiro índice é 0, último é `len(array)-1`
 
+

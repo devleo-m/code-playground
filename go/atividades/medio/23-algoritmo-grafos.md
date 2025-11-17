@@ -27,3 +27,4 @@ Componentes: [[A,B,C,D], [E,F]]
 - Marque nós visitados para evitar loops
 - Use map para rastrear caminho
 
+

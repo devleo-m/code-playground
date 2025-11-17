@@ -29,3 +29,4 @@ Erros:
 - Colete todos os erros antes de retornar
 - Use type assertion para validar tipos específicos
 
+

@@ -34,3 +34,4 @@ o
 - `for indice, rune := range string { }`
 - Use `_` para ignorar valores não usados
 
+

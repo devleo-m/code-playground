@@ -431,3 +431,4 @@ Na próxima aula, vamos ver performance, boas práticas e o que fazer e não faz
 
 Boa sorte com os exercícios! 🚀
 
+

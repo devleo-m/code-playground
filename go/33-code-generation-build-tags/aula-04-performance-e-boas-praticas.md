@@ -761,3 +761,4 @@ Lembre-se: **Ferramentas são meios, não fins**. Use `go generate` e Build Tags
 
 Na próxima etapa, você completará os exercícios e eu analisarei seu desempenho. Boa sorte!
 
+

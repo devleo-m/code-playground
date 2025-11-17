@@ -33,3 +33,4 @@ Redimensionando para 20 buckets...
 - Encadeamento: bucket contém slice de pares
 - Redimensionar: recalculando hash de todos elementos
 
+

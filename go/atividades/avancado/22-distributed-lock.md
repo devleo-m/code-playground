@@ -40,3 +40,4 @@ Locks adquiridos: 10
 ## Desafio Extra
 Implemente com Redis real e suporte a lock hierarchy.
 
+

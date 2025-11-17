@@ -34,3 +34,4 @@ Corpo: Mensagem...
 - Valide no método `Build()`
 - Útil para objetos com muitos campos opcionais
 
+

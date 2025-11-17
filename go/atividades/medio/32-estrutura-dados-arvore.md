@@ -32,3 +32,4 @@ Buscar 9: false
 - Insira comparando com nó atual
 - Altura: máximo entre subárvores + 1
 
+

@@ -89,3 +89,4 @@ type Alerta struct {
 - [ ] Análise preditiva
 - [ ] Exportar métricas
 
+

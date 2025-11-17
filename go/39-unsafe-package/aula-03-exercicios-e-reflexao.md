@@ -218,3 +218,4 @@ Crie um serializador que converte structs para []byte sem cópia, usando unsafe.
 
 **Lembre-se**: Unsafe é uma ferramenta poderosa e perigosa. Use apenas quando absolutamente necessário! ⚠️
 
+

@@ -82,3 +82,4 @@ Crie funções otimizadas para diferentes arquiteturas.
 
 **Bons estudos! 🚀**
 
+

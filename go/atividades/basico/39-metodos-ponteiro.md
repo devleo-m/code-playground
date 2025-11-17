@@ -24,3 +24,4 @@ Após sacar R$ 30.00: R$ 70.00
 - Use ponteiro quando método modifica struct
 - Acesse campo: `c.Saldo` (Go desreferencia automaticamente)
 
+

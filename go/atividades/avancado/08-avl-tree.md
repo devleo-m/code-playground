@@ -45,3 +45,4 @@ Removendo 40:
 ## Desafio Extra
 Implemente Red-Black Tree também e compare performance.
 
+

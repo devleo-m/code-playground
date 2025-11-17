@@ -329,3 +329,4 @@ func Select(table string, where map[string]interface{}) string {
 
 **Boa sorte com os exercícios! Lembre-se: reflection é poderoso, mas use com moderação.** 🚀
 
+

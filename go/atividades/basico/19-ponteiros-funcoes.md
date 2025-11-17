@@ -25,3 +25,4 @@ Após trocar: a=20, b=20
 - Modificar: `*ptr = novoValor`
 - Use ponteiros quando precisar modificar valores originais
 
+

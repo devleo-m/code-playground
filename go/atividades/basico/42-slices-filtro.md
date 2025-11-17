@@ -24,3 +24,4 @@ Valores dobrados: [10 20 30 40 20 50 20]
 - Use `append` para adicionar elementos
 - Use `range` para iterar
 
+

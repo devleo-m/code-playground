@@ -25,3 +25,4 @@ Pessoas com mesmo nome e hobbies: iguais (função customizada)
 - Tipos não comparáveis: slices, maps, funções
 - Use função customizada para comparar structs não comparáveis
 
+

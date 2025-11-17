@@ -30,3 +30,4 @@ Publicando evento 'pedido_criado':
 - Itere sobre handlers ao publicar
 - Goroutine para execução assíncrona (opcional)
 
+

@@ -79,3 +79,4 @@ type Calculadora struct {
 - [ ] Gráficos simples (ASCII art)
 - [ ] Modo científico (sen, cos, log)
 
+

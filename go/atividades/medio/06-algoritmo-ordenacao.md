@@ -31,3 +31,4 @@ Com 1000 elementos:
 - Quick Sort: escolha pivô, particione, ordene recursivamente
 - Use `time.Now()` e `time.Since()` para medir tempo
 
+

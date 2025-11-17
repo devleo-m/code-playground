@@ -83,3 +83,4 @@ As atividades avançadas são desafiadoras e exigem:
 - Concorrência e paralelismo
 - Integração de tecnologias
 
+

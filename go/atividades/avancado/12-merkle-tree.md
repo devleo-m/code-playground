@@ -39,3 +39,4 @@ Verificando prova: ✓ válida
 ## Desafio Extra
 Implemente Sparse Merkle Tree e otimizações para grandes datasets.
 
+

@@ -95,3 +95,4 @@ type Relatorio struct {
 - [ ] Múltiplas contas
 - [ ] Previsões baseadas em histórico
 
+

@@ -32,3 +32,4 @@ Produto mais vendido: Mouse (5 unidades)
 - Combine filtros e agregações
 - Use structs para organizar dados
 
+

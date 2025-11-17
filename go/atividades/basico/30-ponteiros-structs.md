@@ -24,3 +24,4 @@ Após resetar: 0
 - Acessar campo: `c.valor` (Go desreferencia automaticamente)
 - Passar ponteiro: `funcao(&instancia)`
 
+

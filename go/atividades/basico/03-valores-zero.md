@@ -28,3 +28,4 @@ mapa: map[] (nil)
 - Slices e maps nil são `nil`
 - Use `== nil` para verificar se slice/map é nil
 
+

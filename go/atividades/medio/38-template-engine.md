@@ -26,3 +26,4 @@ Resultado: "Olá João, você tem 30 anos"
 - Valide sintaxe antes de processar
 - Escape: substitua `{{` por literal se necessário
 
+

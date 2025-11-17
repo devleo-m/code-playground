@@ -41,3 +41,4 @@ Sistema de atendimento:
 - Fila circular: use módulo para índices
 - BFS: use fila para manter ordem de visitação
 
+

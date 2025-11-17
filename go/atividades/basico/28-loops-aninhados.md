@@ -44,3 +44,4 @@ Pares que somam 10:
 - Use `fmt.Printf` para formatar tabelas
 - Use `break` para sair de loops aninhados se necessário
 
+

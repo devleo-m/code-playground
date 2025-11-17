@@ -30,3 +30,4 @@ Verificando tipo de erro:
 - `errors.As(err, &var)` extrai tipo específico de erro
 - Adicione contexto em cada camada da aplicação
 
+

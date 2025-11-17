@@ -44,3 +44,4 @@ Backpressure ativado: 2 vezes
 ## Desafio Extra
 Implemente priorização de batches e múltiplos workers para processamento paralelo.
 
+

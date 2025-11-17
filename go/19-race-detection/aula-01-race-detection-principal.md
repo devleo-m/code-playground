@@ -473,3 +473,4 @@ Na próxima aula, vamos simplificar esses conceitos com analogias do dia a dia p
 
 Se tiver dúvidas, não hesite em perguntar. Race conditions são um dos bugs mais difíceis de debugar, mas com o Race Detector, você tem uma ferramenta poderosa ao seu lado!
 
+

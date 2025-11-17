@@ -31,3 +31,4 @@ Palavras: [Aprendendo Go]
 - Use `strings.ToUpper()` para maiúsculas
 - Use `strings.Split()` para dividir
 
+

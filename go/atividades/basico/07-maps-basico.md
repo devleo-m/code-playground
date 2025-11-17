@@ -29,3 +29,4 @@ Map final: map[Ana:28 João:25 Maria:30 Pedro:22]
 - Adicionar: `map[chave] = valor`
 - Verificar existência: `valor, ok := map[chave]`
 
+

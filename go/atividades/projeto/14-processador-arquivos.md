@@ -73,3 +73,4 @@ processador/
 - [ ] Suporte a diretórios recursivos
 - [ ] Operações customizadas via plugins
 
+

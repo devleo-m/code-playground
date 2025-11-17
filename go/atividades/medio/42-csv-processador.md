@@ -42,3 +42,4 @@ Estatísticas salário:
 - Converta strings para números quando necessário
 - `csv.NewWriter` para escrever
 
+

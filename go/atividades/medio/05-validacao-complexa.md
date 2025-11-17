@@ -32,3 +32,4 @@ Usuário válido!
 - Crie erros descritivos com contexto
 - Itere sobre erros para imprimir todos
 
+

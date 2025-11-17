@@ -285,3 +285,4 @@ func BenchmarkComPool(b *testing.B) {
 
 **Boa sorte com os exercícios! Lembre-se: a prática é essencial para dominar gerenciamento de memória.** 🚀
 
+

@@ -33,3 +33,4 @@ Convertendo para string: "10,20,30"
 - Use type switch quando há múltiplos tipos possíveis
 - Type assertion quando sabe o tipo específico
 
+

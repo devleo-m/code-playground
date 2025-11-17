@@ -30,3 +30,4 @@ Produtos: categoria='Eletrônicos' AND estoque > 10:
 - Closure: função retorna função que captura parâmetros
 - Combine filtros: `produto := range produtos { if f1(produto) && f2(produto) { ... } }`
 
+

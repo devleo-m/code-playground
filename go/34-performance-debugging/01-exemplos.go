@@ -206,3 +206,4 @@ func main() {
 	fmt.Println("  exemplo6_mutex_contention()  - Conteção de mutex para trace")
 }
 
+

@@ -76,3 +76,4 @@ go test -race
 
 **Lembre-se**: Flags são como ajustes do fogão. Use os certos para cada situação! 🔧
 
+

@@ -31,3 +31,4 @@ Requisição 7: permitida ✓
 - Limpe requisições antigas periodicamente
 - Use `time` para gerenciar períodos
 
+

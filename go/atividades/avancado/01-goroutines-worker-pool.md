@@ -37,3 +37,4 @@ Throughput: 400 jobs/segundo
 ## Desafio Extra
 Implemente priorização de jobs (priority queue) e load balancing entre workers.
 
+

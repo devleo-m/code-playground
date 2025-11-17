@@ -22,3 +22,4 @@ Fibonacci(7): 13
 - Fatorial: `n! = n * (n-1)!` com `0! = 1`
 - Fibonacci: `F(n) = F(n-1) + F(n-2)` com `F(0)=0, F(1)=1`
 
+

@@ -31,3 +31,4 @@ Expressão "2+3*4": 14.00
 - Recursão de cauda pode ser otimizada pelo compilador
 - Cuidado com stack overflow em recursões profundas
 
+

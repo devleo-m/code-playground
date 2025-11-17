@@ -29,3 +29,4 @@ Vendedores ordenados: [Maria: 11, João: 15]
 - Use slice para ordenar chaves do map
 - Combine maps aninhados com agregações
 
+

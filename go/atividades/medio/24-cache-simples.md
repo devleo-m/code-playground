@@ -31,3 +31,4 @@ Cache limpo automaticamente
 - Use goroutine para limpeza periódica (opcional)
 - Map precisa de mutex se usado concorrentemente
 
+

@@ -87,3 +87,4 @@ type Crawler struct {
 - [ ] Análise de conteúdo
 - [ ] Visualização de grafo de links
 
+

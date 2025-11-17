@@ -26,3 +26,4 @@ Contador: 3
 - Passar função: `funcao(operacao func(int, int) int)`
 - Chamar: `operacao(a, b)`
 
+

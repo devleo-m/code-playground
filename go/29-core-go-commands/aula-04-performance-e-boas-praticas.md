@@ -575,3 +575,4 @@ Agora que você domina os comandos core:
 
 Lembre-se: **Ferramentas são meios, não fins**. O objetivo é escrever código Go de qualidade, e esses comandos são suas ferramentas para alcançar isso!
 
+

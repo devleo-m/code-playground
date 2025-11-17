@@ -412,3 +412,4 @@ go build -gcflags="-m" main.go 2>&1 | grep "escape"
 
 **Boa sorte com os exercícios! Lembre-se: entender escape analysis é uma habilidade valiosa para escrever código Go eficiente.** 🚀
 
+

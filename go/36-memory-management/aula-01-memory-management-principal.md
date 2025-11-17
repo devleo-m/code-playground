@@ -516,3 +516,4 @@ Na próxima aula, vamos ver **Escape Analysis** em detalhes para entender exatam
 - [runtime package](https://pkg.go.dev/runtime)
 - [sync.Pool documentation](https://pkg.go.dev/sync#Pool)
 
+

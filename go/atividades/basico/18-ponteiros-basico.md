@@ -27,3 +27,4 @@ numero: 100
 - Desreferenciar: `*ponteiro`
 - Modificar: `*ponteiro = novoValor`
 
+

@@ -38,3 +38,4 @@ Economia de tempo: 42.5s
 ## Desafio Extra
 Implemente cache com LRU eviction e size limits.
 
+

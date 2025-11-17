@@ -848,3 +848,4 @@ A Standard Library do Go é uma das maiores forças da linguagem. Dominá-la per
 
 Na próxima aula, vamos simplificar esses conceitos com analogias do dia a dia para fixar o aprendizado!
 
+

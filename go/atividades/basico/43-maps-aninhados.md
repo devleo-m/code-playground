@@ -28,3 +28,4 @@ Produtos em Frutas:
 - Verifique existência de categoria primeiro
 - Inicialize map interno se não existir: `map[categoria] = make(map[string]int)`
 
+

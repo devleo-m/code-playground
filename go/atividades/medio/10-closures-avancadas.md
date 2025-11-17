@@ -38,3 +38,4 @@ Cache:
 - Cada chamada de `criarX` cria novo estado independente
 - Útil para funções especializadas e padrões de design
 
+

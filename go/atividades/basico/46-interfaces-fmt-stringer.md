@@ -23,3 +23,4 @@ Produto: Notebook - R$ 2500.00
 - Use `fmt.Sprintf` para formatar string
 - Implemente para tipos customizados que você quer imprimir
 
+

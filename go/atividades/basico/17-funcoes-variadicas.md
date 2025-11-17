@@ -24,3 +24,4 @@ Frase: Olá, mundo, Go!
 - Chame com: `funcao(1, 2, 3)` ou `funcao(slice...)`
 - Parâmetro variádico deve ser o último
 
+

@@ -85,3 +85,4 @@ type Usuario struct {
 - [ ] Comandos (/help, /users, /quit)
 - [ ] Notificações
 
+

@@ -72,3 +72,4 @@ Segurança, validação, testes.
 
 **Bons estudos e use com extremo cuidado! ⚠️**
 
+

@@ -761,3 +761,4 @@ Na **Parte 3**, vamos explorar o **GORM**, um ORM completo que acelera o desenvo
 
 Até lá, experimente usar pgx em seus projetos PostgreSQL!
 
+

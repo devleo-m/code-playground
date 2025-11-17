@@ -36,3 +36,4 @@ Linha 3
 - Útil para APIs fluentes e builders
 - Retorne `*Tipo` para encadear: `return b`
 
+

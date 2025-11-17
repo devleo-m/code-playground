@@ -44,3 +44,4 @@ usuario := queryBus.Send(query)
 ## Desafio Extra
 Implemente materialized views e sincronização de read models.
 
+

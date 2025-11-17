@@ -906,3 +906,4 @@ Dominar Revive, Staticcheck e Golangci-lint é essencial para:
 
 Essas ferramentas, combinadas com `go vet` e `goimports`, formam um conjunto completo para garantir a qualidade do seu código Go. Na próxima parte desta aula, vamos simplificar esses conceitos com analogias do dia a dia para fixar melhor o aprendizado!
 
+

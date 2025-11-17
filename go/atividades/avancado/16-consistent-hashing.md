@@ -40,3 +40,4 @@ Chaves movidas: 333 (33.3%)
 ## Desafio Extra
 Implemente data migration quando nodes são adicionados/removidos e monitoramento de hotspots.
 
+

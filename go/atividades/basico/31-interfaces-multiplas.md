@@ -23,3 +23,4 @@ Lendo: Olá, Go!
 - Implemente métodos necessários para satisfazer interface
 - Interfaces são satisfeitas implicitamente
 
+

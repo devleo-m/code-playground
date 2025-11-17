@@ -23,3 +23,4 @@ Crie um programa que:
 - Verificar: `if err != nil { }`
 - Sucesso: retorne `nil` como erro
 
+

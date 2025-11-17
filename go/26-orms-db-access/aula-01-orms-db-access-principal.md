@@ -816,3 +816,4 @@ Na **Parte 3**, vamos conhecer o **GORM**, um ORM completo que acelera o desenvo
 
 Até lá, pratique criando suas próprias queries com `database/sql`!
 
+

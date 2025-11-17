@@ -29,3 +29,4 @@ Senha forte: true
 - `FindAllString` para extrair todas ocorrências
 - `ReplaceAllString` para substituir
 
+

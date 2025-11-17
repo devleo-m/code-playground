@@ -26,3 +26,4 @@ precoInt: 19 (tipo: int)
 - Use `%T` no `fmt.Printf` para imprimir o tipo
 - Conversão de `float64` para `int` trunca a parte decimal
 
+

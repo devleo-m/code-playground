@@ -88,3 +88,4 @@ type Gerenciador struct {
 - [ ] Backup automático
 - [ ] Autofill (simulado)
 
+

@@ -31,3 +31,4 @@ Evento: 'pagamento_aprovado'
 - Itere sobre slice para notificar todos
 - Padrão útil para desacoplamento
 
+

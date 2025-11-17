@@ -28,3 +28,4 @@ Perímetro: 32.00
 - Receptor por ponteiro: `(r *Tipo)` (para modificar)
 - Chame: `instancia.Metodo()`
 
+

@@ -28,3 +28,4 @@ Dia da semana: Terça-feira
 - Use `break` não é necessário (automático)
 - Use `fallthrough` se quiser continuar para próximo case
 
+

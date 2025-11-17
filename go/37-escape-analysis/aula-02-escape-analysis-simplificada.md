@@ -392,3 +392,4 @@ func criarLista() []string {
 
 **Lembre-se**: Escape Analysis é como ter um guarda inteligente que tenta sempre escolher o melhor lugar para guardar suas coisas. Quanto mais você entender suas decisões, melhor código você escreve! 🏛️✨
 
+

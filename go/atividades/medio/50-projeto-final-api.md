@@ -41,3 +41,4 @@ estatisticas := api.Estatisticas()
 - Validações em camada de serviço
 - Estrutura clara e organizada
 
+

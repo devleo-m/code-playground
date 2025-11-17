@@ -27,3 +27,4 @@ Sub-slice: [10 20]
 - `len()` retorna length, `cap()` retorna capacity
 - Slicing: `slice[inicio:fim]` (fim não incluído)
 
+

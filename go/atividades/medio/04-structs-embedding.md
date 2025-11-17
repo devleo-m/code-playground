@@ -30,3 +30,4 @@ Funcionário: Maria Santos
 - Métodos de embedded são promovidos
 - Use embedding para composição, não herança
 
+

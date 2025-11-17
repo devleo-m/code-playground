@@ -37,3 +37,4 @@ Estado: Fechado
 - Use timer para timeout
 - Útil para serviços externos instáveis
 
+

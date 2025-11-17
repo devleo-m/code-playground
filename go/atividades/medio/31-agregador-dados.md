@@ -30,3 +30,4 @@ Produto mais vendido: Notebook (15 unidades)
 - Calcule estatísticas iterando sobre dados
 - Formate saída com `fmt.Sprintf`
 
+

@@ -32,3 +32,4 @@ Após substituir: 'aprendendo Golang programming'
 - `strings.Count(s, substr)` conta ocorrências
 - `strings.Replace(s, old, new, n)` substitui
 
+

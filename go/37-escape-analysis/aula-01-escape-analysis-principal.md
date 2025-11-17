@@ -637,3 +637,4 @@ Nesta aula aprendemos:
 - [Escape Analysis in Go](https://www.ardanlabs.com/blog/2017/05/language-mechanics-on-escape-analysis.html)
 - [Understanding Allocations](https://segment.com/blog/allocation-efficiency-in-high-performance-go-services/)
 
+
