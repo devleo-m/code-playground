@@ -32,3 +32,4 @@ Defer 1
 - `defer` avalia argumentos imediatamente, executa depois
 
 
+

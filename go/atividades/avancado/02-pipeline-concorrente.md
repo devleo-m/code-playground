@@ -40,3 +40,4 @@ Latência média: 2ms por item
 Implemente retry automático em estágios que falham e circuit breaker.
 
 
+

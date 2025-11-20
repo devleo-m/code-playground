@@ -25,3 +25,4 @@ Após resetar: 0
 - Passar ponteiro: `funcao(&instancia)`
 
 
+

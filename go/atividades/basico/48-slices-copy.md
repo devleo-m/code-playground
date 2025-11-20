@@ -29,3 +29,4 @@ Slices [1 2 3] e [1 2 4]: diferentes
 - Comparação: itere e compare elemento por elemento (não use `==` diretamente)
 
 
+

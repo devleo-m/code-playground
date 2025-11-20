@@ -1189,3 +1189,4 @@ Essas ferramentas são fundamentais para qualquer programador Go profissional. I
 Na próxima parte desta aula, vamos simplificar esses conceitos com analogias do dia a dia para fixar melhor o aprendizado!
 
 
+

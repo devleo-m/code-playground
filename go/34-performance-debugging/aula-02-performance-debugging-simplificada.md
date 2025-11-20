@@ -539,3 +539,4 @@ Pense neles como:
 Agora que você entendeu os conceitos de forma simples, vamos praticar com exercícios!
 
 
+

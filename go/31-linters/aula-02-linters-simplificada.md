@@ -250,3 +250,4 @@ Use-os como ferramentas de apoio, não como obstáculos. Eles estão aqui para a
 Na próxima aula, vamos praticar com exercícios para fixar esses conceitos!
 
 
+

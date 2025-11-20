@@ -74,3 +74,4 @@ processador/
 - [ ] Operações customizadas via plugins
 
 
+

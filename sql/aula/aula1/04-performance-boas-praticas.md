@@ -503,3 +503,4 @@ Agora que você entende os fundamentos de SQL e as boas práticas, você está p
 
 **Próximo Passo**: Complete os exercícios da seção anterior e aguarde o feedback e análise do seu desempenho antes de prosseguir para a próxima aula.
 
+

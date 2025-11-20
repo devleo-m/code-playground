@@ -30,3 +30,4 @@ Processando true: tipo não suportado
 - Prefira generics (Go 1.18+) quando possível
 
 
+

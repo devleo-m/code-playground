@@ -80,3 +80,4 @@ type Calculadora struct {
 - [ ] Modo científico (sen, cos, log)
 
 
+

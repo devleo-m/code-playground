@@ -31,3 +31,4 @@ Produtos: categoria='Eletrônicos' AND estoque > 10:
 - Combine filtros: `produto := range produtos { if f1(produto) && f2(produto) { ... } }`
 
 
+

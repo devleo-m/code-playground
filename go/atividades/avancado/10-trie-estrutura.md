@@ -40,3 +40,4 @@ Busca fuzzy "caza" (distância 1): encontrado "casa"
 Implemente suporte a Unicode completo e busca com regex.
 
 
+

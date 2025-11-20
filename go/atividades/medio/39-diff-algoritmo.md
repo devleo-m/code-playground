@@ -31,3 +31,4 @@ Similaridade: 66.67%
 - Marque diferenças durante comparação
 
 
+

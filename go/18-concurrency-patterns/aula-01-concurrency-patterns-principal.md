@@ -1221,3 +1221,4 @@ Na próxima aula, vamos simplificar esses conceitos com analogias do dia a dia p
 Sinta-se à vontade para reler este material e experimentar com os exemplos. Se tiver qualquer dúvida, pode perguntar!
 
 
+

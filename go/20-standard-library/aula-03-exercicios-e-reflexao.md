@@ -171,3 +171,4 @@ Antes de enviar suas respostas, verifique se você:
 Boa sorte com os exercícios! Lembre-se: a prática é essencial para dominar a Standard Library. Quando terminar, envie suas soluções e respostas de reflexão para análise.
 
 
+

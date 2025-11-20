@@ -740,3 +740,4 @@ Lembre-se: **Ferramentas são meios, não fins**. Use pprof, trace e Race Detect
 Na próxima etapa, você completará os exercícios e eu analisarei seu desempenho. Boa sorte!
 
 
+

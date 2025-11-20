@@ -24,3 +24,4 @@ Lendo: Olá, Go!
 - Interfaces são satisfeitas implicitamente
 
 
+

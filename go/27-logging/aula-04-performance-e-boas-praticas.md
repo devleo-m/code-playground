@@ -644,3 +644,4 @@ E assim terminamos nossa aula sobre Performance e Boas Práticas de Logging!
 Agora você está pronto para implementar logging profissional em suas aplicações Go! 🚀
 
 
+

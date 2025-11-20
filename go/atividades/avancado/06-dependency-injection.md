@@ -38,3 +38,4 @@ service := container.Resolve("service").(Service)
 Implemente scoped lifetime (por request) e decorators/interceptors.
 
 
+

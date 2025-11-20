@@ -32,3 +32,4 @@ Evento: 'pagamento_aprovado'
 - Padrão útil para desacoplamento
 
 
+

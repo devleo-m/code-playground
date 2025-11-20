@@ -501,3 +501,4 @@ Nesta aula aprendemos:
 - [unsafe.Pointer rules](https://pkg.go.dev/unsafe#Pointer)
 
 
+

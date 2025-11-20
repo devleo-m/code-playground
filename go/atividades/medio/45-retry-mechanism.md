@@ -29,3 +29,4 @@ Total de tentativas: 4
 - Limite máximo de tentativas para evitar loops infinitos
 
 
+

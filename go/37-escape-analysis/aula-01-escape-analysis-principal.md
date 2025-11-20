@@ -638,3 +638,4 @@ Nesta aula aprendemos:
 - [Understanding Allocations](https://segment.com/blog/allocation-efficiency-in-high-performance-go-services/)
 
 
+

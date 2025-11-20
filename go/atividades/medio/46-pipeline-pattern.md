@@ -32,3 +32,4 @@ Resultado final: [12, 16]
 - Útil para processamento de dados em etapas
 
 
+

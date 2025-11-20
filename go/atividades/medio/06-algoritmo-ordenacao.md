@@ -32,3 +32,4 @@ Com 1000 elementos:
 - Use `time.Now()` e `time.Since()` para medir tempo
 
 
+

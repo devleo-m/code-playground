@@ -40,3 +40,4 @@ Verificando prova: ✓ válida
 Implemente Sparse Merkle Tree e otimizações para grandes datasets.
 
 
+

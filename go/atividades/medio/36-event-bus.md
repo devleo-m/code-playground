@@ -31,3 +31,4 @@ Publicando evento 'pedido_criado':
 - Goroutine para execução assíncrona (opcional)
 
 
+

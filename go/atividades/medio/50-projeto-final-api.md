@@ -42,3 +42,4 @@ estatisticas := api.Estatisticas()
 - Estrutura clara e organizada
 
 
+

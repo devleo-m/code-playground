@@ -37,3 +37,4 @@ usuarios, _ := service.BuscarTodos()
 Implemente cache layer entre service e repository, e suporte a múltiplos repositórios (read/write separation).
 
 
+

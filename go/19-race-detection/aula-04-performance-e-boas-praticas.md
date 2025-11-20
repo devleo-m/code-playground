@@ -635,3 +635,4 @@ Lembre-se: Race conditions são **imprevisíveis** e **difíceis de debugar**. O
 Na próxima etapa, você receberá feedback sobre seus exercícios e reflexões. Continue praticando e sempre use o race detector ao trabalhar com código concorrente! 🚀
 
 
+

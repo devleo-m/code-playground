@@ -278,3 +278,4 @@ Pense no Race Detector como um **amigo super cuidadoso** que:
 Espero que essas analogias tenham ajudado a fixar o conceito! Na próxima aula, vamos praticar com exercícios! 🚀
 
 
+

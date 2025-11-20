@@ -757,3 +757,4 @@ Esses comandos DDL são fundamentais para criar e gerenciar a estrutura do banco
 
 **⚠️ Lembrete Importante**: Comandos DDL podem ser destrutivos. Sempre faça backup e teste em ambiente de desenvolvimento antes de executar em produção!
 
+

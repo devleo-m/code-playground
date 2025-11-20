@@ -451,3 +451,4 @@ Lembre-se: você trabalha com a **estrutura**, enquanto DML trabalha com os **da
 
 **💡 Dica**: Sempre pense nas analogias quando estiver criando ou modificando tabelas. "Estou construindo uma prateleira? Reformando? Ou demolindo?" Isso ajuda a entender o impacto de cada comando!
 
+

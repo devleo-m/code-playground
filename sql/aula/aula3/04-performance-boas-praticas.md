@@ -714,3 +714,4 @@ Agora que você entende DDL, performance e boas práticas:
 
 **Boa sorte com suas operações DDL! 🚀**
 
+

@@ -32,3 +32,4 @@ Expressão "2+3*4": 14.00
 - Cuidado com stack overflow em recursões profundas
 
 
+

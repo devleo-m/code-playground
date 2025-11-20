@@ -576,3 +576,4 @@ Depois de completar os exercícios:
 Na próxima parte, vamos ver boas práticas e considerações de performance!
 
 
+

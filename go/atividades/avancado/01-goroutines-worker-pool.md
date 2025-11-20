@@ -38,3 +38,4 @@ Throughput: 400 jobs/segundo
 Implemente priorização de jobs (priority queue) e load balancing entre workers.
 
 
+

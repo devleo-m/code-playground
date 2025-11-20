@@ -553,3 +553,4 @@ Continue praticando e aplicando esses conceitos em seus projetos reais. Seguran�
 Na próxima aula, vamos mergulhar em boas práticas e otimizações para usar o govulncheck de forma eficiente e profissional!
 
 
+

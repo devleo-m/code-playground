@@ -25,3 +25,4 @@ Valores dobrados: [10 20 30 40 20 50 20]
 - Use `range` para iterar
 
 
+

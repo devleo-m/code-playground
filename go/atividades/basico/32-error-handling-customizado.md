@@ -26,3 +26,4 @@ Email 'joao@email.com': válido
 - `err.Error()` retorna string do erro
 
 
+

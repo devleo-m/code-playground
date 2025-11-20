@@ -45,3 +45,4 @@ usuario := queryBus.Send(query)
 Implemente materialized views e sincronização de read models.
 
 
+

@@ -568,3 +568,4 @@ Continue praticando e experimentando com diferentes configurações. Os linters 
 Na próxima aula, vamos ver boas práticas e dicas de performance para usar linters de forma eficiente.
 
 
+

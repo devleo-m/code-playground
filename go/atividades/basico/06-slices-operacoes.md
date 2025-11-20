@@ -28,3 +28,4 @@ Sub-slice: [10 20]
 - Slicing: `slice[inicio:fim]` (fim não incluído)
 
 
+

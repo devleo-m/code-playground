@@ -30,3 +30,4 @@ Estoque:
 - Deletar: `delete(map, chave)`
 
 
+

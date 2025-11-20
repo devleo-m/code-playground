@@ -44,3 +44,4 @@ Throughput: 25000 eventos/segundo
 Implemente exactly-once semantics e checkpointing.
 
 
+

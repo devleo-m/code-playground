@@ -39,3 +39,4 @@ Economia de tempo: 42.5s
 Implemente cache com LRU eviction e size limits.
 
 
+

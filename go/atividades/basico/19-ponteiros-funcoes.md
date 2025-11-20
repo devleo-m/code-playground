@@ -26,3 +26,4 @@ Após trocar: a=20, b=20
 - Use ponteiros quando precisar modificar valores originais
 
 
+

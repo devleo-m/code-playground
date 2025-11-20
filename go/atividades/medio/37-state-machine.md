@@ -32,3 +32,4 @@ Tentativa de transição inválida: erro
 - Útil para fluxos de trabalho complexos
 
 
+

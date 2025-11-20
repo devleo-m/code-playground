@@ -37,3 +37,4 @@ Visitor Buscar "doc": encontrado doc1.txt
 - Útil para operações em estruturas complexas
 
 
+

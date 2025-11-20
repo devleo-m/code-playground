@@ -29,3 +29,4 @@ Length: 7, Capacity: 12 (dobrou!)
 - Capacity sempre >= length
 
 
+

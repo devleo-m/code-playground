@@ -342,3 +342,4 @@ E assim terminamos nossa aula simplificada! Espero que as analogias tenham ajuda
 Na próxima aula, vamos praticar com exercícios! 🚀
 
 
+

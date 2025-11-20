@@ -427,3 +427,4 @@ Na próxima aula, vamos colocar tudo isso em prática com exercícios! 🚀
 
 
 
+

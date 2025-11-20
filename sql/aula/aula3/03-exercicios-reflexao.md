@@ -471,3 +471,4 @@ Após completar estes exercícios e refletir sobre as perguntas, você deve ter:
 
 **⚠️ Lembrete**: Sempre faça backup antes de executar comandos DDL destrutivos, especialmente DROP TABLE!
 
+

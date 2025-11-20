@@ -27,3 +27,4 @@ Carregando: 2 itens carregados
 - Type assertion para converter de volta ao tipo concreto
 
 
+

@@ -27,3 +27,4 @@ precoInt: 19 (tipo: int)
 - Conversão de `float64` para `int` trunca a parte decimal
 
 
+

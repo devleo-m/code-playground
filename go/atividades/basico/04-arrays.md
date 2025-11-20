@@ -26,3 +26,4 @@ Array modificado: [10 20 100 40 50]
 - Primeiro índice é 0, último é `len(array)-1`
 
 
+

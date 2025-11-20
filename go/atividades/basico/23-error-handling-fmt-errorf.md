@@ -24,3 +24,4 @@ Idade 200: erro: idade inválida: 200 (muito alta)
 - Sempre verifique erros antes de usar resultados
 
 
+

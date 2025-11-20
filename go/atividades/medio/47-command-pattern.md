@@ -34,3 +34,4 @@ Lista: [Hello World]
 - Útil para operações reversíveis
 
 
+

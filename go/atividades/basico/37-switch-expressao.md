@@ -29,3 +29,4 @@ Tipo bool: true
 - Use `fallthrough` para continuar no próximo case
 
 
+

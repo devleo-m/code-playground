@@ -92,3 +92,4 @@ type OpcaoResultado struct {
 - [ ] Enquetes privadas (com senha)
 
 
+

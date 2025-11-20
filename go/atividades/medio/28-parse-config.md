@@ -32,3 +32,4 @@ debug=true
 - Trate espaços com `strings.TrimSpace`
 
 
+

@@ -517,3 +517,4 @@ Na próxima aula, vamos ver **Escape Analysis** em detalhes para entender exatam
 - [sync.Pool documentation](https://pkg.go.dev/sync#Pool)
 
 
+

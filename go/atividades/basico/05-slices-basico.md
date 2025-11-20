@@ -26,3 +26,4 @@ Tamanho do slice: 6
 - Use `len()` para obter o tamanho
 
 
+

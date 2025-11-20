@@ -228,3 +228,4 @@ Aprender SQL é como aprender a usar o sistema de catalogação da biblioteca - 
 
 **Próximo Passo**: Vamos praticar com exercícios para fixar esses conceitos!
 
+

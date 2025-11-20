@@ -37,3 +37,4 @@ Infixa: "a+b*c" -> Pós-fixa: "abc*+"
 - Pós-fixa: use pilha para operadores
 
 
+

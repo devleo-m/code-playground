@@ -22,3 +22,4 @@ Erro completo: falha ao salvar dados: erro ao processar arquivo 'dados.txt': arq
 - Útil para rastrear onde erro ocorreu na cadeia de chamadas
 
 
+

@@ -457,3 +457,4 @@ Pense nos testes como um **amigo super cuidadoso** que:
 Espero que essas analogias tenham ajudado a fixar os conceitos! Na próxima aula, vamos praticar com exercícios! 🚀
 
 
+

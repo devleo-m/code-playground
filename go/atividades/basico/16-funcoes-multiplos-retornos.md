@@ -29,3 +29,4 @@ Estatísticas de [10 20 30 40 50]:
 - Ignore valor: `_, err := funcao()`
 
 
+

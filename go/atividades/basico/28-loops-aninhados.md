@@ -45,3 +45,4 @@ Pares que somam 10:
 - Use `break` para sair de loops aninhados se necessário
 
 
+

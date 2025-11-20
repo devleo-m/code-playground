@@ -32,3 +32,4 @@ Cache limpo automaticamente
 - Map precisa de mutex se usado concorrentemente
 
 
+

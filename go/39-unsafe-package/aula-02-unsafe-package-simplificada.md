@@ -285,3 +285,4 @@ func funcaoSegura(arr []int) {
 **Lembre-se**: Unsafe é como uma ferramenta muito poderosa e perigosa. Use apenas quando realmente necessário, com extremo cuidado, e sempre documente! ⚠️🔧
 
 
+

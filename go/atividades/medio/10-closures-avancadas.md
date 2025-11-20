@@ -39,3 +39,4 @@ Cache:
 - Útil para funções especializadas e padrões de design
 
 
+

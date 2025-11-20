@@ -41,3 +41,4 @@ Throughput: 500 msg/segundo
 Implemente partições, replicação e consumer groups.
 
 
+

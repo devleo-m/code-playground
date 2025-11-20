@@ -43,3 +43,4 @@ Novo líder: Node 1 (termo 2)
 Implemente log replication completo e snapshot.
 
 
+

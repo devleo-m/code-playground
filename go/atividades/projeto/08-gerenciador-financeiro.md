@@ -96,3 +96,4 @@ type Relatorio struct {
 - [ ] Previsões baseadas em histórico
 
 
+

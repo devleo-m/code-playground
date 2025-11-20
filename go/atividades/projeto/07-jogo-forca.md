@@ -89,3 +89,4 @@ type Estatisticas struct {
 - [ ] Palavras customizadas
 
 
+

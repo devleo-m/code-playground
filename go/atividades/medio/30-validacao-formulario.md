@@ -30,3 +30,4 @@ Erros:
 - Use type assertion para validar tipos específicos
 
 
+

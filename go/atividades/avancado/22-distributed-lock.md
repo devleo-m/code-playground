@@ -41,3 +41,4 @@ Locks adquiridos: 10
 Implemente com Redis real e suporte a lock hierarchy.
 
 
+

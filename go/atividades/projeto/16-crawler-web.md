@@ -88,3 +88,4 @@ type Crawler struct {
 - [ ] Visualização de grafo de links
 
 
+

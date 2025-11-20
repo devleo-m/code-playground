@@ -90,3 +90,4 @@ type Alerta struct {
 - [ ] Exportar métricas
 
 
+

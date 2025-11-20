@@ -59,3 +59,4 @@ CREATE INDEX IF NOT EXISTS idx_emprestimos_livro ON emprestimos(livro_id);
 CREATE INDEX IF NOT EXISTS idx_emprestimos_usuario ON emprestimos(usuario_id);
 CREATE INDEX IF NOT EXISTS idx_emprestimos_status ON emprestimos(status);
 
+

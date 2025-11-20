@@ -38,3 +38,4 @@ conta2 := ReplayEvents(eventStore.GetEvents("123"))
 Implemente CQRS (Command Query Responsibility Segregation) completo.
 
 
+

@@ -350,3 +350,4 @@ type CasaBoa struct {
 **Lembre-se**: Entender memória é como entender como organizar sua casa. Quanto melhor você organiza, menos trabalho o "faxineiro" (GC) precisa fazer, e mais rápido tudo funciona! 🏠✨
 
 
+

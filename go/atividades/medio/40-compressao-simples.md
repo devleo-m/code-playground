@@ -28,3 +28,4 @@ Descomprimido: "AAAABBBCCDDD" ✓
 - Cuidado com números no texto original
 
 
+

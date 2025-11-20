@@ -127,3 +127,4 @@ func main() {
 **Lembre-se**: CGO é como uma ponte útil, mas que adiciona complexidade. Use apenas quando realmente precisa! 🌉
 
 
+

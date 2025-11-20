@@ -41,3 +41,4 @@ Saga compensada com sucesso
 Implemente saga paralela (steps executam em paralelo) e idempotência.
 
 
+
