@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Preços - Conversão de Tipos Prática</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #2196F3;
+            padding-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        input:focus {
+            outline: none;
+            border-color: #2196F3;
+        }
+        input.erro {
+            border-color: #f44336;
+            background-color: #ffebee;
+        }
+        input.sucesso {
+            border-color: #4CAF50;
+            background-color: #e8f5e9;
+        }
+        button {
+            background: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #1976D2;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .resultado {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            display: none;
+        }
+        .resultado.sucesso {
+            background: #e8f5e9;
+            border-left: 4px solid #4CAF50;
+        }
+        .resultado.erro {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+        }
+        .info {
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .detalhes {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        .valor {
+            color: #2196F3;
+            font-weight: bold;
+        }
+        .tipo {
+            color: #FF9800;
+            font-weight: bold;
+        }
+        .conversao {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💰 Calculadora de Preços</h1>
+        <p>Este exemplo demonstra conversão de tipos em um contexto prático: cálculo de preços com validação.</p>
+
+        <div class="info">
+            <strong>ℹ️ Objetivo:</strong> Aprender a converter e validar dados do usuário (que sempre chegam como strings) antes de fazer cálculos.
+        </div>
+
+        <form id="formCalculadora" onsubmit="calcularPreco(event)">
+            <div class="form-group">
+                <label for="preco">Preço Unitário (R$):</label>
+                <input 
+                    type="text" 
+                    id="preco" 
+                    placeholder="Ex: 10.50 ou 10,50"
+                    oninput="validarCampo('preco')"
+                >
+                <small id="erro-preco" style="color: #f44336; display: none;"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="quantidade">Quantidade:</label>
+                <input 
+                    type="text" 
+                    id="quantidade" 
+                    placeholder="Ex: 3"
+                    oninput="validarCampo('quantidade')"
+                >
+                <small id="erro-quantidade" style="color: #f44336; display: none;"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="desconto">Desconto (%):</label>
+                <input 
+                    type="text" 
+                    id="desconto" 
+                    placeholder="Ex: 10 (opcional)"
+                    oninput="validarCampo('desconto')"
+                >
+                <small id="erro-desconto" style="color: #f44336; display: none;"></small>
+            </div>
+
+            <button type="submit">Calcular Total</button>
+        </form>
+
+        <div id="resultado" class="resultado"></div>
+    </div>
+
+    <script>
+        // Função para converter string para número com validação
+        function converterParaNumero(valor, nomeCampo) {
+            // Remove espaços
+            if (typeof valor === 'string') {
+                valor = valor.trim();
+            }
+            
+            // Se vazio e não obrigatório, retorna null
+            if (valor === '' || valor === null || valor === undefined) {
+                return null;
+            }
+            
+            // Substitui vírgula por ponto (formato brasileiro)
+            if (typeof valor === 'string') {
+                valor = valor.replace(',', '.');
+            }
+            
+            // Converte para número
+            let numero = Number(valor);
+            
+            // Valida se é número válido
+            if (isNaN(numero) || !isFinite(numero)) {
+                throw new Error(`${nomeCampo} deve ser um número válido`);
+            }
+            
+            // Valida se é positivo
+            if (numero < 0) {
+                throw new Error(`${nomeCampo} deve ser um número positivo`);
+            }
+            
+            return numero;
+        }
+
+        // Função para validar campo individual
+        function validarCampo(campoId) {
+            const campo = document.getElementById(campoId);
+            const erroElement = document.getElementById(`erro-${campoId}`);
+            const valor = campo.value;
+            
+            // Remove classes anteriores
+            campo.classList.remove('erro', 'sucesso');
+            erroElement.style.display = 'none';
+            
+            // Se vazio, não valida (exceto campos obrigatórios)
+            if (valor.trim() === '') {
+                if (campoId === 'desconto') {
+                    // Desconto é opcional
+                    return true;
+                }
+            }
+            
+            try {
+                converterParaNumero(valor, campoId);
+                campo.classList.add('sucesso');
+                return true;
+            } catch (error) {
+                campo.classList.add('erro');
+                erroElement.textContent = error.message;
+                erroElement.style.display = 'block';
+                return false;
+            }
+        }
+
+        // Função principal de cálculo
+        function calcularPreco(event) {
+            event.preventDefault();
+            
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.style.display = 'none';
+            
+            // Valida todos os campos
+            const precoValido = validarCampo('preco');
+            const quantidadeValida = validarCampo('quantidade');
+            const descontoValido = validarCampo('desconto') || document.getElementById('desconto').value.trim() === '';
+            
+            if (!precoValido || !quantidadeValida || !descontoValido) {
+                resultadoDiv.className = 'resultado erro';
+                resultadoDiv.innerHTML = '<strong>❌ Erro:</strong> Corrija os campos destacados antes de calcular.';
+                resultadoDiv.style.display = 'block';
+                return;
+            }
+            
+            try {
+                // Obtém valores (sempre strings do input)
+                const precoInput = document.getElementById('preco').value;
+                const quantidadeInput = document.getElementById('quantidade').value;
+                const descontoInput = document.getElementById('desconto').value;
+                
+                // Converte explicitamente para números
+                const preco = converterParaNumero(precoInput, 'Preço');
+                const quantidade = converterParaNumero(quantidadeInput, 'Quantidade');
+                const desconto = descontoInput.trim() === '' 
+                    ? 0 
+                    : converterParaNumero(descontoInput, 'Desconto');
+                
+                // Valida desconto (0-100%)
+                if (desconto > 100) {
+                    throw new Error('Desconto não pode ser maior que 100%');
+                }
+                
+                // Calcula
+                const subtotal = preco * quantidade;
+                const valorDesconto = subtotal * (desconto / 100);
+                const total = subtotal - valorDesconto;
+                
+                // Formata resultado
+                const resultadoHTML = `
+                    <strong>✅ Cálculo Realizado com Sucesso!</strong>
+                    <div class="detalhes">
+                        <div><strong>Detalhes da Conversão:</strong></div>
+                        <div>Preço: <span class="valor">"${precoInput}"</span> (string) → <span class="conversao">${preco}</span> (number)</div>
+                        <div>Quantidade: <span class="valor">"${quantidadeInput}"</span> (string) → <span class="conversao">${quantidade}</span> (number)</div>
+                        ${descontoInput.trim() !== '' ? `<div>Desconto: <span class="valor">"${descontoInput}"</span> (string) → <span class="conversao">${desconto}</span> (number)</div>` : '<div>Desconto: não informado (0%)</div>'}
+                        <hr style="margin: 10px 0; border: none; border-top: 1px solid #ddd;">
+                        <div><strong>Cálculos:</strong></div>
+                        <div>Subtotal: R$ ${preco.toFixed(2)} × ${quantidade} = <strong>R$ ${subtotal.toFixed(2)}</strong></div>
+                        ${desconto > 0 ? `<div>Desconto (${desconto}%): R$ ${valorDesconto.toFixed(2)}</div>` : ''}
+                        <div style="margin-top: 10px; font-size: 18px; color: #2196F3;"><strong>Total: R$ ${total.toFixed(2)}</strong></div>
+                    </div>
+                `;
+                
+                resultadoDiv.className = 'resultado sucesso';
+                resultadoDiv.innerHTML = resultadoHTML;
+                resultadoDiv.style.display = 'block';
+                
+                // Log no console para debug
+                console.log("=== Cálculo de Preço ===");
+                console.log("Entrada (strings):", {
+                    preco: precoInput,
+                    quantidade: quantidadeInput,
+                    desconto: descontoInput || "não informado"
+                });
+                console.log("Após conversão (numbers):", {
+                    preco: preco,
+                    quantidade: quantidade,
+                    desconto: desconto
+                });
+                console.log("Cálculos:", {
+                    subtotal: subtotal,
+                    valorDesconto: valorDesconto,
+                    total: total
+                });
+                
+            } catch (error) {
+                resultadoDiv.className = 'resultado erro';
+                resultadoDiv.innerHTML = `<strong>❌ Erro:</strong> ${error.message}`;
+                resultadoDiv.style.display = 'block';
+                console.error("Erro no cálculo:", error);
+            }
+        }
+
+        // Demonstração de tipos no console
+        console.log("=== Demonstração: Dados do Formulário ===");
+        console.log("Quando você digita em um input HTML, o valor SEMPRE é string!");
+        console.log("Exemplo:");
+        console.log('  typeof document.getElementById("preco").value:', typeof document.getElementById("preco").value);
+        console.log('  "10.50" + 5 =', "10.50" + 5, "(concatenação, não soma!)");
+        console.log('  Number("10.50") + 5 =', Number("10.50") + 5, "(conversão explícita funciona!)");
+        console.log("\nPor isso é importante converter explicitamente antes de fazer cálculos!");
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversões Básicas - Type Casting</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #555;
+            margin-top: 30px;
+        }
+        .exemplo {
+            background: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .resultado {
+            background: #e8f5e9;
+            border-left: 4px solid #4CAF50;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+            display: none;
+        }
+        .aviso {
+            background: #fff3e0;
+            border-left: 4px solid #FF9800;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .erro {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .info {
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔄 Conversões Básicas de Tipos</h1>
+        <p>Abra o console do navegador (F12) para ver os resultados detalhados.</p>
+
+        <div class="info">
+            <strong>ℹ️ Dica:</strong> Esta página demonstra conversões explícitas e implícitas. Sempre prefira conversões explícitas!
+        </div>
+
+        <h2>1. Conversão para Number (Explícita)</h2>
+        <div class="exemplo">
+            <p><strong>Métodos para converter para número:</strong></p>
+            <pre><code>// Number() - Conversão geral
+Number("123")        // 123
+Number("12.5")       // 12.5
+Number("123abc")     // NaN
+
+// parseInt() - Para inteiros
+parseInt("123", 10)  // 123
+parseInt("12.5", 10) // 12 (trunca decimais)
+
+// parseFloat() - Para decimais
+parseFloat("12.5")   // 12.5
+
+// Operador unário + (atalho)
++"123"               // 123</code></pre>
+            <button onclick="testarParaNumber()">Testar Conversão para Number</button>
+            <div id="resultado-number" class="resultado"></div>
+        </div>
+
+        <h2>2. Conversão para String (Explícita)</h2>
+        <div class="exemplo">
+            <p><strong>Métodos para converter para string:</strong></p>
+            <pre><code>// String() - Funciona com null/undefined
+String(123)          // "123"
+String(null)         // "null"
+String(undefined)    // "undefined"
+
+// .toString() - Não funciona com null/undefined
+(123).toString()     // "123"
+null.toString()      // ❌ TypeError!
+
+// Template literal
+`${123}`             // "123"
+
+// Concatenação com string vazia
+123 + ""             // "123"</code></pre>
+            <button onclick="testarParaString()">Testar Conversão para String</button>
+            <div id="resultado-string" class="resultado"></div>
+        </div>
+
+        <h2>3. Conversão para Boolean (Explícita)</h2>
+        <div class="exemplo">
+            <p><strong>Valores Falsy e Truthy:</strong></p>
+            <pre><code>// Valores Falsy (6 valores)
+Boolean("")          // false
+Boolean(0)           // false
+Boolean(null)        // false
+Boolean(undefined)   // false
+Boolean(NaN)         // false
+Boolean(false)       // false
+
+// Valores Truthy (tudo mais)
+Boolean("texto")      // true
+Boolean(1)            // true
+Boolean([])           // true (array vazio!)
+Boolean({})           // true (objeto vazio!)
+
+// Negação dupla (!!)
+!!"texto"             // true
+!!""                  // false</code></pre>
+            <button onclick="testarParaBoolean()">Testar Conversão para Boolean</button>
+            <div id="resultado-boolean" class="resultado"></div>
+        </div>
+
+        <h2>4. Conversões Implícitas (Type Coercion)</h2>
+        <div class="exemplo">
+            <p><strong>⚠️ Cuidado! JavaScript converte automaticamente:</strong></p>
+            <pre><code>// Adição com string = concatenação
+"10" + 5             // "105" (não 15!)
+
+// Subtração força conversão para número
+"10" - 5             // 5
+
+// Boolean em operações numéricas
+true + 1             // 2 (true = 1)
+false + 1            // 1 (false = 0)
+
+// Comparações com == (permite coerção)
+"5" == 5             // true ⚠️
+"5" === 5            // false ✅ (prefira ===)</code></pre>
+            <button onclick="testarImplicitas()">Testar Conversões Implícitas</button>
+            <div id="resultado-implicitas" class="resultado"></div>
+        </div>
+
+        <h2>5. Comparação: == vs ===</h2>
+        <div class="exemplo">
+            <p><strong>Diferença entre igualdade permissiva e estrita:</strong></p>
+            <pre><code>// == (permite coerção - PERIGOSO!)
+"5" == 5             // true
+"" == 0              // true ⚠️
+" " == 0             // true ⚠️
+null == undefined    // true
+
+// === (sem coerção - SEGURO!)
+"5" === 5            // false ✅
+"" === 0             // false ✅
+" " === 0            // false ✅
+null === undefined   // false ✅</code></pre>
+            <button onclick="testarComparacoes()">Testar Comparações</button>
+            <div id="resultado-comparacoes" class="resultado"></div>
+        </div>
+
+        <h2>6. Validação de Conversões</h2>
+        <div class="exemplo">
+            <p><strong>Como verificar se uma conversão foi bem-sucedida:</strong></p>
+            <pre><code>function validarNumero(valor) {
+    let numero = Number(valor);
+    return !isNaN(numero) && isFinite(numero);
+}
+
+// Number.isNaN() é melhor que isNaN()
+Number.isNaN(NaN)    // true
+Number.isNaN("abc")  // false (não converte primeiro)
+isNaN("abc")         // true (converte primeiro!)</code></pre>
+            <button onclick="testarValidacao()">Testar Validação</button>
+            <div id="resultado-validacao" class="resultado"></div>
+        </div>
+    </div>
+
+    <script>
+        function logParaDiv(elementId, mensagens, tipo = 'resultado') {
+            const div = document.getElementById(elementId);
+            div.style.display = 'block';
+            div.className = tipo; // resultado, aviso, erro, info
+            
+            let html = '<strong>Resultado (veja também o console):</strong><pre>';
+            mensagens.forEach(m => {
+                if (typeof m === 'object') {
+                    html += JSON.stringify(m, null, 2) + '\n';
+                } else {
+                    html += String(m) + '\n';
+                }
+            });
+            html += '</pre>';
+            div.innerHTML = html;
+        }
+
+        function testarParaNumber() {
+            const mensagens = [];
+            
+            mensagens.push("=== Conversão Explícita para Number ===");
+            mensagens.push(`Number("123"): ${Number("123")}`);
+            mensagens.push(`Number("12.5"): ${Number("12.5")}`);
+            mensagens.push(`Number("123abc"): ${Number("123abc")} (NaN)`);
+            mensagens.push(`Number(""): ${Number("")} (string vazia vira 0!)`);
+            mensagens.push(`Number(null): ${Number(null)} (null vira 0)`);
+            mensagens.push(`Number(undefined): ${Number(undefined)} (NaN)`);
+            
+            mensagens.push("\n=== parseInt() ===");
+            mensagens.push(`parseInt("123", 10): ${parseInt("123", 10)}`);
+            mensagens.push(`parseInt("12.5", 10): ${parseInt("12.5", 10)} (trunca)`);
+            mensagens.push(`parseInt("123abc", 10): ${parseInt("123abc", 10)} (para no 'a')`);
+            
+            mensagens.push("\n=== parseFloat() ===");
+            mensagens.push(`parseFloat("12.5"): ${parseFloat("12.5")}`);
+            mensagens.push(`parseFloat("12.5.7"): ${parseFloat("12.5.7")} (para no segundo ponto)`);
+            
+            mensagens.push("\n=== Operador Unário + ===");
+            mensagens.push(`+"123": ${+"123"}`);
+            mensagens.push(`+"12.5": ${+"12.5"}`);
+            mensagens.push(`+"123abc": ${+"123abc"} (NaN)`);
+
+            console.log("=== Testando Conversão para Number ===");
+            mensagens.forEach(m => console.log(m));
+            logParaDiv('resultado-number', mensagens);
+        }
+
+        function testarParaString() {
+            const mensagens = [];
+            
+            mensagens.push("=== Conversão Explícita para String ===");
+            mensagens.push(`String(123): "${String(123)}"`);
+            mensagens.push(`String(12.5): "${String(12.5)}"`);
+            mensagens.push(`String(true): "${String(true)}"`);
+            mensagens.push(`String(false): "${String(false)}"`);
+            mensagens.push(`String(null): "${String(null)}"`);
+            mensagens.push(`String(undefined): "${String(undefined)}"`);
+            mensagens.push(`String(NaN): "${String(NaN)}"`);
+            
+            mensagens.push("\n=== .toString() ===");
+            mensagens.push(`(123).toString(): "${(123).toString()}"`);
+            mensagens.push(`(true).toString(): "${(true).toString()}"`);
+            mensagens.push(`[1,2,3].toString(): "${[1,2,3].toString()}"`);
+            mensagens.push(`[].toString(): "${[].toString()}" (string vazia)`);
+            mensagens.push(`⚠️ null.toString() e undefined.toString() causam TypeError!`);
+            
+            mensagens.push("\n=== Template Literal ===");
+            mensagens.push(`\`\${123}\`: "${`${123}`}"`);
+            mensagens.push(`\`\${true}\`: "${`${true}`}"`);
+            mensagens.push(`\`\${null}\`: "${`${null}`}"`);
+            
+            mensagens.push("\n=== Concatenação ===");
+            mensagens.push(`123 + "": "${123 + ""}"`);
+            mensagens.push(`true + "": "${true + ""}"`);
+
+            console.log("=== Testando Conversão para String ===");
+            mensagens.forEach(m => console.log(m));
+            logParaDiv('resultado-string', mensagens);
+        }
+
+        function testarParaBoolean() {
+            const mensagens = [];
+            
+            mensagens.push("=== Valores Falsy (6 valores) ===");
+            mensagens.push(`Boolean(""): ${Boolean("")}`);
+            mensagens.push(`Boolean(0): ${Boolean(0)}`);
+            mensagens.push(`Boolean(-0): ${Boolean(-0)}`);
+            mensagens.push(`Boolean(null): ${Boolean(null)}`);
+            mensagens.push(`Boolean(undefined): ${Boolean(undefined)}`);
+            mensagens.push(`Boolean(NaN): ${Boolean(NaN)}`);
+            mensagens.push(`Boolean(false): ${Boolean(false)}`);
+            
+            mensagens.push("\n=== Valores Truthy ===");
+            mensagens.push(`Boolean("texto"): ${Boolean("texto")}`);
+            mensagens.push(`Boolean(1): ${Boolean(1)}`);
+            mensagens.push(`Boolean(-1): ${Boolean(-1)}`);
+            mensagens.push(`Boolean("0"): ${Boolean("0")} (string "0" é truthy!)`);
+            mensagens.push(`Boolean("false"): ${Boolean("false")} (string "false" é truthy!)`);
+            mensagens.push(`Boolean([]): ${Boolean([])} (array vazio é truthy!)`);
+            mensagens.push(`Boolean({}): ${Boolean({})} (objeto vazio é truthy!)`);
+            mensagens.push(`Boolean(function(){}): ${Boolean(function(){})}`);
+            
+            mensagens.push("\n=== Negação Dupla (!!) ===");
+            mensagens.push(`!!"texto": ${!!"texto"}`);
+            mensagens.push(`!!"": ${!!""}`);
+            mensagens.push(`!!0: ${!!0}`);
+            mensagens.push(`!!1: ${!!1}`);
+            mensagens.push(`!![]: ${!![]}`);
+            mensagens.push(`!!{}: ${!!{}}`);
+
+            console.log("=== Testando Conversão para Boolean ===");
+            mensagens.forEach(m => console.log(m));
+            logParaDiv('resultado-boolean', mensagens);
+        }
+
+        function testarImplicitas() {
+            const mensagens = [];
+            
+            mensagens.push("=== Conversões Implícitas (Type Coercion) ===");
+            mensagens.push(`"10" + 5: "${"10" + 5}" (concatenação, não soma!)`);
+            mensagens.push(`"10" - 5: ${"10" - 5} (subtração força conversão)`);
+            mensagens.push(`"10" * 5: ${"10" * 5}`);
+            mensagens.push(`"10" / 5: ${"10" / 5}`);
+            mensagens.push(`"10" % 3: ${"10" % 3}`);
+            
+            mensagens.push("\n=== Boolean em Operações ===");
+            mensagens.push(`true + 1: ${true + 1} (true vira 1)`);
+            mensagens.push(`false + 1: ${false + 1} (false vira 0)`);
+            mensagens.push(`true + true: ${true + true}`);
+            mensagens.push(`false + false: ${false + false}`);
+            
+            mensagens.push("\n=== Null e Undefined ===");
+            mensagens.push(`null + 5: ${null + 5} (null vira 0)`);
+            mensagens.push(`undefined + 5: ${undefined + 5} (NaN)`);
+            
+            mensagens.push("\n=== Conversão para String ===");
+            mensagens.push(`10 + "": "${10 + ""}" (número vira string)`);
+            mensagens.push(`10 + "5": "${10 + "5"}" (concatenação)`);
+            
+            mensagens.push("\n⚠️ ATENÇÃO: Conversões implícitas podem causar bugs!");
+            mensagens.push("✅ SEMPRE prefira conversões explícitas!");
+
+            console.log("=== Testando Conversões Implícitas ===");
+            mensagens.forEach(m => console.log(m));
+            logParaDiv('resultado-implicitas', mensagens, 'aviso');
+        }
+
+        function testarComparacoes() {
+            const mensagens = [];
+            
+            mensagens.push("=== == (Igualdade Permissiva - PERIGOSO!) ===");
+            mensagens.push(`"5" == 5: ${"5" == 5} ⚠️`);
+            mensagens.push(`"" == 0: ${"" == 0} ⚠️`);
+            mensagens.push(`" " == 0: ${" " == 0} ⚠️`);
+            mensagens.push(`"\n" == 0: ${"\n" == 0} ⚠️`);
+            mensagens.push(`"\t" == 0: ${"\t" == 0} ⚠️`);
+            mensagens.push(`null == undefined: ${null == undefined}`);
+            mensagens.push(`[] == 0: ${[] == 0} ⚠️ (array vazio vira 0)`);
+            mensagens.push(`[0] == false: ${[0] == false} ⚠️`);
+            
+            mensagens.push("\n=== === (Igualdade Estrita - SEGURO!) ===");
+            mensagens.push(`"5" === 5: ${"5" === 5} ✅`);
+            mensagens.push(`"" === 0: ${"" === 0} ✅`);
+            mensagens.push(`" " === 0: ${" " === 0} ✅`);
+            mensagens.push(`null === undefined: ${null === undefined} ✅`);
+            mensagens.push(`[] === 0: ${[] === 0} ✅`);
+            mensagens.push(`[0] === false: ${[0] === false} ✅`);
+            
+            mensagens.push("\n✅ REGRA DE OURO: Sempre use === em vez de ==");
+
+            console.log("=== Testando Comparações ===");
+            mensagens.forEach(m => console.log(m));
+            logParaDiv('resultado-comparacoes', mensagens, 'aviso');
+        }
+
+        function testarValidacao() {
+            const mensagens = [];
+            
+            function validarNumero(valor) {
+                let numero = Number(valor);
+                return !isNaN(numero) && isFinite(numero);
+            }
+            
+            function validarNumeroSeguro(valor) {
+                let numero = Number(valor);
+                return Number.isFinite(numero);
+            }
+
+            mensagens.push("=== Validação de Conversões ===");
+            mensagens.push(`validarNumero("42"): ${validarNumero("42")}`);
+            mensagens.push(`validarNumero("12.5"): ${validarNumero("12.5")}`);
+            mensagens.push(`validarNumero("abc"): ${validarNumero("abc")}`);
+            mensagens.push(`validarNumero("42abc"): ${validarNumero("42abc")}`);
+            mensagens.push(`validarNumero(42): ${validarNumero(42)}`);
+            mensagens.push(`validarNumero(NaN): ${validarNumero(NaN)}`);
+            mensagens.push(`validarNumero(Infinity): ${validarNumero(Infinity)}`);
+            
+            mensagens.push("\n=== Number.isNaN() vs isNaN() ===");
+            mensagens.push(`Number.isNaN(NaN): ${Number.isNaN(NaN)} ✅`);
+            mensagens.push(`Number.isNaN("abc"): ${Number.isNaN("abc")} ✅ (não converte)`);
+            mensagens.push(`isNaN("abc"): ${isNaN("abc")} ⚠️ (converte primeiro)`);
+            mensagens.push(`Number.isNaN(Number("abc")): ${Number.isNaN(Number("abc"))} ✅`);
+            
+            mensagens.push("\n✅ Use Number.isNaN() em vez de isNaN()!");
+
+            console.log("=== Testando Validação ===");
+            mensagens.forEach(m => console.log(m));
+            logParaDiv('resultado-validacao', mensagens);
+        }
+
+        console.log("=== Página de Conversões Básicas carregada ===");
+        console.log("Clique nos botões para testar cada tipo de conversão!");
+    </script>
+</body>
+</html>
+
