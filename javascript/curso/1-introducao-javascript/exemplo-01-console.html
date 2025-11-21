@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 1: JavaScript no Console</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .instrucoes {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .instrucoes h2 {
+            margin-top: 0;
+            color: #1976d2;
+        }
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exemplo 1: JavaScript no Console</h1>
+        
+        <div class="instrucoes">
+            <h2>📋 Instruções</h2>
+            <ol>
+                <li>Abra o <strong>Console do Navegador</strong> pressionando <code>F12</code></li>
+                <li>Vá para a aba <strong>"Console"</strong></li>
+                <li>Você verá mensagens que foram executadas quando a página carregou</li>
+                <li>Experimente digitar código diretamente no console!</li>
+            </ol>
+        </div>
+
+        <h2>💡 Experimente no Console:</h2>
+        <ul>
+            <li><code>console.log("Olá, console!")</code></li>
+            <li><code>let nome = "Seu Nome"</code></li>
+            <li><code>console.log("Meu nome é:", nome)</code></li>
+            <li><code>2 + 2</code></li>
+            <li><code>document.body.style.backgroundColor = "lightblue"</code></li>
+        </ul>
+
+        <p><strong>Dica:</strong> O console é uma ferramenta poderosa para testar código JavaScript rapidamente!</p>
+    </div>
+
+    <script>
+        // Este código executa quando a página carrega
+        console.log("✅ Página carregada com sucesso!");
+        console.log("📝 Abra o console (F12) para ver esta mensagem");
+        console.log("🎯 Experimente digitar código JavaScript no console");
+        
+        // Exemplo de variável
+        let mensagem = "Bem-vindo ao JavaScript!";
+        console.log("💬 Mensagem:", mensagem);
+        
+        // Exemplo de cálculo
+        let numero1 = 10;
+        let numero2 = 5;
+        let soma = numero1 + numero2;
+        console.log("🔢 Cálculo:", numero1, "+", numero2, "=", soma);
+        
+        // Informação sobre a página
+        console.log("📄 Título da página:", document.title);
+        console.log("🌐 URL:", window.location.href);
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 3: JavaScript Inline</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .aviso {
+            background-color: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .aviso strong {
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exemplo 3: JavaScript Inline</h1>
+        
+        <div class="aviso">
+            <strong>⚠️ Atenção:</strong> JavaScript inline deve ser usado apenas para código pequeno e específico. Para código maior, use arquivos externos!
+        </div>
+        
+        <h2>Exemplo de JavaScript Inline</h2>
+        <p>Este exemplo mostra JavaScript escrito diretamente no HTML usando a tag <code>&lt;script&gt;</code>.</p>
+        
+        <button onclick="mostrarAlerta()">Clique para Ver Alerta</button>
+        <button onclick="alterarTexto()">Alterar Texto</button>
+        <button onclick="mostrarData()">Mostrar Data</button>
+        
+        <div id="conteudo" style="margin-top: 20px; padding: 15px; background-color: #e3f2fd; border-radius: 5px;">
+            <p>Este texto será alterado quando você clicar no botão.</p>
+        </div>
+        
+        <h3>📝 Observações:</h3>
+        <ul>
+            <li>O JavaScript está dentro da tag <code>&lt;script&gt;</code> no HTML</li>
+            <li>Funções são chamadas usando <code>onclick</code> nos botões</li>
+            <li>Esta abordagem é útil para código muito pequeno</li>
+            <li>Para código maior, prefira arquivos externos</li>
+        </ul>
+    </div>
+
+    <!-- JavaScript inline -->
+    <script>
+        console.log("✅ JavaScript inline carregado!");
+        
+        // Função para mostrar alerta
+        function mostrarAlerta() {
+            alert("Olá! Este é um alerta JavaScript!");
+            console.log("🔔 Alerta exibido!");
+        }
+        
+        // Função para alterar texto
+        function alterarTexto() {
+            const conteudo = document.getElementById('conteudo');
+            const textos = [
+                "Texto alterado pela primeira vez!",
+                "Texto alterado pela segunda vez!",
+                "Texto alterado pela terceira vez!",
+                "Continue clicando para ver mais mudanças!"
+            ];
+            const textoAleatorio = textos[Math.floor(Math.random() * textos.length)];
+            conteudo.innerHTML = `<p style="color: #1976d2;"><strong>${textoAleatorio}</strong></p>`;
+            console.log("📝 Texto alterado:", textoAleatorio);
+        }
+        
+        // Função para mostrar data
+        function mostrarData() {
+            const agora = new Date();
+            const dataFormatada = agora.toLocaleString('pt-BR');
+            const conteudo = document.getElementById('conteudo');
+            conteudo.innerHTML = `
+                <p><strong>📅 Data e Hora Atual:</strong></p>
+                <p style="font-size: 18px; color: #d32f2f;">${dataFormatada}</p>
+            `;
+            console.log("📅 Data exibida:", dataFormatada);
+        }
+        
+        // Mensagem no console quando a página carrega
+        console.log("🎯 Página carregada! Experimente clicar nos botões.");
+    </script>
+</body>
+</html>
+

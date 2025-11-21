@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 2: JavaScript Externo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .resultado {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f5e9;
+            border-radius: 5px;
+            min-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exemplo 2: JavaScript Externo</h1>
+        
+        <p>Este exemplo demonstra como usar JavaScript em um arquivo separado.</p>
+        
+        <h2>Interações:</h2>
+        <button id="botao1">Clique em Mim!</button>
+        <button id="botao2">Alterar Cor</button>
+        <button id="botao3">Mostrar Data</button>
+        
+        <div class="resultado" id="resultado">
+            <p>Resultados aparecerão aqui...</p>
+        </div>
+        
+        <h3>📝 Observações:</h3>
+        <ul>
+            <li>O JavaScript está no arquivo <code>exemplo-02-externo.js</code></li>
+            <li>O arquivo é carregado usando a tag <code>&lt;script src="..."&gt;&lt;/script&gt;</code></li>
+            <li>Esta é a forma recomendada para código maior</li>
+            <li>Abra o console (F12) para ver mensagens adicionais</li>
+        </ul>
+    </div>
+
+    <!-- JavaScript externo carregado no final do body -->
+    <script src="exemplo-02-externo.js"></script>
+</body>
+</html>
+
