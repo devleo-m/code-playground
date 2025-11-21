@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 2: Escopo de Variáveis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .output {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+            border-left: 4px solid #28a745;
+        }
+        .error {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+        }
+        .success {
+            background: #d4edda;
+            border-left-color: #28a745;
+        }
+        code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .scope-box {
+            border: 2px solid #007bff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌍 Exemplo 2: Escopo de Variáveis</h1>
+        <p>Este exemplo demonstra os diferentes tipos de escopo: Global, Função e Bloco.</p>
+        
+        <h2>Resultado:</h2>
+        <div id="output" class="output">
+            <!-- O resultado será inserido aqui pelo JavaScript -->
+        </div>
+        
+        <p><strong>💡 Dica:</strong> Abra o console do navegador (F12) para ver mais detalhes e possíveis erros!</p>
+    </div>
+
+    <script>
+        // ============================================
+        // ESCOPO GLOBAL
+        // ============================================
+        
+        const globalConst = "Sou global (const)";
+        let globalLet = "Sou global (let)";
+        var globalVar = "Sou global (var)";
+        
+        // ============================================
+        // Função para demonstrar escopo de função
+        // ============================================
+        
+        function exemploFuncao() {
+            const funcaoConst = "Sou da função (const)";
+            let funcaoLet = "Sou da função (let)";
+            var funcaoVar = "Sou da função (var)";
+            
+            // Pode acessar variáveis globais
+            console.log("Dentro da função - Global:", globalConst);
+            
+            // Demonstração de escopo de bloco
+            if (true) {
+                const blocoConst = "Sou do bloco (const)";
+                let blocoLet = "Sou do bloco (let)";
+                var blocoVar = "Sou do bloco (var)";
+                
+                // Pode acessar variáveis da função
+                console.log("Dentro do bloco - Função:", funcaoLet);
+                console.log("Dentro do bloco - Bloco:", blocoLet);
+            }
+            
+            // var vazou do bloco
+            console.log("Fora do bloco, dentro da função - blocoVar:", blocoVar);
+            
+            // let e const não vazam
+            // console.log(blocoLet); // Erro se descomentado
+            // console.log(blocoConst); // Erro se descomentado
+            
+            return {
+                funcaoConst,
+                funcaoLet,
+                funcaoVar
+            };
+        }
+        
+        // ============================================
+        // Exibindo resultados no HTML
+        // ============================================
+        
+        const output = document.getElementById('output');
+        let html = '';
+        
+        // Escopo Global
+        html += '<div class="scope-box">';
+        html += '<h3>🌍 Escopo Global</h3>';
+        html += `<p><code>globalConst</code>: ${globalConst}</p>`;
+        html += `<p><code>globalLet</code>: ${globalLet}</p>`;
+        html += `<p><code>globalVar</code>: ${globalVar}</p>`;
+        html += '<p><em>✅ Acessível em todo o código</em></p>';
+        html += '</div>';
+        
+        // Escopo de Função
+        html += '<div class="scope-box">';
+        html += '<h3>🏠 Escopo de Função</h3>';
+        const resultadoFuncao = exemploFuncao();
+        html += `<p><code>funcaoConst</code>: ${resultadoFuncao.funcaoConst}</p>`;
+        html += `<p><code>funcaoLet</code>: ${resultadoFuncao.funcaoLet}</p>`;
+        html += `<p><code>funcaoVar</code>: ${resultadoFuncao.funcaoVar}</p>`;
+        html += '<p><em>✅ Acessível apenas dentro da função</em></p>';
+        html += '<p class="error"><em>❌ Não acessível fora da função</em></p>';
+        html += '</div>';
+        
+        // Escopo de Bloco
+        html += '<div class="scope-box">';
+        html += '<h3>📦 Escopo de Bloco</h3>';
+        html += '<p><strong>Demonstração com var:</strong></p>';
+        
+        if (true) {
+            var blocoVar = "var vazou do bloco";
+            let blocoLet = "let não vaza";
+            const blocoConst = "const não vaza";
+        }
+        
+        html += `<p><code>blocoVar</code> (var): ${blocoVar} <em>✅ Acessível fora do bloco</em></p>`;
+        html += '<p><code>blocoLet</code> (let): <em>❌ Não acessível fora do bloco</em></p>';
+        html += '<p><code>blocoConst</code> (const): <em>❌ Não acessível fora do bloco</em></p>';
+        html += '<p><em>⚠️ var vaza do bloco, let e const não vazam</em></p>';
+        html += '</div>';
+        
+        // Problema clássico com var em loops
+        html += '<div class="scope-box">';
+        html += '<h3>🔄 Problema com var em Loops</h3>';
+        html += '<p><strong>Loop com var:</strong></p>';
+        
+        let varOutput = [];
+        for (var i = 0; i < 3; i++) {
+            varOutput.push(i);
+        }
+        html += `<p>Valores no loop: [${varOutput.join(', ')}]</p>`;
+        html += `<p><code>i</code> após o loop: ${i} <em>⚠️ var vazou!</em></p>`;
+        
+        html += '<p><strong>Loop com let:</strong></p>';
+        let letOutput = [];
+        for (let j = 0; j < 3; j++) {
+            letOutput.push(j);
+        }
+        html += `<p>Valores no loop: [${letOutput.join(', ')}]</p>`;
+        html += '<p><code>j</code> após o loop: <em>❌ Não acessível (correto!)</em></p>';
+        html += '</div>';
+        
+        output.innerHTML = html;
+        
+        // ============================================
+        // Console para debugging
+        // ============================================
+        
+        console.log("=== Exemplo 2: Escopo de Variáveis ===");
+        console.log("Variáveis globais acessíveis:", {
+            globalConst,
+            globalLet,
+            globalVar
+        });
+        
+        // Tentar acessar variáveis da função (vai gerar erro no console)
+        try {
+            console.log("Tentando acessar funcaoLet de fora:", funcaoLet);
+        } catch (e) {
+            console.error("Erro esperado:", e.message);
+        }
+    </script>
+</body>
+</html>
+

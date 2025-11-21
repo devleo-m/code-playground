@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 1: Variáveis Básicas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .output {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+            border-left: 4px solid #007bff;
+        }
+        code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📦 Exemplo 1: Variáveis Básicas</h1>
+        <p>Este exemplo demonstra a declaração e uso básico de variáveis com <code>let</code>, <code>const</code> e <code>var</code>.</p>
+        
+        <h2>Resultado:</h2>
+        <div id="output" class="output">
+            <!-- O resultado será inserido aqui pelo JavaScript -->
+        </div>
+        
+        <p><strong>💡 Dica:</strong> Abra o console do navegador (F12) para ver mais detalhes!</p>
+    </div>
+
+    <script>
+        // ============================================
+        // EXEMPLO 1: Declaração de Variáveis
+        // ============================================
+        
+        // Usando let (recomendado para valores que mudam)
+        let nome = "João Silva";
+        let idade = 25;
+        let estaAtivo = true;
+        
+        // Usando const (recomendado para valores fixos)
+        const email = "joao@email.com";
+        const PI = 3.14159;
+        
+        // Usando var (evitar em código novo)
+        var cidade = "São Paulo";
+        
+        // ============================================
+        // Exibindo no HTML
+        // ============================================
+        
+        const output = document.getElementById('output');
+        let html = '<h3>Variáveis Declaradas:</h3>';
+        html += `<p><strong>let nome:</strong> ${nome}</p>`;
+        html += `<p><strong>let idade:</strong> ${idade}</p>`;
+        html += `<p><strong>let estaAtivo:</strong> ${estaAtivo}</p>`;
+        html += `<p><strong>const email:</strong> ${email}</p>`;
+        html += `<p><strong>const PI:</strong> ${PI}</p>`;
+        html += `<p><strong>var cidade:</strong> ${cidade}</p>`;
+        
+        // ============================================
+        // Demonstração: Reatribuição
+        // ============================================
+        
+        html += '<h3>Reatribuição:</h3>';
+        html += `<p>Idade antes: ${idade}</p>`;
+        idade = 26; // let permite reatribuição
+        html += `<p>Idade depois: ${idade}</p>`;
+        
+        // const não permite reatribuição:
+        // email = "novo@email.com"; // Erro!
+        
+        // ============================================
+        // Demonstração: const com objetos
+        // ============================================
+        
+        html += '<h3>const com Objetos:</h3>';
+        const usuario = {
+            nome: "Maria",
+            idade: 30
+        };
+        html += `<p>Objeto antes: ${JSON.stringify(usuario)}</p>`;
+        
+        // Pode modificar propriedades
+        usuario.idade = 31;
+        usuario.cidade = "Rio de Janeiro";
+        html += `<p>Objeto depois: ${JSON.stringify(usuario)}</p>`;
+        html += '<p><em>✅ const permite modificar propriedades, mas não reatribuir o objeto inteiro</em></p>';
+        
+        // ============================================
+        // Demonstração: const com arrays
+        // ============================================
+        
+        html += '<h3>const com Arrays:</h3>';
+        const frutas = ["maçã", "banana"];
+        html += `<p>Array antes: [${frutas.join(', ')}]</p>`;
+        
+        // Pode modificar itens
+        frutas[0] = "laranja";
+        frutas.push("uva");
+        html += `<p>Array depois: [${frutas.join(', ')}]</p>`;
+        html += '<p><em>✅ const permite modificar itens, mas não reatribuir o array inteiro</em></p>';
+        
+        output.innerHTML = html;
+        
+        // ============================================
+        // Console para debugging
+        // ============================================
+        
+        console.log("=== Exemplo 1: Variáveis Básicas ===");
+        console.log("Nome:", nome);
+        console.log("Idade:", idade);
+        console.log("Email:", email);
+        console.log("PI:", PI);
+        console.log("Usuário:", usuario);
+        console.log("Frutas:", frutas);
+    </script>
+</body>
+</html>
+

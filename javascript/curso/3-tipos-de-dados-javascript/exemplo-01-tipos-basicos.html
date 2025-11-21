@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipos de Dados Básicos - JavaScript</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #555;
+            margin-top: 30px;
+        }
+        .exemplo {
+            background: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        code {
+            background: #e8e8e8;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .resultado {
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Tipos de Dados em JavaScript</h1>
+        <p>Abra o console do navegador (F12) para ver os resultados dos exemplos.</p>
+
+        <h2>1. Number (Número)</h2>
+        <div class="exemplo">
+            <p><strong>Exemplos de números:</strong></p>
+            <pre><code>let inteiro = 42;
+let decimal = 3.14;
+let hexadecimal = 0xFF;      // 255
+let binario = 0b11111111;     // 255
+let exponencial = 1.5e6;      // 1500000
+
+console.log("Inteiro:", inteiro);
+console.log("Decimal:", decimal);
+console.log("Hexadecimal:", hexadecimal);
+console.log("Binário:", binario);
+console.log("Exponencial:", exponencial);
+console.log("Tipo:", typeof inteiro);</code></pre>
+            <button onclick="testarNumber()">Testar Number</button>
+            <div id="resultado-number" class="resultado" style="display:none;"></div>
+        </div>
+
+        <h2>2. String (Texto)</h2>
+        <div class="exemplo">
+            <p><strong>Diferentes formas de criar strings:</strong></p>
+            <pre><code>let nome1 = 'João';           // Aspas simples
+let nome2 = "Maria";          // Aspas duplas
+let nome3 = `Pedro`;          // Template literal
+
+// Template literal com interpolação
+let idade = 25;
+let mensagem = `Olá, meu nome é ${nome1} e tenho ${idade} anos.`;
+
+console.log("Nome 1:", nome1);
+console.log("Nome 2:", nome2);
+console.log("Nome 3:", nome3);
+console.log("Mensagem:", mensagem);
+console.log("Tipo:", typeof nome1);</code></pre>
+            <button onclick="testarString()">Testar String</button>
+            <div id="resultado-string" class="resultado" style="display:none;"></div>
+        </div>
+
+        <h2>3. Boolean (Booleano)</h2>
+        <div class="exemplo">
+            <p><strong>Valores verdadeiro e falso:</strong></p>
+            <pre><code>let estaChovendo = true;
+let estaEnsolarado = false;
+let temIdade = 18 >= 16;  // true
+
+console.log("Está chovendo?", estaChovendo);
+console.log("Está ensolarado?", estaEnsolarado);
+console.log("Tem idade para votar?", temIdade);
+console.log("Tipo:", typeof estaChovendo);</code></pre>
+            <button onclick="testarBoolean()">Testar Boolean</button>
+            <div id="resultado-boolean" class="resultado" style="display:none;"></div>
+        </div>
+
+        <h2>4. Undefined e Null</h2>
+        <div class="exemplo">
+            <p><strong>Diferença entre undefined e null:</strong></p>
+            <pre><code>let variavel1;              // undefined (não foi inicializada)
+let variavel2 = null;       // null (foi definida como vazia)
+
+console.log("Variável 1:", variavel1);
+console.log("Variável 2:", variavel2);
+console.log("Tipo de undefined:", typeof variavel1);
+console.log("Tipo de null:", typeof variavel2);
+console.log("São iguais?", variavel1 == variavel2);   // true (conversão)
+console.log("São estritamente iguais?", variavel1 === variavel2); // false</code></pre>
+            <button onclick="testarUndefinedNull()">Testar Undefined/Null</button>
+            <div id="resultado-undefined-null" class="resultado" style="display:none;"></div>
+        </div>
+
+        <h2>5. typeof Operator</h2>
+        <div class="exemplo">
+            <p><strong>Identificando tipos de dados:</strong></p>
+            <pre><code>let valores = [
+    42,                    // number
+    "texto",               // string
+    true,                  // boolean
+    null,                  // object (bug histórico)
+    undefined,             // undefined
+    [1, 2, 3],            // object (array)
+    { nome: "João" },     // object
+    function() {},        // function
+    42n,                  // bigint
+    Symbol("id")          // symbol
+];
+
+valores.forEach((valor, index) => {
+    console.log(`Valor ${index + 1}:`, valor, "→ Tipo:", typeof valor);
+});</code></pre>
+            <button onclick="testarTypeof()">Testar typeof</button>
+            <div id="resultado-typeof" class="resultado" style="display:none;"></div>
+        </div>
+
+        <h2>6. Object (Objeto)</h2>
+        <div class="exemplo">
+            <p><strong>Criando e manipulando objetos:</strong></p>
+            <pre><code>let pessoa = {
+    nome: "João",
+    idade: 25,
+    cidade: "São Paulo",
+    apresentar: function() {
+        return `Olá, eu sou ${this.nome}, tenho ${this.idade} anos e moro em ${this.cidade}.`;
+    }
+};
+
+console.log("Nome:", pessoa.nome);
+console.log("Idade:", pessoa.idade);
+console.log("Apresentação:", pessoa.apresentar());
+console.log("Tipo:", typeof pessoa);</code></pre>
+            <button onclick="testarObject()">Testar Object</button>
+            <div id="resultado-object" class="resultado" style="display:none;"></div>
+        </div>
+    </div>
+
+    <script>
+        function logParaDiv(elementId, mensagens) {
+            const div = document.getElementById(elementId);
+            div.style.display = 'block';
+            div.innerHTML = '<strong>Resultado (veja também o console):</strong><pre>' + 
+                           mensagens.map(m => typeof m === 'object' ? JSON.stringify(m, null, 2) : m).join('\n') + 
+                           '</pre>';
+        }
+
+        function testarNumber() {
+            const mensagens = [];
+            let inteiro = 42;
+            let decimal = 3.14;
+            let hexadecimal = 0xFF;
+            let binario = 0b11111111;
+            let exponencial = 1.5e6;
+
+            mensagens.push(`Inteiro: ${inteiro}`);
+            mensagens.push(`Decimal: ${decimal}`);
+            mensagens.push(`Hexadecimal (0xFF): ${hexadecimal}`);
+            mensagens.push(`Binário (0b11111111): ${binario}`);
+            mensagens.push(`Exponencial (1.5e6): ${exponencial}`);
+            mensagens.push(`Tipo: ${typeof inteiro}`);
+
+            console.log("=== Testando Number ===");
+            mensagens.forEach(m => console.log(m));
+            logParaDiv('resultado-number', mensagens);
+        }
+
+        function testarString() {
+            const mensagens = [];
+            let nome1 = 'João';
+            let nome2 = "Maria";
+            let nome3 = `Pedro`;
+            let idade = 25;
+            let mensagem = `Olá, meu nome é ${nome1} e tenho ${idade} anos.`;
+
+            mensagens.push(`Nome 1 (aspas simples): ${nome1}`);
+            mensagens.push(`Nome 2 (aspas duplas): ${nome2}`);
+            mensagens.push(`Nome 3 (template literal): ${nome3}`);
+            mensagens.push(`Mensagem com interpolação: ${mensagem}`);
+            mensagens.push(`Tipo: ${typeof nome1}`);
+            mensagens.push(`Comprimento de "${nome1}": ${nome1.length}`);
+
+            console.log("=== Testando String ===");
+            mensagens.forEach(m => console.log(m));
+            logParaDiv('resultado-string', mensagens);
+        }
+
+        function testarBoolean() {
+            const mensagens = [];
+            let estaChovendo = true;
+            let estaEnsolarado = false;
+            let temIdade = 18 >= 16;
+
+            mensagens.push(`Está chovendo? ${estaChovendo}`);
+            mensagens.push(`Está ensolarado? ${estaEnsolarado}`);
+            mensagens.push(`Tem idade para votar (18 >= 16)? ${temIdade}`);
+            mensagens.push(`Tipo: ${typeof estaChovendo}`);
+
+            console.log("=== Testando Boolean ===");
+            mensagens.forEach(m => console.log(m));
+            logParaDiv('resultado-boolean', mensagens);
+        }
+
+        function testarUndefinedNull() {
+            const mensagens = [];
+            let variavel1;
+            let variavel2 = null;
+
+            mensagens.push(`Variável 1 (não inicializada): ${variavel1}`);
+            mensagens.push(`Variável 2 (null): ${variavel2}`);
+            mensagens.push(`Tipo de undefined: ${typeof variavel1}`);
+            mensagens.push(`Tipo de null: ${typeof variavel2}`);
+            mensagens.push(`São iguais (==)? ${variavel1 == variavel2}`);
+            mensagens.push(`São estritamente iguais (===)? ${variavel1 === variavel2}`);
+
+            console.log("=== Testando Undefined/Null ===");
+            mensagens.forEach(m => console.log(m));
+            logParaDiv('resultado-undefined-null', mensagens);
+        }
+
+        function testarTypeof() {
+            const mensagens = [];
+            let valores = [
+                42,
+                "texto",
+                true,
+                null,
+                undefined,
+                [1, 2, 3],
+                { nome: "João" },
+                function() {},
+                42n,
+                Symbol("id")
+            ];
+
+            const nomes = [
+                "42 (number)",
+                '"texto" (string)',
+                "true (boolean)",
+                "null",
+                "undefined",
+                "[1, 2, 3] (array)",
+                '{ nome: "João" } (object)',
+                "function() {} (function)",
+                "42n (bigint)",
+                'Symbol("id") (symbol)'
+            ];
+
+            valores.forEach((valor, index) => {
+                const tipo = typeof valor;
+                const info = Array.isArray(valor) ? 'array' : tipo;
+                mensagens.push(`${nomes[index]} → Tipo: ${info}`);
+            });
+
+            console.log("=== Testando typeof ===");
+            mensagens.forEach(m => console.log(m));
+            logParaDiv('resultado-typeof', mensagens);
+        }
+
+        function testarObject() {
+            const mensagens = [];
+            let pessoa = {
+                nome: "João",
+                idade: 25,
+                cidade: "São Paulo",
+                apresentar: function() {
+                    return `Olá, eu sou ${this.nome}, tenho ${this.idade} anos e moro em ${this.cidade}.`;
+                }
+            };
+
+            mensagens.push(`Nome: ${pessoa.nome}`);
+            mensagens.push(`Idade: ${pessoa.idade}`);
+            mensagens.push(`Cidade: ${pessoa.cidade}`);
+            mensagens.push(`Apresentação: ${pessoa.apresentar()}`);
+            mensagens.push(`Tipo: ${typeof pessoa}`);
+            mensagens.push(`Propriedades: ${Object.keys(pessoa).join(', ')}`);
+
+            console.log("=== Testando Object ===");
+            mensagens.forEach(m => console.log(m));
+            logParaDiv('resultado-object', mensagens);
+        }
+
+        // Executar automaticamente ao carregar
+        console.log("=== Página carregada ===");
+        console.log("Clique nos botões para testar cada tipo de dado!");
+    </script>
+</body>
+</html>
+

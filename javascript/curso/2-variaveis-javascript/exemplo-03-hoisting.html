@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 3: Hoisting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .output {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+            border-left: 4px solid #dc3545;
+        }
+        .warning {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+        }
+        .success {
+            background: #d4edda;
+            border-left-color: #28a745;
+        }
+        code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            display: block;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⬆️ Exemplo 3: Hoisting (Elevação)</h1>
+        <p>Este exemplo demonstra o comportamento de hoisting com <code>var</code>, <code>let</code> e <code>const</code>.</p>
+        
+        <h2>Resultado:</h2>
+        <div id="output" class="output">
+            <!-- O resultado será inserido aqui pelo JavaScript -->
+        </div>
+        
+        <p><strong>💡 Dica:</strong> Abra o console do navegador (F12) para ver os erros e comportamentos!</p>
+    </div>
+
+    <script>
+        // ============================================
+        // HOISTING COM var
+        // ============================================
+        
+        const output = document.getElementById('output');
+        let html = '';
+        
+        html += '<div class="warning">';
+        html += '<h3>📦 Hoisting com var</h3>';
+        html += '<p><strong>Código escrito:</strong></p>';
+        html += '<code>console.log(x);<br>var x = 5;<br>console.log(x);</code>';
+        html += '<p><strong>Como JavaScript interpreta:</strong></p>';
+        html += '<code>var x; // Declaração movida para o topo<br>console.log(x); // undefined<br>x = 5; // Atribuição permanece<br>console.log(x); // 5</code>';
+        html += '</div>';
+        
+        // Demonstração prática
+        html += '<div class="output">';
+        html += '<p><strong>Resultado prático:</strong></p>';
+        
+        // Tentar acessar antes da declaração
+        try {
+            html += `<p>Antes da declaração: ${typeof x !== 'undefined' ? x : 'undefined'}</p>`;
+        } catch (e) {
+            html += `<p>Erro: ${e.message}</p>`;
+        }
+        
+        var x = 5;
+        html += `<p>Depois da declaração: ${x}</p>`;
+        html += '<p><em>⚠️ var permite acesso antes da declaração (retorna undefined)</em></p>';
+        html += '</div>';
+        
+        // ============================================
+        // HOISTING COM let (Temporal Dead Zone)
+        // ============================================
+        
+        html += '<div class="warning">';
+        html += '<h3>🔒 Hoisting com let (Temporal Dead Zone)</h3>';
+        html += '<p><strong>Código escrito:</strong></p>';
+        html += '<code>console.log(y);<br>let y = 10;</code>';
+        html += '<p><strong>Comportamento:</strong></p>';
+        html += '<p><em>❌ Erro: Cannot access \'y\' before initialization</em></p>';
+        html += '<p><em>✅ let é hoisted, mas fica em "Temporal Dead Zone" até a declaração</em></p>';
+        html += '</div>';
+        
+        html += '<div class="output">';
+        html += '<p><strong>Resultado prático:</strong></p>';
+        
+        // Tentar acessar antes da declaração (vai gerar erro)
+        try {
+            // console.log(y); // Isso geraria erro
+            html += '<p>Antes da declaração: <em>❌ Erro se tentar acessar</em></p>';
+        } catch (e) {
+            html += `<p>Erro capturado: ${e.message}</p>`;
+        }
+        
+        let y = 10;
+        html += `<p>Depois da declaração: ${y}</p>`;
+        html += '<p><em>✅ let bloqueia acesso antes da inicialização</em></p>';
+        html += '</div>';
+        
+        // ============================================
+        // HOISTING COM const (Temporal Dead Zone)
+        // ============================================
+        
+        html += '<div class="warning">';
+        html += '<h3>🔐 Hoisting com const (Temporal Dead Zone)</h3>';
+        html += '<p><strong>Comportamento:</strong></p>';
+        html += '<p><em>❌ Erro: Cannot access \'z\' before initialization</em></p>';
+        html += '<p><em>✅ const tem o mesmo comportamento de let (TDZ)</em></p>';
+        html += '</div>';
+        
+        html += '<div class="output">';
+        html += '<p><strong>Resultado prático:</strong></p>';
+        
+        // Tentar acessar antes da declaração (vai gerar erro)
+        try {
+            // console.log(z); // Isso geraria erro
+            html += '<p>Antes da declaração: <em>❌ Erro se tentar acessar</em></p>';
+        } catch (e) {
+            html += `<p>Erro capturado: ${e.message}</p>`;
+        }
+        
+        const z = 20;
+        html += `<p>Depois da declaração: ${z}</p>`;
+        html += '<p><em>✅ const bloqueia acesso antes da inicialização</em></p>';
+        html += '</div>';
+        
+        // ============================================
+        // COMPARAÇÃO VISUAL
+        // ============================================
+        
+        html += '<div class="success">';
+        html += '<h3>📊 Comparação: var vs let/const</h3>';
+        html += '<table style="width: 100%; border-collapse: collapse;">';
+        html += '<tr style="background: #e9ecef;"><th style="padding: 10px; text-align: left;">Característica</th><th style="padding: 10px; text-align: left;">var</th><th style="padding: 10px; text-align: left;">let/const</th></tr>';
+        html += '<tr><td style="padding: 10px; border-bottom: 1px solid #dee2e6;">Hoisting</td><td style="padding: 10px; border-bottom: 1px solid #dee2e6;">✅ Sim (undefined)</td><td style="padding: 10px; border-bottom: 1px solid #dee2e6;">✅ Sim (TDZ)</td></tr>';
+        html += '<tr><td style="padding: 10px; border-bottom: 1px solid #dee2e6;">Acesso antes da declaração</td><td style="padding: 10px; border-bottom: 1px solid #dee2e6;">✅ Permite (undefined)</td><td style="padding: 10px; border-bottom: 1px solid #dee2e6;">❌ Erro</td></tr>';
+        html += '<tr><td style="padding: 10px; border-bottom: 1px solid #dee2e6;">Segurança</td><td style="padding: 10px; border-bottom: 1px solid #dee2e6;">⚠️ Pode causar bugs</td><td style="padding: 10px; border-bottom: 1px solid #dee2e6;">✅ Mais seguro</td></tr>';
+        html += '</table>';
+        html += '</div>';
+        
+        // ============================================
+        // BOA PRÁTICA: Declarar no topo
+        // ============================================
+        
+        html += '<div class="success">';
+        html += '<h3>✅ Boa Prática: Declarar no Topo</h3>';
+        html += '<p><strong>❌ Evitar:</strong></p>';
+        html += '<code>console.log(nome);<br>var nome = "João";</code>';
+        html += '<p><strong>✅ Preferir:</strong></p>';
+        html += '<code>var nome = "João";<br>console.log(nome);</code>';
+        html += '<p><em>Declare variáveis no topo do escopo para evitar confusão com hoisting!</em></p>';
+        html += '</div>';
+        
+        output.innerHTML = html;
+        
+        // ============================================
+        // Console para debugging
+        // ============================================
+        
+        console.log("=== Exemplo 3: Hoisting ===");
+        console.log("x (var):", x);
+        console.log("y (let):", y);
+        console.log("z (const):", z);
+        
+        // Demonstração de hoisting com var
+        console.log("\n--- Demonstração de Hoisting com var ---");
+        console.log("Antes da declaração (var):", typeof exemploVar !== 'undefined' ? exemploVar : 'undefined');
+        var exemploVar = "Declarado depois";
+        console.log("Depois da declaração (var):", exemploVar);
+        
+        // Tentar demonstrar TDZ com let (vai gerar erro se descomentado)
+        // console.log("Antes da declaração (let):", exemploLet); // Erro!
+        let exemploLet = "Declarado depois";
+        console.log("Depois da declaração (let):", exemploLet);
+    </script>
+</body>
+</html>
+

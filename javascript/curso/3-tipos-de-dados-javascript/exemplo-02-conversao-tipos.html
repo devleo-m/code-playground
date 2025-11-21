@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversão de Tipos - JavaScript</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #FF9800;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #555;
+            margin-top: 30px;
+        }
+        .exemplo {
+            background: #f9f9f9;
+            border-left: 4px solid #FF9800;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        button {
+            background: #FF9800;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button:hover {
+            background: #F57C00;
+        }
+        .resultado {
+            background: #fff3e0;
+            border-left: 4px solid #FF9800;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .aviso {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔄 Conversão de Tipos em JavaScript</h1>
+        <p>Abra o console do navegador (F12) para ver os resultados detalhados.</p>
+
+        <div class="aviso">
+            <strong>⚠️ Atenção:</strong> Conversões implícitas podem causar bugs! Sempre prefira conversões explícitas.
+        </div>
+
+        <h2>1. Conversão para String</h2>
+        <div class="exemplo">
+            <p><strong>Três formas de converter para string:</strong></p>
+            <pre><code>let numero = 42;
+let booleano = true;
+let objeto = { nome: "João" };
+
+// Método 1: String()
+let str1 = String(numero);        // "42"
+let str2 = String(booleano);      // "true"
+let str3 = String(objeto);        // "[object Object]"
+
+// Método 2: .toString()
+let str4 = numero.toString();     // "42"
+let str5 = booleano.toString();    // "true"
+
+// Método 3: Template literal
+let str6 = `${numero}`;           // "42"
+let str7 = `${booleano}`;         // "true"</code></pre>
+            <button onclick="testarConversaoString()">Testar Conversão para String</button>
+            <div id="resultado-string" class="resultado" style="display:none;"></div>
+        </div>
+
+        <h2>2. Conversão para Number</h2>
+        <div class="exemplo">
+            <p><strong>Formas de converter para número:</strong></p>
+            <pre><code>let texto1 = "42";
+let texto2 = "3.14";
+let texto3 = "42abc";
+let texto4 = "abc";
+
+// Método 1: Number()
+let num1 = Number(texto1);        // 42
+let num2 = Number(texto2);        // 3.14
+let num3 = Number(texto3);       // NaN
+let num4 = Number(texto4);       // NaN
+
+// Método 2: parseInt() - para inteiros
+let num5 = parseInt(texto1, 10); // 42
+let num6 = parseInt(texto2, 10); // 3 (trunca decimais)
+
+// Método 3: parseFloat() - para decimais
+let num7 = parseFloat(texto2);    // 3.14
+
+// Método 4: Operador unário +
+let num8 = +texto1;               // 42
+let num9 = +texto3;               // NaN</code></pre>
+            <button onclick="testarConversaoNumber()">Testar Conversão para Number</button>
+            <div id="resultado-number" class="resultado" style="display:none;"></div>
+        </div>
+
+        <h2>3. Conversão para Boolean</h2>
+        <div class="exemplo">
+            <p><strong>Valores truthy e falsy:</strong></p>
+            <pre><code>// Valores Falsy (convertem para false)
+Boolean(false);      // false
+Boolean(0);          // false
+Boolean("");         // false
+Boolean(null);       // false
+Boolean(undefined); // false
+Boolean(NaN);        // false
+
+// Valores Truthy (convertem para true)
+Boolean(true);       // true
+Boolean(1);          // true
+Boolean("texto");    // true
+Boolean([]);         // true (array vazio é truthy!)
+Boolean({});         // true (objeto vazio é truthy!)
+Boolean(function(){}); // true
+
+// Método alternativo: negação dupla (!!)
+let valor = "texto";
+let bool1 = Boolean(valor);  // true
+let bool2 = !!valor;         // true (mesmo resultado)</code></pre>
+            <button onclick="testarConversaoBoolean()">Testar Conversão para Boolean</button>
+            <div id="resultado-boolean" class="resultado" style="display:none;"></div>
+        </div>
+
+        <h2>4. Conversões Implícitas (Cuidado!)</h2>
+        <div class="exemplo">
+            <p><strong>JavaScript converte automaticamente em algumas situações:</strong></p>
+            <pre><code>// String + Number = String (concatenação)
+"5" + 3;        // "53" (não 8!)
+
+// String - Number = Number (subtração força conversão)
+"5" - 3;        // 2
+
+// Boolean em operações numéricas
+true + 1;       // 2 (true vira 1)
+false + 1;      // 1 (false vira 0)
+
+// Comparações com == (permite conversão)
+"5" == 5;       // true (conversão implícita)
+"5" === 5;      // false (sem conversão)
+
+// Comparações com === (sem conversão - PREFIRA!)
+"5" === 5;      // false (tipos diferentes)</code></pre>
+            <button onclick="testarConversoesImplicitas()">Testar Conversões Implícitas</button>
+            <div id="resultado-implicitas" class="resultado" style="display:none;"></div>
+        </div>
+
+        <h2>5. Validação de Conversões</h2>
+        <div class="exemplo">
+            <p><strong>Como verificar se uma conversão foi bem-sucedida:</strong></p>
+            <pre><code>function podeSerNumero(valor) {
+    let numero = Number(valor);
+    return !isNaN(numero) && isFinite(numero);
+}
+
+function podeSerInteiro(valor) {
+    return Number.isInteger(Number(valor));
+}
+
+// Testes
+podeSerNumero("42");      // true
+podeSerNumero("abc");     // false
+podeSerNumero("42abc");   // false
+podeSerNumero(42);        // true
+podeSerInteiro("42");     // true
+podeSerInteiro("3.14");   // false</code></pre>
+            <button onclick="testarValidacao()">Testar Validação</button>
+            <div id="resultado-validacao" class="resultado" style="display:none;"></div>
+        </div>
+    </div>
+
+    <script>
+        function logParaDiv(elementId, mensagens) {
+            const div = document.getElementById(elementId);
+            div.style.display = 'block';
+            div.innerHTML = '<strong>Resultado (veja também o console):</strong><pre>' + 
+                           mensagens.map(m => typeof m === 'object' ? JSON.stringify(m, null, 2) : String(m)).join('\n') + 
+                           '</pre>';
+        }
+
+        function testarConversaoString() {
+            const mensagens = [];
+            let numero = 42;
+            let booleano = true;
+            let objeto = { nome: "João" };
+
+            mensagens.push("=== Conversão para String ===");
+            mensagens.push(`String(42): "${String(numero)}"`);
+            mensagens.push(`String(true): "${String(booleano)}"`);
+            mensagens.push(`String({}): "${String(objeto)}"`);
+            mensagens.push(`42.toString(): "${numero.toString()}"`);
+            mensagens.push(`true.toString(): "${booleano.toString()}"`);
+            mensagens.push(`\`${numero}\`: "${`${numero}`}"`);
+            mensagens.push(`\`${booleano}\`: "${`${booleano}`}"`);
+
+            console.log("=== Testando Conversão para String ===");
+            mensagens.forEach(m => console.log(m));
+            logParaDiv('resultado-string', mensagens);
+        }
+
+        function testarConversaoNumber() {
+            const mensagens = [];
+            let texto1 = "42";
+            let texto2 = "3.14";
+            let texto3 = "42abc";
+            let texto4 = "abc";
+
+            mensagens.push("=== Conversão para Number ===");
+            mensagens.push(`Number("42"): ${Number(texto1)}`);
+            mensagens.push(`Number("3.14"): ${Number(texto2)}`);
+            mensagens.push(`Number("42abc"): ${Number(texto3)} (NaN)`);
+            mensagens.push(`Number("abc"): ${Number(texto4)} (NaN)`);
+            mensagens.push(`parseInt("42", 10): ${parseInt(texto1, 10)}`);
+            mensagens.push(`parseInt("3.14", 10): ${parseInt(texto2, 10)} (trunca)`);
+            mensagens.push(`parseFloat("3.14"): ${parseFloat(texto2)}`);
+            mensagens.push(`+"42": ${+texto1}`);
+            mensagens.push(`+"42abc": ${+texto3} (NaN)`);
+
+            console.log("=== Testando Conversão para Number ===");
+            mensagens.forEach(m => console.log(m));
+            logParaDiv('resultado-number', mensagens);
+        }
+
+        function testarConversaoBoolean() {
+            const mensagens = [];
+            
+            mensagens.push("=== Valores Falsy ===");
+            mensagens.push(`Boolean(false): ${Boolean(false)}`);
+            mensagens.push(`Boolean(0): ${Boolean(0)}`);
+            mensagens.push(`Boolean(""): ${Boolean("")}`);
+            mensagens.push(`Boolean(null): ${Boolean(null)}`);
+            mensagens.push(`Boolean(undefined): ${Boolean(undefined)}`);
+            mensagens.push(`Boolean(NaN): ${Boolean(NaN)}`);
+            
+            mensagens.push("\n=== Valores Truthy ===");
+            mensagens.push(`Boolean(true): ${Boolean(true)}`);
+            mensagens.push(`Boolean(1): ${Boolean(1)}`);
+            mensagens.push(`Boolean("texto"): ${Boolean("texto")}`);
+            mensagens.push(`Boolean([]): ${Boolean([])} (array vazio é truthy!)`);
+            mensagens.push(`Boolean({}): ${Boolean({})} (objeto vazio é truthy!)`);
+            
+            mensagens.push("\n=== Negação Dupla (!!) ===");
+            mensagens.push(`!!"texto": ${!!"texto"}`);
+            mensagens.push(`!!"": ${!!""}`);
+            mensagens.push(`!!0: ${!!0}`);
+            mensagens.push(`!!1: ${!!1}`);
+
+            console.log("=== Testando Conversão para Boolean ===");
+            mensagens.forEach(m => console.log(m));
+            logParaDiv('resultado-boolean', mensagens);
+        }
+
+        function testarConversoesImplicitas() {
+            const mensagens = [];
+            
+            mensagens.push("=== Conversões Implícitas (CUIDADO!) ===");
+            mensagens.push(`"5" + 3: "${"5" + 3}" (concatenação, não soma!)`);
+            mensagens.push(`"5" - 3: ${"5" - 3} (subtração força conversão)`);
+            mensagens.push(`"5" * 3: ${"5" * 3}`);
+            mensagens.push(`"5" / 3: ${"5" / 3}`);
+            mensagens.push(`true + 1: ${true + 1} (true vira 1)`);
+            mensagens.push(`false + 1: ${false + 1} (false vira 0)`);
+            mensagens.push(`"" + 42: "${"" + 42}" (número vira string)`);
+            
+            mensagens.push("\n=== Comparações ===");
+            mensagens.push(`"5" == 5: ${"5" == 5} (conversão implícita)`);
+            mensagens.push(`"5" === 5: ${"5" === 5} (sem conversão - PREFIRA!)`);
+            mensagens.push(`null == undefined: ${null == undefined}`);
+            mensagens.push(`null === undefined: ${null === undefined}`);
+
+            console.log("=== Testando Conversões Implícitas ===");
+            mensagens.forEach(m => console.log(m));
+            logParaDiv('resultado-implicitas', mensagens);
+        }
+
+        function testarValidacao() {
+            const mensagens = [];
+            
+            function podeSerNumero(valor) {
+                let numero = Number(valor);
+                return !isNaN(numero) && isFinite(numero);
+            }
+            
+            function podeSerInteiro(valor) {
+                return Number.isInteger(Number(valor));
+            }
+
+            mensagens.push("=== Validação de Conversões ===");
+            mensagens.push(`podeSerNumero("42"): ${podeSerNumero("42")}`);
+            mensagens.push(`podeSerNumero("abc"): ${podeSerNumero("abc")}`);
+            mensagens.push(`podeSerNumero("42abc"): ${podeSerNumero("42abc")}`);
+            mensagens.push(`podeSerNumero(42): ${podeSerNumero(42)}`);
+            mensagens.push(`podeSerInteiro("42"): ${podeSerInteiro("42")}`);
+            mensagens.push(`podeSerInteiro("3.14"): ${podeSerInteiro("3.14")}`);
+            mensagens.push(`podeSerInteiro(3.14): ${podeSerInteiro(3.14)}`);
+
+            console.log("=== Testando Validação ===");
+            mensagens.forEach(m => console.log(m));
+            logParaDiv('resultado-validacao', mensagens);
+        }
+
+        console.log("=== Página de Conversão de Tipos carregada ===");
+        console.log("Clique nos botões para testar cada tipo de conversão!");
+    </script>
+</body>
+</html>
+
