@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- ============================================ -->
+    <!-- META TAGS ESSENCIAIS (Aula 1, 3, 4, 8) -->
+    <!-- ============================================ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags (Aula 8) -->
+    <title>Curso Completo de HTML - Revisão Final | WebDev Academy</title>
+    <meta name="description" content="Página de demonstração completa com todos os conceitos de HTML aprendidos no curso. Estrutura semântica, formulários, mídia, SEO e muito mais!">
+    <meta name="author" content="WebDev Academy">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="content-language" content="pt-BR">
+    
+    <!-- Open Graph (Aula 8) -->
+    <meta property="og:title" content="Curso Completo de HTML - Revisão Final">
+    <meta property="og:description" content="Demonstração completa de todos os conceitos HTML aprendidos no curso.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    
+    <!-- Twitter Cards (Aula 8) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Curso Completo de HTML - Revisão Final">
+    <meta name="twitter:description" content="Demonstração completa de todos os conceitos HTML.">
+    
+    <!-- Performance (Aula 8) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+    <!-- CSS Interno (Aula 7) -->
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        /* Header (Aula 7) */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 1rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: #34495e;
+            border-radius: 4px;
+        }
+        
+        /* Main (Aula 7) */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* Seções (Aula 7) */
+        section {
+            background: white;
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            color: #34495e;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        h3 {
+            color: #7f8c8d;
+            margin-top: 1rem;
+        }
+        
+        /* Tabelas (Aula 5) */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        /* Formulários (Aula 6) */
+        form {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        fieldset {
+            border: 2px solid #3498db;
+            border-radius: 4px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        legend {
+            color: #2c3e50;
+            font-weight: bold;
+            padding: 0 0.5rem;
+        }
+        
+        label {
+            display: block;
+            margin: 0.5rem 0;
+            font-weight: bold;
+            color: #34495e;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        input[type="date"],
+        input[type="tel"],
+        input[type="url"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+        }
+        
+        input:valid {
+            border-color: #27ae60;
+        }
+        
+        input:invalid:not(:placeholder-shown) {
+            border-color: #e74c3c;
+        }
+        
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        button[type="reset"] {
+            background-color: #95a5a6;
+        }
+        
+        button[type="reset"]:hover {
+            background-color: #7f8c8d;
+        }
+        
+        /* Listas (Aula 5) */
+        ul, ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        li {
+            margin: 0.5rem 0;
+        }
+        
+        /* Citações (Aula 7) */
+        blockquote {
+            border-left: 4px solid #3498db;
+            padding-left: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+            color: #555;
+        }
+        
+        /* Footer (Aula 7) */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        /* Destaques (Aula 4, 7) */
+        .destaque {
+            background-color: #fff3cd;
+            padding: 1rem;
+            border-left: 4px solid #ffc107;
+            margin: 1rem 0;
+        }
+        
+        /* Responsivo */
+        @media (max-width: 768px) {
+            main {
+                padding: 1rem;
+            }
+            
+            section {
+                padding: 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================================ -->
+    <!-- HEADER E NAVEGAÇÃO (Aula 7) -->
+    <!-- ============================================ -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#estrutura">Estrutura</a></li>
+                <li><a href="#conteudo">Conteúdo</a></li>
+                <li><a href="#midia">Mídia</a></li>
+                <li><a href="#formularios">Formulários</a></li>
+                <li><a href="#seo">SEO</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ============================================ -->
+    <!-- CONTEÚDO PRINCIPAL (Aula 7) -->
+    <!-- ============================================ -->
+    <main>
+        <!-- Seção: Introdução (Aula 1, 4) -->
+        <section id="inicio">
+            <h1>Curso Completo de HTML - Revisão Final</h1>
+            <p>
+                Esta página demonstra <strong>todos os conceitos</strong> aprendidos nas 8 aulas do curso de HTML.
+                Aqui você encontrará exemplos práticos de <em>estrutura semântica</em>, <mark>formatação de texto</mark>,
+                listas, tabelas, formulários, mídia e otimizações de SEO.
+            </p>
+            
+            <div class="destaque">
+                <p>
+                    <strong>Nota:</strong> Esta página foi criada para revisar todos os conceitos aprendidos.
+                    Cada seção demonstra elementos específicos do HTML5.
+                </p>
+            </div>
+        </section>
+
+        <!-- Seção: Estrutura e Semântica (Aula 1, 3, 4, 7) -->
+        <section id="estrutura">
+            <h2>1. Estrutura e Semântica HTML5</h2>
+            
+            <h3>Hierarquia de Títulos (Aula 4)</h3>
+            <p>
+                A hierarquia correta de títulos é essencial para SEO e acessibilidade.
+                Use apenas <strong>um H1</strong> por página e mantenha a ordem lógica.
+            </p>
+            
+            <h3>Elementos Semânticos (Aula 7)</h3>
+            <p>
+                HTML5 introduziu elementos semânticos que descrevem o <dfn>significado</dfn> do conteúdo,
+                não apenas sua aparência. Isso melhora acessibilidade e SEO.
+            </p>
+            
+            <h3>Formatação de Texto (Aula 4, 7)</h3>
+            <p>
+                Podemos usar várias tags para formatar texto:
+            </p>
+            <ul>
+                <li><strong>strong</strong> - Importância forte (semântico)</li>
+                <li><b>b</b> - Negrito (visual)</li>
+                <li><em>em</em> - Ênfase (semântico)</li>
+                <li><i>i</i> - Itálico (visual)</li>
+                <li><mark>mark</mark> - Texto marcado</li>
+                <li>H<sub>2</sub>O - Subscrito</li>
+                <li>E=mc<sup>2</sup> - Sobrescrito</li>
+            </ul>
+            
+            <h3>Mudanças em Documentos (Aula 7)</h3>
+            <p>
+                O preço era <del datetime="2024-01-01">R$ 100,00</del>
+                <ins datetime="2024-01-15">R$ 80,00</ins>.
+            </p>
+            <p>
+                <s>Promoção válida até 31 de dezembro</s>
+            </p>
+            <p>
+                Promoção estendida até 15 de janeiro!
+            </p>
+            
+            <h3>Citações e Referências (Aula 7)</h3>
+            <blockquote cite="https://www.exemplo.com">
+                <p>
+                    A única forma de fazer um excelente trabalho é amar o que você faz.
+                </p>
+                <cite>— Steve Jobs</cite>
+            </blockquote>
+            
+            <p>
+                Como disse Einstein: <q cite="https://exemplo.com">
+                A imaginação é mais importante que o conhecimento
+                </q>.
+            </p>
+            
+            <p>
+                O <abbr title="HyperText Markup Language">HTML</abbr> é a linguagem
+                de marcação da web. O <abbr title="Cascading Style Sheets">CSS</abbr>
+                é usado para estilização.
+            </p>
+        </section>
+
+        <!-- Seção: Listas e Tabelas (Aula 5) -->
+        <section id="conteudo">
+            <h2>2. Listas e Tabelas</h2>
+            
+            <h3>Listas Ordenadas (Aula 5)</h3>
+            <ol>
+                <li>Primeiro passo: Aprender HTML</li>
+                <li>Segundo passo: Aprender CSS</li>
+                <li>Terceiro passo: Aprender JavaScript</li>
+                <li>Quarto passo: Praticar muito!</li>
+            </ol>
+            
+            <h3>Listas Não Ordenadas (Aula 5)</h3>
+            <ul>
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
+                <li>Responsive Design</li>
+            </ul>
+            
+            <h3>Listas Aninhadas (Aula 5)</h3>
+            <ul>
+                <li>Frontend
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </li>
+                <li>Backend
+                    <ul>
+                        <li>Node.js</li>
+                        <li>Python</li>
+                        <li>PHP</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <h3>Lista de Definição (Aula 5)</h3>
+            <dl>
+                <dt>HTML</dt>
+                <dd>HyperText Markup Language - Linguagem de marcação para web</dd>
+                
+                <dt>CSS</dt>
+                <dd>Cascading Style Sheets - Linguagem de estilização</dd>
+                
+                <dt>JavaScript</dt>
+                <dd>Linguagem de programação para web</dd>
+            </dl>
+            
+            <h3>Tabelas Estruturadas (Aula 5)</h3>
+            <table>
+                <caption>Comparação de Tecnologias Web</caption>
+                <thead>
+                    <tr>
+                        <th>Tecnologia</th>
+                        <th>Função</th>
+                        <th>Nível</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>HTML</td>
+                        <td>Estrutura</td>
+                        <td>Básico</td>
+                    </tr>
+                    <tr>
+                        <td>CSS</td>
+                        <td>Estilo</td>
+                        <td>Intermediário</td>
+                    </tr>
+                    <tr>
+                        <td>JavaScript</td>
+                        <td>Comportamento</td>
+                        <td>Avançado</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3"><strong>Total: 3 tecnologias fundamentais</strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+            
+            <h3>Tabela com Colspan e Rowspan (Aula 5)</h3>
+            <table>
+                <tr>
+                    <th rowspan="2">Nome</th>
+                    <th colspan="2">Notas</th>
+                </tr>
+                <tr>
+                    <th>Prova 1</th>
+                    <th>Prova 2</th>
+                </tr>
+                <tr>
+                    <td>João</td>
+                    <td>8.5</td>
+                    <td>9.0</td>
+                </tr>
+                <tr>
+                    <td>Maria</td>
+                    <td>7.5</td>
+                    <td>8.5</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Seção: Mídia (Aula 6) -->
+        <section id="midia">
+            <h2>3. Embedding Media</h2>
+            
+            <h3>Imagens (Aula 6)</h3>
+            <p>
+                Sempre use o atributo <code>alt</code> descritivo para acessibilidade e SEO.
+            </p>
+            <figure>
+                <img src="https://via.placeholder.com/400x200/3498db/ffffff?text=Exemplo+de+Imagem" 
+                     alt="Imagem de exemplo demonstrando o uso correto do atributo alt"
+                     width="400"
+                     height="200"
+                     loading="lazy">
+                <figcaption>Figura 1: Exemplo de imagem com figure e figcaption</figcaption>
+            </figure>
+            
+            <h3>Áudio (Aula 6)</h3>
+            <p>Exemplo de elemento de áudio (sem arquivo real, apenas estrutura):</p>
+            <audio controls>
+                <source src="audio/exemplo.mp3" type="audio/mpeg">
+                <source src="audio/exemplo.ogg" type="audio/ogg">
+                <p>
+                    Seu navegador não suporta áudio HTML5.
+                    <a href="audio/exemplo.mp3">Baixe o arquivo</a>.
+                </p>
+            </audio>
+            
+            <h3>Vídeo (Aula 6)</h3>
+            <p>Exemplo de elemento de vídeo (sem arquivo real, apenas estrutura):</p>
+            <video controls width="640" height="360" poster="https://via.placeholder.com/640x360" preload="metadata">
+                <source src="video/exemplo.mp4" type="video/mp4">
+                <source src="video/exemplo.webm" type="video/webm">
+                <track kind="subtitles" src="legendas-pt.vtt" srclang="pt" label="Português" default>
+                <p>
+                    Seu navegador não suporta vídeo HTML5.
+                    <a href="video/exemplo.mp4">Baixe o vídeo</a>.
+                </p>
+            </video>
+        </section>
+
+        <!-- Seção: Formulários (Aula 6) -->
+        <section id="formularios">
+            <h2>4. Formulários Completos</h2>
+            
+            <h3>Formulário de Contato (Aula 6)</h3>
+            <form action="/processar" method="post" novalidate>
+                <fieldset>
+                    <legend>Informações Pessoais</legend>
+                    
+                    <label for="nome">Nome completo: <abbr title="obrigatório">*</abbr></label>
+                    <input type="text" 
+                           id="nome" 
+                           name="nome" 
+                           required
+                           minlength="3"
+                           maxlength="100"
+                           pattern="[A-Za-zÀ-ÿ\s]+"
+                           title="Apenas letras e espaços"
+                           placeholder="Digite seu nome completo"
+                           autocomplete="name">
+                    
+                    <label for="email">Email: <abbr title="obrigatório">*</abbr></label>
+                    <input type="email" 
+                           id="email" 
+                           name="email" 
+                           required
+                           placeholder="seu@email.com"
+                           autocomplete="email">
+                    
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" 
+                           id="telefone" 
+                           name="telefone" 
+                           pattern="[0-9]{2} [0-9]{5}-[0-9]{4}"
+                           placeholder="11 99999-9999"
+                           autocomplete="tel">
+                    
+                    <label for="website">Website:</label>
+                    <input type="url" 
+                           id="website" 
+                           name="website" 
+                           placeholder="https://exemplo.com">
+                    
+                    <label for="nascimento">Data de nascimento:</label>
+                    <input type="date" 
+                           id="nascimento" 
+                           name="nascimento" 
+                           min="1900-01-01" 
+                           max="2024-12-31">
+                    
+                    <label for="idade">Idade:</label>
+                    <input type="number" 
+                           id="idade" 
+                           name="idade" 
+                           min="18" 
+                           max="100" 
+                           step="1"
+                           placeholder="Digite sua idade">
+                </fieldset>
+                
+                <fieldset>
+                    <legend>Preferências</legend>
+                    
+                    <label for="pais">País:</label>
+                    <select id="pais" name="pais" required>
+                        <option value="">Selecione um país</option>
+                        <option value="br">Brasil</option>
+                        <option value="us">Estados Unidos</option>
+                        <option value="pt">Portugal</option>
+                        <option value="es">Espanha</option>
+                    </select>
+                    
+                    <label>Interesses (selecione múltiplos):</label>
+                    <select id="interesses" name="interesses" multiple size="4">
+                        <option value="tecnologia">Tecnologia</option>
+                        <option value="esportes">Esportes</option>
+                        <option value="musica">Música</option>
+                        <option value="viagens">Viagens</option>
+                        <option value="leitura">Leitura</option>
+                    </select>
+                    
+                    <fieldset>
+                        <legend>Gênero:</legend>
+                        <label>
+                            <input type="radio" name="genero" value="masculino" required>
+                            Masculino
+                        </label>
+                        <label>
+                            <input type="radio" name="genero" value="feminino">
+                            Feminino
+                        </label>
+                        <label>
+                            <input type="radio" name="genero" value="outro">
+                            Outro
+                        </label>
+                        <label>
+                            <input type="radio" name="genero" value="prefiro-nao-dizer">
+                            Prefiro não dizer
+                        </label>
+                    </fieldset>
+                    
+                    <label>
+                        <input type="checkbox" name="newsletter" value="sim">
+                        Desejo receber newsletter
+                    </label>
+                    
+                    <label>
+                        <input type="checkbox" name="termos" value="aceito" required>
+                        Aceito os <a href="/termos" target="_blank" rel="noopener noreferrer">termos e condições</a>
+                    </label>
+                </fieldset>
+                
+                <fieldset>
+                    <legend>Mensagem</legend>
+                    
+                    <label for="mensagem">Mensagem: <abbr title="obrigatório">*</abbr></label>
+                    <textarea id="mensagem" 
+                              name="mensagem" 
+                              rows="5" 
+                              cols="50"
+                              required
+                              minlength="10"
+                              maxlength="500"
+                              placeholder="Digite sua mensagem aqui..."></textarea>
+                    
+                    <label for="arquivo">Anexar arquivo (opcional):</label>
+                    <input type="file" 
+                           id="arquivo" 
+                           name="arquivo" 
+                           accept=".pdf,.doc,.docx,image/*">
+                    
+                    <label for="cor">Cor favorita:</label>
+                    <input type="color" 
+                           id="cor" 
+                           name="cor" 
+                           value="#3498db">
+                    
+                    <label for="volume">Volume (0-100):</label>
+                    <input type="range" 
+                           id="volume" 
+                           name="volume" 
+                           min="0" 
+                           max="100" 
+                           value="50">
+                    <span id="volume-valor">50</span>
+                </fieldset>
+                
+                <button type="submit">Enviar Formulário</button>
+                <button type="reset">Limpar Formulário</button>
+            </form>
+        </section>
+
+        <!-- Seção: SEO e Dados Estruturados (Aula 8) -->
+        <section id="seo">
+            <h2>5. SEO e Dados Estruturados</h2>
+            
+            <h3>Links Internos Otimizados (Aula 8)</h3>
+            <p>
+                Links internos devem ter texto descritivo:
+            </p>
+            <ul>
+                <li><a href="#inicio">Ir para o início da página</a></li>
+                <li><a href="#estrutura">Ver seção de estrutura</a></li>
+                <li><a href="#formularios">Acessar formulários</a></li>
+            </ul>
+            
+            <h3>Links Externos Seguros (Aula 4, 8)</h3>
+            <p>
+                Sempre use <code>rel="noopener noreferrer"</code> com <code>target="_blank"</code>:
+            </p>
+            <p>
+                Visite o <a href="https://developer.mozilla.org" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           title="MDN Web Docs - Recursos para desenvolvedores">
+                    MDN Web Docs
+                </a> para mais informações sobre HTML.
+            </p>
+            
+            <h3>Dados Estruturados (Aula 8)</h3>
+            <p>
+                Dados estruturados ajudam mecanismos de busca a entender melhor o conteúdo.
+                Veja o código-fonte desta página para ver exemplos de JSON-LD.
+            </p>
+        </section>
+
+        <!-- Seção: Agrupamento (Aula 5) -->
+        <section>
+            <h2>6. Agrupamento com Div e Span</h2>
+            
+            <h3>Div (Block-level) - Aula 5</h3>
+            <div style="background-color: #e8f4f8; padding: 1rem; border-radius: 4px; margin: 1rem 0;">
+                <p>Este é um <strong>div</strong> (elemento block-level) que agrupa conteúdo relacionado.</p>
+                <p>Divs são usados para estruturação e layout.</p>
+            </div>
+            
+            <h3>Span (Inline) - Aula 5</h3>
+            <p>
+                Este parágrafo contém um <span style="background-color: #fff3cd; padding: 0.2rem 0.5rem; border-radius: 3px;">
+                span inline</span> que destaca parte do texto sem quebrar o fluxo.
+            </p>
+        </section>
+
+        <!-- Seção: Atributos (Aula 3, 5) -->
+        <section>
+            <h2>7. Atributos HTML</h2>
+            
+            <h3>Atributos Globais (Aula 5)</h3>
+            <ul>
+                <li><strong>id</strong>: Identificador único (ex: <code>id="secao1"</code>)</li>
+                <li><strong>class</strong>: Classe para estilização (ex: <code>class="destaque"</code>)</li>
+                <li><strong>data-*</strong>: Dados customizados (ex: <code>data-usuario="123"</code>)</li>
+                <li><strong>title</strong>: Tooltip ao passar o mouse</li>
+                <li><strong>lang</strong>: Idioma do elemento</li>
+            </ul>
+            
+            <div data-exemplo="demonstracao" 
+                 data-aula="9" 
+                 title="Este é um exemplo de atributos data-*">
+                <p>Este elemento usa atributos <code>data-*</code> para armazenar informações customizadas.</p>
+            </div>
+        </section>
+
+        <!-- Seção: Texto Pré-formatado (Aula 4) -->
+        <section>
+            <h2>8. Texto Pré-formatado</h2>
+            
+            <h3>Tag Pre (Aula 4)</h3>
+            <pre>
+function exemplo() {
+    console.log("Olá, mundo!");
+    return true;
+}
+            </pre>
+            
+            <h3>Tag Code (Aula 4)</h3>
+            <p>
+                Use <code>&lt;code&gt;</code> para código inline e 
+                <code>&lt;pre&gt;&lt;code&gt;</code> para blocos de código.
+            </p>
+        </section>
+    </main>
+
+    <!-- ============================================ -->
+    <!-- FOOTER (Aula 7) -->
+    <!-- ============================================ -->
+    <footer>
+        <address>
+            <p><strong>WebDev Academy</strong></p>
+            <p>
+                Email: <a href="mailto:contato@webdevacademy.com">contato@webdevacademy.com</a>
+            </p>
+            <p>
+                Telefone: <a href="tel:+5511999999999">(11) 99999-9999</a>
+            </p>
+        </address>
+        
+        <nav>
+            <ul style="list-style: none; padding: 0;">
+                <li style="display: inline; margin: 0 1rem;">
+                    <a href="/privacidade" style="color: white;">Privacidade</a>
+                </li>
+                <li style="display: inline; margin: 0 1rem;">
+                    <a href="/termos" style="color: white;">Termos de Uso</a>
+                </li>
+                <li style="display: inline; margin: 0 1rem;">
+                    <a href="/sobre" style="color: white;">Sobre</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <p>&copy; 2024 WebDev Academy. Todos os direitos reservados.</p>
+        <p>
+            <small>Última atualização: <time datetime="2024-01-20">20 de janeiro de 2024</time></small>
+        </p>
+    </footer>
+
+    <!-- ============================================ -->
+    <!-- DADOS ESTRUTURADOS (Aula 8) -->
+    <!-- ============================================ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Curso Completo de HTML - Revisão Final",
+      "description": "Página de demonstração completa com todos os conceitos de HTML aprendidos no curso.",
+      "author": {
+        "@type": "Organization",
+        "name": "WebDev Academy"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "WebDev Academy",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.webdevacademy.com/logo.png"
+        }
+      },
+      "datePublished": "2024-01-20",
+      "dateModified": "2024-01-20"
+    }
+    </script>
+
+    <!-- ============================================ -->
+    <!-- JAVASCRIPT (Aula 7) -->
+    <!-- ============================================ -->
+    <script>
+        // Exemplo de JavaScript interno (Aula 7)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Atualizar valor do range
+            const volumeInput = document.getElementById('volume');
+            const volumeValor = document.getElementById('volume-valor');
+            
+            if (volumeInput && volumeValor) {
+                volumeInput.addEventListener('input', function() {
+                    volumeValor.textContent = this.value;
+                });
+            }
+            
+            // Validação customizada de formulário
+            const form = document.querySelector('form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    // Validação adicional pode ser adicionada aqui
+                    console.log('Formulário enviado!');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
