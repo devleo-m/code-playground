@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops while e do...while - Exemplos Práticos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .example {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #28a745;
+        }
+        .example.while {
+            border-left-color: #007bff;
+        }
+        .example.dowhile {
+            border-left-color: #ffc107;
+        }
+        .example h3 {
+            margin-top: 0;
+        }
+        .example.while h3 {
+            color: #007bff;
+        }
+        .example.dowhile h3 {
+            color: #ffc107;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        #output {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #dee2e6;
+        }
+        code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔁 Loops while e do...while - Exemplos Práticos</h1>
+    
+    <div class="container">
+        <h2>Exemplos de Loops while</h2>
+        
+        <div class="example while">
+            <h3>1. while Básico</h3>
+            <p>Conta de 0 a 4 usando loop while.</p>
+            <button onclick="exemploWhile1()">Executar Exemplo 1</button>
+        </div>
+        
+        <div class="example while">
+            <h3>2. while com Condição Aleatória</h3>
+            <p>Gera números aleatórios até encontrar um maior que 8.</p>
+            <button onclick="exemploWhile2()">Executar Exemplo 2</button>
+        </div>
+        
+        <div class="example while">
+            <h3>3. while - Processar até Condição</h3>
+            <p>Simula saques de uma conta até o saldo ficar insuficiente.</p>
+            <button onclick="exemploWhile3()">Executar Exemplo 3</button>
+        </div>
+        
+        <div class="example while">
+            <h3>4. while que Nunca Executa</h3>
+            <p>Demonstra que while pode não executar nenhuma vez.</p>
+            <button onclick="exemploWhile4()">Executar Exemplo 4</button>
+        </div>
+        
+        <div class="warning">
+            <strong>⚠️ Atenção:</strong> Sempre incremente a variável de controle no loop while, 
+            senão você terá um loop infinito!
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2>Exemplos de Loops do...while</h2>
+        
+        <div class="example dowhile">
+            <h3>5. do...while Básico</h3>
+            <p>Conta de 0 a 4 usando loop do...while.</p>
+            <button onclick="exemploDoWhile1()">Executar Exemplo 5</button>
+        </div>
+        
+        <div class="example dowhile">
+            <h3>6. do...while - Executa pelo Menos Uma Vez</h3>
+            <p>Demonstra que do...while sempre executa pelo menos uma vez.</p>
+            <button onclick="exemploDoWhile2()">Executar Exemplo 6</button>
+        </div>
+        
+        <div class="example dowhile">
+            <h3>7. do...while - Validação de Entrada</h3>
+            <p>Simula validação de senha (mínimo 6 caracteres).</p>
+            <button onclick="exemploDoWhile3()">Executar Exemplo 7</button>
+        </div>
+        
+        <div class="warning">
+            <strong>💡 Dica:</strong> Use do...while quando você precisa garantir 
+            que o código execute pelo menos uma vez, como em validações de entrada.
+        </div>
+    </div>
+    
+    <div class="container">
+        <button onclick="limparOutput()" style="background: #dc3545;">Limpar Saída</button>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        const output = document.getElementById('output');
+        
+        function log(mensagem) {
+            output.textContent += mensagem + '\n';
+        }
+        
+        function limparOutput() {
+            output.textContent = '';
+        }
+        
+        // Exemplos while
+        function exemploWhile1() {
+            limparOutput();
+            log('=== EXEMPLO 1: while Básico ===\n');
+            log('let contador = 0;');
+            log('while (contador < 5) {');
+            log('  console.log("Contador:", contador);');
+            log('  contador++; // IMPORTANTE: incrementar!');
+            log('}\n');
+            log('Resultado:');
+            
+            let contador = 0;
+            while (contador < 5) {
+                log(`  Contador: ${contador}`);
+                contador++;
+            }
+        }
+        
+        function exemploWhile2() {
+            limparOutput();
+            log('=== EXEMPLO 2: while com Condição Aleatória ===\n');
+            log('let numero = 0;');
+            log('while (numero <= 8) {');
+            log('  numero = Math.floor(Math.random() * 10);');
+            log('  console.log("Número gerado:", numero);');
+            log('}\n');
+            log('Resultado:');
+            
+            let numero = 0;
+            let tentativas = 0;
+            while (numero <= 8) {
+                numero = Math.floor(Math.random() * 10);
+                tentativas++;
+                log(`  Tentativa ${tentativas}: Número gerado: ${numero}`);
+            }
+            log(`\n  ✅ Encontrei um número maior que 8 (${numero}) em ${tentativas} tentativas!`);
+        }
+        
+        function exemploWhile3() {
+            limparOutput();
+            log('=== EXEMPLO 3: while - Processar até Condição ===\n');
+            log('let saldo = 1000;');
+            log('let saque = 100;');
+            log('while (saldo >= saque) {');
+            log('  saldo -= saque;');
+            log('  console.log(`Saque de R$ ${saque}. Saldo restante: R$ ${saldo}`);');
+            log('}\n');
+            log('Resultado:');
+            
+            let saldo = 1000;
+            const saque = 100;
+            let saques = 0;
+            
+            while (saldo >= saque) {
+                saldo -= saque;
+                saques++;
+                log(`  Saque ${saques} de R$ ${saque}. Saldo restante: R$ ${saldo}`);
+            }
+            
+            log(`\n  ⚠️ Saldo insuficiente para mais saques. Saldo final: R$ ${saldo}`);
+        }
+        
+        function exemploWhile4() {
+            limparOutput();
+            log('=== EXEMPLO 4: while que Nunca Executa ===\n');
+            log('let x = 10;');
+            log('while (x < 5) {');
+            log('  console.log("Isso nunca será executado");');
+            log('}\n');
+            log('Resultado:');
+            
+            let x = 10;
+            while (x < 5) {
+                log('  Isso nunca será executado');
+            }
+            
+            log('  (Nenhuma saída - o loop não executou porque x (10) já é maior que 5)');
+        }
+        
+        // Exemplos do...while
+        function exemploDoWhile1() {
+            limparOutput();
+            log('=== EXEMPLO 5: do...while Básico ===\n');
+            log('let contador = 0;');
+            log('do {');
+            log('  console.log("Contador:", contador);');
+            log('  contador++;');
+            log('} while (contador < 5);\n');
+            log('Resultado:');
+            
+            let contador = 0;
+            do {
+                log(`  Contador: ${contador}`);
+                contador++;
+            } while (contador < 5);
+        }
+        
+        function exemploDoWhile2() {
+            limparOutput();
+            log('=== EXEMPLO 6: do...while - Executa pelo Menos Uma Vez ===\n');
+            log('let numero = 10;');
+            log('do {');
+            log('  console.log("Número:", numero);');
+            log('  numero++;');
+            log('} while (numero < 5);\n');
+            log('Resultado:');
+            
+            let numero = 10;
+            do {
+                log(`  Número: ${numero}`);
+                numero++;
+            } while (numero < 5);
+            
+            log('\n  ✅ Mesmo que a condição seja falsa desde o início,');
+            log('     o código executou uma vez! Isso é a diferença do do...while.');
+        }
+        
+        function exemploDoWhile3() {
+            limparOutput();
+            log('=== EXEMPLO 7: do...while - Validação de Entrada ===\n');
+            log('let senha;');
+            log('let tentativas = 0;');
+            log('do {');
+            log('  senha = prompt("Digite sua senha (mínimo 6 caracteres):");');
+            log('  tentativas++;');
+            log('  if (senha.length < 6) {');
+            log('    console.log("Senha muito curta! Tente novamente.");');
+            log('  }');
+            log('} while (senha.length < 6 && tentativas < 3);\n');
+            log('Resultado (simulado - sem prompt real):');
+            
+            // Simulação sem usar prompt real
+            const senhasTeste = ['abc', '12345', 'senha123'];
+            let tentativas = 0;
+            let senha;
+            
+            do {
+                senha = senhasTeste[tentativas] || 'senha123';
+                tentativas++;
+                log(`  Tentativa ${tentativas}: "${senha}" (${senha.length} caracteres)`);
+                
+                if (senha.length < 6) {
+                    log('    ⚠️ Senha muito curta! Tente novamente.');
+                }
+            } while (senha.length < 6 && tentativas < 3);
+            
+            if (senha.length >= 6) {
+                log(`\n  ✅ Senha aceita! (${senha.length} caracteres)`);
+            } else {
+                log('\n  ❌ Número máximo de tentativas excedido.');
+            }
+        }
+        
+        // Mensagem inicial
+        window.onload = function() {
+            log('Bem-vindo! Clique nos botões acima para ver exemplos de loops while e do...while.');
+            log('Observe a diferença entre eles!\n');
+        };
+    </script>
+</body>
+</html>
+

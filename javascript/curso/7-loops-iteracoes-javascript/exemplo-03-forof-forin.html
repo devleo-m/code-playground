@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops for...of e for...in - Exemplos Práticos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .example {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #007bff;
+        }
+        .example.forof {
+            border-left-color: #28a745;
+        }
+        .example.forin {
+            border-left-color: #ffc107;
+        }
+        .example h3 {
+            margin-top: 0;
+        }
+        .example.forof h3 {
+            color: #28a745;
+        }
+        .example.forin h3 {
+            color: #ffc107;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        #output {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #dee2e6;
+        }
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .error {
+            background: #f8d7da;
+            border: 1px solid #dc3545;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔀 Loops for...of e for...in - Exemplos Práticos</h1>
+    
+    <div class="container">
+        <h2>Exemplos de Loop for...of</h2>
+        <p>O loop <code>for...of</code> itera sobre <strong>valores</strong> de objetos iteráveis (arrays, strings, etc.).</p>
+        
+        <div class="example forof">
+            <h3>1. for...of com Arrays</h3>
+            <p>Itera sobre valores de um array de frutas.</p>
+            <button onclick="exemploForOf1()">Executar Exemplo 1</button>
+        </div>
+        
+        <div class="example forof">
+            <h3>2. for...of com Strings</h3>
+            <p>Itera sobre cada caractere de uma string.</p>
+            <button onclick="exemploForOf2()">Executar Exemplo 2</button>
+        </div>
+        
+        <div class="example forof">
+            <h3>3. for...of com entries()</h3>
+            <p>Obtém índice e valor usando entries().</p>
+            <button onclick="exemploForOf3()">Executar Exemplo 3</button>
+        </div>
+        
+        <div class="example forof">
+            <h3>4. for...of com Map</h3>
+            <p>Itera sobre pares chave-valor de um Map.</p>
+            <button onclick="exemploForOf4()">Executar Exemplo 4</button>
+        </div>
+        
+        <div class="example forof">
+            <h3>5. for...of com Set</h3>
+            <p>Itera sobre valores únicos de um Set.</p>
+            <button onclick="exemploForOf5()">Executar Exemplo 5</button>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2>Exemplos de Loop for...in</h2>
+        <p>O loop <code>for...in</code> itera sobre <strong>propriedades enumeráveis</strong> de objetos.</p>
+        
+        <div class="example forin">
+            <h3>6. for...in com Objetos</h3>
+            <p>Itera sobre propriedades de um objeto.</p>
+            <button onclick="exemploForIn1()">Executar Exemplo 6</button>
+        </div>
+        
+        <div class="example forin">
+            <h3>7. for...in com hasOwnProperty</h3>
+            <p>Filtra apenas propriedades próprias do objeto.</p>
+            <button onclick="exemploForIn2()">Executar Exemplo 7</button>
+        </div>
+        
+        <div class="warning">
+            <strong>⚠️ IMPORTANTE:</strong> NÃO use <code>for...in</code> com arrays! 
+            Use <code>for...of</code> ou <code>for</code> tradicional.
+        </div>
+        
+        <div class="error">
+            <h3>❌ Por que NÃO usar for...in com Arrays?</h3>
+            <button onclick="exemploErrado()">Ver Exemplo do que NÃO fazer</button>
+        </div>
+    </div>
+    
+    <div class="container">
+        <button onclick="limparOutput()" style="background: #dc3545;">Limpar Saída</button>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        const output = document.getElementById('output');
+        
+        function log(mensagem) {
+            output.textContent += mensagem + '\n';
+        }
+        
+        function limparOutput() {
+            output.textContent = '';
+        }
+        
+        // Exemplos for...of
+        function exemploForOf1() {
+            limparOutput();
+            log('=== EXEMPLO 1: for...of com Arrays ===\n');
+            log('const frutas = ["maçã", "banana", "laranja"];');
+            log('for (const fruta of frutas) {');
+            log('  console.log(fruta);');
+            log('}\n');
+            log('Resultado:');
+            
+            const frutas = ['maçã', 'banana', 'laranja'];
+            for (const fruta of frutas) {
+                log(`  ${fruta}`);
+            }
+            
+            log('\n✅ Note: Não precisa gerenciar índices manualmente!');
+        }
+        
+        function exemploForOf2() {
+            limparOutput();
+            log('=== EXEMPLO 2: for...of com Strings ===\n');
+            log('const palavra = "JavaScript";');
+            log('for (const letra of palavra) {');
+            log('  console.log(letra);');
+            log('}\n');
+            log('Resultado:');
+            
+            const palavra = 'JavaScript';
+            for (const letra of palavra) {
+                log(`  ${letra}`);
+            }
+        }
+        
+        function exemploForOf3() {
+            limparOutput();
+            log('=== EXEMPLO 3: for...of com entries() ===\n');
+            log('const cores = ["vermelho", "verde", "azul"];');
+            log('for (const [indice, cor] of cores.entries()) {');
+            log('  console.log(`Índice ${indice}: ${cor}`);');
+            log('}\n');
+            log('Resultado:');
+            
+            const cores = ['vermelho', 'verde', 'azul'];
+            for (const [indice, cor] of cores.entries()) {
+                log(`  Índice ${indice}: ${cor}`);
+            }
+        }
+        
+        function exemploForOf4() {
+            limparOutput();
+            log('=== EXEMPLO 4: for...of com Map ===\n');
+            log('const mapa = new Map([');
+            log('  ["nome", "João"],');
+            log('  ["idade", 30],');
+            log('  ["cidade", "São Paulo"]');
+            log(']);');
+            log('for (const [chave, valor] of mapa) {');
+            log('  console.log(`${chave}: ${valor}`);');
+            log('}\n');
+            log('Resultado:');
+            
+            const mapa = new Map([
+                ['nome', 'João'],
+                ['idade', 30],
+                ['cidade', 'São Paulo']
+            ]);
+            
+            for (const [chave, valor] of mapa) {
+                log(`  ${chave}: ${valor}`);
+            }
+        }
+        
+        function exemploForOf5() {
+            limparOutput();
+            log('=== EXEMPLO 5: for...of com Set ===\n');
+            log('const numeros = new Set([1, 2, 3, 4, 5]);');
+            log('for (const numero of numeros) {');
+            log('  console.log(numero * 2);');
+            log('}\n');
+            log('Resultado:');
+            
+            const numeros = new Set([1, 2, 3, 4, 5]);
+            for (const numero of numeros) {
+                log(`  ${numero} × 2 = ${numero * 2}`);
+            }
+        }
+        
+        // Exemplos for...in
+        function exemploForIn1() {
+            limparOutput();
+            log('=== EXEMPLO 6: for...in com Objetos ===\n');
+            log('const pessoa = {');
+            log('  nome: "Maria",');
+            log('  idade: 25,');
+            log('  cidade: "Rio de Janeiro"');
+            log('};');
+            log('for (const propriedade in pessoa) {');
+            log('  console.log(`${propriedade}: ${pessoa[propriedade]}`);');
+            log('}\n');
+            log('Resultado:');
+            
+            const pessoa = {
+                nome: 'Maria',
+                idade: 25,
+                cidade: 'Rio de Janeiro'
+            };
+            
+            for (const propriedade in pessoa) {
+                log(`  ${propriedade}: ${pessoa[propriedade]}`);
+            }
+        }
+        
+        function exemploForIn2() {
+            limparOutput();
+            log('=== EXEMPLO 7: for...in com hasOwnProperty ===\n');
+            log('// Adiciona propriedade ao protótipo (não faça isso na prática)');
+            log('Object.prototype.c = 3;');
+            log('');
+            log('const objeto = { a: 1, b: 2 };');
+            log('for (const chave in objeto) {');
+            log('  if (objeto.hasOwnProperty(chave)) {');
+            log('    console.log(`Propriedade própria: ${chave} = ${objeto[chave]}`);');
+            log('  }');
+            log('}\n');
+            log('Resultado:');
+            
+            // Adiciona propriedade ao protótipo (apenas para demonstração)
+            Object.prototype.c = 3;
+            
+            const objeto = { a: 1, b: 2 };
+            for (const chave in objeto) {
+                if (objeto.hasOwnProperty(chave)) {
+                    log(`  Propriedade própria: ${chave} = ${objeto[chave]}`);
+                } else {
+                    log(`  Propriedade herdada (ignorada): ${chave}`);
+                }
+            }
+            
+            // Limpa a propriedade do protótipo
+            delete Object.prototype.c;
+        }
+        
+        function exemploErrado() {
+            limparOutput();
+            log('=== ❌ EXEMPLO: Por que NÃO usar for...in com Arrays ===\n');
+            log('const array = ["a", "b", "c"];');
+            log('');
+            log('// ❌ NÃO FAÇA ISSO');
+            log('for (const indice in array) {');
+            log('  console.log(array[indice]);');
+            log('}');
+            log('');
+            log('// ✅ FAÇA ISSO');
+            log('for (const elemento of array) {');
+            log('  console.log(elemento);');
+            log('}');
+            log('');
+            log('// Ou use for tradicional');
+            log('for (let i = 0; i < array.length; i++) {');
+            log('  console.log(array[i]);');
+            log('}\n');
+            log('Resultado com for...in (NÃO RECOMENDADO):');
+            
+            const array = ['a', 'b', 'c'];
+            // Adiciona propriedade ao array (pode acontecer acidentalmente)
+            array.propriedadeCustom = 'valor';
+            
+            log('  Índices/Propriedades encontradas:');
+            for (const indice in array) {
+                log(`    ${indice}: ${array[indice]}`);
+            }
+            
+            log('\n✅ Resultado com for...of (RECOMENDADO):');
+            for (const elemento of array) {
+                log(`    ${elemento}`);
+            }
+            
+            log('\n⚠️ Note: for...in incluiu a propriedade customizada!');
+            log('   for...of só itera sobre os elementos do array.');
+        }
+        
+        // Mensagem inicial
+        window.onload = function() {
+            log('Bem-vindo! Clique nos botões acima para ver exemplos de loops for...of e for...in.');
+            log('Lembre-se: use for...of para arrays, for...in apenas para objetos!\n');
+        };
+    </script>
+</body>
+</html>
+

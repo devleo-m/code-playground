@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>break e continue - Exemplos Práticos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .example {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #007bff;
+        }
+        .example.break {
+            border-left-color: #dc3545;
+        }
+        .example.continue {
+            border-left-color: #28a745;
+        }
+        .example h3 {
+            margin-top: 0;
+        }
+        .example.break h3 {
+            color: #dc3545;
+        }
+        .example.continue h3 {
+            color: #28a745;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        #output {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #dee2e6;
+        }
+        .info {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>⏸️ break e continue - Exemplos Práticos</h1>
+    
+    <div class="container">
+        <div class="info">
+            <strong>💡 Diferença:</strong>
+            <ul>
+                <li><strong>break</strong>: Sai completamente do loop (para tudo)</li>
+                <li><strong>continue</strong>: Pula para a próxima iteração (continua o loop)</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2>Exemplos de break</h2>
+        
+        <div class="example break">
+            <h3>1. break - Encontrar Primeiro Par</h3>
+            <p>Para o loop assim que encontrar o primeiro número par.</p>
+            <button onclick="exemploBreak1()">Executar Exemplo 1</button>
+        </div>
+        
+        <div class="example break">
+            <h3>2. break - Loop Infinito Controlado</h3>
+            <p>Usa break para sair de um loop while aparentemente infinito.</p>
+            <button onclick="exemploBreak2()">Executar Exemplo 2</button>
+        </div>
+        
+        <div class="example break">
+            <h3>3. break - Busca em Array</h3>
+            <p>Para a busca assim que encontrar o item desejado.</p>
+            <button onclick="exemploBreak3()">Executar Exemplo 3</button>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2>Exemplos de continue</h2>
+        
+        <div class="example continue">
+            <h3>4. continue - Filtrar Números Pares</h3>
+            <p>Pula números ímpares e processa apenas os pares.</p>
+            <button onclick="exemploContinue1()">Executar Exemplo 4</button>
+        </div>
+        
+        <div class="example continue">
+            <h3>5. continue - Pular Valores Inválidos</h3>
+            <p>Pula valores nulos, undefined ou vazios.</p>
+            <button onclick="exemploContinue2()">Executar Exemplo 5</button>
+        </div>
+        
+        <div class="example continue">
+            <h3>6. continue - Processar Apenas Valores Válidos</h3>
+            <p>Valida e processa apenas valores que passam na validação.</p>
+            <button onclick="exemploContinue3()">Executar Exemplo 6</button>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2>break e continue Juntos</h2>
+        
+        <div class="example">
+            <h3>7. break e continue Combinados</h3>
+            <p>Usa continue para pular alguns valores e break para parar quando necessário.</p>
+            <button onclick="exemploCombinado()">Executar Exemplo 7</button>
+        </div>
+    </div>
+    
+    <div class="container">
+        <button onclick="limparOutput()" style="background: #dc3545;">Limpar Saída</button>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        const output = document.getElementById('output');
+        
+        function log(mensagem) {
+            output.textContent += mensagem + '\n';
+        }
+        
+        function limparOutput() {
+            output.textContent = '';
+        }
+        
+        // Exemplos break
+        function exemploBreak1() {
+            limparOutput();
+            log('=== EXEMPLO 1: break - Encontrar Primeiro Par ===\n');
+            log('const numeros = [1, 3, 5, 8, 9, 10];');
+            log('for (const numero of numeros) {');
+            log('  if (numero % 2 === 0) {');
+            log('    console.log(`Primeiro número par encontrado: ${numero}`);');
+            log('    break; // Para o loop imediatamente');
+            log('  }');
+            log('}\n');
+            log('Resultado:');
+            
+            const numeros = [1, 3, 5, 8, 9, 10];
+            for (const numero of numeros) {
+                log(`  Verificando ${numero}...`);
+                if (numero % 2 === 0) {
+                    log(`  ✅ Primeiro número par encontrado: ${numero}`);
+                    log('  🛑 break executado - loop parado!');
+                    break;
+                }
+            }
+            log('\n  ⚠️ Note: 9 e 10 não foram verificados porque o loop parou!');
+        }
+        
+        function exemploBreak2() {
+            limparOutput();
+            log('=== EXEMPLO 2: break - Loop Infinito Controlado ===\n');
+            log('let numero = 0;');
+            log('while (true) { // Loop aparentemente infinito');
+            log('  numero = Math.floor(Math.random() * 100);');
+            log('  console.log("Número gerado:", numero);');
+            log('  if (numero > 90) {');
+            log('    console.log("Número maior que 90 encontrado! Parando...");');
+            log('    break; // Sai do loop');
+            log('  }');
+            log('}\n');
+            log('Resultado:');
+            
+            let numero = 0;
+            let tentativas = 0;
+            while (true) {
+                numero = Math.floor(Math.random() * 100);
+                tentativas++;
+                log(`  Tentativa ${tentativas}: Número gerado: ${numero}`);
+                
+                if (numero > 90) {
+                    log(`\n  ✅ Número maior que 90 encontrado (${numero})! Parando...`);
+                    log('  🛑 break executado - loop parado!');
+                    break;
+                }
+            }
+        }
+        
+        function exemploBreak3() {
+            limparOutput();
+            log('=== EXEMPLO 3: break - Busca em Array ===\n');
+            log('const produtos = ["notebook", "mouse", "teclado", "monitor"];');
+            log('const produtoProcurado = "teclado";');
+            log('');
+            log('for (let i = 0; i < produtos.length; i++) {');
+            log('  if (produtos[i] === produtoProcurado) {');
+            log('    console.log(`Produto encontrado no índice ${i}!`);');
+            log('    break;');
+            log('  }');
+            log('}\n');
+            log('Resultado:');
+            
+            const produtos = ['notebook', 'mouse', 'teclado', 'monitor'];
+            const produtoProcurado = 'teclado';
+            
+            for (let i = 0; i < produtos.length; i++) {
+                log(`  Verificando índice ${i}: "${produtos[i]}"`);
+                if (produtos[i] === produtoProcurado) {
+                    log(`  ✅ Produto encontrado no índice ${i}!`);
+                    log('  🛑 break executado - busca parada!');
+                    break;
+                }
+            }
+        }
+        
+        // Exemplos continue
+        function exemploContinue1() {
+            limparOutput();
+            log('=== EXEMPLO 4: continue - Filtrar Números Pares ===\n');
+            log('for (let i = 0; i < 10; i++) {');
+            log('  if (i % 2 === 0) {');
+            log('    continue; // Pula números pares');
+            log('  }');
+            log('  console.log(i); // Só imprime ímpares');
+            log('}\n');
+            log('Resultado:');
+            
+            for (let i = 0; i < 10; i++) {
+                if (i % 2 === 0) {
+                    log(`  ⏭️ ${i} é par - continue (pula)`);
+                    continue;
+                }
+                log(`  ✅ ${i} é ímpar - processa`);
+            }
+        }
+        
+        function exemploContinue2() {
+            limparOutput();
+            log('=== EXEMPLO 5: continue - Pular Valores Inválidos ===\n');
+            log('const palavras = ["casa", "carro", "", "bicicleta", null, "moto"];');
+            log('');
+            log('for (const palavra of palavras) {');
+            log('  if (!palavra) { // Se palavra for vazia, null, undefined');
+            log('    continue; // Pula para próxima iteração');
+            log('  }');
+            log('  console.log(`Palavra: ${palavra}`);');
+            log('}\n');
+            log('Resultado:');
+            
+            const palavras = ['casa', 'carro', '', 'bicicleta', null, 'moto'];
+            for (const palavra of palavras) {
+                if (!palavra) {
+                    log(`  ⏭️ Valor inválido (${palavra}) - continue (pula)`);
+                    continue;
+                }
+                log(`  ✅ Palavra: ${palavra}`);
+            }
+        }
+        
+        function exemploContinue3() {
+            limparOutput();
+            log('=== EXEMPLO 6: continue - Processar Apenas Valores Válidos ===\n');
+            log('const idades = [25, -5, 30, 0, 18, 150, 35];');
+            log('');
+            log('for (const idade of idades) {');
+            log('  if (idade <= 0 || idade > 120) {');
+            log('    continue; // Pula idades inválidas');
+            log('  }');
+            log('  console.log(`Idade válida: ${idade}`);');
+            log('}\n');
+            log('Resultado:');
+            
+            const idades = [25, -5, 30, 0, 18, 150, 35];
+            for (const idade of idades) {
+                if (idade <= 0 || idade > 120) {
+                    log(`  ⏭️ Idade inválida (${idade}) - continue (pula)`);
+                    continue;
+                }
+                log(`  ✅ Idade válida: ${idade}`);
+            }
+        }
+        
+        function exemploCombinado() {
+            limparOutput();
+            log('=== EXEMPLO 7: break e continue Combinados ===\n');
+            log('const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];');
+            log('');
+            log('for (const numero of numeros) {');
+            log('  if (numero % 2 === 0) {');
+            log('    continue; // Pula números pares');
+            log('  }');
+            log('  if (numero > 7) {');
+            log('    break; // Para se número for maior que 7');
+            log('  }');
+            log('  console.log(`Processando: ${numero}`);');
+            log('}\n');
+            log('Resultado:');
+            
+            const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            for (const numero of numeros) {
+                if (numero % 2 === 0) {
+                    log(`  ⏭️ ${numero} é par - continue (pula)`);
+                    continue;
+                }
+                
+                if (numero > 7) {
+                    log(`  🛑 ${numero} > 7 - break (para loop)`);
+                    break;
+                }
+                
+                log(`  ✅ Processando: ${numero}`);
+            }
+            
+            log('\n  📝 Resumo:');
+            log('     - continue pulou: 2, 4, 6');
+            log('     - break parou em: 9 (primeiro ímpar > 7)');
+            log('     - Processados: 1, 3, 5, 7');
+        }
+        
+        // Mensagem inicial
+        window.onload = function() {
+            log('Bem-vindo! Clique nos botões acima para ver exemplos de break e continue.');
+            log('Lembre-se: break para o loop, continue pula para a próxima iteração!\n');
+        };
+    </script>
+</body>
+</html>
+

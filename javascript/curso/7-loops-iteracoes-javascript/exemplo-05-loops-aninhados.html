@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops Aninhados e Labels - Exemplos Práticos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .example {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #007bff;
+        }
+        .example h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        #output {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            max-height: 500px;
+            overflow-y: auto;
+            border: 1px solid #dee2e6;
+        }
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        table td {
+            border: 1px solid #dee2e6;
+            padding: 5px 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔄 Loops Aninhados e Labels - Exemplos Práticos</h1>
+    
+    <div class="container">
+        <div class="warning">
+            <strong>⚠️ Atenção:</strong> Loops aninhados podem ser lentos! 
+            A complexidade cresce rapidamente (O(n²) ou O(n³)).
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2>Exemplos de Loops Aninhados</h2>
+        
+        <div class="example">
+            <h3>1. Tabela de Multiplicação</h3>
+            <p>Cria uma tabela de multiplicação usando loops aninhados.</p>
+            <button onclick="exemplo1()">Executar Exemplo 1</button>
+        </div>
+        
+        <div class="example">
+            <h3>2. Processar Matriz (Array 2D)</h3>
+            <p>Percorre uma matriz linha por linha, coluna por coluna.</p>
+            <button onclick="exemplo2()">Executar Exemplo 2</button>
+        </div>
+        
+        <div class="example">
+            <h3>3. Encontrar Duplicatas</h3>
+            <p>Compara dois arrays para encontrar valores duplicados.</p>
+            <button onclick="exemplo3()">Executar Exemplo 3</button>
+        </div>
+        
+        <div class="example">
+            <h3>4. Padrão de Estrelas</h3>
+            <p>Cria um padrão visual usando loops aninhados.</p>
+            <button onclick="exemplo4()">Executar Exemplo 4</button>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2>Labels (Rótulos) em Loops</h2>
+        
+        <div class="example">
+            <h3>5. break com Label</h3>
+            <p>Usa label para sair do loop externo a partir do loop interno.</p>
+            <button onclick="exemplo5()">Executar Exemplo 5</button>
+        </div>
+        
+        <div class="example">
+            <h3>6. continue com Label</h3>
+            <p>Usa label para pular para a próxima iteração do loop externo.</p>
+            <button onclick="exemplo6()">Executar Exemplo 6</button>
+        </div>
+        
+        <div class="warning">
+            <strong>💡 Dica:</strong> Labels são raramente necessários. 
+            Use apenas quando realmente precisar controlar loops externos.
+        </div>
+    </div>
+    
+    <div class="container">
+        <button onclick="limparOutput()" style="background: #dc3545;">Limpar Saída</button>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        const output = document.getElementById('output');
+        
+        function log(mensagem) {
+            output.textContent += mensagem + '\n';
+        }
+        
+        function limparOutput() {
+            output.textContent = '';
+        }
+        
+        function exemplo1() {
+            limparOutput();
+            log('=== EXEMPLO 1: Tabela de Multiplicação ===\n');
+            log('for (let i = 1; i <= 5; i++) {');
+            log('  for (let j = 1; j <= 5; j++) {');
+            log('    console.log(`${i} x ${j} = ${i * j}`);');
+            log('  }');
+            log('  console.log("---");');
+            log('}\n');
+            log('Resultado:');
+            
+            for (let i = 1; i <= 5; i++) {
+                log(`\n  Linha ${i}:`);
+                for (let j = 1; j <= 5; j++) {
+                    log(`    ${i} x ${j} = ${i * j}`);
+                }
+            }
+            
+            log('\n  📊 Total de iterações: 5 × 5 = 25');
+        }
+        
+        function exemplo2() {
+            limparOutput();
+            log('=== EXEMPLO 2: Processar Matriz (Array 2D) ===\n');
+            log('const matriz = [');
+            log('  [1, 2, 3],');
+            log('  [4, 5, 6],');
+            log('  [7, 8, 9]');
+            log('];');
+            log('');
+            log('for (let i = 0; i < matriz.length; i++) {');
+            log('  for (let j = 0; j < matriz[i].length; j++) {');
+            log('    console.log(`matriz[${i}][${j}] = ${matriz[i][j]}`);');
+            log('  }');
+            log('}\n');
+            log('Resultado:');
+            
+            const matriz = [
+                [1, 2, 3],
+                [4, 5, 6],
+                [7, 8, 9]
+            ];
+            
+            for (let i = 0; i < matriz.length; i++) {
+                log(`\n  Linha ${i}:`);
+                for (let j = 0; j < matriz[i].length; j++) {
+                    log(`    matriz[${i}][${j}] = ${matriz[i][j]}`);
+                }
+            }
+        }
+        
+        function exemplo3() {
+            limparOutput();
+            log('=== EXEMPLO 3: Encontrar Duplicatas ===\n');
+            log('const array1 = [1, 2, 3, 4];');
+            log('const array2 = [3, 4, 5, 6];');
+            log('');
+            log('for (let i = 0; i < array1.length; i++) {');
+            log('  for (let j = 0; j < array2.length; j++) {');
+            log('    if (array1[i] === array2[j]) {');
+            log('      console.log(`Duplicata encontrada: ${array1[i]}`);');
+            log('    }');
+            log('  }');
+            log('}\n');
+            log('Resultado:');
+            
+            const array1 = [1, 2, 3, 4];
+            const array2 = [3, 4, 5, 6];
+            const duplicatas = [];
+            
+            for (let i = 0; i < array1.length; i++) {
+                for (let j = 0; j < array2.length; j++) {
+                    log(`  Comparando array1[${i}]=${array1[i]} com array2[${j}]=${array2[j]}`);
+                    if (array1[i] === array2[j]) {
+                        log(`    ✅ Duplicata encontrada: ${array1[i]}`);
+                        duplicatas.push(array1[i]);
+                    }
+                }
+            }
+            
+            log(`\n  📋 Duplicatas encontradas: [${duplicatas.join(', ')}]`);
+            log('  📊 Total de comparações: 4 × 4 = 16');
+        }
+        
+        function exemplo4() {
+            limparOutput();
+            log('=== EXEMPLO 4: Padrão de Estrelas ===\n');
+            log('for (let i = 1; i <= 5; i++) {');
+            log('  let linha = "";');
+            log('  for (let j = 1; j <= i; j++) {');
+            log('    linha += "* ";');
+            log('  }');
+            log('  console.log(linha);');
+            log('}\n');
+            log('Resultado:');
+            
+            for (let i = 1; i <= 5; i++) {
+                let linha = '';
+                for (let j = 1; j <= i; j++) {
+                    linha += '* ';
+                }
+                log(`  ${linha}`);
+            }
+        }
+        
+        function exemplo5() {
+            limparOutput();
+            log('=== EXEMPLO 5: break com Label ===\n');
+            log('externo: for (let i = 0; i < 3; i++) {');
+            log('  interno: for (let j = 0; j < 3; j++) {');
+            log('    if (i === 1 && j === 1) {');
+            log('      break externo; // Sai do loop externo');
+            log('    }');
+            log('    console.log(`i: ${i}, j: ${j}`);');
+            log('  }');
+            log('}\n');
+            log('Resultado:');
+            log('  (Sem label - break só sai do loop interno):');
+            
+            // Sem label
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    if (i === 1 && j === 1) {
+                        break; // Só sai do loop interno
+                    }
+                    log(`    i: ${i}, j: ${j}`);
+                }
+            }
+            
+            log('\n  (Com label - break sai do loop externo):');
+            
+            // Com label
+            externo: for (let i = 0; i < 3; i++) {
+                interno: for (let j = 0; j < 3; j++) {
+                    if (i === 1 && j === 1) {
+                        log(`    🛑 break externo em i=${i}, j=${j}`);
+                        break externo; // Sai do loop externo
+                    }
+                    log(`    i: ${i}, j: ${j}`);
+                }
+            }
+            
+            log('\n  ⚠️ Note: Com label, o loop externo parou completamente!');
+        }
+        
+        function exemplo6() {
+            limparOutput();
+            log('=== EXEMPLO 6: continue com Label ===\n');
+            log('externo: for (let i = 0; i < 3; i++) {');
+            log('  interno: for (let j = 0; j < 3; j++) {');
+            log('    if (j === 1) {');
+            log('      continue externo; // Pula para próxima iteração do loop externo');
+            log('    }');
+            log('    console.log(`i: ${i}, j: ${j}`);');
+            log('  }');
+            log('}\n');
+            log('Resultado:');
+            log('  (Sem label - continue só pula no loop interno):');
+            
+            // Sem label
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    if (j === 1) {
+                        continue; // Só pula no loop interno
+                    }
+                    log(`    i: ${i}, j: ${j}`);
+                }
+            }
+            
+            log('\n  (Com label - continue pula no loop externo):');
+            
+            // Com label
+            externo: for (let i = 0; i < 3; i++) {
+                interno: for (let j = 0; j < 3; j++) {
+                    if (j === 1) {
+                        log(`    ⏭️ continue externo em i=${i}, j=${j}`);
+                        continue externo; // Pula para próxima iteração do loop externo
+                    }
+                    log(`    i: ${i}, j: ${j}`);
+                }
+            }
+            
+            log('\n  ⚠️ Note: Com label, quando j=1, pula para próxima iteração de i!');
+        }
+        
+        // Mensagem inicial
+        window.onload = function() {
+            log('Bem-vindo! Clique nos botões acima para ver exemplos de loops aninhados.');
+            log('Loops aninhados são úteis para trabalhar com matrizes e combinações!\n');
+        };
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop for Básico - Exemplos Práticos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .example {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #007bff;
+        }
+        .example h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        #output {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #dee2e6;
+        }
+        code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔢 Loop for Básico - Exemplos Práticos</h1>
+    
+    <div class="container">
+        <h2>Exemplos de Loop for</h2>
+        <p>Clique nos botões abaixo para ver diferentes exemplos de uso do loop <code>for</code>:</p>
+        
+        <div class="example">
+            <h3>1. Contagem Básica</h3>
+            <p>Conta de 0 a 4 usando loop for tradicional.</p>
+            <button onclick="exemplo1()">Executar Exemplo 1</button>
+        </div>
+        
+        <div class="example">
+            <h3>2. Contagem Decrescente</h3>
+            <p>Conta de 10 até 1 em ordem decrescente.</p>
+            <button onclick="exemplo2()">Executar Exemplo 2</button>
+        </div>
+        
+        <div class="example">
+            <h3>3. Incrementos Personalizados</h3>
+            <p>Conta de 0 a 20, de 2 em 2 (números pares).</p>
+            <button onclick="exemplo3()">Executar Exemplo 3</button>
+        </div>
+        
+        <div class="example">
+            <h3>4. Iterar sobre Array</h3>
+            <p>Percorre um array de frutas e exibe cada item.</p>
+            <button onclick="exemplo4()">Executar Exemplo 4</button>
+        </div>
+        
+        <div class="example">
+            <h3>5. Soma de Array</h3>
+            <p>Calcula a soma de todos os números em um array.</p>
+            <button onclick="exemplo5()">Executar Exemplo 5</button>
+        </div>
+        
+        <div class="example">
+            <h3>6. Múltiplas Variáveis</h3>
+            <p>Usa múltiplas variáveis no loop for.</p>
+            <button onclick="exemplo6()">Executar Exemplo 6</button>
+        </div>
+        
+        <button onclick="limparOutput()" style="background: #dc3545;">Limpar Saída</button>
+        
+        <div id="output"></div>
+    </div>
+
+    <script>
+        const output = document.getElementById('output');
+        
+        function log(mensagem) {
+            output.textContent += mensagem + '\n';
+        }
+        
+        function limparOutput() {
+            output.textContent = '';
+        }
+        
+        function exemplo1() {
+            limparOutput();
+            log('=== EXEMPLO 1: Contagem Básica ===\n');
+            log('for (let i = 0; i < 5; i++) {');
+            log('  console.log("Iteração número:", i);');
+            log('}\n');
+            log('Resultado:');
+            
+            for (let i = 0; i < 5; i++) {
+                log(`  Iteração número: ${i}`);
+            }
+        }
+        
+        function exemplo2() {
+            limparOutput();
+            log('=== EXEMPLO 2: Contagem Decrescente ===\n');
+            log('for (let i = 10; i >= 1; i--) {');
+            log('  console.log(i);');
+            log('}\n');
+            log('Resultado:');
+            
+            for (let i = 10; i >= 1; i--) {
+                log(`  ${i}`);
+            }
+        }
+        
+        function exemplo3() {
+            limparOutput();
+            log('=== EXEMPLO 3: Incrementos Personalizados ===\n');
+            log('for (let i = 0; i <= 20; i += 2) {');
+            log('  console.log(i);');
+            log('}\n');
+            log('Resultado (números pares de 0 a 20):');
+            
+            for (let i = 0; i <= 20; i += 2) {
+                log(`  ${i}`);
+            }
+        }
+        
+        function exemplo4() {
+            limparOutput();
+            log('=== EXEMPLO 4: Iterar sobre Array ===\n');
+            log('const frutas = ["maçã", "banana", "laranja", "uva"];');
+            log('for (let i = 0; i < frutas.length; i++) {');
+            log('  console.log(`Fruta ${i + 1}: ${frutas[i]}`);');
+            log('}\n');
+            log('Resultado:');
+            
+            const frutas = ['maçã', 'banana', 'laranja', 'uva'];
+            for (let i = 0; i < frutas.length; i++) {
+                log(`  Fruta ${i + 1}: ${frutas[i]}`);
+            }
+        }
+        
+        function exemplo5() {
+            limparOutput();
+            log('=== EXEMPLO 5: Soma de Array ===\n');
+            log('const numeros = [10, 20, 30, 40, 50];');
+            log('let soma = 0;');
+            log('for (let i = 0; i < numeros.length; i++) {');
+            log('  soma += numeros[i];');
+            log('}\n');
+            log('Resultado:');
+            
+            const numeros = [10, 20, 30, 40, 50];
+            let soma = 0;
+            
+            for (let i = 0; i < numeros.length; i++) {
+                soma += numeros[i];
+                log(`  Adicionando ${numeros[i]}... Soma parcial: ${soma}`);
+            }
+            
+            log(`\n  Soma total: ${soma}`);
+        }
+        
+        function exemplo6() {
+            limparOutput();
+            log('=== EXEMPLO 6: Múltiplas Variáveis ===\n');
+            log('for (let i = 0, j = 10; i < 5; i++, j--) {');
+            log('  console.log(`i: ${i}, j: ${j}`);');
+            log('}\n');
+            log('Resultado:');
+            
+            for (let i = 0, j = 10; i < 5; i++, j--) {
+                log(`  i: ${i}, j: ${j}`);
+            }
+        }
+        
+        // Mensagem inicial
+        window.onload = function() {
+            log('Bem-vindo! Clique nos botões acima para ver exemplos de loops for.');
+            log('Cada exemplo demonstra um uso diferente do loop for.\n');
+        };
+    </script>
+</body>
+</html>
+
