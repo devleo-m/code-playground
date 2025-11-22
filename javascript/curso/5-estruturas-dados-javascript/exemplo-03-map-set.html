@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 3: Map e Set</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .exemplo {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #9C27B0;
+            border-radius: 4px;
+        }
+        .resultado {
+            background: #f3e5f5;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔑 Exemplo 3: Map e Set</h1>
+        <p>Abra o console do navegador (F12) para ver os resultados!</p>
+
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        console.log('=== EXEMPLO 3: MAP E SET ===\n');
+
+        // ========== MAP ==========
+        console.log('========== MAP ==========');
+        
+        // 1. Criando Map
+        console.log('1. CRIANDO MAP:');
+        const produtos = new Map();
+        console.log('Map vazio criado:', produtos);
+        console.log('\n');
+
+        // 2. Adicionando elementos
+        console.log('2. ADICIONANDO ELEMENTOS:');
+        produtos.set(1, { nome: 'Notebook', preco: 2500 });
+        produtos.set(2, { nome: 'Mouse', preco: 50 });
+        produtos.set(3, { nome: 'Teclado', preco: 150 });
+        produtos.set('especial', { nome: 'Produto Especial', preco: 999 });
+        console.log('Produtos adicionados. Tamanho:', produtos.size);
+        console.log('\n');
+
+        // 3. Acessando elementos
+        console.log('3. ACESSANDO ELEMENTOS:');
+        console.log('Produto ID 1:', produtos.get(1));
+        console.log('Produto "especial":', produtos.get('especial'));
+        console.log('Produto inexistente:', produtos.get(999)); // undefined
+        console.log('\n');
+
+        // 4. Verificando existência
+        console.log('4. VERIFICANDO EXISTÊNCIA:');
+        console.log('Tem produto ID 1?', produtos.has(1));
+        console.log('Tem produto ID 999?', produtos.has(999));
+        console.log('\n');
+
+        // 5. Iterando sobre Map
+        console.log('5. ITERANDO SOBRE MAP:');
+        console.log('Com for...of:');
+        for (const [id, produto] of produtos) {
+            console.log(`  ID ${id}: ${produto.nome} - R$ ${produto.preco}`);
+        }
+        
+        console.log('\nCom forEach:');
+        produtos.forEach((produto, id) => {
+            console.log(`  ID ${id}: ${produto.nome}`);
+        });
+        
+        console.log('\nApenas chaves:');
+        for (const id of produtos.keys()) {
+            console.log(`  Chave: ${id}`);
+        }
+        
+        console.log('\nApenas valores:');
+        for (const produto of produtos.values()) {
+            console.log(`  Produto: ${produto.nome}`);
+        }
+        console.log('\n');
+
+        // 6. Removendo elementos
+        console.log('6. REMOVENDO ELEMENTOS:');
+        console.log('Tamanho antes:', produtos.size);
+        produtos.delete(2);
+        console.log('Após deletar ID 2. Tamanho:', produtos.size);
+        console.log('Produto ID 2 ainda existe?', produtos.has(2));
+        console.log('\n');
+
+        // ========== SET ==========
+        console.log('========== SET ==========');
+        
+        // 1. Criando Set
+        console.log('1. CRIANDO SET:');
+        const emails = new Set();
+        console.log('Set vazio criado:', emails);
+        console.log('\n');
+
+        // 2. Adicionando elementos
+        console.log('2. ADICIONANDO ELEMENTOS:');
+        emails.add('user1@email.com');
+        emails.add('user2@email.com');
+        emails.add('user3@email.com');
+        emails.add('user1@email.com'); // Duplicata - será ignorada!
+        console.log('Emails adicionados. Tamanho:', emails.size); // 3, não 4!
+        console.log('Set:', emails);
+        console.log('\n');
+
+        // 3. Verificando existência
+        console.log('3. VERIFICANDO EXISTÊNCIA:');
+        console.log('Tem user1@email.com?', emails.has('user1@email.com'));
+        console.log('Tem user999@email.com?', emails.has('user999@email.com'));
+        console.log('\n');
+
+        // 4. Removendo duplicatas de array
+        console.log('4. REMOVENDO DUPLICATAS:');
+        const numerosComDuplicatas = [1, 2, 2, 3, 3, 3, 4, 5, 5];
+        console.log('Array com duplicatas:', numerosComDuplicatas);
+        
+        const numerosUnicos = new Set(numerosComDuplicatas);
+        console.log('Set (sem duplicatas):', numerosUnicos);
+        
+        const arraySemDuplicatas = Array.from(numerosUnicos);
+        console.log('Array sem duplicatas:', arraySemDuplicatas);
+        console.log('\n');
+
+        // 5. Iterando sobre Set
+        console.log('5. ITERANDO SOBRE SET:');
+        console.log('Com for...of:');
+        for (const email of emails) {
+            console.log(`  - ${email}`);
+        }
+        
+        console.log('\nCom forEach:');
+        emails.forEach(email => {
+            console.log(`  - ${email}`);
+        });
+        console.log('\n');
+
+        // 6. Operações com Set
+        console.log('6. OPERAÇÕES COM SET:');
+        const set1 = new Set([1, 2, 3, 4]);
+        const set2 = new Set([3, 4, 5, 6]);
+        
+        console.log('Set 1:', set1);
+        console.log('Set 2:', set2);
+        
+        // Interseção (elementos em ambos)
+        const intersecao = new Set([...set1].filter(x => set2.has(x)));
+        console.log('Interseção (em ambos):', intersecao);
+        
+        // União (todos os elementos)
+        const uniao = new Set([...set1, ...set2]);
+        console.log('União (todos):', uniao);
+        
+        // Diferença (em set1 mas não em set2)
+        const diferenca = new Set([...set1].filter(x => !set2.has(x)));
+        console.log('Diferença (set1 - set2):', diferenca);
+        console.log('\n');
+
+        // ========== COMPARAÇÃO: Array vs Set ==========
+        console.log('========== COMPARAÇÃO: Array vs Set ==========');
+        
+        const arrayGrande = Array.from({length: 10000}, (_, i) => `item${i}`);
+        const setGrande = new Set(arrayGrande);
+        
+        console.log('Testando performance de busca:');
+        console.log('Array com 10.000 elementos');
+        console.log('Set com 10.000 elementos');
+        
+        // Teste Array.includes()
+        console.time('Array.includes()');
+        arrayGrande.includes('item9999');
+        console.timeEnd('Array.includes()');
+        
+        // Teste Set.has()
+        console.time('Set.has()');
+        setGrande.has('item9999');
+        console.timeEnd('Set.has()');
+        
+        console.log('\n💡 Set.has() é muito mais rápido para verificações!');
+        console.log('\n');
+
+        console.log('=== FIM DO EXEMPLO ===');
+
+        // Exibir resumo no HTML
+        const resultadoDiv = document.getElementById('resultado');
+        resultadoDiv.innerHTML = `
+            <div class="exemplo">
+                <h3>📊 Resumo - Map</h3>
+                <p><strong>Tamanho do Map:</strong> ${produtos.size} produtos</p>
+                <p><strong>Produtos cadastrados:</strong></p>
+                <ul>
+                    ${Array.from(produtos.entries()).map(([id, p]) => 
+                        `<li>ID ${id}: ${p.nome} - R$ ${p.preco}</li>`
+                    ).join('')}
+                </ul>
+            </div>
+            
+            <div class="exemplo">
+                <h3>📊 Resumo - Set</h3>
+                <p><strong>Tamanho do Set:</strong> ${emails.size} emails únicos</p>
+                <p><strong>Emails cadastrados:</strong></p>
+                <ul>
+                    ${Array.from(emails).map(email => `<li>${email}</li>`).join('')}
+                </ul>
+            </div>
+            
+            <div class="exemplo">
+                <h3>📊 Removendo Duplicatas</h3>
+                <p><strong>Array original:</strong> [${numerosComDuplicatas.join(', ')}]</p>
+                <p><strong>Array sem duplicatas:</strong> [${arraySemDuplicatas.join(', ')}]</p>
+            </div>
+            
+            <p style="margin-top: 20px;"><strong>💡 Dica:</strong> Abra o console (F12) para ver todos os exemplos detalhados e testes de performance!</p>
+        `;
+    </script>
+</body>
+</html>
+

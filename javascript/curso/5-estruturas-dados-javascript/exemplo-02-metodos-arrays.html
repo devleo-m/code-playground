@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 2: Métodos de Arrays</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .exemplo {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #2196F3;
+            border-radius: 4px;
+        }
+        .resultado {
+            background: #e3f2fd;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Exemplo 2: Métodos de Arrays</h1>
+        <p>Abra o console do navegador (F12) para ver os resultados detalhados!</p>
+
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        console.log('=== EXEMPLO 2: MÉTODOS DE ARRAYS ===\n');
+
+        const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        // 1. map() - Transforma cada elemento
+        console.log('1. MAP() - Transformar elementos:');
+        const dobrados = numeros.map(num => num * 2);
+        console.log('Array original:', numeros);
+        console.log('Array dobrado:', dobrados);
+        console.log('\n');
+
+        // 2. filter() - Filtrar elementos
+        console.log('2. FILTER() - Filtrar elementos:');
+        const pares = numeros.filter(num => num % 2 === 0);
+        const maioresQue5 = numeros.filter(num => num > 5);
+        console.log('Números pares:', pares);
+        console.log('Números maiores que 5:', maioresQue5);
+        console.log('\n');
+
+        // 3. reduce() - Reduzir a um valor
+        console.log('3. REDUCE() - Reduzir a um valor:');
+        const soma = numeros.reduce((acc, num) => acc + num, 0);
+        const produto = numeros.reduce((acc, num) => acc * num, 1);
+        const maior = numeros.reduce((acc, num) => num > acc ? num : acc, numeros[0]);
+        console.log('Soma de todos:', soma);
+        console.log('Produto de todos:', produto);
+        console.log('Maior número:', maior);
+        console.log('\n');
+
+        // 4. find() e findIndex()
+        console.log('4. FIND() e FINDINDEX():');
+        const primeiroPar = numeros.find(num => num % 2 === 0);
+        const indicePrimeiroPar = numeros.findIndex(num => num % 2 === 0);
+        console.log('Primeiro número par:', primeiroPar);
+        console.log('Índice do primeiro par:', indicePrimeiroPar);
+        console.log('\n');
+
+        // 5. some() e every()
+        console.log('5. SOME() e EVERY():');
+        const temPar = numeros.some(num => num % 2 === 0);
+        const todosPares = numeros.every(num => num % 2 === 0);
+        const todosPositivos = numeros.every(num => num > 0);
+        console.log('Tem algum par?', temPar);
+        console.log('Todos são pares?', todosPares);
+        console.log('Todos são positivos?', todosPositivos);
+        console.log('\n');
+
+        // 6. includes() e indexOf()
+        console.log('6. INCLUDES() e INDEXOF():');
+        console.log('Array inclui o número 5?', numeros.includes(5));
+        console.log('Array inclui o número 15?', numeros.includes(15));
+        console.log('Índice do número 5:', numeros.indexOf(5));
+        console.log('Índice do número 15:', numeros.indexOf(15)); // -1 se não encontrar
+        console.log('\n');
+
+        // 7. sort()
+        console.log('7. SORT() - Ordenação:');
+        const desordenado = [10, 5, 40, 25, 1000, 1, 3];
+        console.log('Array desordenado:', desordenado);
+        
+        // Sort como string (errado para números!)
+        const ordenadoComoString = [...desordenado].sort();
+        console.log('Ordenado como string (ERRADO):', ordenadoComoString);
+        
+        // Sort numérico correto
+        const ordenadoNumerico = [...desordenado].sort((a, b) => a - b);
+        console.log('Ordenado numericamente (CRESCENTE):', ordenadoNumerico);
+        
+        const ordenadoDecrescente = [...desordenado].sort((a, b) => b - a);
+        console.log('Ordenado numericamente (DECRESCENTE):', ordenadoDecrescente);
+        console.log('\n');
+
+        // 8. slice() - Extrair parte do array
+        console.log('8. SLICE() - Extrair parte:');
+        console.log('Array original:', numeros);
+        console.log('Slice(2, 5):', numeros.slice(2, 5)); // Do índice 2 até 4
+        console.log('Slice(5):', numeros.slice(5)); // Do índice 5 até o final
+        console.log('Array original (não modificado):', numeros);
+        console.log('\n');
+
+        // 9. concat() - Combinar arrays
+        console.log('9. CONCAT() - Combinar arrays:');
+        const arr1 = [1, 2, 3];
+        const arr2 = [4, 5, 6];
+        const combinado = arr1.concat(arr2);
+        console.log('Array 1:', arr1);
+        console.log('Array 2:', arr2);
+        console.log('Combinado:', combinado);
+        
+        // Spread operator (alternativa moderna)
+        const combinadoSpread = [...arr1, ...arr2];
+        console.log('Combinado com spread:', combinadoSpread);
+        console.log('\n');
+
+        // 10. join() - Juntar em string
+        console.log('10. JOIN() - Juntar em string:');
+        const palavras = ['Olá', 'mundo', 'JavaScript'];
+        console.log('Array:', palavras);
+        console.log('Join com espaço:', palavras.join(' '));
+        console.log('Join com vírgula:', palavras.join(', '));
+        console.log('Join sem separador:', palavras.join(''));
+        console.log('\n');
+
+        // 11. Exemplo combinado: Pipeline de transformações
+        console.log('11. PIPELINE DE TRANSFORMAÇÕES:');
+        const resultado = numeros
+            .filter(num => num % 2 === 0)  // Apenas pares
+            .map(num => num * 2)            // Dobrar
+            .filter(num => num > 10)         // Maiores que 10
+            .reduce((acc, num) => acc + num, 0); // Somar
+        
+        console.log('Array original:', numeros);
+        console.log('Pipeline: pares → dobrar → >10 → somar');
+        console.log('Resultado:', resultado);
+        console.log('\n');
+
+        console.log('=== FIM DO EXEMPLO ===');
+
+        // Exibir resumo no HTML
+        const resultadoDiv = document.getElementById('resultado');
+        resultadoDiv.innerHTML = `
+            <div class="exemplo">
+                <h3>Resumo dos Métodos</h3>
+                <p><strong>Array original:</strong> [${numeros.join(', ')}]</p>
+                <p><strong>Dobrados (map):</strong> [${dobrados.join(', ')}]</p>
+                <p><strong>Pares (filter):</strong> [${pares.join(', ')}]</p>
+                <p><strong>Soma (reduce):</strong> ${soma}</p>
+                <p><strong>Tem par? (some):</strong> ${temPar}</p>
+                <p><strong>Todos positivos? (every):</strong> ${todosPositivos}</p>
+                <p><strong>Resultado do pipeline:</strong> ${resultado}</p>
+            </div>
+            <p style="margin-top: 20px;"><strong>💡 Dica:</strong> Abra o console (F12) para ver todos os exemplos detalhados!</p>
+        `;
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 1: Arrays Básicos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .exemplo {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #4CAF50;
+            border-radius: 4px;
+        }
+        code {
+            background: #e8e8e8;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .resultado {
+            background: #e3f2fd;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📋 Exemplo 1: Arrays Básicos</h1>
+        <p>Abra o console do navegador (F12) para ver os resultados!</p>
+
+        <div class="exemplo">
+            <h3>1. Criando Arrays</h3>
+            <p>Diferentes formas de criar arrays:</p>
+        </div>
+
+        <div class="exemplo">
+            <h3>2. Acessando Elementos</h3>
+            <p>Acessando elementos por índice:</p>
+        </div>
+
+        <div class="exemplo">
+            <h3>3. Propriedade length</h3>
+            <p>Verificando o tamanho do array:</p>
+        </div>
+
+        <div class="exemplo">
+            <h3>4. Modificando Arrays</h3>
+            <p>Adicionando e removendo elementos:</p>
+        </div>
+
+        <div class="resultado" id="resultado"></div>
+    </div>
+
+    <script>
+        console.log('=== EXEMPLO 1: ARRAYS BÁSICOS ===\n');
+
+        // 1. Criando Arrays
+        console.log('1. CRIANDO ARRAYS:');
+        
+        // Array literal (mais comum)
+        const frutas = ['maçã', 'banana', 'laranja'];
+        console.log('Array literal:', frutas);
+        
+        // Array com construtor
+        const numeros = new Array(1, 2, 3, 4, 5);
+        console.log('Array com construtor:', numeros);
+        
+        // Array vazio
+        const vazio = [];
+        console.log('Array vazio:', vazio);
+        
+        // Array misto (diferentes tipos)
+        const misto = [1, 'dois', true, null, undefined];
+        console.log('Array misto:', misto);
+        
+        console.log('\n');
+
+        // 2. Acessando Elementos
+        console.log('2. ACESSANDO ELEMENTOS:');
+        console.log('Primeiro elemento (índice 0):', frutas[0]);
+        console.log('Segundo elemento (índice 1):', frutas[1]);
+        console.log('Último elemento:', frutas[frutas.length - 1]);
+        console.log('Elemento inexistente:', frutas[10]); // undefined
+        
+        console.log('\n');
+
+        // 3. Propriedade length
+        console.log('3. PROPRIEDADE LENGTH:');
+        console.log('Tamanho do array frutas:', frutas.length);
+        console.log('Tamanho do array numeros:', numeros.length);
+        
+        // Modificando length
+        const arr = [1, 2, 3];
+        console.log('Array original:', arr);
+        arr.length = 5;
+        console.log('Após aumentar length:', arr);
+        arr.length = 2;
+        console.log('Após diminuir length:', arr);
+        
+        console.log('\n');
+
+        // 4. Modificando Arrays
+        console.log('4. MODIFICANDO ARRAYS:');
+        
+        // push() - Adiciona ao final
+        const lista = ['item1', 'item2'];
+        console.log('Array original:', lista);
+        lista.push('item3');
+        console.log('Após push("item3"):', lista);
+        
+        // pop() - Remove do final
+        const removido = lista.pop();
+        console.log('Elemento removido com pop():', removido);
+        console.log('Array após pop():', lista);
+        
+        // unshift() - Adiciona ao início
+        lista.unshift('item0');
+        console.log('Após unshift("item0"):', lista);
+        
+        // shift() - Remove do início
+        const primeiro = lista.shift();
+        console.log('Elemento removido com shift():', primeiro);
+        console.log('Array após shift():', lista);
+        
+        // Modificando elemento específico
+        lista[0] = 'ITEM1_MODIFICADO';
+        console.log('Após modificar índice 0:', lista);
+        
+        console.log('\n');
+
+        // 5. Iterando sobre Arrays
+        console.log('5. ITERANDO SOBRE ARRAYS:');
+        
+        // for tradicional
+        console.log('Com for tradicional:');
+        for (let i = 0; i < frutas.length; i++) {
+            console.log(`  ${i}: ${frutas[i]}`);
+        }
+        
+        // for...of (ES6+)
+        console.log('Com for...of:');
+        for (const fruta of frutas) {
+            console.log(`  - ${fruta}`);
+        }
+        
+        // forEach()
+        console.log('Com forEach():');
+        frutas.forEach((fruta, indice) => {
+            console.log(`  ${indice}: ${fruta}`);
+        });
+        
+        console.log('\n=== FIM DO EXEMPLO ===');
+        
+        // Exibir no HTML também
+        const resultadoDiv = document.getElementById('resultado');
+        resultadoDiv.innerHTML = `
+            <h3>Resultados no Console:</h3>
+            <p>Abra o console do navegador (F12) para ver todos os resultados detalhados!</p>
+            <p><strong>Array de frutas:</strong> ${frutas.join(', ')}</p>
+            <p><strong>Tamanho:</strong> ${frutas.length} elementos</p>
+            <p><strong>Primeiro elemento:</strong> ${frutas[0]}</p>
+        `;
+    </script>
+</body>
+</html>
+

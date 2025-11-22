@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 4: Trabalhando com JSON</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .exemplo {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #FF9800;
+            border-radius: 4px;
+        }
+        .json-display {
+            background: #263238;
+            color: #aed581;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+        .resultado {
+            background: #fff3e0;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .erro {
+            background: #ffebee;
+            color: #c62828;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📄 Exemplo 4: Trabalhando com JSON</h1>
+        <p>Abra o console do navegador (F12) para ver os resultados!</p>
+
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        console.log('=== EXEMPLO 4: TRABALHANDO COM JSON ===\n');
+
+        // 1. Objeto JavaScript
+        console.log('1. OBJETO JAVASCRIPT:');
+        const usuario = {
+            nome: 'João Silva',
+            idade: 30,
+            email: 'joao@email.com',
+            ativo: true,
+            hobbies: ['leitura', 'programação', 'música'],
+            endereco: {
+                rua: 'Rua das Flores',
+                numero: 123,
+                cidade: 'São Paulo',
+                cep: '01234-567'
+            },
+            telefone: null
+        };
+        console.log('Objeto JavaScript:', usuario);
+        console.log('\n');
+
+        // 2. Convertendo para JSON (stringify)
+        console.log('2. CONVERTENDO PARA JSON:');
+        
+        // Sem formatação
+        const jsonSemFormatacao = JSON.stringify(usuario);
+        console.log('JSON sem formatação:');
+        console.log(jsonSemFormatacao);
+        console.log('\n');
+        
+        // Com formatação (indentação de 2 espaços)
+        const jsonFormatado = JSON.stringify(usuario, null, 2);
+        console.log('JSON formatado:');
+        console.log(jsonFormatado);
+        console.log('\n');
+
+        // Filtrando propriedades
+        const jsonFiltrado = JSON.stringify(usuario, ['nome', 'idade', 'email'], 2);
+        console.log('JSON apenas com nome, idade e email:');
+        console.log(jsonFiltrado);
+        console.log('\n');
+
+        // 3. Convertendo de JSON para objeto (parse)
+        console.log('3. CONVERTENDO DE JSON PARA OBJETO:');
+        const jsonString = '{"nome":"Maria","idade":25,"ativo":true}';
+        console.log('String JSON:', jsonString);
+        
+        const objeto = JSON.parse(jsonString);
+        console.log('Objeto convertido:', objeto);
+        console.log('Acessando propriedades:');
+        console.log('  Nome:', objeto.nome);
+        console.log('  Idade:', objeto.idade);
+        console.log('\n');
+
+        // 4. JSON com arrays
+        console.log('4. JSON COM ARRAYS:');
+        const jsonArray = '[1, 2, 3, 4, 5]';
+        console.log('String JSON (array):', jsonArray);
+        const array = JSON.parse(jsonArray);
+        console.log('Array convertido:', array);
+        console.log('É array?', Array.isArray(array));
+        console.log('\n');
+
+        // 5. Simulando localStorage
+        console.log('5. SIMULANDO LOCALSTORAGE:');
+        
+        // Salvar dados
+        const dadosParaSalvar = {
+            tema: 'escuro',
+            idioma: 'pt-BR',
+            notificacoes: true
+        };
+        const jsonParaSalvar = JSON.stringify(dadosParaSalvar);
+        console.log('Dados para salvar:', dadosParaSalvar);
+        console.log('JSON para salvar:', jsonParaSalvar);
+        
+        // Simular salvamento (em aplicação real: localStorage.setItem('config', jsonParaSalvar))
+        // const jsonSalvo = localStorage.getItem('config');
+        const jsonSalvo = jsonParaSalvar; // Simulação
+        
+        // Recuperar dados
+        const dadosRecuperados = JSON.parse(jsonSalvo);
+        console.log('Dados recuperados:', dadosRecuperados);
+        console.log('\n');
+
+        // 6. Tratamento de erros
+        console.log('6. TRATAMENTO DE ERROS:');
+        
+        // JSON válido
+        try {
+            const jsonValido = '{"nome":"João","idade":30}';
+            const objValido = JSON.parse(jsonValido);
+            console.log('✅ JSON válido parseado:', objValido);
+        } catch (erro) {
+            console.error('❌ Erro:', erro.message);
+        }
+        
+        // JSON inválido
+        try {
+            const jsonInvalido = '{nome: "João"}'; // Chave sem aspas
+            const objInvalido = JSON.parse(jsonInvalido);
+            console.log('Objeto:', objInvalido);
+        } catch (erro) {
+            console.error('❌ Erro ao fazer parse:', erro.message);
+        }
+        
+        // JSON inválido - vírgula no final
+        try {
+            const jsonInvalido2 = '{"nome":"João","idade":30,}'; // Vírgula no final
+            const objInvalido2 = JSON.parse(jsonInvalido2);
+            console.log('Objeto:', objInvalido2);
+        } catch (erro) {
+            console.error('❌ Erro ao fazer parse:', erro.message);
+        }
+        console.log('\n');
+
+        // 7. O que JSON NÃO suporta
+        console.log('7. O QUE JSON NÃO SUPORTA:');
+        
+        const objetoComFuncao = {
+            nome: 'João',
+            funcao: function() { return 'teste'; }, // Função não é suportada
+            undefined: undefined, // undefined não é suportado
+            symbol: Symbol('id') // Symbol não é suportado
+        };
+        
+        console.log('Objeto original:', objetoComFuncao);
+        const jsonSemFuncao = JSON.stringify(objetoComFuncao);
+        console.log('JSON (funções/undefined/symbol são removidos):', jsonSemFuncao);
+        console.log('\n');
+
+        // 8. Exemplo prático: API simulada
+        console.log('8. EXEMPLO PRÁTICO: API SIMULADA');
+        
+        // Simular resposta de API
+        const respostaAPI = JSON.stringify({
+            usuarios: [
+                { id: 1, nome: 'João', email: 'joao@email.com' },
+                { id: 2, nome: 'Maria', email: 'maria@email.com' },
+                { id: 3, nome: 'Pedro', email: 'pedro@email.com' }
+            ],
+            total: 3
+        });
+        
+        console.log('Resposta da API (JSON):', respostaAPI);
+        const dadosAPI = JSON.parse(respostaAPI);
+        console.log('Dados parseados:', dadosAPI);
+        console.log('Total de usuários:', dadosAPI.total);
+        console.log('Primeiro usuário:', dadosAPI.usuarios[0]);
+        console.log('\n');
+
+        console.log('=== FIM DO EXEMPLO ===');
+
+        // Exibir no HTML
+        const resultadoDiv = document.getElementById('resultado');
+        resultadoDiv.innerHTML = `
+            <div class="exemplo">
+                <h3>1. Objeto JavaScript Original</h3>
+                <div class="json-display">${JSON.stringify(usuario, null, 2)}</div>
+            </div>
+            
+            <div class="exemplo">
+                <h3>2. JSON Formatado (para envio/salvamento)</h3>
+                <div class="json-display">${jsonFormatado}</div>
+            </div>
+            
+            <div class="exemplo">
+                <h3>3. Conversão de JSON para Objeto</h3>
+                <p><strong>String JSON:</strong> <code>${jsonString}</code></p>
+                <p><strong>Objeto convertido:</strong></p>
+                <ul>
+                    <li>Nome: ${objeto.nome}</li>
+                    <li>Idade: ${objeto.idade}</li>
+                    <li>Ativo: ${objeto.ativo}</li>
+                </ul>
+            </div>
+            
+            <div class="exemplo">
+                <h3>4. Simulação de localStorage</h3>
+                <p><strong>Dados salvos:</strong></p>
+                <div class="json-display">${JSON.stringify(dadosParaSalvar, null, 2)}</div>
+                <p><strong>Dados recuperados:</strong></p>
+                <ul>
+                    <li>Tema: ${dadosRecuperados.tema}</li>
+                    <li>Idoma: ${dadosRecuperados.idioma}</li>
+                    <li>Notificações: ${dadosRecuperados.notificacoes}</li>
+                </ul>
+            </div>
+            
+            <div class="erro">
+                <h3>⚠️ O que JSON NÃO suporta:</h3>
+                <ul>
+                    <li>❌ Funções</li>
+                    <li>❌ undefined</li>
+                    <li>❌ Symbol</li>
+                    <li>❌ Comentários</li>
+                </ul>
+                <p>Esses valores são removidos ou convertidos ao fazer stringify!</p>
+            </div>
+            
+            <p style="margin-top: 20px;"><strong>💡 Dica:</strong> Abra o console (F12) para ver todos os exemplos detalhados e tratamento de erros!</p>
+        `;
+    </script>
+</body>
+</html>
+

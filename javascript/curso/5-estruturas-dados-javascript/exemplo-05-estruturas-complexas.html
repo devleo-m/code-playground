@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 5: Estruturas de Dados Complexas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .exemplo {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #4CAF50;
+            border-radius: 4px;
+        }
+        .resultado {
+            background: #e8f5e9;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏗️ Exemplo 5: Estruturas de Dados Complexas</h1>
+        <p>Abra o console do navegador (F12) para ver os resultados!</p>
+
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        console.log('=== EXEMPLO 5: ESTRUTURAS DE DADOS COMPLEXAS ===\n');
+
+        // Sistema de Biblioteca usando múltiplas estruturas
+        console.log('========== SISTEMA DE BIBLIOTECA ==========\n');
+
+        // 1. Array de livros (lista ordenada)
+        const livros = [
+            { id: 1, titulo: 'Aprendendo JavaScript', autor: 'João Silva', genero: 'Técnico' },
+            { id: 2, titulo: 'Dom Casmurro', autor: 'Machado de Assis', genero: 'Literatura' },
+            { id: 3, titulo: 'O Guia do Mochileiro', autor: 'Douglas Adams', genero: 'Ficção' },
+            { id: 4, titulo: 'JavaScript: O Guia Definitivo', autor: 'David Flanagan', genero: 'Técnico' },
+            { id: 5, titulo: '1984', autor: 'George Orwell', genero: 'Ficção' }
+        ];
+
+        console.log('1. ARRAY DE LIVROS (lista ordenada):');
+        console.log('Total de livros:', livros.length);
+        livros.forEach((livro, index) => {
+            console.log(`  ${index + 1}. ${livro.titulo} - ${livro.autor}`);
+        });
+        console.log('\n');
+
+        // 2. Map para busca rápida por ID
+        const livrosPorId = new Map();
+        livros.forEach(livro => {
+            livrosPorId.set(livro.id, livro);
+        });
+
+        console.log('2. MAP PARA BUSCA RÁPIDA POR ID:');
+        console.log('Tamanho do Map:', livrosPorId.size);
+        
+        // Função para buscar livro por ID
+        function buscarLivroPorId(id) {
+            return livrosPorId.get(id);
+        }
+        
+        const livroEncontrado = buscarLivroPorId(3);
+        console.log('Livro com ID 3:', livroEncontrado);
+        console.log('\n');
+
+        // 3. Set para autores únicos
+        const autores = new Set();
+        livros.forEach(livro => {
+            autores.add(livro.autor);
+        });
+
+        console.log('3. SET PARA AUTORES ÚNICOS:');
+        console.log('Total de autores únicos:', autores.size);
+        console.log('Autores:', Array.from(autores).join(', '));
+        console.log('\n');
+
+        // 4. Set para gêneros únicos
+        const generos = new Set(livros.map(livro => livro.genero));
+        console.log('4. SET PARA GÊNEROS ÚNICOS:');
+        console.log('Gêneros disponíveis:', Array.from(generos).join(', '));
+        console.log('\n');
+
+        // 5. Funções de busca e filtro
+        console.log('5. FUNÇÕES DE BUSCA E FILTRO:');
+        
+        // Buscar livros por autor
+        function buscarLivrosPorAutor(autor) {
+            return livros.filter(livro => livro.autor === autor);
+        }
+        
+        const livrosJoao = buscarLivrosPorAutor('João Silva');
+        console.log('Livros de João Silva:', livrosJoao.length);
+        livrosJoao.forEach(livro => console.log(`  - ${livro.titulo}`));
+        console.log('\n');
+
+        // Buscar livros por gênero
+        function buscarLivrosPorGenero(genero) {
+            return livros.filter(livro => livro.genero === genero);
+        }
+        
+        const livrosFiccao = buscarLivrosPorGenero('Ficção');
+        console.log('Livros de Ficção:', livrosFiccao.length);
+        livrosFiccao.forEach(livro => console.log(`  - ${livro.titulo}`));
+        console.log('\n');
+
+        // 6. Adicionar novo livro (atualizar todas as estruturas)
+        function adicionarLivro(novoLivro) {
+            // Adicionar ao array
+            livros.push(novoLivro);
+            
+            // Adicionar ao Map
+            livrosPorId.set(novoLivro.id, novoLivro);
+            
+            // Adicionar autor ao Set
+            autores.add(novoLivro.autor);
+            
+            // Adicionar gênero ao Set
+            generos.add(novoLivro.genero);
+            
+            console.log(`Livro "${novoLivro.titulo}" adicionado com sucesso!`);
+        }
+
+        console.log('6. ADICIONANDO NOVO LIVRO:');
+        adicionarLivro({
+            id: 6,
+            titulo: 'Clean Code',
+            autor: 'Robert C. Martin',
+            genero: 'Técnico'
+        });
+        console.log('Total de livros agora:', livros.length);
+        console.log('Total de autores agora:', autores.size);
+        console.log('\n');
+
+        // 7. Converter para JSON
+        console.log('7. CONVERTENDO PARA JSON:');
+        const dadosBiblioteca = {
+            totalLivros: livros.length,
+            livros: livros,
+            autores: Array.from(autores),
+            generos: Array.from(generos),
+            dataAtualizacao: new Date().toISOString()
+        };
+        
+        const jsonBiblioteca = JSON.stringify(dadosBiblioteca, null, 2);
+        console.log('JSON da biblioteca (primeiras 200 caracteres):');
+        console.log(jsonBiblioteca.substring(0, 200) + '...');
+        console.log('\n');
+
+        // 8. Recuperar de JSON
+        console.log('8. RECUPERANDO DE JSON:');
+        const dadosRecuperados = JSON.parse(jsonBiblioteca);
+        console.log('Dados recuperados:');
+        console.log('  Total de livros:', dadosRecuperados.totalLivros);
+        console.log('  Autores:', dadosRecuperados.autores.join(', '));
+        console.log('\n');
+
+        // 9. Estatísticas da biblioteca
+        console.log('9. ESTATÍSTICAS DA BIBLIOTECA:');
+        
+        // Livros por gênero
+        const livrosPorGenero = {};
+        livros.forEach(livro => {
+            if (!livrosPorGenero[livro.genero]) {
+                livrosPorGenero[livro.genero] = 0;
+            }
+            livrosPorGenero[livro.genero]++;
+        });
+        
+        console.log('Livros por gênero:');
+        Object.entries(livrosPorGenero).forEach(([genero, quantidade]) => {
+            console.log(`  ${genero}: ${quantidade} livro(s)`);
+        });
+        console.log('\n');
+
+        // Autor com mais livros
+        const livrosPorAutor = {};
+        livros.forEach(livro => {
+            if (!livrosPorAutor[livro.autor]) {
+                livrosPorAutor[livro.autor] = 0;
+            }
+            livrosPorAutor[livro.autor]++;
+        });
+        
+        const autorComMaisLivros = Object.entries(livrosPorAutor)
+            .sort((a, b) => b[1] - a[1])[0];
+        console.log('Autor com mais livros:');
+        console.log(`  ${autorComMaisLivros[0]}: ${autorComMaisLivros[1]} livro(s)`);
+        console.log('\n');
+
+        console.log('=== FIM DO EXEMPLO ===');
+
+        // Exibir no HTML
+        const resultadoDiv = document.getElementById('resultado');
+        resultadoDiv.innerHTML = `
+            <div class="exemplo">
+                <h3>📚 Sistema de Biblioteca</h3>
+                <p><strong>Total de livros:</strong> ${livros.length}</p>
+                <p><strong>Autores únicos:</strong> ${autores.size}</p>
+                <p><strong>Gêneros:</strong> ${Array.from(generos).join(', ')}</p>
+            </div>
+            
+            <div class="exemplo">
+                <h3>📖 Lista de Livros</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Título</th>
+                            <th>Autor</th>
+                            <th>Gênero</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${livros.map(livro => `
+                            <tr>
+                                <td>${livro.id}</td>
+                                <td>${livro.titulo}</td>
+                                <td>${livro.autor}</td>
+                                <td>${livro.genero}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="exemplo">
+                <h3>📊 Estatísticas</h3>
+                <p><strong>Livros por gênero:</strong></p>
+                <ul>
+                    ${Object.entries(livrosPorGenero).map(([genero, qtd]) => 
+                        `<li>${genero}: ${qtd} livro(s)</li>`
+                    ).join('')}
+                </ul>
+                <p><strong>Autor com mais livros:</strong> ${autorComMaisLivros[0]} (${autorComMaisLivros[1]} livro(s))</p>
+            </div>
+            
+            <div class="exemplo">
+                <h3>🔍 Busca Rápida</h3>
+                <p>Use <code>buscarLivroPorId(id)</code> para buscar por ID (usa Map - O(1))</p>
+                <p>Use <code>buscarLivrosPorAutor(autor)</code> para buscar por autor (usa Array.filter)</p>
+                <p>Use <code>buscarLivrosPorGenero(genero)</code> para buscar por gênero</p>
+            </div>
+            
+            <p style="margin-top: 20px;"><strong>💡 Dica:</strong> Abra o console (F12) para ver todos os exemplos detalhados e testar as funções!</p>
+        `;
+    </script>
+</body>
+</html>
+
