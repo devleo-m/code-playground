@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo: Whitespaces em HTML</title>
+</head>
+<body>
+    <header>
+        <h1>Whitespaces em HTML</h1>
+    </header>
+    
+    <main>
+        <!-- ============================================ -->
+        <!-- SEÇÃO: COLAPSO DE WHITESPACES -->
+        <!-- ============================================ -->
+        <section id="colapso">
+            <h2>Colapso de Whitespaces</h2>
+            
+            <article>
+                <h3>Múltiplos Espaços são Colapsados</h3>
+                <!-- No código há 5 espaços entre "Olá" e "Mundo" -->
+                <p>Olá     Mundo</p>
+                <!-- No navegador, você verá apenas um espaço -->
+            </article>
+            
+            <article>
+                <h3>Quebras de Linha são Colapsadas</h3>
+                <!-- No código há múltiplas quebras de linha -->
+                <p>Linha 1
+
+
+Linha 2</p>
+                <!-- No navegador, você verá "Linha 1 Linha 2" -->
+            </article>
+            
+            <article>
+                <h3>Espaços no Início e Fim são Removidos</h3>
+                <!-- Espaços extras no início e fim -->
+                <p>   Texto com espaços extras   </p>
+                <!-- No navegador, espaços extras são removidos -->
+            </article>
+        </section>
+        
+        <!-- ============================================ -->
+        <!-- SEÇÃO: PRESERVANDO WHITESPACES -->
+        <!-- ============================================ -->
+        <section id="preservacao">
+            <h2>Preservando Whitespaces</h2>
+            
+            <article>
+                <h3>Tag &lt;pre&gt; Preserva Tudo</h3>
+                <pre>
+Este texto
+    mantém todos os espaços
+        e quebras de linha
+            exatamente como estão
+                no código.
+                </pre>
+            </article>
+            
+            <article>
+                <h3>Código de Programação</h3>
+                <pre><code>
+function exemplo() {
+    if (condicao) {
+        console.log("Olá");
+    }
+}
+                </code></pre>
+            </article>
+            
+            <article>
+                <h3>Poema ou Texto Pré-formatado</h3>
+                <pre>
+Rosa de ouro,
+Rosa de prata,
+Rosa de seda,
+Rosa de nada.
+                </pre>
+            </article>
+            
+            <article>
+                <h3>Output de Terminal</h3>
+                <pre>
+$ npm install
+$ npm start
+$ git commit -m "Mensagem"
+                </pre>
+            </article>
+        </section>
+        
+        <!-- ============================================ -->
+        <!-- SEÇÃO: ESPAÇOS NÃO SEPARÁVEIS -->
+        <!-- ============================================ -->
+        <section id="espacos-nao-separaveis">
+            <h2>Espaços Não Separáveis (&nbsp;)</h2>
+            
+            <article>
+                <h3>Títulos e Nomes</h3>
+                <ul>
+                    <li>Dr.&nbsp;Silva</li>
+                    <li>Prof.&nbsp;Maria Santos</li>
+                    <li>Sr.&nbsp;João</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Valores Monetários</h3>
+                <ul>
+                    <li>R$&nbsp;100,00</li>
+                    <li>R$&nbsp;50,00</li>
+                    <li>&euro;&nbsp;25,00</li>
+                    <li>US$&nbsp;10,00</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Unidades de Medida</h3>
+                <ul>
+                    <li>10&nbsp;km</li>
+                    <li>5&nbsp;kg</li>
+                    <li>20&nbsp;cm</li>
+                    <li>100&nbsp;m²</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Datas e Horas</h3>
+                <ul>
+                    <li>15&nbsp;de&nbsp;março&nbsp;de&nbsp;2024</li>
+                    <li>10&nbsp;horas&nbsp;e&nbsp;30&nbsp;minutos</li>
+                </ul>
+            </article>
+        </section>
+        
+        <!-- ============================================ -->
+        <!-- SEÇÃO: INDENTAÇÃO E FORMATAÇÃO -->
+        <!-- ============================================ -->
+        <section id="indentacao">
+            <h2>Indentação para Legibilidade</h2>
+            
+            <article>
+                <h3>Código Bem Formatado</h3>
+                <p>
+                    A indentação ajuda a visualizar a hierarquia do código.
+                    Veja como o código HTML está organizado com indentação consistente.
+                </p>
+                
+                <!-- Exemplo de código HTML formatado -->
+                <pre><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Página&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Título&lt;/h1&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </article>
+            
+            <article>
+                <h3>Código Sem Formatação (Difícil de Ler)</h3>
+                <pre><code>&lt;html&gt;&lt;head&gt;&lt;title&gt;Página&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;h1&gt;Título&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;</code></pre>
+                <p>
+                    Este código funciona, mas é muito difícil de ler e manter!
+                </p>
+            </article>
+        </section>
+        
+        <!-- ============================================ -->
+        <!-- SEÇÃO: COMPARAÇÃO VISUAL -->
+        <!-- ============================================ -->
+        <section id="comparacao">
+            <h2>Comparação Visual</h2>
+            
+            <article>
+                <h3>Texto Normal (Espaços Colapsados)</h3>
+                <div style="border: 1px solid #ccc; padding: 10px;">
+                    <p>Este     texto     tem     múltiplos     espaços</p>
+                    <p>Mas no navegador você verá apenas um espaço entre cada palavra.</p>
+                </div>
+            </article>
+            
+            <article>
+                <h3>Tag &lt;pre&gt; (Espaços Preservados)</h3>
+                <div style="border: 1px solid #ccc; padding: 10px;">
+                    <pre>Este     texto     tem     múltiplos     espaços
+E todas as quebras de linha
+    E indentação
+        São preservadas!</pre>
+                </div>
+            </article>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 - Exemplo de Whitespaces</p>
+        <p>
+            <!-- Links de navegação -->
+            <a href="#colapso">Colapso</a> | 
+            <a href="#preservacao">Preservação</a> | 
+            <a href="#espacos-nao-separaveis">Espaços Não Separáveis</a>
+        </p>
+    </footer>
+</body>
+</html>
+

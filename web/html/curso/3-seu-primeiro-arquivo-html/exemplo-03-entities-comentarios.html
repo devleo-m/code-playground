@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo: HTML Entities e Comentários</title>
+</head>
+<body>
+    <header>
+        <h1>HTML Entities e Comentários</h1>
+    </header>
+    
+    <main>
+        <!-- ============================================ -->
+        <!-- SEÇÃO: HTML ENTITIES -->
+        <!-- ============================================ -->
+        <section id="entities">
+            <h2>HTML Entities</h2>
+            
+            <!-- Caracteres Especiais -->
+            <article>
+                <h3>Caracteres com Significado Especial</h3>
+                <p>
+                    Para escrever tags HTML como texto, use entities:
+                </p>
+                <ul>
+                    <li><code>&lt;p&gt;</code> - Tag de parágrafo</li>
+                    <li><code>&lt;div&gt;</code> - Tag de divisão</li>
+                    <li><code>&lt;h1&gt;</code> - Tag de título</li>
+                </ul>
+                <p>
+                    Para escrever o símbolo &amp; (e comercial), use: <code>&amp;amp;</code>
+                </p>
+            </article>
+            
+            <!-- Símbolos de Moeda -->
+            <article>
+                <h3>Símbolos de Moeda</h3>
+                <ul>
+                    <li>Euro: &euro;50,00</li>
+                    <li>Libra: &pound;30,00</li>
+                    <li>Iene: &yen;1000</li>
+                    <li>Centavo: &cent;50</li>
+                </ul>
+            </article>
+            
+            <!-- Símbolos de Direitos Autorais -->
+            <article>
+                <h3>Símbolos de Direitos Autorais</h3>
+                <ul>
+                    <li>Copyright: &copy; 2024</li>
+                    <li>Marca Registrada: &reg;</li>
+                    <li>Marca Comercial: &trade;</li>
+                </ul>
+            </article>
+            
+            <!-- Símbolos Matemáticos -->
+            <article>
+                <h3>Símbolos Matemáticos</h3>
+                <ul>
+                    <li>Multiplicação: 5 &times; 3 = 15</li>
+                    <li>Divisão: 10 &divide; 2 = 5</li>
+                    <li>Mais ou Menos: 10 &plusmn; 2</li>
+                    <li>Menor que: 5 &lt; 10</li>
+                    <li>Maior que: 10 &gt; 5</li>
+                </ul>
+            </article>
+            
+            <!-- Setas -->
+            <article>
+                <h3>Setas de Navegação</h3>
+                <p>
+                    &larr; Anterior | Próximo &rarr;
+                </p>
+                <p>
+                    &uarr; Para cima | Para baixo &darr;
+                </p>
+            </article>
+            
+            <!-- Acentos em Português -->
+            <article>
+                <h3>Acentos e Caracteres Especiais (Português)</h3>
+                <p>
+                    Com UTF-8, você pode escrever diretamente: Café, Pão, Ação, Coração
+                </p>
+                <p>
+                    Ou usar entities: Caf&eacute;, P&atilde;o, A&ccedil;&atilde;o, Cora&ccedil;&atilde;o
+                </p>
+                <p>
+                    Mais exemplos: &aacute; &eacute; &iacute; &oacute; &uacute; &ccedil;
+                </p>
+            </article>
+            
+            <!-- Entities Numéricas -->
+            <article>
+                <h3>Entities Numéricas</h3>
+                <ul>
+                    <li>Decimal: &#169; (copyright)</li>
+                    <li>Hexadecimal: &#xA9; (copyright)</li>
+                </ul>
+            </article>
+        </section>
+        
+        <!-- ============================================ -->
+        <!-- SEÇÃO: COMENTÁRIOS HTML -->
+        <!-- ============================================ -->
+        <section id="comentarios">
+            <h2>Comentários HTML</h2>
+            
+            <!-- Comentário simples -->
+            <!-- Este é um comentário simples que não aparece no navegador -->
+            
+            <article>
+                <h3>Tipos de Comentários</h3>
+                
+                <!-- Comentário de uma linha -->
+                <p>Comentários de uma linha explicam código específico.</p>
+                
+                <!--
+                    Comentário multilinha
+                    útil para documentação
+                    extensa ou explicações
+                    detalhadas
+                -->
+                <p>Comentários multilinha são úteis para documentação extensa.</p>
+            </article>
+            
+            <!-- TODO: Adicionar mais exemplos de comentários -->
+            <!-- FIXME: Corrigir problema de renderização no mobile -->
+            <!-- NOTE: Esta seção será refatorada na próxima versão -->
+            
+            <article>
+                <h3>Organização com Comentários</h3>
+                <p>
+                    Comentários ajudam a organizar o código em seções lógicas.
+                </p>
+            </article>
+            
+            <!-- 
+                IMPORTANTE: 
+                Este código foi comentado temporariamente para testes.
+                Não remover sem verificar impacto.
+            -->
+            <!--
+            <div class="feature-experimental">
+                <p>Funcionalidade experimental</p>
+            </div>
+            -->
+        </section>
+        
+        <!-- ============================================ -->
+        <!-- SEÇÃO: COMBINANDO ENTITIES E COMENTÁRIOS -->
+        <!-- ============================================ -->
+        <section id="combinacao">
+            <h2>Exemplo Prático: Combinando Tudo</h2>
+            
+            <!-- Exemplo de página de produto -->
+            <article>
+                <h3>Página de Produto</h3>
+                
+                <!-- Informações do produto -->
+                <div>
+                    <h4>Produto: Tênis Esportivo</h4>
+                    <p>Preço: R$&nbsp;199,90</p>
+                    <p>Desconto: 10&percnt; off</p>
+                    <p>Copyright &copy; 2024 Loja Online&trade;</p>
+                    <p>Para comprar, clique aqui &rarr;</p>
+                </div>
+                
+                <!-- 
+                    Nota: Os preços são carregados dinamicamente
+                    via JavaScript a partir de uma API externa.
+                    O símbolo &nbsp; garante que "R$" e o valor
+                    não sejam separados em quebras de linha.
+                -->
+            </article>
+        </section>
+    </main>
+    
+    <footer>
+        <!-- Rodapé com informações de copyright -->
+        <p>Copyright &copy; 2024 - Exemplo de Entities e Comentários</p>
+        <p>
+            <!-- Links do rodapé -->
+            <a href="#entities">Entities</a> | 
+            <a href="#comentarios">Comentários</a>
+        </p>
+    </footer>
+</body>
+</html>
+
