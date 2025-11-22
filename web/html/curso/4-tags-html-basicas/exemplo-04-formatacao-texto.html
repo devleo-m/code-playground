@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Exemplos práticos de formatação de texto em HTML: strong, em, b, i, mark, sub, sup e pre.">
+    <title>Formatação de Texto - Exemplos HTML</title>
+</head>
+<body>
+    <header>
+        <h1>Formatação de Texto em HTML</h1>
+        <p>Este documento demonstra todas as tags de formatação de texto disponíveis em HTML.</p>
+    </header>
+    
+    <main>
+        <!-- Seção sobre strong e b -->
+        <section>
+            <h2>Strong vs B: Importância vs Negrito Visual</h2>
+            
+            <h3>Strong (&lt;strong&gt;) - Importância Semântica</h3>
+            <p>
+                A tag <code>&lt;strong&gt;</code> indica que o texto tem
+                <strong>forte importância</strong>. Visualmente, geralmente aparece em negrito,
+                mas tem significado semântico.
+            </p>
+            <p>
+                <strong>Exemplo:</strong> Este texto é <strong>muito importante</strong>
+                e precisa ser destacado para o leitor.
+            </p>
+            
+            <h3>B (&lt;b&gt;) - Negrito Visual</h3>
+            <p>
+                A tag <code>&lt;b&gt;</code> torna o texto <b>visualmente em negrito</b>,
+                mas sem significado semântico. Use apenas para destaque visual.
+            </p>
+            <p>
+                <strong>Exemplo:</strong> O nome científico é <b>Canis lupus</b>
+                (apenas destaque visual, sem importância semântica).
+            </p>
+            
+            <h3>Diferença e Quando Usar</h3>
+            <ul>
+                <li><strong>&lt;strong&gt;:</strong> Use quando o texto for realmente importante</li>
+                <li><strong>&lt;b&gt;:</strong> Use apenas para destaque visual sem importância</li>
+                <li><strong>Prefira &lt;strong&gt;</strong> na maioria dos casos</li>
+            </ul>
+            
+            <p>
+                <mark>Nota:</mark> Leitores de tela enfatizam mais o texto dentro de
+                <code>&lt;strong&gt;</code>, tornando-o mais acessível.
+            </p>
+        </section>
+        
+        <!-- Seção sobre em e i -->
+        <section>
+            <h2>Em vs I: Ênfase vs Itálico Visual</h2>
+            
+            <h3>Em (&lt;em&gt;) - Ênfase Semântica</h3>
+            <p>
+                A tag <code>&lt;em&gt;</code> indica <em>ênfase</em> no texto.
+                Visualmente, geralmente aparece em itálico, mas tem significado semântico.
+            </p>
+            <p>
+                <strong>Exemplo:</strong> Eu <em>realmente</em> preciso que você entenda isso.
+                (A palavra "realmente" recebe ênfase no contexto da frase)
+            </p>
+            
+            <h3>I (&lt;i&gt;) - Itálico Visual</h3>
+            <p>
+                A tag <code>&lt;i&gt;</code> torna o texto <i>visualmente em itálico</i>,
+                mas sem significado semântico. Use para termos técnicos, nomes científicos,
+                pensamentos ou palavras estrangeiras.
+            </p>
+            <p>
+                <strong>Exemplos:</strong>
+            </p>
+            <ul>
+                <li>Nome científico: <i>Homo sapiens</i></li>
+                <li>Pensamento: Ele pensou: <i>Será que isso vai funcionar?</i></li>
+                <li>Termo técnico: O protocolo <i>HTTP</i> é usado na web</li>
+                <li>Palavra estrangeira: A palavra <i>rendezvous</i> vem do francês</li>
+            </ul>
+            
+            <h3>Diferença e Quando Usar</h3>
+            <ul>
+                <li><strong>&lt;em&gt;:</strong> Use para dar ênfase no contexto</li>
+                <li><strong>&lt;i&gt;:</strong> Use para termos técnicos, nomes científicos, pensamentos</li>
+                <li><strong>Prefira &lt;em&gt;</strong> quando houver ênfase real</li>
+            </ul>
+        </section>
+        
+        <!-- Seção sobre mark -->
+        <section>
+            <h2>Mark (&lt;mark&gt;) - Texto Marcado</h2>
+            
+            <p>
+                A tag <code>&lt;mark&gt;</code> marca ou destaca partes do texto,
+                geralmente com fundo amarelo. É como usar um marcador de texto.
+            </p>
+            
+            <h3>Exemplos de Uso</h3>
+            
+            <p>
+                Este é um texto normal com uma <mark>palavra marcada</mark> para destaque.
+            </p>
+            
+            <p>
+                Em resultados de busca, termos pesquisados podem aparecer
+                <mark>marcados</mark> para facilitar a identificação.
+            </p>
+            
+            <p>
+                Você pode usar <mark>mark</mark> para destacar informações relevantes
+                que o usuário precisa notar, como avisos importantes ou termos-chave.
+            </p>
+            
+            <h3>Quando Usar</h3>
+            <ul>
+                <li>Destacar texto relevante para o usuário</li>
+                <li>Resultados de busca</li>
+                <li>Chamar atenção para algo específico</li>
+                <li>Como um "post-it" digital</li>
+            </ul>
+        </section>
+        
+        <!-- Seção sobre sub e sup -->
+        <section>
+            <h2>Sub e Sup: Subscrito e Sobrescrito</h2>
+            
+            <h3>Sub (&lt;sub&gt;) - Subscrito</h3>
+            <p>
+                A tag <code>&lt;sub&gt;</code> cria texto <sub>subscrito</sub>
+                (abaixo da linha normal). É comumente usado em fórmulas químicas e matemáticas.
+            </p>
+            
+            <h4>Exemplos de Fórmulas Químicas</h4>
+            <ul>
+                <li>Água: H<sub>2</sub>O</li>
+                <li>Dioxido de carbono: CO<sub>2</sub></li>
+                <li>Glicose: C<sub>6</sub>H<sub>12</sub>O<sub>6</sub></li>
+                <li>Ácido sulfúrico: H<sub>2</sub>SO<sub>4</sub></li>
+            </ul>
+            
+            <h4>Outros Usos</h4>
+            <ul>
+                <li>Notas de rodapé: Texto<sub>1</sub></li>
+                <li>Expressões matemáticas: x<sub>1</sub>, x<sub>2</sub>, x<sub>n</sub></li>
+            </ul>
+            
+            <h3>Sup (&lt;sup&gt;) - Sobrescrito</h3>
+            <p>
+                A tag <code>&lt;sup&gt;</code> cria texto <sup>sobrescrito</sup>
+                (acima da linha normal). É comumente usado em potências matemáticas e ordinais.
+            </p>
+            
+            <h4>Exemplos de Potências Matemáticas</h4>
+            <ul>
+                <li>Dois ao cubo: 2<sup>3</sup> = 8</li>
+                <li>Teorema de Pitágoras: x<sup>2</sup> + y<sup>2</sup> = z<sup>2</sup></li>
+                <li>Área do círculo: πr<sup>2</sup></li>
+                <li>Velocidade da luz: 3 × 10<sup>8</sup> m/s</li>
+            </ul>
+            
+            <h4>Outros Usos</h4>
+            <ul>
+                <li>Ordinais: 1<sup>o</sup> lugar, 2<sup>o</sup> lugar, 3<sup>o</sup> lugar</li>
+                <li>Notas de rodapé: Texto<sup>1</sup></li>
+                <li>Referências: Estudo<sup>2</sup> mostra que...</li>
+            </ul>
+        </section>
+        
+        <!-- Seção sobre pre -->
+        <section>
+            <h2>Pre (&lt;pre&gt;) - Texto Pré-formatado</h2>
+            
+            <p>
+                A tag <code>&lt;pre&gt;</code> preserva espaços em branco e quebras de linha.
+                O texto é exibido em fonte monoespaçada, exatamente como está escrito.
+            </p>
+            
+            <h3>Quando Usar</h3>
+            <ul>
+                <li>Código de programação</li>
+                <li>Poemas com formatação específica</li>
+                <li>ASCII art</li>
+                <li>Qualquer texto onde a formatação é importante</li>
+            </ul>
+            
+            <h3>Exemplo: Código JavaScript</h3>
+            <pre>
+function exemplo() {
+    console.log("Olá, mundo!");
+    let x = 10;
+    let y = 20;
+    return x + y;
+}
+            </pre>
+            
+            <h3>Exemplo: Poema</h3>
+            <pre>
+    No meio do caminho
+        tinha uma pedra
+    tinha uma pedra
+        no meio do caminho
+            tinha uma pedra.
+            </pre>
+            
+            <h3>Exemplo: ASCII Art</h3>
+            <pre>
+    /\
+   /  \
+  /    \
+ /______\
+            </pre>
+            
+            <h3>Comparação: Com e Sem &lt;pre&gt;</h3>
+            
+            <p><strong>Sem &lt;pre&gt; (espaços colapsados):</strong></p>
+            <p>
+    Este texto
+        tem     muitos     espaços
+    e quebras de linha,
+        mas o navegador os ignora.
+            </p>
+            
+            <p><strong>Com &lt;pre&gt; (formatação preservada):</strong></p>
+            <pre>
+    Este texto
+        tem     muitos     espaços
+    e quebras de linha,
+        e o navegador preserva tudo!
+            </pre>
+        </section>
+        
+        <!-- Seção sobre combinações -->
+        <section>
+            <h2>Combinações de Formatação</h2>
+            
+            <p>
+                Você pode combinar diferentes tags de formatação para criar efeitos mais complexos.
+            </p>
+            
+            <h3>Exemplos de Combinações</h3>
+            
+            <p>
+                Este texto tem <strong><em>ênfase forte</em></strong> combinando
+                <code>&lt;strong&gt;</code> e <code>&lt;em&gt;</code>.
+            </p>
+            
+            <p>
+                Fórmula química com destaque: <strong>H<sub>2</sub>SO<sub>4</sub></strong>
+                (ácido sulfúrico)
+            </p>
+            
+            <p>
+                Potência matemática importante: <strong>x<sup>2</sup> + y<sup>2</sup> = z<sup>2</sup></strong>
+                (Teorema de Pitágoras)
+            </p>
+            
+            <p>
+                Texto marcado com <mark><strong>importância forte</strong></mark>
+                combinando <code>&lt;mark&gt;</code> e <code>&lt;strong&gt;</code>.
+            </p>
+            
+            <p>
+                Nome científico em itálico com nota: <i>Homo sapiens</i><sup>1</sup>
+            </p>
+        </section>
+        
+        <!-- Seção sobre boas práticas -->
+        <section>
+            <h2>Boas Práticas de Formatação</h2>
+            
+            <h3>Prefira Tags Semânticas</h3>
+            <ul>
+                <li>Use <code>&lt;strong&gt;</code> ao invés de <code>&lt;b&gt;</code> quando fizer sentido</li>
+                <li>Use <code>&lt;em&gt;</code> ao invés de <code>&lt;i&gt;</code> para ênfase</li>
+                <li>Tags semânticas são melhores para acessibilidade e SEO</li>
+            </ul>
+            
+            <h3>Use Apropriadamente</h3>
+            <ul>
+                <li><code>&lt;mark&gt;</code>: Para destacar texto relevante</li>
+                <li><code>&lt;sub&gt;</code>: Para fórmulas químicas e matemáticas</li>
+                <li><code>&lt;sup&gt;</code>: Para potências e ordinais</li>
+                <li><code>&lt;pre&gt;</code>: Quando a formatação é parte do conteúdo</li>
+            </ul>
+            
+            <h3>Evite Uso Excessivo</h3>
+            <p>
+                Não use formatação em excesso. Texto com <strong>muitas</strong>
+                <em>formatações</em> <mark>diferentes</mark> pode ser
+                <strong><em>difícil</em></strong> de ler e perder o impacto visual.
+            </p>
+        </section>
+    </main>
+    
+    <footer>
+        <hr>
+        <p>
+            <small>
+                Exemplo criado para demonstrar todas as tags de formatação de texto em HTML.
+                Lembre-se: prefira tags semânticas quando possível!
+            </small>
+        </p>
+    </footer>
+</body>
+</html>
+
