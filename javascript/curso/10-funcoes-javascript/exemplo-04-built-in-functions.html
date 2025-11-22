@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Built-in Functions em JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #9C27B0;
+            padding-bottom: 10px;
+        }
+        .categoria {
+            background: #f9f9f9;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #9C27B0;
+            border-radius: 5px;
+        }
+        .resultado {
+            background: #f3e5f5;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        button {
+            background: #9C27B0;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #7B1FA2;
+        }
+        h3 {
+            color: #7B1FA2;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🛠️ Exemplo 4: Built-in Functions</h1>
+        
+        <div class="categoria">
+            <h3>1. Funções Globais</h3>
+            <button onclick="testarGlobais()">Testar Funções Globais</button>
+            <div id="resultado1" class="resultado"></div>
+        </div>
+
+        <div class="categoria">
+            <h3>2. Métodos de String</h3>
+            <button onclick="testarString()">Testar Métodos de String</button>
+            <div id="resultado2" class="resultado"></div>
+        </div>
+
+        <div class="categoria">
+            <h3>3. Métodos de Array</h3>
+            <button onclick="testarArray()">Testar Métodos de Array</button>
+            <div id="resultado3" class="resultado"></div>
+        </div>
+
+        <div class="categoria">
+            <h3>4. Objeto Math</h3>
+            <button onclick="testarMath()">Testar Math</button>
+            <div id="resultado4" class="resultado"></div>
+        </div>
+
+        <div class="categoria">
+            <h3>5. Objeto Date</h3>
+            <button onclick="testarDate()">Testar Date</button>
+            <div id="resultado5" class="resultado"></div>
+        </div>
+
+        <div class="categoria">
+            <h3>6. Funções de Tempo (setTimeout/setInterval)</h3>
+            <button onclick="testarTempo()">Testar Funções de Tempo</button>
+            <button onclick="pararIntervalo()">Parar Intervalo</button>
+            <div id="resultado6" class="resultado"></div>
+        </div>
+    </div>
+
+    <script>
+        let intervaloId = null;
+
+        // 1. Funções Globais
+        function testarGlobais() {
+            let resultado = "Funções Globais:\n\n";
+            
+            // parseInt
+            resultado += "parseInt():\n";
+            resultado += `  parseInt("42") = ${parseInt("42")}\n`;
+            resultado += `  parseInt("42.7") = ${parseInt("42.7")}\n`;
+            resultado += `  parseInt("abc") = ${parseInt("abc")}\n\n`;
+            
+            // parseFloat
+            resultado += "parseFloat():\n";
+            resultado += `  parseFloat("42.7") = ${parseFloat("42.7")}\n`;
+            resultado += `  parseFloat("42") = ${parseFloat("42")}\n\n`;
+            
+            // isNaN
+            resultado += "isNaN():\n";
+            resultado += `  isNaN(42) = ${isNaN(42)}\n`;
+            resultado += `  isNaN("abc") = ${isNaN("abc")}\n`;
+            resultado += `  isNaN(NaN) = ${isNaN(NaN)}\n\n`;
+            
+            // isFinite
+            resultado += "isFinite():\n";
+            resultado += `  isFinite(42) = ${isFinite(42)}\n`;
+            resultado += `  isFinite(Infinity) = ${isFinite(Infinity)}\n`;
+            resultado += `  isFinite("42") = ${isFinite("42")}\n`;
+            
+            document.getElementById('resultado1').innerHTML = resultado;
+        }
+
+        // 2. Métodos de String
+        function testarString() {
+            let texto = "JavaScript é incrível";
+            let resultado = `Texto original: "${texto}"\n\n`;
+            
+            resultado += `Métodos de String:\n`;
+            resultado += `  .length = ${texto.length}\n`;
+            resultado += `  .toUpperCase() = "${texto.toUpperCase()}"\n`;
+            resultado += `  .toLowerCase() = "${texto.toLowerCase()}"\n`;
+            resultado += `  .indexOf("é") = ${texto.indexOf("é")}\n`;
+            resultado += `  .substring(0, 10) = "${texto.substring(0, 10)}"\n`;
+            resultado += `  .replace("incrível", "ótimo") = "${texto.replace("incrível", "ótimo")}"\n`;
+            resultado += `  .includes("JavaScript") = ${texto.includes("JavaScript")}\n`;
+            resultado += `  .split(" ") = [${texto.split(" ").map(s => `"${s}"`).join(", ")}]\n`;
+            
+            document.getElementById('resultado2').innerHTML = resultado;
+        }
+
+        // 3. Métodos de Array
+        function testarArray() {
+            let numeros = [1, 2, 3, 4, 5];
+            let resultado = `Array original: [${numeros.join(", ")}]\n\n`;
+            
+            resultado += `Métodos de Array:\n`;
+            resultado += `  .length = ${numeros.length}\n`;
+            resultado += `  .push(6) → [${numeros.concat([6]).join(", ")}]\n`;
+            resultado += `  .pop() → Remove e retorna: ${numeros.slice().pop()}\n`;
+            resultado += `  .includes(3) = ${numeros.includes(3)}\n`;
+            resultado += `  .indexOf(3) = ${numeros.indexOf(3)}\n`;
+            resultado += `  .slice(1, 4) = [${numeros.slice(1, 4).join(", ")}]\n`;
+            resultado += `  .map(x => x * 2) = [${numeros.map(x => x * 2).join(", ")}]\n`;
+            resultado += `  .filter(x => x > 2) = [${numeros.filter(x => x > 2).join(", ")}]\n`;
+            resultado += `  .reduce((a, b) => a + b, 0) = ${numeros.reduce((a, b) => a + b, 0)}\n`;
+            
+            document.getElementById('resultado3').innerHTML = resultado;
+        }
+
+        // 4. Objeto Math
+        function testarMath() {
+            let resultado = "Objeto Math:\n\n";
+            
+            resultado += `Constantes:\n`;
+            resultado += `  Math.PI = ${Math.PI}\n`;
+            resultado += `  Math.E = ${Math.E}\n\n`;
+            
+            resultado += `Métodos:\n`;
+            resultado += `  Math.max(1, 5, 3, 9) = ${Math.max(1, 5, 3, 9)}\n`;
+            resultado += `  Math.min(1, 5, 3, 9) = ${Math.min(1, 5, 3, 9)}\n`;
+            resultado += `  Math.round(4.7) = ${Math.round(4.7)}\n`;
+            resultado += `  Math.floor(4.7) = ${Math.floor(4.7)}\n`;
+            resultado += `  Math.ceil(4.2) = ${Math.ceil(4.2)}\n`;
+            resultado += `  Math.random() = ${Math.random().toFixed(4)}\n`;
+            resultado += `  Math.sqrt(16) = ${Math.sqrt(16)}\n`;
+            resultado += `  Math.pow(2, 3) = ${Math.pow(2, 3)}\n`;
+            resultado += `  Math.abs(-5) = ${Math.abs(-5)}\n`;
+            
+            document.getElementById('resultado4').innerHTML = resultado;
+        }
+
+        // 5. Objeto Date
+        function testarDate() {
+            let agora = new Date();
+            let dataEspecifica = new Date(2024, 0, 1); // 1 de janeiro de 2024
+            
+            let resultado = "Objeto Date:\n\n";
+            
+            resultado += `Data atual:\n`;
+            resultado += `  new Date() = ${agora}\n`;
+            resultado += `  .getFullYear() = ${agora.getFullYear()}\n`;
+            resultado += `  .getMonth() = ${agora.getMonth()} (0 = Janeiro)\n`;
+            resultado += `  .getDate() = ${agora.getDate()}\n`;
+            resultado += `  .getDay() = ${agora.getDay()} (0 = Domingo)\n`;
+            resultado += `  .getHours() = ${agora.getHours()}\n`;
+            resultado += `  .getMinutes() = ${agora.getMinutes()}\n\n`;
+            
+            resultado += `Data específica (1 de janeiro de 2024):\n`;
+            resultado += `  new Date(2024, 0, 1) = ${dataEspecifica}\n`;
+            resultado += `  .getFullYear() = ${dataEspecifica.getFullYear()}\n`;
+            resultado += `  .getMonth() = ${dataEspecifica.getMonth()}\n`;
+            resultado += `  .getDate() = ${dataEspecifica.getDate()}\n`;
+            
+            document.getElementById('resultado5').innerHTML = resultado;
+        }
+
+        // 6. Funções de Tempo
+        function testarTempo() {
+            let resultado = document.getElementById('resultado6');
+            resultado.innerHTML = "Iniciando teste de setTimeout e setInterval...\n\n";
+            
+            // setTimeout
+            resultado.innerHTML += "setTimeout (2 segundos):\n";
+            resultado.innerHTML += "  Aguarde 2 segundos...\n";
+            
+            setTimeout(() => {
+                resultado.innerHTML += "  ✅ setTimeout executado após 2 segundos!\n\n";
+            }, 2000);
+            
+            // setInterval
+            let contador = 0;
+            resultado.innerHTML += "setInterval (a cada 1 segundo):\n";
+            
+            intervaloId = setInterval(() => {
+                contador++;
+                resultado.innerHTML += `  Contador: ${contador}\n`;
+                
+                if (contador >= 5) {
+                    clearInterval(intervaloId);
+                    resultado.innerHTML += "\n  ✅ Intervalo parado após 5 execuções!\n";
+                    intervaloId = null;
+                }
+            }, 1000);
+        }
+
+        function pararIntervalo() {
+            if (intervaloId !== null) {
+                clearInterval(intervaloId);
+                intervaloId = null;
+                document.getElementById('resultado6').innerHTML += 
+                    "\n  ⏹️ Intervalo parado manualmente!\n";
+            } else {
+                document.getElementById('resultado6').innerHTML += 
+                    "\n  ℹ️ Nenhum intervalo ativo.\n";
+            }
+        }
+    </script>
+</body>
+</html>
+

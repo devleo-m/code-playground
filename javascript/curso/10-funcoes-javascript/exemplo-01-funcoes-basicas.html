@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções Básicas em JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        .exemplo {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #4CAF50;
+            border-radius: 5px;
+        }
+        .resultado {
+            background: #e8f5e9;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Exemplo 1: Funções Básicas</h1>
+        
+        <div class="exemplo">
+            <h3>1. Function Declaration</h3>
+            <button onclick="testarSoma()">Testar Soma</button>
+            <div id="resultado1" class="resultado"></div>
+        </div>
+
+        <div class="exemplo">
+            <h3>2. Function Expression</h3>
+            <button onclick="testarMultiplicacao()">Testar Multiplicação</button>
+            <div id="resultado2" class="resultado"></div>
+        </div>
+
+        <div class="exemplo">
+            <h3>3. Arrow Function</h3>
+            <button onclick="testarArrow()">Testar Arrow Function</button>
+            <div id="resultado3" class="resultado"></div>
+        </div>
+
+        <div class="exemplo">
+            <h3>4. Função com Parâmetros Padrão</h3>
+            <button onclick="testarPadrao()">Testar Parâmetros Padrão</button>
+            <div id="resultado4" class="resultado"></div>
+        </div>
+
+        <div class="exemplo">
+            <h3>5. Função com Rest Parameters</h3>
+            <button onclick="testarRest()">Testar Rest Parameters</button>
+            <div id="resultado5" class="resultado"></div>
+        </div>
+    </div>
+
+    <script>
+        // 1. Function Declaration
+        function somar(a, b) {
+            return a + b;
+        }
+
+        function testarSoma() {
+            const resultado = somar(5, 3);
+            document.getElementById('resultado1').innerHTML = 
+                `somar(5, 3) = ${resultado}`;
+        }
+
+        // 2. Function Expression
+        const multiplicar = function(a, b) {
+            return a * b;
+        };
+
+        function testarMultiplicacao() {
+            const resultado = multiplicar(4, 5);
+            document.getElementById('resultado2').innerHTML = 
+                `multiplicar(4, 5) = ${resultado}`;
+        }
+
+        // 3. Arrow Function
+        const dividir = (a, b) => {
+            if (b === 0) {
+                return "Erro: divisão por zero!";
+            }
+            return a / b;
+        };
+
+        function testarArrow() {
+            const resultado1 = dividir(10, 2);
+            const resultado2 = dividir(10, 0);
+            document.getElementById('resultado3').innerHTML = 
+                `dividir(10, 2) = ${resultado1}<br>` +
+                `dividir(10, 0) = ${resultado2}`;
+        }
+
+        // 4. Função com Parâmetros Padrão
+        function saudar(nome = "Visitante", hora = 12) {
+            let saudacao;
+            if (hora >= 6 && hora < 12) {
+                saudacao = "Bom dia";
+            } else if (hora >= 12 && hora < 18) {
+                saudacao = "Boa tarde";
+            } else {
+                saudacao = "Boa noite";
+            }
+            return `${saudacao}, ${nome}!`;
+        }
+
+        function testarPadrao() {
+            const resultado1 = saudar("Maria", 9);
+            const resultado2 = saudar("João", 15);
+            const resultado3 = saudar(); // Usa valores padrão
+            document.getElementById('resultado4').innerHTML = 
+                `saudar("Maria", 9) = ${resultado1}<br>` +
+                `saudar("João", 15) = ${resultado2}<br>` +
+                `saudar() = ${resultado3}`;
+        }
+
+        // 5. Função com Rest Parameters
+        function somarTodos(...numeros) {
+            let total = 0;
+            for (let numero of numeros) {
+                total += numero;
+            }
+            return total;
+        }
+
+        function testarRest() {
+            const resultado1 = somarTodos(1, 2, 3);
+            const resultado2 = somarTodos(10, 20, 30, 40, 50);
+            const resultado3 = somarTodos(5);
+            document.getElementById('resultado5').innerHTML = 
+                `somarTodos(1, 2, 3) = ${resultado1}<br>` +
+                `somarTodos(10, 20, 30, 40, 50) = ${resultado2}<br>` +
+                `somarTodos(5) = ${resultado3}`;
+        }
+    </script>
+</body>
+</html>
+

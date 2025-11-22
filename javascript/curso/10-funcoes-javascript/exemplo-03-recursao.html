@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursão em JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #FF9800;
+            padding-bottom: 10px;
+        }
+        .exemplo {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #FF9800;
+            border-radius: 5px;
+        }
+        .resultado {
+            background: #fff3e0;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        button {
+            background: #FF9800;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #F57C00;
+        }
+        input {
+            padding: 8px;
+            margin: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100px;
+        }
+        .arvore {
+            font-family: monospace;
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔁 Exemplo 3: Recursão</h1>
+        
+        <div class="exemplo">
+            <h3>1. Fatorial (Recursivo)</h3>
+            <input type="number" id="numeroFatorial" value="5" min="0" max="20">
+            <button onclick="calcularFatorial()">Calcular Fatorial</button>
+            <div id="resultado1" class="resultado"></div>
+        </div>
+
+        <div class="exemplo">
+            <h3>2. Contagem Regressiva</h3>
+            <input type="number" id="numeroContagem" value="5" min="0" max="10">
+            <button onclick="contagemRegressiva()">Iniciar Contagem</button>
+            <div id="resultado2" class="resultado"></div>
+        </div>
+
+        <div class="exemplo">
+            <h3>3. Soma de Array (Recursivo)</h3>
+            <button onclick="somarArrayRecursivo()">Somar Array [1, 2, 3, 4, 5]</button>
+            <div id="resultado3" class="resultado"></div>
+        </div>
+
+        <div class="exemplo">
+            <h3>4. Fibonacci (Recursivo)</h3>
+            <input type="number" id="numeroFibonacci" value="7" min="0" max="15">
+            <button onclick="calcularFibonacci()">Calcular Fibonacci</button>
+            <div id="resultado4" class="resultado"></div>
+        </div>
+
+        <div class="exemplo">
+            <h3>5. Visualização da Call Stack</h3>
+            <button onclick="visualizarCallStack()">Visualizar Call Stack</button>
+            <div id="resultado5" class="resultado"></div>
+        </div>
+    </div>
+
+    <script>
+        // 1. Fatorial Recursivo
+        function fatorial(n) {
+            // Caso base
+            if (n === 0 || n === 1) {
+                return 1;
+            }
+            // Caso recursivo
+            return n * fatorial(n - 1);
+        }
+
+        function calcularFatorial() {
+            const numero = parseInt(document.getElementById('numeroFatorial').value);
+            if (numero < 0 || numero > 20) {
+                document.getElementById('resultado1').innerHTML = 
+                    "Por favor, insira um número entre 0 e 20";
+                return;
+            }
+            
+            const resultado = fatorial(numero);
+            let explicacao = `fatorial(${numero}) = ${resultado}\n\n`;
+            explicacao += `Como funciona:\n`;
+            explicacao += `fatorial(${numero}) = ${numero} × fatorial(${numero - 1})\n`;
+            
+            let calculo = "";
+            for (let i = numero; i > 1; i--) {
+                calculo += `${i} × `;
+            }
+            calculo += `1 = ${resultado}`;
+            
+            document.getElementById('resultado1').innerHTML = 
+                explicacao + calculo;
+        }
+
+        // 2. Contagem Regressiva
+        function contagemRegressiva(numero, resultado = "") {
+            // Caso base
+            if (numero < 0) {
+                resultado += "Fogo! 🎆\n";
+                return resultado;
+            }
+            // Caso recursivo
+            resultado += `${numero}...\n`;
+            return contagemRegressiva(numero - 1, resultado);
+        }
+
+        function iniciarContagem() {
+            const numero = parseInt(document.getElementById('numeroContagem').value);
+            if (numero < 0 || numero > 10) {
+                document.getElementById('resultado2').innerHTML = 
+                    "Por favor, insira um número entre 0 e 10";
+                return;
+            }
+            
+            const resultado = contagemRegressiva(numero);
+            document.getElementById('resultado2').innerHTML = resultado;
+        }
+
+        // Alias para o botão
+        function contagemRegressiva() {
+            iniciarContagem();
+        }
+
+        // 3. Soma de Array Recursivo
+        function somarArray(array, indice = 0) {
+            // Caso base
+            if (indice >= array.length) {
+                return 0;
+            }
+            // Caso recursivo
+            return array[indice] + somarArray(array, indice + 1);
+        }
+
+        function somarArrayRecursivo() {
+            const array = [1, 2, 3, 4, 5];
+            const resultado = somarArray(array);
+            
+            let explicacao = `Array: [${array.join(', ')}]\n\n`;
+            explicacao += `somarArray([${array.join(', ')}]) = ${resultado}\n\n`;
+            explicacao += `Como funciona:\n`;
+            explicacao += `somarArray([1, 2, 3, 4, 5], 0)\n`;
+            explicacao += `  = 1 + somarArray([1, 2, 3, 4, 5], 1)\n`;
+            explicacao += `    = 1 + (2 + somarArray([1, 2, 3, 4, 5], 2))\n`;
+            explicacao += `      = 1 + (2 + (3 + somarArray([1, 2, 3, 4, 5], 3)))\n`;
+            explicacao += `        = 1 + (2 + (3 + (4 + somarArray([1, 2, 3, 4, 5], 4))))\n`;
+            explicacao += `          = 1 + (2 + (3 + (4 + (5 + somarArray([1, 2, 3, 4, 5], 5)))))\n`;
+            explicacao += `            = 1 + (2 + (3 + (4 + (5 + 0))))\n`;
+            explicacao += `              = ${resultado}`;
+            
+            document.getElementById('resultado3').innerHTML = explicacao;
+        }
+
+        // 4. Fibonacci Recursivo
+        function fibonacci(n) {
+            // Casos base
+            if (n === 0) return 0;
+            if (n === 1) return 1;
+            
+            // Caso recursivo
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+
+        function calcularFibonacci() {
+            const numero = parseInt(document.getElementById('numeroFibonacci').value);
+            if (numero < 0 || numero > 15) {
+                document.getElementById('resultado4').innerHTML = 
+                    "Por favor, insira um número entre 0 e 15";
+                return;
+            }
+            
+            const resultado = fibonacci(numero);
+            let sequencia = "Sequência de Fibonacci:\n";
+            for (let i = 0; i <= numero; i++) {
+                sequencia += `F(${i}) = ${fibonacci(i)}\n`;
+            }
+            
+            sequencia += `\nfibonacci(${numero}) = ${resultado}`;
+            
+            document.getElementById('resultado4').innerHTML = sequencia;
+        }
+
+        // 5. Visualização da Call Stack
+        let callStack = [];
+
+        function primeira() {
+            callStack.push("primeira()");
+            atualizarVisualizacao();
+            segunda();
+            callStack.pop();
+            atualizarVisualizacao();
+        }
+
+        function segunda() {
+            callStack.push("segunda()");
+            atualizarVisualizacao();
+            terceira();
+            callStack.pop();
+            atualizarVisualizacao();
+        }
+
+        function terceira() {
+            callStack.push("terceira()");
+            atualizarVisualizacao();
+            callStack.pop();
+            atualizarVisualizacao();
+        }
+
+        function atualizarVisualizacao() {
+            const resultado = document.getElementById('resultado5');
+            let visualizacao = "Call Stack:\n\n";
+            
+            if (callStack.length === 0) {
+                visualizacao += "[Pilha vazia]";
+            } else {
+                for (let i = callStack.length - 1; i >= 0; i--) {
+                    const prefixo = i === callStack.length - 1 ? "→ " : "  ";
+                    visualizacao += `${prefixo}${callStack[i]}\n`;
+                }
+            }
+            
+            resultado.innerHTML = visualizacao;
+        }
+
+        function visualizarCallStack() {
+            document.getElementById('resultado5').innerHTML = 
+                "Iniciando visualização...\n\nClique novamente para ver cada passo.";
+            
+            setTimeout(() => {
+                primeira();
+            }, 500);
+        }
+    </script>
+</body>
+</html>
+

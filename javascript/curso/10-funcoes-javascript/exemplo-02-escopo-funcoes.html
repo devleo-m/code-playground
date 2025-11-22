@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escopo e Funções</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #2196F3;
+            padding-bottom: 10px;
+        }
+        .exemplo {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #2196F3;
+            border-radius: 5px;
+        }
+        .resultado {
+            background: #e3f2fd;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        button {
+            background: #2196F3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #1976D2;
+        }
+        .erro {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌐 Exemplo 2: Escopo e Funções</h1>
+        
+        <div class="exemplo">
+            <h3>1. Escopo Global vs Local</h3>
+            <button onclick="testarEscopoGlobal()">Testar Escopo Global</button>
+            <div id="resultado1" class="resultado"></div>
+        </div>
+
+        <div class="exemplo">
+            <h3>2. Escopo de Função</h3>
+            <button onclick="testarEscopoFuncao()">Testar Escopo de Função</button>
+            <div id="resultado2" class="resultado"></div>
+        </div>
+
+        <div class="exemplo">
+            <h3>3. Escopo de Bloco (let vs var)</h3>
+            <button onclick="testarEscopoBloco()">Testar Escopo de Bloco</button>
+            <div id="resultado3" class="resultado"></div>
+        </div>
+
+        <div class="exemplo">
+            <h3>4. Shadowing (Sombreamento)</h3>
+            <button onclick="testarShadowing()">Testar Shadowing</button>
+            <div id="resultado4" class="resultado"></div>
+        </div>
+
+        <div class="exemplo">
+            <h3>5. Funções Aninhadas</h3>
+            <button onclick="testarFuncoesAninhadas()">Testar Funções Aninhadas</button>
+            <div id="resultado5" class="resultado"></div>
+        </div>
+    </div>
+
+    <script>
+        // Variável global
+        let variavelGlobal = "Eu sou global";
+
+        // 1. Escopo Global vs Local
+        function testarEscopoGlobal() {
+            let variavelLocal = "Eu sou local";
+            const resultado = `
+                Variável global: ${variavelGlobal} ✅<br>
+                Variável local: ${variavelLocal} ✅<br>
+                <br>
+                <strong>Conclusão:</strong> Funções podem acessar variáveis globais!
+            `;
+            document.getElementById('resultado1').innerHTML = resultado;
+        }
+
+        // 2. Escopo de Função
+        function testarEscopoFuncao() {
+            function funcaoInterna() {
+                let variavelInterna = "Eu sou interna";
+                return variavelInterna;
+            }
+            
+            const resultadoInterna = funcaoInterna();
+            let resultado = `
+                Variável interna (dentro da função): ${resultadoInterna} ✅<br>
+                <br>
+                Tentando acessar variavelInterna fora da função:<br>
+            `;
+            
+            try {
+                // Isso vai causar erro
+                console.log(variavelInterna);
+            } catch (e) {
+                resultado += `<span class="erro">❌ Erro: ${e.message}</span><br>`;
+            }
+            
+            resultado += `<br><strong>Conclusão:</strong> Variáveis dentro de funções não são acessíveis fora!`;
+            document.getElementById('resultado2').innerHTML = resultado;
+        }
+
+        // 3. Escopo de Bloco
+        function testarEscopoBloco() {
+            let resultado = "";
+            
+            if (true) {
+                let variavelLet = "Variável com let (escopo de bloco)";
+                var variavelVar = "Variável com var (escopo de função)";
+                
+                resultado += `Dentro do bloco:<br>`;
+                resultado += `- variavelLet: ${variavelLet} ✅<br>`;
+                resultado += `- variavelVar: ${variavelVar} ✅<br><br>`;
+            }
+            
+            // Tentar acessar fora do bloco
+            try {
+                resultado += `Fora do bloco:<br>`;
+                resultado += `- variavelLet: <span class="erro">❌ ReferenceError</span><br>`;
+                resultado += `- variavelVar: ${variavelVar} ✅<br>`;
+            } catch (e) {
+                resultado += `- variavelLet: <span class="erro">❌ ${e.message}</span><br>`;
+            }
+            
+            resultado += `<br><strong>Conclusão:</strong> let tem escopo de bloco, var tem escopo de função!`;
+            document.getElementById('resultado3').innerHTML = resultado;
+        }
+
+        // 4. Shadowing
+        function testarShadowing() {
+            let nome = "Global";
+            
+            function funcaoComShadowing() {
+                let nome = "Local"; // "Esconde" a variável global
+                return `Dentro da função: ${nome}`;
+            }
+            
+            const dentro = funcaoComShadowing();
+            const fora = `Fora da função: ${nome}`;
+            
+            const resultado = `
+                ${dentro}<br>
+                ${fora}<br>
+                <br>
+                <strong>Conclusão:</strong> Variável local "esconde" a global, mas não a altera!
+            `;
+            document.getElementById('resultado4').innerHTML = resultado;
+        }
+
+        // 5. Funções Aninhadas
+        function testarFuncoesAninhadas() {
+            function funcaoExterna() {
+                let variavelExterna = "Variável externa";
+                
+                function funcaoInterna() {
+                    let variavelInterna = "Variável interna";
+                    return `
+                        Função interna pode ver:<br>
+                        - variavelInterna: ${variavelInterna} ✅<br>
+                        - variavelExterna: ${variavelExterna} ✅<br>
+                    `;
+                }
+                
+                return funcaoInterna();
+            }
+            
+            const resultado = funcaoExterna();
+            document.getElementById('resultado5').innerHTML = 
+                resultado + `<br><strong>Conclusão:</strong> Funções internas podem acessar variáveis das funções externas!`;
+        }
+    </script>
+</body>
+</html>
+
