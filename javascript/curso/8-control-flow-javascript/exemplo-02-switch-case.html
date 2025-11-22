@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch Case - Múltiplas Escolhas</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .example {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #28a745;
+        }
+        .example h3 {
+            margin-top: 0;
+            color: #28a745;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button:hover {
+            background: #218838;
+        }
+        #output {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #dee2e6;
+        }
+        code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        select {
+            padding: 8px;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            margin: 5px;
+            font-size: 14px;
+        }
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔄 Switch Case - Múltiplas Escolhas</h1>
+    
+    <div class="container">
+        <h2>Exemplos de Switch Statement</h2>
+        <p>Clique nos botões abaixo para ver diferentes exemplos de uso de <code>switch</code>:</p>
+        
+        <div class="example">
+            <h3>1. Switch Básico - Dias da Semana</h3>
+            <p>Usa switch para determinar o dia da semana.</p>
+            <button onclick="exemplo1()">Executar Exemplo 1</button>
+        </div>
+        
+        <div class="example">
+            <h3>2. Switch com Fall-Through</h3>
+            <p>Múltiplos cases sem break (fall-through intencional).</p>
+            <button onclick="exemplo2()">Executar Exemplo 2</button>
+        </div>
+        
+        <div class="example">
+            <h3>3. Switch com Strings</h3>
+            <p>Usa switch com valores de string.</p>
+            <select id="cor">
+                <option value="vermelho">Vermelho</option>
+                <option value="amarelo">Amarelo</option>
+                <option value="verde">Verde</option>
+            </select>
+            <button onclick="exemplo3()">Verificar Semáforo</button>
+        </div>
+        
+        <div class="example">
+            <h3>4. Switch com Default</h3>
+            <p>Usa default para casos não especificados.</p>
+            <button onclick="exemplo4()">Executar Exemplo 4</button>
+        </div>
+        
+        <div class="example">
+            <h3>5. Calculadora com Switch</h3>
+            <p>Implementa uma calculadora simples usando switch.</p>
+            <input type="number" id="num1" placeholder="Número 1" value="10">
+            <select id="operacao">
+                <option value="+">+ (Soma)</option>
+                <option value="-">- (Subtração)</option>
+                <option value="*">* (Multiplicação)</option>
+                <option value="/">/ (Divisão)</option>
+                <option value="%">% (Resto)</option>
+            </select>
+            <input type="number" id="num2" placeholder="Número 2" value="5">
+            <button onclick="exemplo5()">Calcular</button>
+        </div>
+        
+        <div class="warning">
+            <strong>⚠️ Importante:</strong> Sempre use <code>break</code> após cada <code>case</code>, 
+            exceto quando quiser que múltiplos cases executem o mesmo código (fall-through).
+        </div>
+        
+        <button onclick="limparOutput()" style="background: #dc3545;">Limpar Saída</button>
+        
+        <div id="output"></div>
+    </div>
+
+    <script>
+        const output = document.getElementById('output');
+        
+        function log(mensagem) {
+            output.textContent += mensagem + '\n';
+        }
+        
+        function limparOutput() {
+            output.textContent = '';
+        }
+        
+        function exemplo1() {
+            limparOutput();
+            log('=== EXEMPLO 1: Switch Básico - Dias da Semana ===\n');
+            log('let diaSemana = 3;');
+            log('let nomeDia;');
+            log('');
+            log('switch (diaSemana) {');
+            log('  case 1: nomeDia = "Domingo"; break;');
+            log('  case 2: nomeDia = "Segunda-feira"; break;');
+            log('  case 3: nomeDia = "Terça-feira"; break;');
+            log('  case 4: nomeDia = "Quarta-feira"; break;');
+            log('  case 5: nomeDia = "Quinta-feira"; break;');
+            log('  case 6: nomeDia = "Sexta-feira"; break;');
+            log('  case 7: nomeDia = "Sábado"; break;');
+            log('  default: nomeDia = "Dia inválido"; break;');
+            log('}\n');
+            log('Testando diferentes dias:');
+            
+            for (let dia = 1; dia <= 8; dia++) {
+                let nomeDia;
+                switch (dia) {
+                    case 1:
+                        nomeDia = "Domingo";
+                        break;
+                    case 2:
+                        nomeDia = "Segunda-feira";
+                        break;
+                    case 3:
+                        nomeDia = "Terça-feira";
+                        break;
+                    case 4:
+                        nomeDia = "Quarta-feira";
+                        break;
+                    case 5:
+                        nomeDia = "Quinta-feira";
+                        break;
+                    case 6:
+                        nomeDia = "Sexta-feira";
+                        break;
+                    case 7:
+                        nomeDia = "Sábado";
+                        break;
+                    default:
+                        nomeDia = "Dia inválido";
+                        break;
+                }
+                log(`  Dia ${dia}: ${nomeDia}`);
+            }
+        }
+        
+        function exemplo2() {
+            limparOutput();
+            log('=== EXEMPLO 2: Switch com Fall-Through ===\n');
+            log('Múltiplos cases sem break executam o mesmo código.\n');
+            log('let mes = 2;');
+            log('let diasNoMes;');
+            log('');
+            log('switch (mes) {');
+            log('  case 1:');
+            log('  case 3:');
+            log('  case 5:');
+            log('  case 7:');
+            log('  case 8:');
+            log('  case 10:');
+            log('  case 12:');
+            log('    diasNoMes = 31;');
+            log('    break;');
+            log('  case 4:');
+            log('  case 6:');
+            log('  case 9:');
+            log('  case 11:');
+            log('    diasNoMes = 30;');
+            log('    break;');
+            log('  case 2:');
+            log('    diasNoMes = 28;');
+            log('    break;');
+            log('}\n');
+            log('Testando diferentes meses:');
+            
+            const meses = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+            const nomesMeses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+                              "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+            
+            meses.forEach((mes, index) => {
+                let diasNoMes;
+                switch (mes) {
+                    case 1:
+                    case 3:
+                    case 5:
+                    case 7:
+                    case 8:
+                    case 10:
+                    case 12:
+                        diasNoMes = 31;
+                        break;
+                    case 4:
+                    case 6:
+                    case 9:
+                    case 11:
+                        diasNoMes = 30;
+                        break;
+                    case 2:
+                        diasNoMes = 28;
+                        break;
+                    default:
+                        diasNoMes = 0;
+                }
+                log(`  ${nomesMeses[index]}: ${diasNoMes} dias`);
+            });
+        }
+        
+        function exemplo3() {
+            limparOutput();
+            const corSelect = document.getElementById('cor');
+            const cor = corSelect.value;
+            
+            log('=== EXEMPLO 3: Switch com Strings ===\n');
+            log(`Cor selecionada: ${cor}\n`);
+            log('let cor = "' + cor + '";');
+            log('let acao;');
+            log('');
+            log('switch (cor) {');
+            log('  case "vermelho": acao = "Pare!"; break;');
+            log('  case "amarelo": acao = "Atenção!"; break;');
+            log('  case "verde": acao = "Siga!"; break;');
+            log('  default: acao = "Cor inválida"; break;');
+            log('}\n');
+            log('Resultado:');
+            
+            let acao;
+            switch (cor) {
+                case "vermelho":
+                    acao = "🛑 Pare!";
+                    break;
+                case "amarelo":
+                    acao = "⚠️ Atenção!";
+                    break;
+                case "verde":
+                    acao = "🟢 Siga!";
+                    break;
+                default:
+                    acao = "Cor inválida";
+                    break;
+            }
+            
+            log(`  ${acao}`);
+        }
+        
+        function exemplo4() {
+            limparOutput();
+            log('=== EXEMPLO 4: Switch com Default ===\n');
+            log('O default é executado quando nenhum case corresponde.\n');
+            log('Testando com diferentes valores:');
+            
+            const valores = ["maçã", "banana", "laranja", "uva", "abacaxi"];
+            
+            valores.forEach(fruta => {
+                let categoria;
+                switch (fruta) {
+                    case "maçã":
+                    case "banana":
+                        categoria = "Fruta comum";
+                        break;
+                    case "laranja":
+                    case "uva":
+                        categoria = "Fruta cítrica";
+                        break;
+                    default:
+                        categoria = "Fruta exótica";
+                        break;
+                }
+                log(`  ${fruta}: ${categoria}`);
+            });
+        }
+        
+        function exemplo5() {
+            limparOutput();
+            const num1Input = document.getElementById('num1');
+            const num2Input = document.getElementById('num2');
+            const operacaoSelect = document.getElementById('operacao');
+            
+            const num1 = parseFloat(num1Input.value);
+            const num2 = parseFloat(num2Input.value);
+            const operacao = operacaoSelect.value;
+            
+            log('=== EXEMPLO 5: Calculadora com Switch ===\n');
+            log(`Número 1: ${num1}`);
+            log(`Operação: ${operacao}`);
+            log(`Número 2: ${num2}\n`);
+            
+            let resultado;
+            let resultadoTexto;
+            
+            try {
+                switch (operacao) {
+                    case "+":
+                        resultado = num1 + num2;
+                        resultadoTexto = `${num1} + ${num2} = ${resultado}`;
+                        break;
+                    case "-":
+                        resultado = num1 - num2;
+                        resultadoTexto = `${num1} - ${num2} = ${resultado}`;
+                        break;
+                    case "*":
+                        resultado = num1 * num2;
+                        resultadoTexto = `${num1} × ${num2} = ${resultado}`;
+                        break;
+                    case "/":
+                        if (num2 === 0) {
+                            resultadoTexto = "Erro: Divisão por zero!";
+                        } else {
+                            resultado = num1 / num2;
+                            resultadoTexto = `${num1} ÷ ${num2} = ${resultado}`;
+                        }
+                        break;
+                    case "%":
+                        if (num2 === 0) {
+                            resultadoTexto = "Erro: Divisão por zero!";
+                        } else {
+                            resultado = num1 % num2;
+                            resultadoTexto = `${num1} % ${num2} = ${resultado}`;
+                        }
+                        break;
+                    default:
+                        resultadoTexto = "Operação inválida!";
+                        break;
+                }
+                
+                log(`Resultado: ${resultadoTexto}`);
+            } catch (erro) {
+                log(`Erro: ${erro.message}`);
+            }
+        }
+        
+        // Mensagem inicial
+        window.onload = function() {
+            log('Bem-vindo! Clique nos botões acima para ver exemplos de switch.');
+            log('Cada exemplo demonstra um uso diferente do switch statement.\n');
+        };
+    </script>
+</body>
+</html>
+

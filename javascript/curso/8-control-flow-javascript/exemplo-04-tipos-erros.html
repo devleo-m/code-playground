@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipos de Erros em JavaScript</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .example {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #6f42c1;
+        }
+        .example h3 {
+            margin-top: 0;
+            color: #6f42c1;
+        }
+        button {
+            background: #6f42c1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button:hover {
+            background: #5a32a3;
+        }
+        #output {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #dee2e6;
+        }
+        code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .error-type {
+            font-weight: bold;
+            color: #dc3545;
+        }
+        .error-message {
+            color: #856404;
+        }
+        .error-info {
+            color: #004085;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Tipos de Erros em JavaScript</h1>
+    
+    <div class="container">
+        <h2>Exemplos de Diferentes Tipos de Erros</h2>
+        <p>Clique nos botões abaixo para ver exemplos de diferentes tipos de erros em JavaScript:</p>
+        
+        <div class="example">
+            <h3>1. ReferenceError</h3>
+            <p>Ocorre quando você tenta acessar uma variável que não existe.</p>
+            <button onclick="exemplo1()">Executar Exemplo 1</button>
+        </div>
+        
+        <div class="example">
+            <h3>2. TypeError</h3>
+            <p>Ocorre quando você tenta usar um valor de forma inadequada.</p>
+            <button onclick="exemplo2()">Executar Exemplo 2</button>
+        </div>
+        
+        <div class="example">
+            <h3>3. RangeError</h3>
+            <p>Ocorre quando um valor está fora do range permitido.</p>
+            <button onclick="exemplo3()">Executar Exemplo 3</button>
+        </div>
+        
+        <div class="example">
+            <h3>4. SyntaxError</h3>
+            <p>Ocorre quando há um erro de sintaxe no código.</p>
+            <button onclick="exemplo4()">Executar Exemplo 4</button>
+        </div>
+        
+        <div class="example">
+            <h3>5. Error Genérico</h3>
+            <p>Erro genérico criado com new Error().</p>
+            <button onclick="exemplo5()">Executar Exemplo 5</button>
+        </div>
+        
+        <div class="example">
+            <h3>6. Tratamento de Múltiplos Tipos</h3>
+            <p>Identifica e trata diferentes tipos de erros.</p>
+            <button onclick="exemplo6()">Executar Exemplo 6</button>
+        </div>
+        
+        <button onclick="limparOutput()" style="background: #dc3545;">Limpar Saída</button>
+        
+        <div id="output"></div>
+    </div>
+
+    <script>
+        const output = document.getElementById('output');
+        
+        function log(mensagem, tipo = 'normal') {
+            output.textContent += mensagem + '\n';
+        }
+        
+        function limparOutput() {
+            output.textContent = '';
+        }
+        
+        function exemplo1() {
+            limparOutput();
+            log('=== EXEMPLO 1: ReferenceError ===\n');
+            log('Ocorre quando você tenta acessar uma variável que não existe.\n');
+            log('Código:');
+            log('try {');
+            log('  console.log(variavelInexistente);');
+            log('} catch (erro) {');
+            log('  if (erro instanceof ReferenceError) {');
+            log('    console.log("Erro de referência:", erro.message);');
+            log('  }');
+            log('}\n');
+            log('Resultado:');
+            
+            try {
+                console.log(variavelInexistente); // Erro!
+            } catch (erro) {
+                if (erro instanceof ReferenceError) {
+                    log(`  Tipo: ReferenceError`);
+                    log(`  Mensagem: ${erro.message}`);
+                    log(`  Nome: ${erro.name}`);
+                } else {
+                    log(`  Erro inesperado: ${erro.message}`);
+                }
+            }
+        }
+        
+        function exemplo2() {
+            limparOutput();
+            log('=== EXEMPLO 2: TypeError ===\n');
+            log('Ocorre quando você tenta usar um valor de forma inadequada.\n');
+            log('Exemplo 1: Chamar método em tipo errado');
+            try {
+                let numero = 10;
+                numero.toUpperCase(); // Número não tem toUpperCase
+            } catch (erro) {
+                if (erro instanceof TypeError) {
+                    log(`  ✅ TypeError capturado`);
+                    log(`  Mensagem: ${erro.message}`);
+                    log(`  Nome: ${erro.name}`);
+                }
+            }
+            
+            log('\nExemplo 2: Acessar propriedade de null');
+            try {
+                let obj = null;
+                let valor = obj.propriedade; // null não tem propriedades
+            } catch (erro) {
+                if (erro instanceof TypeError) {
+                    log(`  ✅ TypeError capturado`);
+                    log(`  Mensagem: ${erro.message}`);
+                }
+            }
+            
+            log('\nExemplo 3: Chamar função que não é função');
+            try {
+                let naoEFuncao = "texto";
+                naoEFuncao(); // String não é função
+            } catch (erro) {
+                if (erro instanceof TypeError) {
+                    log(`  ✅ TypeError capturado`);
+                    log(`  Mensagem: ${erro.message}`);
+                }
+            }
+        }
+        
+        function exemplo3() {
+            limparOutput();
+            log('=== EXEMPLO 3: RangeError ===\n');
+            log('Ocorre quando um valor está fora do range permitido.\n');
+            
+            log('Exemplo 1: Array com tamanho negativo');
+            try {
+                let array = new Array(-1); // Tamanho negativo não é permitido
+            } catch (erro) {
+                if (erro instanceof RangeError) {
+                    log(`  ✅ RangeError capturado`);
+                    log(`  Mensagem: ${erro.message}`);
+                    log(`  Nome: ${erro.name}`);
+                }
+            }
+            
+            log('\nExemplo 2: toFixed com valor inválido');
+            try {
+                let numero = 10.5;
+                numero.toFixed(-1); // Valor negativo não é permitido
+            } catch (erro) {
+                if (erro instanceof RangeError) {
+                    log(`  ✅ RangeError capturado`);
+                    log(`  Mensagem: ${erro.message}`);
+                }
+            }
+            
+            log('\nExemplo 3: toPrecision com valor inválido');
+            try {
+                let numero = 10.5;
+                numero.toPrecision(101); // Valor muito alto (máximo 100)
+            } catch (erro) {
+                if (erro instanceof RangeError) {
+                    log(`  ✅ RangeError capturado`);
+                    log(`  Mensagem: ${erro.message}`);
+                }
+            }
+        }
+        
+        function exemplo4() {
+            limparOutput();
+            log('=== EXEMPLO 4: SyntaxError ===\n');
+            log('Ocorre quando há um erro de sintaxe no código.\n');
+            log('Nota: SyntaxError geralmente é capturado em tempo de compilação,');
+            log('mas podemos forçar com eval() ou Function().\n');
+            
+            log('Exemplo 1: Sintaxe inválida com eval');
+            try {
+                eval("let x = ;"); // Sintaxe inválida
+            } catch (erro) {
+                if (erro instanceof SyntaxError) {
+                    log(`  ✅ SyntaxError capturado`);
+                    log(`  Mensagem: ${erro.message}`);
+                    log(`  Nome: ${erro.name}`);
+                }
+            }
+            
+            log('\nExemplo 2: Parênteses não fechados');
+            try {
+                eval("if (true { console.log('erro'); }"); // Parêntese não fechado
+            } catch (erro) {
+                if (erro instanceof SyntaxError) {
+                    log(`  ✅ SyntaxError capturado`);
+                    log(`  Mensagem: ${erro.message}`);
+                }
+            }
+        }
+        
+        function exemplo5() {
+            limparOutput();
+            log('=== EXEMPLO 5: Error Genérico ===\n');
+            log('Erro genérico criado com new Error().\n');
+            
+            log('Exemplo 1: Erro personalizado');
+            try {
+                throw new Error("Este é um erro personalizado!");
+            } catch (erro) {
+                log(`  Tipo: ${erro.name}`);
+                log(`  Mensagem: ${erro.message}`);
+                log(`  É instância de Error? ${erro instanceof Error}`);
+            }
+            
+            log('\nExemplo 2: Erro com informações adicionais');
+            try {
+                let erro = new Error("Falha na validação");
+                erro.campo = "email";
+                erro.codigo = "VALIDATION_ERROR";
+                throw erro;
+            } catch (erro) {
+                log(`  Tipo: ${erro.name}`);
+                log(`  Mensagem: ${erro.message}`);
+                log(`  Campo: ${erro.campo}`);
+                log(`  Código: ${erro.codigo}`);
+            }
+        }
+        
+        function exemplo6() {
+            limparOutput();
+            log('=== EXEMPLO 6: Tratamento de Múltiplos Tipos ===\n');
+            log('Identifica e trata diferentes tipos de erros adequadamente.\n');
+            
+            function processarDados(dados) {
+                try {
+                    // Validação de tipo
+                    if (!dados) {
+                        throw new ReferenceError("Dados não fornecidos");
+                    }
+                    
+                    if (typeof dados !== "object") {
+                        throw new TypeError("Dados devem ser um objeto");
+                    }
+                    
+                    if (!Array.isArray(dados)) {
+                        throw new TypeError("Dados devem ser um array");
+                    }
+                    
+                    if (dados.length === 0) {
+                        throw new RangeError("Array não pode estar vazio");
+                    }
+                    
+                    // Processamento
+                    return dados.map(item => item * 2);
+                    
+                } catch (erro) {
+                    if (erro instanceof ReferenceError) {
+                        log(`  ❌ Erro de Referência: ${erro.message}`);
+                        return [];
+                    } else if (erro instanceof TypeError) {
+                        log(`  ❌ Erro de Tipo: ${erro.message}`);
+                        return null;
+                    } else if (erro instanceof RangeError) {
+                        log(`  ❌ Erro de Range: ${erro.message}`);
+                        return [];
+                    } else {
+                        log(`  ❌ Erro Desconhecido: ${erro.message}`);
+                        return null;
+                    }
+                }
+            }
+            
+            log('Teste 1: Dados não fornecidos');
+            processarDados(null);
+            
+            log('\nTeste 2: Tipo incorreto (string)');
+            processarDados("não é array");
+            
+            log('\nTeste 3: Tipo incorreto (objeto)');
+            processarDados({});
+            
+            log('\nTeste 4: Array vazio');
+            processarDados([]);
+            
+            log('\nTeste 5: Dados válidos');
+            try {
+                const resultado = processarDados([1, 2, 3, 4, 5]);
+                log(`  ✅ Processamento bem-sucedido: [${resultado.join(', ')}]`);
+            } catch (erro) {
+                log(`  ❌ Erro: ${erro.message}`);
+            }
+        }
+        
+        // Mensagem inicial
+        window.onload = function() {
+            log('Bem-vindo! Clique nos botões acima para ver exemplos de diferentes tipos de erros.');
+            log('Cada exemplo demonstra um tipo específico de erro em JavaScript.\n');
+        };
+    </script>
+</body>
+</html>
+

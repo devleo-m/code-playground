@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Try Catch Finally - Tratamento de Erros</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .example {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #dc3545;
+        }
+        .example h3 {
+            margin-top: 0;
+            color: #dc3545;
+        }
+        button {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button:hover {
+            background: #c82333;
+        }
+        #output {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #dee2e6;
+        }
+        code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        input {
+            padding: 8px;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            margin: 5px;
+            font-size: 14px;
+        }
+        .error {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .success {
+            color: #28a745;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>⚠️ Try Catch Finally - Tratamento de Erros</h1>
+    
+    <div class="container">
+        <h2>Exemplos de Tratamento de Erros</h2>
+        <p>Clique nos botões abaixo para ver diferentes exemplos de uso de <code>try...catch...finally</code>:</p>
+        
+        <div class="example">
+            <h3>1. Try Catch Básico</h3>
+            <p>Captura e trata erros básicos.</p>
+            <button onclick="exemplo1()">Executar Exemplo 1</button>
+        </div>
+        
+        <div class="example">
+            <h3>2. Try Catch Finally</h3>
+            <p>Finally sempre executa, mesmo com erro.</p>
+            <button onclick="exemplo2()">Executar Exemplo 2</button>
+        </div>
+        
+        <div class="example">
+            <h3>3. Divisão com Validação</h3>
+            <p>Valida divisão por zero antes de executar.</p>
+            <input type="number" id="dividendo" placeholder="Dividendo" value="10">
+            <input type="number" id="divisor" placeholder="Divisor" value="0">
+            <button onclick="exemplo3()">Dividir</button>
+        </div>
+        
+        <div class="example">
+            <h3>4. Throw - Lançando Erros</h3>
+            <p>Você mesmo pode lançar erros personalizados.</p>
+            <input type="number" id="idadeValidacao" placeholder="Idade" value="25">
+            <button onclick="exemplo4()">Validar Idade</button>
+        </div>
+        
+        <div class="example">
+            <h3>5. Processamento com Limpeza</h3>
+            <p>Simula processamento de arquivo com limpeza garantida.</p>
+            <button onclick="exemplo5()">Processar Arquivo</button>
+        </div>
+        
+        <div class="example">
+            <h3>6. Múltiplos Try Catch</h3>
+            <p>Tratamento de erros em diferentes operações.</p>
+            <button onclick="exemplo6()">Executar Exemplo 6</button>
+        </div>
+        
+        <button onclick="limparOutput()" style="background: #6c757d;">Limpar Saída</button>
+        
+        <div id="output"></div>
+    </div>
+
+    <script>
+        const output = document.getElementById('output');
+        
+        function log(mensagem, tipo = 'normal') {
+            const prefixo = tipo === 'error' ? '❌ ' : tipo === 'success' ? '✅ ' : '';
+            const classe = tipo === 'error' ? 'error' : tipo === 'success' ? 'success' : '';
+            const span = document.createElement('span');
+            span.className = classe;
+            span.textContent = prefixo + mensagem;
+            output.appendChild(span);
+            output.appendChild(document.createTextNode('\n'));
+        }
+        
+        function limparOutput() {
+            output.textContent = '';
+        }
+        
+        function exemplo1() {
+            limparOutput();
+            log('=== EXEMPLO 1: Try Catch Básico ===\n');
+            log('try {');
+            log('  let resultado = 10 / 0;');
+            log('  let texto = null;');
+            log('  let tamanho = texto.length; // Erro!');
+            log('} catch (erro) {');
+            log('  console.log("Erro capturado:", erro.message);');
+            log('}\n');
+            log('Resultado:');
+            
+            try {
+                let resultado = 10 / 0;
+                log(`Divisão por zero: ${resultado} (não é erro, é Infinity)`);
+                
+                let texto = null;
+                let tamanho = texto.length; // Erro!
+            } catch (erro) {
+                log(`Erro capturado: ${erro.message}`, 'error');
+                log(`Tipo do erro: ${erro.name}`, 'error');
+            }
+        }
+        
+        function exemplo2() {
+            limparOutput();
+            log('=== EXEMPLO 2: Try Catch Finally ===\n');
+            log('O bloco finally SEMPRE executa, mesmo com erro.\n');
+            
+            log('--- Teste 1: Sem erro ---');
+            try {
+                log('  Executando código normal...');
+                let resultado = 10 + 5;
+                log(`  Resultado: ${resultado}`, 'success');
+            } catch (erro) {
+                log(`  Erro: ${erro.message}`, 'error');
+            } finally {
+                log('  ✅ Finally executado (sem erro)', 'success');
+            }
+            
+            log('\n--- Teste 2: Com erro ---');
+            try {
+                log('  Tentando acessar propriedade de null...');
+                let obj = null;
+                let valor = obj.propriedade; // Erro!
+            } catch (erro) {
+                log(`  ❌ Erro capturado: ${erro.message}`, 'error');
+            } finally {
+                log('  ✅ Finally executado (com erro)', 'success');
+            }
+        }
+        
+        function exemplo3() {
+            limparOutput();
+            const dividendoInput = document.getElementById('dividendo');
+            const divisorInput = document.getElementById('divisor');
+            
+            const dividendo = parseFloat(dividendoInput.value);
+            const divisor = parseFloat(divisorInput.value);
+            
+            log('=== EXEMPLO 3: Divisão com Validação ===\n');
+            log(`Dividendo: ${dividendo}`);
+            log(`Divisor: ${divisor}\n`);
+            
+            try {
+                if (divisor === 0) {
+                    throw new Error("Divisão por zero não é permitida!");
+                }
+                
+                const resultado = dividendo / divisor;
+                log(`Resultado: ${dividendo} ÷ ${divisor} = ${resultado}`, 'success');
+            } catch (erro) {
+                log(`Erro: ${erro.message}`, 'error');
+            }
+        }
+        
+        function exemplo4() {
+            limparOutput();
+            const idadeInput = document.getElementById('idadeValidacao');
+            const idade = parseInt(idadeInput.value);
+            
+            log('=== EXEMPLO 4: Throw - Lançando Erros ===\n');
+            log(`Idade informada: ${idade}\n`);
+            
+            function validarIdade(idade) {
+                if (idade < 0) {
+                    throw new Error("Idade não pode ser negativa!");
+                }
+                if (idade > 150) {
+                    throw new Error("Idade inválida! Muito alta.");
+                }
+                if (typeof idade !== "number" || isNaN(idade)) {
+                    throw new Error("Idade deve ser um número válido!");
+                }
+                return true;
+            }
+            
+            try {
+                validarIdade(idade);
+                log(`Idade válida: ${idade} anos`, 'success');
+            } catch (erro) {
+                log(`Erro de validação: ${erro.message}`, 'error');
+            }
+        }
+        
+        function exemplo5() {
+            limparOutput();
+            log('=== EXEMPLO 5: Processamento com Limpeza ===\n');
+            log('Simulando processamento de arquivo...\n');
+            
+            let arquivo = null;
+            let arquivoAberto = false;
+            
+            try {
+                log('  Tentando abrir arquivo...');
+                arquivo = "dados.txt";
+                arquivoAberto = true;
+                log('  ✅ Arquivo aberto com sucesso', 'success');
+                
+                log('  Processando arquivo...');
+                // Simula possível erro durante processamento
+                if (Math.random() > 0.5) {
+                    throw new Error("Erro ao ler dados do arquivo!");
+                }
+                
+                log('  ✅ Arquivo processado com sucesso', 'success');
+            } catch (erro) {
+                log(`  ❌ Erro durante processamento: ${erro.message}`, 'error');
+            } finally {
+                // Sempre fecha o arquivo, mesmo com erro
+                if (arquivoAberto) {
+                    log('  🔒 Fechando arquivo...', 'success');
+                    arquivo = null;
+                    arquivoAberto = false;
+                }
+                log('  ✅ Processamento finalizado', 'success');
+            }
+        }
+        
+        function exemplo6() {
+            limparOutput();
+            log('=== EXEMPLO 6: Múltiplos Try Catch ===\n');
+            
+            // Operação 1: Acesso a propriedade
+            log('--- Operação 1: Acesso a propriedade ---');
+            try {
+                let usuario = { nome: "João" };
+                log(`  Nome: ${usuario.nome}`, 'success');
+                log(`  Email: ${usuario.email}`, 'success'); // undefined, mas não é erro
+            } catch (erro) {
+                log(`  Erro: ${erro.message}`, 'error');
+            }
+            
+            // Operação 2: Divisão
+            log('\n--- Operação 2: Divisão ---');
+            try {
+                let resultado = 10 / 2;
+                log(`  Resultado: ${resultado}`, 'success');
+            } catch (erro) {
+                log(`  Erro: ${erro.message}`, 'error');
+            }
+            
+            // Operação 3: Array
+            log('\n--- Operação 3: Acesso a array ---');
+            try {
+                let numeros = [1, 2, 3];
+                log(`  Primeiro elemento: ${numeros[0]}`, 'success');
+                log(`  Elemento inexistente: ${numeros[10]}`, 'success'); // undefined, não é erro
+            } catch (erro) {
+                log(`  Erro: ${erro.message}`, 'error');
+            }
+            
+            // Operação 4: Erro proposital
+            log('\n--- Operação 4: Erro proposital ---');
+            try {
+                let obj = null;
+                let valor = obj.propriedade; // Erro!
+            } catch (erro) {
+                log(`  Erro capturado: ${erro.message}`, 'error');
+                log(`  Tipo: ${erro.name}`, 'error');
+            }
+        }
+        
+        // Mensagem inicial
+        window.onload = function() {
+            log('Bem-vindo! Clique nos botões acima para ver exemplos de tratamento de erros.');
+            log('Cada exemplo demonstra um uso diferente de try, catch e finally.\n');
+        };
+    </script>
+</body>
+</html>
+

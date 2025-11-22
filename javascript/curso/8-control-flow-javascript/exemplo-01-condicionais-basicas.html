@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condicionais Básicas - if, else, else if</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .example {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #007bff;
+        }
+        .example h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        #output {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #dee2e6;
+        }
+        code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        input {
+            padding: 8px;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            margin: 5px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔀 Condicionais Básicas - if, else, else if</h1>
+    
+    <div class="container">
+        <h2>Exemplos de Estruturas Condicionais</h2>
+        <p>Clique nos botões abaixo para ver diferentes exemplos de uso de <code>if</code>, <code>else</code> e <code>else if</code>:</p>
+        
+        <div class="example">
+            <h3>1. if Básico</h3>
+            <p>Verifica se uma condição é verdadeira.</p>
+            <button onclick="exemplo1()">Executar Exemplo 1</button>
+        </div>
+        
+        <div class="example">
+            <h3>2. if...else</h3>
+            <p>Executa um bloco se verdadeiro, outro se falso.</p>
+            <button onclick="exemplo2()">Executar Exemplo 2</button>
+        </div>
+        
+        <div class="example">
+            <h3>3. if...else if...else</h3>
+            <p>Múltiplas condições em sequência.</p>
+            <button onclick="exemplo3()">Executar Exemplo 3</button>
+        </div>
+        
+        <div class="example">
+            <h3>4. Sistema de Notas</h3>
+            <p>Calcula conceito baseado na nota.</p>
+            <input type="number" id="nota" placeholder="Digite uma nota (0-100)" min="0" max="100" value="85">
+            <button onclick="exemplo4()">Calcular Conceito</button>
+        </div>
+        
+        <div class="example">
+            <h3>5. Validação de Idade</h3>
+            <p>Verifica se pode dirigir baseado na idade.</p>
+            <input type="number" id="idade" placeholder="Digite sua idade" min="0" max="150" value="20">
+            <button onclick="exemplo5()">Verificar</button>
+        </div>
+        
+        <div class="example">
+            <h3>6. Operador Ternário</h3>
+            <p>Forma concisa de escrever if...else simples.</p>
+            <button onclick="exemplo6()">Executar Exemplo 6</button>
+        </div>
+        
+        <button onclick="limparOutput()" style="background: #dc3545;">Limpar Saída</button>
+        
+        <div id="output"></div>
+    </div>
+
+    <script>
+        const output = document.getElementById('output');
+        
+        function log(mensagem) {
+            output.textContent += mensagem + '\n';
+        }
+        
+        function limparOutput() {
+            output.textContent = '';
+        }
+        
+        function exemplo1() {
+            limparOutput();
+            log('=== EXEMPLO 1: if Básico ===\n');
+            log('let idade = 18;');
+            log('if (idade >= 18) {');
+            log('  console.log("Você é maior de idade!");');
+            log('}\n');
+            log('Resultado:');
+            
+            let idade = 18;
+            if (idade >= 18) {
+                log('  ✅ Você é maior de idade!');
+            }
+            
+            log('\n--- Testando com idade menor ---');
+            idade = 16;
+            if (idade >= 18) {
+                log('  ✅ Você é maior de idade!');
+            } else {
+                log('  (Nada é exibido, pois a condição é falsa)');
+            }
+        }
+        
+        function exemplo2() {
+            limparOutput();
+            log('=== EXEMPLO 2: if...else ===\n');
+            log('let estaChovendo = true;');
+            log('if (estaChovendo) {');
+            log('  console.log("Leve guarda-chuva!");');
+            log('} else {');
+            log('  console.log("Não precisa de guarda-chuva");');
+            log('}\n');
+            log('Resultado:');
+            
+            let estaChovendo = true;
+            if (estaChovendo) {
+                log('  ☔ Leve guarda-chuva!');
+            } else {
+                log('  ☀️ Não precisa de guarda-chuva');
+            }
+            
+            log('\n--- Testando com false ---');
+            estaChovendo = false;
+            if (estaChovendo) {
+                log('  ☔ Leve guarda-chuva!');
+            } else {
+                log('  ☀️ Não precisa de guarda-chuva');
+            }
+        }
+        
+        function exemplo3() {
+            limparOutput();
+            log('=== EXEMPLO 3: if...else if...else ===\n');
+            log('let temperatura = 25;');
+            log('if (temperatura > 30) {');
+            log('  console.log("Muito quente!");');
+            log('} else if (temperatura > 20) {');
+            log('  console.log("Temperatura agradável");');
+            log('} else if (temperatura > 10) {');
+            log('  console.log("Frio");');
+            log('} else {');
+            log('  console.log("Muito frio!");');
+            log('}\n');
+            log('Testando diferentes temperaturas:');
+            
+            const temperaturas = [35, 25, 15, 5];
+            temperaturas.forEach(temp => {
+                log(`\n  Temperatura: ${temp}°C`);
+                if (temp > 30) {
+                    log('    🔥 Muito quente!');
+                } else if (temp > 20) {
+                    log('    😊 Temperatura agradável');
+                } else if (temp > 10) {
+                    log('    🧥 Frio');
+                } else {
+                    log('    ❄️ Muito frio!');
+                }
+            });
+        }
+        
+        function exemplo4() {
+            limparOutput();
+            const notaInput = document.getElementById('nota');
+            const nota = parseInt(notaInput.value);
+            
+            log('=== EXEMPLO 4: Sistema de Notas ===\n');
+            log(`Nota informada: ${nota}\n`);
+            
+            if (nota >= 90) {
+                log('  🌟 Conceito A - Excelente!');
+            } else if (nota >= 80) {
+                log('  👍 Conceito B - Muito bom!');
+            } else if (nota >= 70) {
+                log('  ✅ Conceito C - Bom!');
+            } else if (nota >= 60) {
+                log('  ⚠️ Conceito D - Aprovado!');
+            } else if (nota >= 0) {
+                log('  ❌ Conceito F - Reprovado!');
+            } else {
+                log('  ⚠️ Nota inválida!');
+            }
+        }
+        
+        function exemplo5() {
+            limparOutput();
+            const idadeInput = document.getElementById('idade');
+            const idade = parseInt(idadeInput.value);
+            
+            log('=== EXEMPLO 5: Validação de Idade ===\n');
+            log(`Idade informada: ${idade} anos\n`);
+            
+            if (idade < 0) {
+                log('  ⚠️ Idade inválida (negativa)');
+            } else if (idade < 16) {
+                log('  ❌ Não pode dirigir (muito jovem)');
+            } else if (idade < 18) {
+                log('  ⚠️ Pode dirigir apenas com autorização dos pais');
+            } else if (idade <= 120) {
+                log('  ✅ Pode dirigir!');
+            } else {
+                log('  ⚠️ Idade inválida (muito alta)');
+            }
+        }
+        
+        function exemplo6() {
+            limparOutput();
+            log('=== EXEMPLO 6: Operador Ternário ===\n');
+            log('Sintaxe: condição ? valorSeVerdadeiro : valorSeFalso\n');
+            
+            log('Exemplo 1:');
+            log('let idade = 20;');
+            log('let status = idade >= 18 ? "Maior" : "Menor";');
+            
+            let idade = 20;
+            let status = idade >= 18 ? "Maior" : "Menor";
+            log(`  Resultado: ${status} de idade\n`);
+            
+            log('Exemplo 2:');
+            log('let estaChovendo = true;');
+            log('let item = estaChovendo ? "guarda-chuva" : "óculos de sol";');
+            
+            let estaChovendo = true;
+            let item = estaChovendo ? "guarda-chuva" : "óculos de sol";
+            log(`  Resultado: Leve ${item}\n`);
+            
+            log('Exemplo 3: Ternário Aninhado');
+            log('let nota = 85;');
+            log('let conceito = nota >= 90 ? "A" : nota >= 80 ? "B" : "C";');
+            
+            let nota = 85;
+            let conceito = nota >= 90 ? "A" : nota >= 80 ? "B" : "C";
+            log(`  Resultado: Conceito ${conceito}`);
+        }
+        
+        // Mensagem inicial
+        window.onload = function() {
+            log('Bem-vindo! Clique nos botões acima para ver exemplos de condicionais.');
+            log('Cada exemplo demonstra um uso diferente de if, else e else if.\n');
+        };
+    </script>
+</body>
+</html>
+
