@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparações Básicas - == vs === vs Object.is()</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .operator {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #007bff;
+        }
+        .operator h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+        .test-case {
+            background: #fff;
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 3px solid #28a745;
+            font-family: 'Courier New', monospace;
+        }
+        .result {
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .true {
+            color: #28a745;
+        }
+        .false {
+            color: #dc3545;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        #output {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Comparações de Igualdade em JavaScript</h1>
+    
+    <div class="container">
+        <h2>Comparações Básicas</h2>
+        <p>Clique nos botões abaixo para ver os resultados das comparações:</p>
+        
+        <button onclick="testarComparacoesBasicas()">Testar Comparações Básicas</button>
+        <button onclick="testarCasosEspeciais()">Testar Casos Especiais</button>
+        <button onclick="testarObjetos()">Testar Objetos</button>
+        <button onclick="limparOutput()">Limpar</button>
+        
+        <div id="output"></div>
+    </div>
+
+    <div class="container">
+        <h2>Comparação Interativa</h2>
+        <p>Digite dois valores e veja como cada operador se comporta:</p>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0;">
+            <div>
+                <label for="valor1">Valor 1:</label>
+                <input type="text" id="valor1" placeholder='Ex: "5" ou 5' style="width: 100%; padding: 8px; margin-top: 5px;">
+            </div>
+            <div>
+                <label for="valor2">Valor 2:</label>
+                <input type="text" id="valor2" placeholder='Ex: "5" ou 5' style="width: 100%; padding: 8px; margin-top: 5px;">
+            </div>
+        </div>
+        
+        <button onclick="compararValores()">Comparar Valores</button>
+        
+        <div id="resultado-comparacao" style="margin-top: 20px;"></div>
+    </div>
+
+    <script>
+        const output = document.getElementById('output');
+        
+        function log(mensagem) {
+            output.textContent += mensagem + '\n';
+        }
+        
+        function limparOutput() {
+            output.textContent = '';
+            document.getElementById('resultado-comparacao').innerHTML = '';
+        }
+        
+        function testarComparacoesBasicas() {
+            limparOutput();
+            log('=== COMPARAÇÕES BÁSICAS ===\n');
+            
+            const testes = [
+                ['"5"', '5', "5", 5],
+                ['true', '1', true, 1],
+                ['false', '0', false, 0],
+                ['null', 'undefined', null, undefined],
+                ['""', '0', "", 0],
+                ['" "', '0', " ", 0],
+                ['5', '5', 5, 5],
+                ['"hello"', '"hello"', "hello", "hello"],
+            ];
+            
+            testes.forEach(([nome1, nome2, val1, val2]) => {
+                log(`\nComparando: ${nome1} vs ${nome2}`);
+                log(`  ==  : ${val1 == val2}  ${val1 == val2 ? '✅' : '❌'}`);
+                log(`  === : ${val1 === val2}  ${val1 === val2 ? '✅' : '❌'}`);
+                log(`  Object.is(): ${Object.is(val1, val2)}  ${Object.is(val1, val2) ? '✅' : '❌'}`);
+            });
+        }
+        
+        function testarCasosEspeciais() {
+            limparOutput();
+            log('=== CASOS ESPECIAIS ===\n');
+            
+            log('\n1. NaN (Not a Number):');
+            log(`  NaN == NaN     : ${NaN == NaN}  ❌`);
+            log(`  NaN === NaN    : ${NaN === NaN}  ❌`);
+            log(`  Object.is(NaN, NaN): ${Object.is(NaN, NaN)}  ✅`);
+            
+            log('\n2. Zeros com Sinal:');
+            log(`  -0 == +0       : ${-0 == +0}  ✅`);
+            log(`  -0 === +0      : ${-0 === +0}  ✅`);
+            log(`  Object.is(-0, +0): ${Object.is(-0, +0)}  ❌`);
+            
+            log('\n3. Arrays Vazios:');
+            log(`  [] == ""       : ${[] == ""}  ✅ (coerção)`);
+            log(`  [] === ""      : ${[] === ""}  ❌`);
+            log(`  Object.is([], ""): ${Object.is([], "")}  ❌`);
+            
+            log('\n4. Objetos Vazios:');
+            log(`  {} == {}       : ${{} == {}}  ❌`);
+            log(`  {} === {}      : ${{} === {}}  ❌`);
+            log(`  Object.is({}, {}): ${Object.is({}, {})}  ❌`);
+        }
+        
+        function testarObjetos() {
+            limparOutput();
+            log('=== COMPARAÇÃO DE OBJETOS ===\n');
+            
+            const obj1 = { nome: "João", idade: 25 };
+            const obj2 = { nome: "João", idade: 25 };
+            const obj3 = obj1;
+            
+            log('obj1 = { nome: "João", idade: 25 }');
+            log('obj2 = { nome: "João", idade: 25 }');
+            log('obj3 = obj1 (mesma referência)\n');
+            
+            log('Comparações:');
+            log(`  obj1 == obj2   : ${obj1 == obj2}  ❌ (objetos diferentes)`);
+            log(`  obj1 === obj2 : ${obj1 === obj2}  ❌ (objetos diferentes)`);
+            log(`  Object.is(obj1, obj2): ${Object.is(obj1, obj2)}  ❌`);
+            
+            log(`\n  obj1 == obj3   : ${obj1 == obj3}  ✅ (mesma referência)`);
+            log(`  obj1 === obj3  : ${obj1 === obj3}  ✅ (mesma referência)`);
+            log(`  Object.is(obj1, obj3): ${Object.is(obj1, obj3)}  ✅`);
+            
+            log('\n⚠️ Objetos são comparados por REFERÊNCIA, não por conteúdo!');
+        }
+        
+        function compararValores() {
+            const valor1Input = document.getElementById('valor1').value;
+            const valor2Input = document.getElementById('valor2').value;
+            const resultadoDiv = document.getElementById('resultado-comparacao');
+            
+            if (!valor1Input || !valor2Input) {
+                resultadoDiv.innerHTML = '<p style="color: red;">Por favor, preencha ambos os valores!</p>';
+                return;
+            }
+            
+            // Tentar converter para número se possível
+            let valor1, valor2;
+            let tipo1, tipo2;
+            
+            // Converter valor1
+            if (valor1Input === 'true') {
+                valor1 = true;
+                tipo1 = 'boolean';
+            } else if (valor1Input === 'false') {
+                valor1 = false;
+                tipo1 = 'boolean';
+            } else if (valor1Input === 'null') {
+                valor1 = null;
+                tipo1 = 'null';
+            } else if (valor1Input === 'undefined') {
+                valor1 = undefined;
+                tipo1 = 'undefined';
+            } else if (!isNaN(valor1Input) && valor1Input !== '') {
+                valor1 = Number(valor1Input);
+                tipo1 = 'number';
+            } else {
+                valor1 = valor1Input;
+                tipo1 = 'string';
+            }
+            
+            // Converter valor2
+            if (valor2Input === 'true') {
+                valor2 = true;
+                tipo2 = 'boolean';
+            } else if (valor2Input === 'false') {
+                valor2 = false;
+                tipo2 = 'boolean';
+            } else if (valor2Input === 'null') {
+                valor2 = null;
+                tipo2 = 'null';
+            } else if (valor2Input === 'undefined') {
+                valor2 = undefined;
+                tipo2 = 'undefined';
+            } else if (!isNaN(valor2Input) && valor2Input !== '') {
+                valor2 = Number(valor2Input);
+                tipo2 = 'number';
+            } else {
+                valor2 = valor2Input;
+                tipo2 = 'string';
+            }
+            
+            const resultado1 = valor1 == valor2;
+            const resultado2 = valor1 === valor2;
+            const resultado3 = Object.is(valor1, valor2);
+            
+            resultadoDiv.innerHTML = `
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 5px;">
+                    <h3>Resultados:</h3>
+                    <p><strong>Valor 1:</strong> ${JSON.stringify(valor1)} (tipo: ${tipo1})</p>
+                    <p><strong>Valor 2:</strong> ${JSON.stringify(valor2)} (tipo: ${tipo2})</p>
+                    <hr>
+                    <p><strong>== (Abstrata):</strong> 
+                        <span style="color: ${resultado1 ? '#28a745' : '#dc3545'}; font-weight: bold;">
+                            ${resultado1} ${resultado1 ? '✅' : '❌'}
+                        </span>
+                    </p>
+                    <p><strong>=== (Estrita):</strong> 
+                        <span style="color: ${resultado2 ? '#28a745' : '#dc3545'}; font-weight: bold;">
+                            ${resultado2} ${resultado2 ? '✅' : '❌'}
+                        </span>
+                    </p>
+                    <p><strong>Object.is():</strong> 
+                        <span style="color: ${resultado3 ? '#28a745' : '#dc3545'}; font-weight: bold;">
+                            ${resultado3} ${resultado3 ? '✅' : '❌'}
+                        </span>
+                    </p>
+                    ${tipo1 !== tipo2 ? '<p style="color: orange;">⚠️ Tipos diferentes! Isso afeta o resultado.</p>' : ''}
+                </div>
+            `;
+        }
+        
+        // Executar teste inicial
+        window.onload = function() {
+            log('Clique nos botões acima para ver os testes!');
+            log('Ou use a comparação interativa abaixo.');
+        };
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object.is() - Casos Especiais (NaN e Zeros)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .test-section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #007bff;
+        }
+        .test-case {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 3px;
+        }
+        .true {
+            background: #d4edda;
+            color: #155724;
+        }
+        .false {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .calculator {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            max-width: 300px;
+            margin: 20px auto;
+        }
+        .calculator button {
+            padding: 15px;
+            font-size: 18px;
+        }
+        .calculator-display {
+            grid-column: 1 / -1;
+            background: #333;
+            color: white;
+            padding: 20px;
+            text-align: right;
+            font-size: 24px;
+            border-radius: 5px;
+            min-height: 30px;
+        }
+        .info-box {
+            background: #d1ecf1;
+            color: #0c5460;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #17a2b8;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔬 Object.is() - Casos Especiais</h1>
+    
+    <div class="container">
+        <h2>1. Verificação de NaN</h2>
+        <p>NaN (Not a Number) é um caso especial: ele nunca é igual a nada, nem a si mesmo!</p>
+        
+        <div class="test-section">
+            <h3>Teste: NaN === NaN</h3>
+            <div class="test-case">
+                <code>NaN === NaN</code>
+                <div class="result false" id="nan-test-1">
+                    Resultado: false ❌ (nunca funciona!)
+                </div>
+            </div>
+            
+            <h3>Teste: Object.is(NaN, NaN)</h3>
+            <div class="test-case">
+                <code>Object.is(NaN, NaN)</code>
+                <div class="result true" id="nan-test-2">
+                    Resultado: true ✅ (funciona!)
+                </div>
+            </div>
+            
+            <button onclick="testarNaN()">Testar com Valores Reais</button>
+            <div id="nan-results"></div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2>2. Zeros com Sinal (-0 e +0)</h2>
+        <p>Object.is() distingue entre zero negativo e zero positivo, enquanto === não!</p>
+        
+        <div class="test-section">
+            <h3>Teste: -0 === +0</h3>
+            <div class="test-case">
+                <code>-0 === +0</code>
+                <div class="result true" id="zero-test-1">
+                    Resultado: true ✅ (trata como iguais)
+                </div>
+            </div>
+            
+            <h3>Teste: Object.is(-0, +0)</h3>
+            <div class="test-case">
+                <code>Object.is(-0, +0)</code>
+                <div class="result false" id="zero-test-2">
+                    Resultado: false ❌ (preserva a diferença!)
+                </div>
+            </div>
+            
+            <div class="info-box">
+                <strong>Por que isso importa?</strong><br>
+                Em cálculos científicos, o sinal do zero pode ser importante! 
+                Por exemplo, em limites matemáticos, -0 e +0 podem ter significados diferentes.
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2>3. Calculadora com Verificação de NaN</h2>
+        <p>Esta calculadora usa Object.is() para detectar erros de cálculo (NaN):</p>
+        
+        <div class="calculator">
+            <div class="calculator-display" id="display">0</div>
+            <button onclick="appendNumber('7')">7</button>
+            <button onclick="appendNumber('8')">8</button>
+            <button onclick="appendNumber('9')">9</button>
+            <button onclick="setOperation('/')">/</button>
+            <button onclick="appendNumber('4')">4</button>
+            <button onclick="appendNumber('5')">5</button>
+            <button onclick="appendNumber('6')">6</button>
+            <button onclick="setOperation('*')">×</button>
+            <button onclick="appendNumber('1')">1</button>
+            <button onclick="appendNumber('2')">2</button>
+            <button onclick="appendNumber('3')">3</button>
+            <button onclick="setOperation('-')">-</button>
+            <button onclick="appendNumber('0')">0</button>
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="setOperation('+')">+</button>
+        </div>
+        
+        <div id="calc-status"></div>
+    </div>
+    
+    <div class="container">
+        <h2>4. Comparação Completa: == vs === vs Object.is()</h2>
+        <button onclick="mostrarComparacaoCompleta()">Mostrar Tabela Comparativa</button>
+        <div id="comparacao-completa"></div>
+    </div>
+
+    <script>
+        let displayValue = '0';
+        let currentOperation = null;
+        let previousValue = null;
+        
+        function updateDisplay() {
+            document.getElementById('display').textContent = displayValue;
+        }
+        
+        function appendNumber(num) {
+            if (displayValue === '0') {
+                displayValue = num;
+            } else {
+                displayValue += num;
+            }
+            updateDisplay();
+        }
+        
+        function setOperation(op) {
+            if (previousValue === null) {
+                previousValue = parseFloat(displayValue);
+            } else {
+                calculate();
+            }
+            currentOperation = op;
+            displayValue = '0';
+        }
+        
+        function calculate() {
+            if (previousValue === null || currentOperation === null) return;
+            
+            const currentValue = parseFloat(displayValue);
+            let result;
+            
+            switch(currentOperation) {
+                case '+':
+                    result = previousValue + currentValue;
+                    break;
+                case '-':
+                    result = previousValue - currentValue;
+                    break;
+                case '*':
+                    result = previousValue * currentValue;
+                    break;
+                case '/':
+                    result = previousValue / currentValue;
+                    break;
+                default:
+                    return;
+            }
+            
+            // Verificar se o resultado é NaN usando Object.is()
+            const statusDiv = document.getElementById('calc-status');
+            if (Object.is(result, NaN)) {
+                statusDiv.innerHTML = `
+                    <div class="result false" style="margin-top: 15px;">
+                        <strong>Erro detectado usando Object.is()!</strong><br>
+                        Resultado: NaN (Not a Number)<br>
+                        <small>Operação inválida (ex: divisão por zero de forma indireta)</small>
+                    </div>
+                `;
+                displayValue = 'Erro';
+            } else {
+                statusDiv.innerHTML = `
+                    <div class="result true" style="margin-top: 15px;">
+                        <strong>Resultado válido!</strong><br>
+                        Verificado usando Object.is(result, NaN) = false
+                    </div>
+                `;
+                displayValue = result.toString();
+            }
+            
+            updateDisplay();
+            previousValue = null;
+            currentOperation = null;
+        }
+        
+        function clearDisplay() {
+            displayValue = '0';
+            previousValue = null;
+            currentOperation = null;
+            updateDisplay();
+            document.getElementById('calc-status').innerHTML = '';
+        }
+        
+        function testarNaN() {
+            const resultsDiv = document.getElementById('nan-results');
+            resultsDiv.innerHTML = '<h4>Testando com valores que resultam em NaN:</h4>';
+            
+            const testes = [
+                ['Number("abc")', Number("abc")],
+                ['0 / 0', 0 / 0],
+                ['Math.sqrt(-1)', Math.sqrt(-1)],
+                ['parseInt("texto")', parseInt("texto")],
+            ];
+            
+            testes.forEach(([descricao, valor]) => {
+                const div = document.createElement('div');
+                div.className = 'test-case';
+                div.innerHTML = `
+                    <strong>${descricao}</strong><br>
+                    Valor: ${valor}<br>
+                    <code>valor === NaN</code>: ${valor === NaN} ❌ (não funciona)<br>
+                    <code>Object.is(valor, NaN)</code>: ${Object.is(valor, NaN)} ✅ (funciona!)
+                `;
+                resultsDiv.appendChild(div);
+            });
+        }
+        
+        function mostrarComparacaoCompleta() {
+            const div = document.getElementById('comparacao-completa');
+            
+            const testes = [
+                { nome: 'NaN', val1: NaN, val2: NaN },
+                { nome: '-0 e +0', val1: -0, val2: +0 },
+                { nome: '5 e "5"', val1: 5, val2: "5" },
+                { nome: 'true e 1', val1: true, val2: 1 },
+                { nome: 'null e undefined', val1: null, val2: undefined },
+                { nome: '{} e {}', val1: {}, val2: {} },
+            ];
+            
+            let html = '<table style="width: 100%; border-collapse: collapse; margin-top: 20px;">';
+            html += '<thead><tr style="background: #f8f9fa;"><th style="padding: 10px; border: 1px solid #ddd;">Comparação</th><th style="padding: 10px; border: 1px solid #ddd;">==</th><th style="padding: 10px; border: 1px solid #ddd;">===</th><th style="padding: 10px; border: 1px solid #ddd;">Object.is()</th></tr></thead><tbody>';
+            
+            testes.forEach(({ nome, val1, val2 }) => {
+                const r1 = val1 == val2;
+                const r2 = val1 === val2;
+                const r3 = Object.is(val1, val2);
+                
+                html += `<tr>`;
+                html += `<td style="padding: 10px; border: 1px solid #ddd;"><strong>${nome}</strong></td>`;
+                html += `<td style="padding: 10px; border: 1px solid #ddd; color: ${r1 ? '#28a745' : '#dc3545'}">${r1}</td>`;
+                html += `<td style="padding: 10px; border: 1px solid #ddd; color: ${r2 ? '#28a745' : '#dc3545'}">${r2}</td>`;
+                html += `<td style="padding: 10px; border: 1px solid #ddd; color: ${r3 ? '#28a745' : '#dc3545'}">${r3}</td>`;
+                html += `</tr>`;
+            });
+            
+            html += '</tbody></table>';
+            div.innerHTML = html;
+        }
+        
+        // Inicializar
+        updateDisplay();
+    </script>
+</body>
+</html>
+

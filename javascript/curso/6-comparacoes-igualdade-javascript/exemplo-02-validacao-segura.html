@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação Segura - Sistema de Login</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        input:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .resultado {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .sucesso {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .erro {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .aviso {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .comparison-table th,
+        .comparison-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .comparison-table th {
+            background: #f8f9fa;
+            font-weight: bold;
+        }
+        .true {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .false {
+            color: #dc3545;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔐 Sistema de Validação Segura</h1>
+    
+    <div class="container">
+        <h2>Login do Sistema</h2>
+        <p>Este exemplo demonstra a importância de usar <code>===</code> em validações de segurança.</p>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="usuario">Usuário:</label>
+                <input type="text" id="usuario" placeholder="Digite o usuário" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="text" id="senha" placeholder="Digite a senha" required>
+                <small style="color: #666;">Tente: 12345 (número) ou "12345" (texto)</small>
+            </div>
+            
+            <button type="submit">Fazer Login</button>
+        </form>
+        
+        <div id="resultado"></div>
+    </div>
+    
+    <div class="container">
+        <h2>Comparação: == vs ===</h2>
+        <p>Veja como cada método de comparação se comporta:</p>
+        
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Senha Digitada</th>
+                    <th>Senha Correta</th>
+                    <th>== (Abstrata)</th>
+                    <th>=== (Estrita)</th>
+                    <th>Seguro?</th>
+                </tr>
+            </thead>
+            <tbody id="comparison-body">
+                <!-- Preenchido via JavaScript -->
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="info">
+        <h3>💡 Por que === é mais seguro?</h3>
+        <ul>
+            <li><strong>== (Abstrata):</strong> Converte tipos automaticamente, o que pode permitir bypasses de segurança</li>
+            <li><strong>=== (Estrita):</strong> Compara valor E tipo, impedindo conversões inesperadas</li>
+            <li><strong>Recomendação:</strong> Sempre use <code>===</code> em validações de segurança!</li>
+        </ul>
+    </div>
+
+    <script>
+        // Credenciais corretas
+        const USUARIO_CORRETO = "admin";
+        const SENHA_CORRETA = 12345; // Número, não string!
+        
+        // Preencher tabela de comparação
+        function preencherTabelaComparacao() {
+            const testes = [
+                [12345, 12345, "Número correto"],
+                ["12345", 12345, "String (pode ser explorado com ==)"],
+                ["", 0, "String vazia (perigoso com ==)"],
+                [false, 0, "Boolean false (perigoso com ==)"],
+                [null, 0, "Null (não funciona, mas demonstra)"],
+            ];
+            
+            const tbody = document.getElementById('comparison-body');
+            tbody.innerHTML = '';
+            
+            testes.forEach(([digitada, correta, descricao]) => {
+                const tr = document.createElement('tr');
+                const resultado1 = digitada == correta;
+                const resultado2 = digitada === correta;
+                const seguro = !resultado1 && resultado2;
+                
+                tr.innerHTML = `
+                    <td>${JSON.stringify(digitada)} (${typeof digitada})</td>
+                    <td>${JSON.stringify(correta)} (${typeof correta})</td>
+                    <td class="${resultado1 ? 'true' : 'false'}">${resultado1} ${resultado1 ? '⚠️' : ''}</td>
+                    <td class="${resultado2 ? 'true' : 'false'}">${resultado2}</td>
+                    <td>${seguro ? '✅ Sim' : resultado1 ? '❌ Não (vulnerável!)' : '✅ Sim'}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+        
+        // Função de login SEGURA (usando ===)
+        function fazerLoginSeguro(usuario, senha) {
+            // Validação de tipo primeiro
+            if (typeof usuario !== "string") {
+                return {
+                    sucesso: false,
+                    mensagem: "Erro: usuário deve ser uma string",
+                    detalhes: `Tipo recebido: ${typeof usuario}`
+                };
+            }
+            
+            if (typeof senha !== "number") {
+                return {
+                    sucesso: false,
+                    mensagem: "Erro: senha deve ser um número",
+                    detalhes: `Tipo recebido: ${typeof senha}, valor: ${JSON.stringify(senha)}`
+                };
+            }
+            
+            // Comparação estrita
+            if (usuario === USUARIO_CORRETO && senha === SENHA_CORRETA) {
+                return {
+                    sucesso: true,
+                    mensagem: "✅ Login realizado com sucesso!",
+                    detalhes: "Validação segura usando ==="
+                };
+            }
+            
+            return {
+                sucesso: false,
+                mensagem: "❌ Usuário ou senha incorretos",
+                detalhes: "Credenciais não correspondem"
+            };
+        }
+        
+        // Função de login INSEGURA (usando ==) - apenas para demonstração
+        function fazerLoginInseguro(usuario, senha) {
+            // ⚠️ PERIGOSO - permite coerção de tipos
+            if (usuario == USUARIO_CORRETO && senha == SENHA_CORRETA) {
+                return {
+                    sucesso: true,
+                    mensagem: "⚠️ Login realizado (método inseguro!)",
+                    detalhes: "Usando == permite bypass de segurança!"
+                };
+            }
+            
+            return {
+                sucesso: false,
+                mensagem: "❌ Usuário ou senha incorretos",
+                detalhes: ""
+            };
+        }
+        
+        // Manipular formulário
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const usuarioInput = document.getElementById('usuario').value;
+            const senhaInput = document.getElementById('senha').value;
+            const resultadoDiv = document.getElementById('resultado');
+            
+            // Tentar converter senha para número se possível
+            let senha;
+            if (!isNaN(senhaInput) && senhaInput !== '') {
+                senha = Number(senhaInput);
+            } else {
+                senha = senhaInput;
+            }
+            
+            // Usar método seguro
+            const resultado = fazerLoginSeguro(usuarioInput, senha);
+            
+            // Mostrar resultado
+            let html = `<div class="resultado ${resultado.sucesso ? 'sucesso' : 'erro'}">`;
+            html += `<p>${resultado.mensagem}</p>`;
+            html += `<small>${resultado.detalhes}</small>`;
+            html += `</div>`;
+            
+            // Mostrar também o resultado do método inseguro (para comparação)
+            const resultadoInseguro = fazerLoginInseguro(usuarioInput, senha);
+            if (resultadoInseguro.sucesso && !resultado.sucesso) {
+                html += `<div class="resultado aviso">`;
+                html += `<p>⚠️ ATENÇÃO: Com método inseguro (==), o login seria aceito!</p>`;
+                html += `<small>Isso demonstra a vulnerabilidade de usar == em validações de segurança</small>`;
+                html += `</div>`;
+            }
+            
+            // Informações técnicas
+            html += `<div class="info">`;
+            html += `<strong>Informações técnicas:</strong><br>`;
+            html += `Usuário digitado: "${usuarioInput}" (tipo: ${typeof usuarioInput})<br>`;
+            html += `Senha digitada: ${JSON.stringify(senha)} (tipo: ${typeof senha})<br>`;
+            html += `Usuário correto: "${USUARIO_CORRETO}" (tipo: ${typeof USUARIO_CORRETO})<br>`;
+            html += `Senha correta: ${SENHA_CORRETA} (tipo: ${typeof SENHA_CORRETA})<br><br>`;
+            html += `<strong>Comparações:</strong><br>`;
+            html += `usuario == USUARIO_CORRETO: ${usuarioInput == USUARIO_CORRETO}<br>`;
+            html += `usuario === USUARIO_CORRETO: ${usuarioInput === USUARIO_CORRETO}<br>`;
+            html += `senha == SENHA_CORRETA: ${senha == SENHA_CORRETA}<br>`;
+            html += `senha === SENHA_CORRETA: ${senha === SENHA_CORRETA}`;
+            html += `</div>`;
+            
+            resultadoDiv.innerHTML = html;
+        });
+        
+        // Preencher tabela ao carregar
+        window.onload = preencherTabelaComparacao;
+    </script>
+</body>
+</html>
+
