@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadores de Comparação e Lógicos - Exemplo Prático</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #2196F3;
+            padding-bottom: 10px;
+        }
+        .exemplo {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #2196F3;
+            border-radius: 4px;
+        }
+        .resultado {
+            background: #e3f2fd;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        .verdadeiro {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        .falso {
+            color: #f44336;
+            font-weight: bold;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #2196F3;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚖️ Operadores de Comparação e Lógicos</h1>
+        
+        <div class="exemplo">
+            <h3>1. Comparação Estrita (===) vs Não Estrita (==)</h3>
+            <div class="resultado" id="comparacao"></div>
+        </div>
+
+        <div class="exemplo">
+            <h3>2. Operadores de Relação (>, <, >=, <=)</h3>
+            <div class="resultado" id="relacao"></div>
+        </div>
+
+        <div class="exemplo">
+            <h3>3. Operadores Lógicos (&&, ||, !)</h3>
+            <div class="resultado" id="logicos"></div>
+        </div>
+
+        <div class="exemplo">
+            <h3>4. Curto-Circuito (Short-Circuit)</h3>
+            <div class="resultado" id="curtoCircuito"></div>
+        </div>
+
+        <div class="exemplo">
+            <h3>5. Nullish Coalescing (??) vs OR (||)</h3>
+            <div class="resultado" id="nullish"></div>
+        </div>
+
+        <div class="exemplo">
+            <h3>6. Exemplo Prático: Verificador de Acesso</h3>
+            <div class="resultado" id="pratico"></div>
+        </div>
+    </div>
+
+    <script>
+        // Função auxiliar para formatar booleanos
+        function formatarBooleano(valor) {
+            return valor ? '<span class="verdadeiro">true</span>' : '<span class="falso">false</span>';
+        }
+
+        // 1. Comparação Estrita vs Não Estrita
+        let comparacoes = [
+            { expr: '5 === 5', resultado: 5 === 5 },
+            { expr: '5 === "5"', resultado: 5 === "5" },
+            { expr: '5 == "5"', resultado: 5 == "5" },
+            { expr: 'true === 1', resultado: true === 1 },
+            { expr: 'true == 1', resultado: true == 1 },
+            { expr: 'null === undefined', resultado: null === undefined },
+            { expr: 'null == undefined', resultado: null == undefined },
+            { expr: 'NaN === NaN', resultado: NaN === NaN },
+        ];
+
+        let htmlComparacao = '<table><tr><th>Expressão</th><th>Resultado</th></tr>';
+        comparacoes.forEach(comp => {
+            htmlComparacao += `<tr><td><code>${comp.expr}</code></td><td>${formatarBooleano(comp.resultado)}</td></tr>`;
+        });
+        htmlComparacao += '</table>';
+        document.getElementById('comparacao').innerHTML = htmlComparacao;
+
+        // 2. Operadores de Relação
+        let relacoes = [
+            { expr: '10 > 5', resultado: 10 > 5 },
+            { expr: '5 < 10', resultado: 5 < 10 },
+            { expr: '10 >= 10', resultado: 10 >= 10 },
+            { expr: '5 <= 10', resultado: 5 <= 10 },
+            { expr: '"b" > "a"', resultado: "b" > "a" },
+            { expr: '"Z" < "a"', resultado: "Z" < "a" },
+        ];
+
+        let htmlRelacao = '<table><tr><th>Expressão</th><th>Resultado</th></tr>';
+        relacoes.forEach(rel => {
+            htmlRelacao += `<tr><td><code>${rel.expr}</code></td><td>${formatarBooleano(rel.resultado)}</td></tr>`;
+        });
+        htmlRelacao += '</table>';
+        document.getElementById('relacao').innerHTML = htmlRelacao;
+
+        // 3. Operadores Lógicos
+        let logicos = [
+            { expr: 'true && true', resultado: true && true },
+            { expr: 'true && false', resultado: true && false },
+            { expr: 'false || true', resultado: false || true },
+            { expr: 'false || false', resultado: false || false },
+            { expr: '!true', resultado: !true },
+            { expr: '!false', resultado: !false },
+            { expr: '5 && 10', resultado: 5 && 10, nota: '(retorna 10, último truthy)' },
+            { expr: '0 || 10', resultado: 0 || 10, nota: '(retorna 10, primeiro truthy)' },
+        ];
+
+        let htmlLogicos = '<table><tr><th>Expressão</th><th>Resultado</th><th>Nota</th></tr>';
+        logicos.forEach(log => {
+            let nota = log.nota ? `<small>${log.nota}</small>` : '';
+            let resultado = typeof log.resultado === 'boolean' 
+                ? formatarBooleano(log.resultado) 
+                : log.resultado;
+            htmlLogicos += `<tr><td><code>${log.expr}</code></td><td>${resultado}</td><td>${nota}</td></tr>`;
+        });
+        htmlLogicos += '</table>';
+        document.getElementById('logicos').innerHTML = htmlLogicos;
+
+        // 4. Curto-Circuito
+        let executouSegunda = false;
+        let resultado1 = true && (executouSegunda = true, 'executou');
+        executouSegunda = false;
+        let resultado2 = false && (executouSegunda = true, 'não executou');
+
+        let htmlCurtoCircuito = `
+            <strong>Exemplo 1:</strong> <code>true && (segunda expressão)</code><br>
+            Resultado: ${resultado1} - Segunda expressão ${executouSegunda ? 'foi' : 'NÃO foi'} executada<br><br>
+            
+            <strong>Exemplo 2:</strong> <code>false && (segunda expressão)</code><br>
+            Resultado: ${formatarBooleano(resultado2)} - Segunda expressão ${executouSegunda ? 'foi' : 'NÃO foi'} executada (curto-circuito!)<br><br>
+            
+            <strong>Exemplo 3:</strong> <code>null || "padrão"</code><br>
+            Resultado: ${null || "padrão"} - Como null é falsy, retorna "padrão"<br><br>
+            
+            <strong>Exemplo 4:</strong> <code>0 || "padrão"</code><br>
+            Resultado: ${0 || "padrão"} - Como 0 é falsy, retorna "padrão"
+        `;
+        document.getElementById('curtoCircuito').innerHTML = htmlCurtoCircuito;
+
+        // 5. Nullish Coalescing vs OR
+        let valores = [
+            { valor: 'null', expr: 'null ?? "padrão"', resultado: null ?? "padrão" },
+            { valor: 'undefined', expr: 'undefined ?? "padrão"', resultado: undefined ?? "padrão" },
+            { valor: '0', expr: '0 ?? "padrão"', resultado: 0 ?? "padrão" },
+            { valor: '""', expr: '"" ?? "padrão"', resultado: "" ?? "padrão" },
+            { valor: 'false', expr: 'false ?? "padrão"', resultado: false ?? "padrão" },
+        ];
+
+        let valoresOR = [
+            { valor: 'null', expr: 'null || "padrão"', resultado: null || "padrão" },
+            { valor: '0', expr: '0 || "padrão"', resultado: 0 || "padrão" },
+            { valor: '""', expr: '"" || "padrão"', resultado: "" || "padrão" },
+            { valor: 'false', expr: 'false || "padrão"', resultado: false || "padrão" },
+        ];
+
+        let htmlNullish = '<h4>Nullish Coalescing (??)</h4><table><tr><th>Valor</th><th>Expressão</th><th>Resultado</th></tr>';
+        valores.forEach(val => {
+            htmlNullish += `<tr><td>${val.valor}</td><td><code>${val.expr}</code></td><td>${JSON.stringify(val.resultado)}</td></tr>`;
+        });
+        htmlNullish += '</table>';
+
+        htmlNullish += '<h4>OR (||)</h4><table><tr><th>Valor</th><th>Expressão</th><th>Resultado</th></tr>';
+        valoresOR.forEach(val => {
+            htmlNullish += `<tr><td>${val.valor}</td><td><code>${val.expr}</code></td><td>${JSON.stringify(val.resultado)}</td></tr>`;
+        });
+        htmlNullish += '</table>';
+        htmlNullish += '<p><strong>Diferença:</strong> ?? só usa padrão para null/undefined, || usa para qualquer falsy</p>';
+        document.getElementById('nullish').innerHTML = htmlNullish;
+
+        // 6. Exemplo Prático
+        function verificarAcesso(idade, temCarteira, eAdmin) {
+            let podeDirigir = idade >= 18 && temCarteira;
+            let podeAcessar = eAdmin || (idade >= 18 && temCarteira);
+            let nivelAcesso = eAdmin ? "Admin" : (idade >= 18 ? "Adulto" : "Menor");
+            
+            return {
+                podeDirigir,
+                podeAcessar,
+                nivelAcesso
+            };
+        }
+
+        let casos = [
+            { idade: 16, temCarteira: false, eAdmin: false, nome: "João (16 anos, sem carteira)" },
+            { idade: 20, temCarteira: true, eAdmin: false, nome: "Maria (20 anos, com carteira)" },
+            { idade: 25, temCarteira: false, eAdmin: true, nome: "Pedro (25 anos, admin)" },
+        ];
+
+        let htmlPratico = '<table><tr><th>Usuário</th><th>Pode Dirigir</th><th>Pode Acessar</th><th>Nível</th></tr>';
+        casos.forEach(caso => {
+            let resultado = verificarAcesso(caso.idade, caso.temCarteira, caso.eAdmin);
+            htmlPratico += `<tr>
+                <td>${caso.nome}</td>
+                <td>${formatarBooleano(resultado.podeDirigir)}</td>
+                <td>${formatarBooleano(resultado.podeAcessar)}</td>
+                <td>${resultado.nivelAcesso}</td>
+            </tr>`;
+        });
+        htmlPratico += '</table>';
+        document.getElementById('pratico').innerHTML = htmlPratico;
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadores Aritméticos - Exemplo Prático</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        .exemplo {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #4CAF50;
+            border-radius: 4px;
+        }
+        .resultado {
+            background: #e8f5e9;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧮 Operadores Aritméticos em JavaScript</h1>
+        
+        <div class="exemplo">
+            <h3>1. Operações Básicas</h3>
+            <code>let a = 10, b = 3;</code>
+            <div class="resultado" id="basicas"></div>
+        </div>
+
+        <div class="exemplo">
+            <h3>2. Incremento e Decremento</h3>
+            <code>let contador = 5;</code>
+            <div class="resultado" id="incremento"></div>
+        </div>
+
+        <div class="exemplo">
+            <h3>3. Módulo (Resto da Divisão)</h3>
+            <code>Verificando números pares e ímpares</code>
+            <div class="resultado" id="modulo"></div>
+        </div>
+
+        <div class="exemplo">
+            <h3>4. Exponenciação</h3>
+            <code>Calculando potências</code>
+            <div class="resultado" id="exponenciacao"></div>
+        </div>
+
+        <div class="exemplo">
+            <h3>5. Cuidado: Strings e Números</h3>
+            <code>Diferença entre + com strings e números</code>
+            <div class="resultado" id="strings"></div>
+        </div>
+    </div>
+
+    <script>
+        // 1. Operações Básicas
+        let a = 10;
+        let b = 3;
+        
+        let resultadoBasicas = `
+            a = ${a}, b = ${b}<br>
+            Soma: a + b = ${a + b}<br>
+            Subtração: a - b = ${a - b}<br>
+            Multiplicação: a * b = ${a * b}<br>
+            Divisão: a / b = ${(a / b).toFixed(2)}<br>
+            Módulo: a % b = ${a % b}
+        `;
+        document.getElementById('basicas').innerHTML = resultadoBasicas;
+
+        // 2. Incremento e Decremento
+        let contador = 5;
+        let preIncremento = ++contador; // contador vira 6, preIncremento = 6
+        
+        contador = 5; // reset
+        let posIncremento = contador++; // posIncremento = 5, contador vira 6
+        
+        contador = 5; // reset
+        let preDecremento = --contador; // contador vira 4, preDecremento = 4
+        
+        contador = 5; // reset
+        let posDecremento = contador--; // posDecremento = 5, contador vira 4
+        
+        let resultadoIncremento = `
+            Contador inicial: 5<br>
+            Pré-incremento (++contador): ${preIncremento} (contador agora = ${++contador})<br>
+            Pós-incremento (contador++): ${posIncremento} (contador depois = ${contador})<br>
+            Pré-decremento (--contador): ${preDecremento}<br>
+            Pós-decremento (contador--): ${posDecremento}
+        `;
+        document.getElementById('incremento').innerHTML = resultadoIncremento;
+
+        // 3. Módulo - Verificando pares e ímpares
+        let numeros = [8, 7, 15, 22, 31];
+        let resultadoModulo = '';
+        numeros.forEach(num => {
+            let tipo = num % 2 === 0 ? 'PAR' : 'ÍMPAR';
+            resultadoModulo += `${num} % 2 = ${num % 2} → ${tipo}<br>`;
+        });
+        document.getElementById('modulo').innerHTML = resultadoModulo;
+
+        // 4. Exponenciação
+        let resultadoExponenciacao = `
+            2 ** 3 = ${2 ** 3} (2 × 2 × 2)<br>
+            5 ** 2 = ${5 ** 2} (5 × 5)<br>
+            10 ** 0.5 = ${10 ** 0.5} (raiz quadrada de 10)<br>
+            2 ** 10 = ${2 ** 10} (2 elevado a 10)
+        `;
+        document.getElementById('exponenciacao').innerHTML = resultadoExponenciacao;
+
+        // 5. Strings e Números
+        let resultadoStrings = `
+            "5" + 3 = "${"5" + 3}" (concatenação de strings)<br>
+            "5" - 3 = ${"5" - 3} (subtração força conversão)<br>
+            Number("5") + 3 = ${Number("5") + 3} (conversão explícita)<br>
+            "10" * "2" = ${"10" * "2"} (multiplicação força conversão)<br>
+            "abc" - 3 = ${"abc" - 3} (resultado: NaN - Not a Number)
+        `;
+        document.getElementById('strings').innerHTML = resultadoStrings;
+    </script>
+</body>
+</html>
+

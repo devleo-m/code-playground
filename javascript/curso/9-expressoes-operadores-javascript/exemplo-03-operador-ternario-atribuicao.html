@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operador Ternário e Atribuição - Exemplo Prático</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #FF9800;
+            padding-bottom: 10px;
+        }
+        .exemplo {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #FF9800;
+            border-radius: 4px;
+        }
+        .resultado {
+            background: #fff3e0;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .interativo {
+            background: #e8f5e9;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        input {
+            padding: 8px;
+            margin: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            padding: 8px 15px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>❓ Operador Ternário e Atribuição</h1>
+        
+        <div class="exemplo">
+            <h3>1. Operador Ternário Básico</h3>
+            <code>idade >= 18 ? "Adulto" : "Menor"</code>
+            <div class="resultado" id="ternarioBasico"></div>
+        </div>
+
+        <div class="exemplo">
+            <h3>2. Ternário Aninhado (Múltiplas Condições)</h3>
+            <code>Determinando conceito baseado na nota</code>
+            <div class="resultado" id="ternarioAninhado"></div>
+        </div>
+
+        <div class="exemplo">
+            <h3>3. Operadores de Atribuição Compostos</h3>
+            <code>Atualizando valores com operadores compostos</code>
+            <div class="resultado" id="atribuicao"></div>
+        </div>
+
+        <div class="exemplo">
+            <h3>4. Comparação: Ternário vs If/Else</h3>
+            <code>Mesma lógica, diferentes sintaxes</code>
+            <div class="resultado" id="comparacao"></div>
+        </div>
+
+        <div class="exemplo interativo">
+            <h3>5. Calculadora Interativa com Ternário</h3>
+            <p>Digite um valor e veja o desconto aplicado:</p>
+            <input type="number" id="valorCompra" placeholder="Valor da compra" value="120">
+            <button onclick="calcularDesconto()">Calcular</button>
+            <div class="resultado" id="calculadora"></div>
+        </div>
+    </div>
+
+    <script>
+        // 1. Ternário Básico
+        let idades = [15, 18, 20, 17, 25];
+        let htmlBasico = '';
+        idades.forEach(idade => {
+            let status = idade >= 18 ? "Adulto" : "Menor";
+            htmlBasico += `Idade: ${idade} → ${status}<br>`;
+        });
+        document.getElementById('ternarioBasico').innerHTML = htmlBasico;
+
+        // 2. Ternário Aninhado
+        function obterConceito(nota) {
+            return nota >= 90 ? "A" :
+                   nota >= 80 ? "B" :
+                   nota >= 70 ? "C" :
+                   nota >= 60 ? "D" : "F";
+        }
+
+        let notas = [95, 85, 75, 65, 55];
+        let htmlAninhado = '';
+        notas.forEach(nota => {
+            let conceito = obterConceito(nota);
+            htmlAninhado += `Nota: ${nota} → Conceito: ${conceito}<br>`;
+        });
+        document.getElementById('ternarioAninhado').innerHTML = htmlAninhado;
+
+        // 3. Operadores de Atribuição Compostos
+        let saldo = 1000;
+        let historico = `Saldo inicial: R$ ${saldo.toFixed(2)}<br>`;
+        
+        saldo += 500;
+        historico += `Depósito de R$ 500,00 → Saldo: R$ ${saldo.toFixed(2)}<br>`;
+        
+        saldo -= 200;
+        historico += `Saque de R$ 200,00 → Saldo: R$ ${saldo.toFixed(2)}<br>`;
+        
+        saldo *= 1.1; // 10% de juros
+        historico += `Juros de 10% → Saldo: R$ ${saldo.toFixed(2)}<br>`;
+        
+        saldo /= 2; // Dividir pela metade
+        historico += `Divisão por 2 → Saldo: R$ ${saldo.toFixed(2)}<br>`;
+        
+        saldo %= 100; // Resto da divisão por 100
+        historico += `Resto da divisão por 100 → Saldo: R$ ${saldo.toFixed(2)}<br>`;
+        
+        document.getElementById('atribuicao').innerHTML = historico;
+
+        // 4. Comparação: Ternário vs If/Else
+        let preco = 150;
+        
+        // Usando Ternário
+        let descontoTernario = preco > 100 ? preco * 0.1 : 0;
+        let precoFinalTernario = preco - descontoTernario;
+        
+        // Usando If/Else
+        let descontoIfElse;
+        if (preco > 100) {
+            descontoIfElse = preco * 0.1;
+        } else {
+            descontoIfElse = 0;
+        }
+        let precoFinalIfElse = preco - descontoIfElse;
+        
+        let htmlComparacao = `
+            <strong>Preço original:</strong> R$ ${preco.toFixed(2)}<br><br>
+            
+            <strong>Usando Ternário:</strong><br>
+            <code>let desconto = preco > 100 ? preco * 0.1 : 0;</code><br>
+            Desconto: R$ ${descontoTernario.toFixed(2)}<br>
+            Preço final: R$ ${precoFinalTernario.toFixed(2)}<br><br>
+            
+            <strong>Usando If/Else:</strong><br>
+            <code>if (preco > 100) { desconto = preco * 0.1; } else { desconto = 0; }</code><br>
+            Desconto: R$ ${descontoIfElse.toFixed(2)}<br>
+            Preço final: R$ ${precoFinalIfElse.toFixed(2)}<br><br>
+            
+            <strong>Resultado:</strong> Ambos produzem o mesmo resultado!<br>
+            Use ternário para lógica simples, if/else para lógica complexa.
+        `;
+        document.getElementById('comparacao').innerHTML = htmlComparacao;
+
+        // 5. Calculadora Interativa
+        function calcularDesconto() {
+            let valor = parseFloat(document.getElementById('valorCompra').value) || 0;
+            
+            // Usando ternário para calcular desconto
+            let desconto = valor > 100 ? valor * 0.1 :
+                          valor > 50 ? valor * 0.05 : 0;
+            
+            let valorFinal = valor - desconto;
+            let temDesconto = desconto > 0;
+            
+            let resultado = `
+                <strong>Valor da compra:</strong> R$ ${valor.toFixed(2)}<br>
+                <strong>Desconto aplicado:</strong> ${temDesconto ? `R$ ${desconto.toFixed(2)} (${(desconto/valor*100).toFixed(0)}%)` : 'Nenhum'}<br>
+                <strong>Valor final:</strong> R$ ${valorFinal.toFixed(2)}<br><br>
+                <small>Regras: > R$ 100 = 10% desconto | > R$ 50 = 5% desconto | ≤ R$ 50 = sem desconto</small>
+            `;
+            
+            document.getElementById('calculadora').innerHTML = resultado;
+        }
+        
+        // Calcular ao carregar a página
+        calcularDesconto();
+    </script>
+</body>
+</html>
+

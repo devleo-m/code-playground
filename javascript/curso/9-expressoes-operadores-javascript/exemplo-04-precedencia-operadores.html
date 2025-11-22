@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precedência de Operadores - Exemplo Prático</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #9C27B0;
+            padding-bottom: 10px;
+        }
+        .exemplo {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #9C27B0;
+            border-radius: 4px;
+        }
+        .resultado {
+            background: #f3e5f5;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .erro {
+            color: #f44336;
+            font-weight: bold;
+        }
+        .correto {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        .tabela-precedencia {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .tabela-precedencia th,
+        .tabela-precedencia td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        .tabela-precedencia th {
+            background-color: #9C27B0;
+            color: white;
+        }
+        .tabela-precedencia tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Precedência de Operadores</h1>
+        
+        <div class="exemplo">
+            <h3>1. Tabela de Precedência (Principais Operadores)</h3>
+            <div class="resultado" id="tabelaPrecedencia"></div>
+        </div>
+
+        <div class="exemplo">
+            <h3>2. Exemplos de Precedência em Ação</h3>
+            <div class="resultado" id="exemplos"></div>
+        </div>
+
+        <div class="exemplo">
+            <h3>3. Como Parênteses Mudam o Resultado</h3>
+            <div class="resultado" id="parenteses"></div>
+        </div>
+
+        <div class="exemplo">
+            <h3>4. Expressões Complexas: Sem e Com Parênteses</h3>
+            <div class="resultado" id="complexas"></div>
+        </div>
+    </div>
+
+    <script>
+        // 1. Tabela de Precedência
+        let precedencia = [
+            { nivel: 1, operadores: '()', descricao: 'Agrupamento' },
+            { nivel: 2, operadores: '. [] ()', descricao: 'Acesso/Membro' },
+            { nivel: 3, operadores: '! typeof + - ++ --', descricao: 'Unários' },
+            { nivel: 4, operadores: '* / %', descricao: 'Multiplicativos' },
+            { nivel: 5, operadores: '+ -', descricao: 'Aditivos' },
+            { nivel: 6, operadores: '< > <= >=', descricao: 'Relacionais' },
+            { nivel: 7, operadores: '== != === !==', descricao: 'Igualdade' },
+            { nivel: 8, operadores: '&&', descricao: 'Lógico AND' },
+            { nivel: 9, operadores: '|| ??', descricao: 'Lógico OR' },
+            { nivel: 10, operadores: '? :', descricao: 'Ternário' },
+            { nivel: 11, operadores: '= += -= *= /=', descricao: 'Atribuição' },
+            { nivel: 12, operadores: ',', descricao: 'Vírgula' },
+        ];
+
+        let htmlTabela = '<table class="tabela-precedencia"><tr><th>Nível</th><th>Operadores</th><th>Descrição</th></tr>';
+        precedencia.forEach(item => {
+            htmlTabela += `<tr><td>${item.nivel}</td><td><code>${item.operadores}</code></td><td>${item.descricao}</td></tr>`;
+        });
+        htmlTabela += '</table>';
+        htmlTabela += '<p><strong>Regra:</strong> Operadores com nível menor (número menor) são avaliados primeiro!</p>';
+        document.getElementById('tabelaPrecedencia').innerHTML = htmlTabela;
+
+        // 2. Exemplos de Precedência
+        let exemplos = [
+            {
+                expr: '2 + 3 * 4',
+                semParenteses: 2 + 3 * 4,
+                comParenteses: '(2 + 3) * 4',
+                resultadoComParenteses: (2 + 3) * 4,
+                explicacao: 'Multiplicação antes de adição'
+            },
+            {
+                expr: '10 > 5 && 3 < 7',
+                semParenteses: 10 > 5 && 3 < 7,
+                comParenteses: '(10 > 5) && (3 < 7)',
+                resultadoComParenteses: (10 > 5) && (3 < 7),
+                explicacao: 'Comparações antes de lógico AND'
+            },
+            {
+                expr: '!true || false',
+                semParenteses: !true || false,
+                comParenteses: '(!true) || false',
+                resultadoComParenteses: (!true) || false,
+                explicacao: 'NOT antes de OR'
+            },
+            {
+                expr: '5 === 5 && 10 > 5',
+                semParenteses: 5 === 5 && 10 > 5,
+                comParenteses: '(5 === 5) && (10 > 5)',
+                resultadoComParenteses: (5 === 5) && (10 > 5),
+                explicacao: 'Igualdade antes de AND'
+            },
+        ];
+
+        let htmlExemplos = '';
+        exemplos.forEach(ex => {
+            htmlExemplos += `
+                <strong>Expressão:</strong> <code>${ex.expr}</code><br>
+                <strong>Resultado:</strong> ${ex.semParenteses}<br>
+                <strong>Com parênteses explícitos:</strong> <code>${ex.comParenteses}</code> = ${ex.resultadoComParenteses}<br>
+                <strong>Explicação:</strong> ${ex.explicacao}<br><br>
+            `;
+        });
+        document.getElementById('exemplos').innerHTML = htmlExemplos;
+
+        // 3. Como Parênteses Mudam o Resultado
+        let a = 10, b = 5, c = 2;
+        
+        let expressoes = [
+            {
+                sem: `a + b * c = ${a} + ${b} * ${c}`,
+                resultadoSem: a + b * c,
+                com: `(a + b) * c = (${a} + ${b}) * ${c}`,
+                resultadoCom: (a + b) * c,
+            },
+            {
+                sem: `a - b / c = ${a} - ${b} / ${c}`,
+                resultadoSem: a - b / c,
+                com: `(a - b) / c = (${a} - ${b}) / ${c}`,
+                resultadoCom: (a - b) / c,
+            },
+            {
+                sem: `a > b && c < a = ${a} > ${b} && ${c} < ${a}`,
+                resultadoSem: a > b && c < a,
+                com: `a > (b && c) < a = ${a} > (${b} && ${c}) < ${a}`,
+                resultadoCom: a > (b && c) < a,
+                nota: '⚠️ Esta expressão é inválida, mas mostra como parênteses mudam a avaliação'
+            },
+        ];
+
+        let htmlParenteses = '';
+        expressoes.forEach(exp => {
+            htmlParenteses += `
+                <div style="margin: 10px 0; padding: 10px; background: white; border-radius: 4px;">
+                    <strong>Sem parênteses:</strong><br>
+                    <code>${exp.sem}</code><br>
+                    Resultado: <span class="correto">${exp.resultadoSem}</span><br><br>
+                    
+                    <strong>Com parênteses:</strong><br>
+                    <code>${exp.com}</code><br>
+                    Resultado: ${exp.nota ? '<span class="erro">Erro ou resultado diferente</span>' : `<span class="correto">${exp.resultadoCom}</span>`}<br>
+                    ${exp.nota ? `<small>${exp.nota}</small>` : ''}
+                </div>
+            `;
+        });
+        document.getElementById('parenteses').innerHTML = htmlParenteses;
+
+        // 4. Expressões Complexas
+        let x = 5, y = 10, z = 3;
+        
+        // Expressão complexa sem parênteses (difícil de ler)
+        let resultadoSem = x + y * z - x / z;
+        
+        // Mesma expressão com parênteses (mais clara)
+        let resultadoCom = x + (y * z) - (x / z);
+        
+        // Versão ainda mais clara (dividida)
+        let multiplicacao = y * z;
+        let divisao = x / z;
+        let resultadoDividido = x + multiplicacao - divisao;
+        
+        let htmlComplexas = `
+            <strong>Valores:</strong> x = ${x}, y = ${y}, z = ${z}<br><br>
+            
+            <strong>1. Expressão sem parênteses (confusa):</strong><br>
+            <code>x + y * z - x / z</code><br>
+            Resultado: ${resultadoSem}<br>
+            <small class="erro">Difícil de entender a ordem de avaliação!</small><br><br>
+            
+            <strong>2. Expressão com parênteses (clara):</strong><br>
+            <code>x + (y * z) - (x / z)</code><br>
+            Resultado: ${resultadoCom}<br>
+            <small class="correto">Agora fica claro: multiplicação e divisão primeiro!</small><br><br>
+            
+            <strong>3. Expressão dividida em partes (muito clara):</strong><br>
+            <code>
+                let multiplicacao = y * z;  // ${multiplicacao}<br>
+                let divisao = x / z;        // ${divisao.toFixed(2)}<br>
+                let resultado = x + multiplicacao - divisao;  // ${resultadoDividido.toFixed(2)}
+            </code><br>
+            Resultado: ${resultadoDividido.toFixed(2)}<br>
+            <small class="correto">Muito mais fácil de ler, debugar e manter!</small><br><br>
+            
+            <strong>💡 Dica:</strong> Quando uma expressão fica complexa, use parênteses ou divida em partes menores!
+        `;
+        document.getElementById('complexas').innerHTML = htmlComplexas;
+    </script>
+</body>
+</html>
+
