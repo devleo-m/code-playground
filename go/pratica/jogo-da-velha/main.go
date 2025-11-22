@@ -337,7 +337,7 @@ func (j *Jogo) JogarPartida() {
 			LimparTela()
 			j.ExibirPontuação()
 			j.ExibirTabuleiro()
-			fmt.Println("\n🤝 EMPATE! Ninguém venceu esta rodada.\n")
+			fmt.Println("\n 🤝 EMPATE! Ninguém venceu esta rodada. \n")
 			j.EmAndamento = false
 			return
 		}
