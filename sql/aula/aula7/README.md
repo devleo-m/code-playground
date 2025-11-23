@@ -261,3 +261,4 @@ Após completar esta aula e receber feedback:
 
 **Lembre-se**: Subqueries são uma ferramenta poderosa que permite resolver problemas complexos de forma elegante. Domine esses conceitos e você terá uma base sólida para consultas avançadas e análises de dados sofisticadas!
 
+

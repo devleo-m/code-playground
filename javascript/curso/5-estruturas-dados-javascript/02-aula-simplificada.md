@@ -451,3 +451,4 @@ Agora que você entendeu as estruturas de dados de forma simples, está na hora 
 
 Continue para os **Exercícios e Reflexão** para colocar em prática tudo que aprendeu! 💪
 
+

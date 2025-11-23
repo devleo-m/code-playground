@@ -129,3 +129,4 @@ func main() {
 	fmt.Println("   Pré-alocar evita múltiplas realocações (muito mais rápido!)")
 }
 
+

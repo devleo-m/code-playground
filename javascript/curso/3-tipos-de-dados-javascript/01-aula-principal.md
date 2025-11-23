@@ -970,3 +970,4 @@ Agora que você entende os tipos de dados em JavaScript, você está pronto para
 
 **Continue para a Aula Simplificada para ver esses conceitos explicados de forma mais acessível!**
 
+

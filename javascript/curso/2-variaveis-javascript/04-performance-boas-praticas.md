@@ -694,3 +694,4 @@ Agora que você entendeu performance, boas práticas e otimização com variáve
 - Clean Code (Robert C. Martin)
 - JavaScript: The Good Parts (Douglas Crockford)
 
+

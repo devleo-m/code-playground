@@ -42,3 +42,4 @@ func main() {
 	wg.Wait()
 	fmt.Printf("Contador final: %d\n", contador)
 }
+

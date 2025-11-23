@@ -840,3 +840,4 @@ Agora que você entende as estruturas de dados básicas, na próxima etapa você
 
 Continue para a **Aula Simplificada** para consolidar seu aprendizado! 🚀
 
+

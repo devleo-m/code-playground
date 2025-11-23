@@ -617,3 +617,4 @@ Antes de prosseguir, certifique-se de entender:
 
 **Próximo passo:** Revise a Aula Simplificada para reforçar os conceitos com analogias e exemplos práticos do dia a dia!
 
+

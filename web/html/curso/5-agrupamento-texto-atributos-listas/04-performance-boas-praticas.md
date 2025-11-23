@@ -838,3 +838,4 @@ Nesta aula, você aprendeu sobre agrupamento de elementos (`<div>` e `<span>`), 
 
 **Próximos passos:** Pratique criando páginas usando todas essas boas práticas. Valide sempre seu código e pense em acessibilidade e performance desde o início!
 
+

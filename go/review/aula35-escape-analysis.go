@@ -20,3 +20,4 @@ func main() {
 	fmt.Println("Retornar pointer força escape para heap")
 }
 
+

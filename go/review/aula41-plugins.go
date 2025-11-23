@@ -20,3 +20,4 @@ func main() {
 	fmt.Println("Load: plugin.Open()")
 	fmt.Println("Use cases: Extensibilidade, hot reload")
 }
+

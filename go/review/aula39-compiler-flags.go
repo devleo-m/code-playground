@@ -19,3 +19,4 @@ func main() {
 	fmt.Println("-ldflags: go build -ldflags='-s -w' (otimizações)")
 	fmt.Println("Otimizações: -N (desabilita), -l (inline)")
 }
+

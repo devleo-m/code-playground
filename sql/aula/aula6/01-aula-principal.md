@@ -903,3 +903,4 @@ Agora que você entende os diferentes tipos de JOIN, pratique:
 
 **Lembre-se**: JOINs são fundamentais para trabalhar com bancos de dados relacionais. Pratique muito e você dominará essa habilidade essencial!
 
+

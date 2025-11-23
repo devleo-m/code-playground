@@ -261,3 +261,4 @@ Após completar esta aula e receber feedback:
 
 **Lembre-se**: JOINs são fundamentais para trabalhar com bancos de dados relacionais. Domine esses conceitos e você terá uma base sólida para consultas complexas e análises de dados!
 
+

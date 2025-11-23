@@ -360,3 +360,4 @@ Pense assim:
 
 **Próximo passo:** Pratique no console do navegador! Experimente diferentes comparações e veja os resultados. A prática é a melhor forma de aprender! 🚀
 
+

@@ -136,3 +136,4 @@ Linha 2`
 	fmt.Printf("   string(65) = '%s' (caractere Unicode 65, não '65'!)\n", unicodeChar)
 }
 
+

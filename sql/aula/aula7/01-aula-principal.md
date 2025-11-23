@@ -1098,3 +1098,4 @@ Dominar subqueries, junto com JOINs e aggregate queries, permite criar consultas
 
 **Lembre-se**: Subqueries são poderosas, mas nem sempre são a melhor solução. Considere sempre legibilidade, performance e manutenibilidade ao escolher entre subqueries e JOINs.
 
+

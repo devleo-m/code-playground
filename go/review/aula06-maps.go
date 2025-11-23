@@ -174,3 +174,4 @@ func adicionarItem(m map[string]int, chave string, valor int) {
 	m[chave] = valor // Modifica o map original
 }
 
+

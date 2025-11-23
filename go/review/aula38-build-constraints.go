@@ -22,3 +22,4 @@ func main() {
 	fmt.Println("Compilação condicional por OS/arquitetura")
 	fmt.Println("Exemplo: // +build linux darwin")
 }
+

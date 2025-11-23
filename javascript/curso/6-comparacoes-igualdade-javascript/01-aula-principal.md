@@ -508,3 +508,4 @@ Na próxima aula, você aprenderá sobre:
 
 **Lembre-se:** A prática é essencial! Experimente os exemplos no console do navegador e crie seus próprios testes para entender melhor cada operador.
 
+

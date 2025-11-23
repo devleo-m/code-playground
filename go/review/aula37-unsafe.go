@@ -29,3 +29,4 @@ func main() {
 	fmt.Println("Quebra garantias de type safety")
 }
 
+
