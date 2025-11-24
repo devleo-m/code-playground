@@ -5,24 +5,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Curso Prático de Tailwind CSS - Projetos</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes gradient-border {
+      0%, 100% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+    @keyframes gradient-text {
+      0%, 100% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+    .gradient-border {
+      background: #1e293b;
+      padding: 2px;
+      border-radius: 0.75rem;
+      transition: all 0.3s ease;
+    }
+    .gradient-border:hover {
+      background: linear-gradient(90deg, #9333ea, #000000, #ec4899, #9333ea);
+      background-size: 300% 300%;
+      animation: gradient-border 3s ease infinite;
+    }
+    .gradient-border-inner {
+      background: #0f172a;
+      border-radius: 0.625rem;
+      height: 100%;
+    }
+    .gradient-text-animated {
+      background: linear-gradient(90deg, #9333ea, #ec4899, #9333ea, #ec4899);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradient-text 3s ease infinite;
+    }
+  </style>
 </head>
-<body class="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 min-h-screen">
+<body class="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 min-h-screen">
   
   <!-- Header -->
-  <header class="bg-white shadow-lg sticky top-0 z-50">
+  <header class="bg-slate-900/95 backdrop-blur-lg border-b border-slate-700/50 sticky top-0 z-50 shadow-lg shadow-black/20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20">
         <div class="flex items-center space-x-3">
-          <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+          <div class="w-10 h-10 bg-gradient-to-br from-purple-500 via-pink-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg shadow-purple-500/50">
             <span class="text-white font-bold text-xl">T</span>
           </div>
           <div>
-            <h1 class="text-2xl font-bold text-gray-900">Tailwind CSS</h1>
-            <p class="text-sm text-gray-600">Curso Prático Completo</p>
+            <h1 class="text-2xl font-bold text-white">Tailwind CSS</h1>
+            <p class="text-sm text-gray-400">Curso Prático Completo</p>
           </div>
         </div>
         <div class="hidden md:flex items-center space-x-1">
-          <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">
+          <span class="px-3 py-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full text-sm font-semibold shadow-lg shadow-purple-500/30">
             ✅ 13 Aulas
           </span>
         </div>
@@ -33,20 +75,20 @@
   <!-- Hero Section -->
   <section class="py-16 px-4 sm:px-6 lg:px-8">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-5xl font-bold text-gray-900 mb-4">
-        Projetos Práticos de <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Tailwind CSS</span>
+      <h2 class="text-5xl font-bold text-white mb-4">
+        Projetos Práticos de <span class="gradient-text-animated">Tailwind CSS</span>
       </h2>
-      <p class="text-xl text-gray-600 mb-8">
+      <p class="text-xl text-slate-300 mb-8">
         Aprenda Tailwind CSS na prática! Cada projeto demonstra todos os conceitos da aula de forma detalhada e didática.
       </p>
       <div class="flex flex-wrap justify-center gap-4">
-        <div class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">
+        <div class="px-4 py-2 bg-slate-800/60 border border-slate-700/50 text-slate-200 rounded-full text-sm font-semibold backdrop-blur-sm hover:border-purple-500/50 hover:text-purple-300 transition-colors">
           🎯 Projetos Práticos
         </div>
-        <div class="px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-semibold">
+        <div class="px-4 py-2 bg-slate-800/60 border border-slate-700/50 text-slate-200 rounded-full text-sm font-semibold backdrop-blur-sm hover:border-pink-500/50 hover:text-pink-300 transition-colors">
           📚 13 Aulas Completas
         </div>
-        <div class="px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-semibold">
+        <div class="px-4 py-2 bg-slate-800/60 border border-slate-700/50 text-slate-200 rounded-full text-sm font-semibold backdrop-blur-sm hover:border-purple-500/50 hover:text-purple-300 transition-colors">
           💡 Exemplos Detalhados
         </div>
       </div>
@@ -59,221 +101,247 @@
       
       <!-- Aula 1 -->
       <a href="aula-01-introducao/index.html" class="group">
-        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border-2 border-transparent hover:border-blue-500 h-full">
-          <div class="flex items-center justify-between mb-4">
-            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-bold">Aula 1</span>
-            <span class="text-gray-400 group-hover:text-blue-600 transition-colors">→</span>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Introdução ao Tailwind CSS</h3>
-          <p class="text-gray-600 text-sm mb-4">Filosofia utility-first, instalação, primeiros passos e comparação com CSS tradicional.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Utility-First</span>
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Instalação</span>
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Conceitos</span>
+        <div class="gradient-border h-full">
+          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm transition-all duration-300 group-hover:from-slate-800/80 group-hover:to-slate-900/80">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full text-sm font-bold shadow-lg shadow-purple-500/30">Aula 1</span>
+              <span class="text-gray-400 group-hover:text-purple-400 transition-colors transform group-hover:translate-x-1">→</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Introdução ao Tailwind CSS</h3>
+            <p class="text-gray-300 text-sm mb-4">Filosofia utility-first, instalação, primeiros passos e comparação com CSS tradicional.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-purple-600/20 border border-purple-500/30 text-purple-300 rounded text-xs">Utility-First</span>
+              <span class="px-2 py-1 bg-pink-600/20 border border-pink-500/30 text-pink-300 rounded text-xs">Instalação</span>
+              <span class="px-2 py-1 bg-purple-600/20 border border-purple-500/30 text-purple-300 rounded text-xs">Conceitos</span>
+            </div>
           </div>
         </div>
       </a>
 
       <!-- Aula 2 -->
       <a href="aula-02-fundamentos/index.html" class="group">
-        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border-2 border-transparent hover:border-purple-500 h-full">
-          <div class="flex items-center justify-between mb-4">
-            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-bold">Aula 2</span>
-            <span class="text-gray-400 group-hover:text-purple-600 transition-colors">→</span>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Fundamentos e Classes Utilitárias</h3>
-          <p class="text-gray-600 text-sm mb-4">Espaçamento, cores, tipografia, bordas, sombras e sistema de design.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Espaçamento</span>
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Cores</span>
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Tipografia</span>
+        <div class="gradient-border h-full">
+          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm transition-all duration-300 group-hover:from-slate-800/80 group-hover:to-slate-900/80">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full text-sm font-bold shadow-lg shadow-purple-500/30">Aula 2</span>
+              <span class="text-gray-400 group-hover:text-purple-400 transition-colors transform group-hover:translate-x-1">→</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Fundamentos e Classes Utilitárias</h3>
+            <p class="text-gray-300 text-sm mb-4">Espaçamento, cores, tipografia, bordas, sombras e sistema de design.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-purple-600/20 border border-purple-500/30 text-purple-300 rounded text-xs">Espaçamento</span>
+              <span class="px-2 py-1 bg-pink-600/20 border border-pink-500/30 text-pink-300 rounded text-xs">Cores</span>
+              <span class="px-2 py-1 bg-purple-600/20 border border-purple-500/30 text-purple-300 rounded text-xs">Tipografia</span>
+            </div>
           </div>
         </div>
       </a>
 
       <!-- Aula 3 -->
       <a href="aula-03-layout/index.html" class="group">
-        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border-2 border-transparent hover:border-green-500 h-full">
-          <div class="flex items-center justify-between mb-4">
-            <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-bold">Aula 3</span>
-            <span class="text-gray-400 group-hover:text-green-600 transition-colors">→</span>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Layout: Display, Position e Flexbox</h3>
-          <p class="text-gray-600 text-sm mb-4">Controle de display, posicionamento e Flexbox completo com Tailwind.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Display</span>
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Position</span>
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Flexbox</span>
+        <div class="gradient-border h-full">
+          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm transition-all duration-300 group-hover:from-slate-800/80 group-hover:to-slate-900/80">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 bg-gradient-to-r from-pink-600 to-purple-600 text-white rounded-full text-sm font-bold shadow-lg shadow-pink-500/30">Aula 3</span>
+              <span class="text-gray-400 group-hover:text-pink-400 transition-colors transform group-hover:translate-x-1">→</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Layout: Display, Position e Flexbox</h3>
+            <p class="text-gray-300 text-sm mb-4">Controle de display, posicionamento e Flexbox completo com Tailwind.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-pink-600/20 border border-pink-500/30 text-pink-300 rounded text-xs">Display</span>
+              <span class="px-2 py-1 bg-purple-600/20 border border-purple-500/30 text-purple-300 rounded text-xs">Position</span>
+              <span class="px-2 py-1 bg-pink-600/20 border border-pink-500/30 text-pink-300 rounded text-xs">Flexbox</span>
+            </div>
           </div>
         </div>
       </a>
 
       <!-- Aula 4 -->
       <a href="aula-04-grid/index.html" class="group">
-        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border-2 border-transparent hover:border-yellow-500 h-full">
-          <div class="flex items-center justify-between mb-4">
-            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-bold">Aula 4</span>
-            <span class="text-gray-400 group-hover:text-yellow-600 transition-colors">→</span>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">CSS Grid com Tailwind</h3>
-          <p class="text-gray-600 text-sm mb-4">Layouts bidimensionais, grid-template-areas, spanning e grid responsivo.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Grid</span>
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Layouts</span>
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Spanning</span>
+        <div class="gradient-border h-full">
+          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 via-slate-800/60 to-slate-900/60 backdrop-blur-sm transition-all duration-300 group-hover:from-slate-800/80 group-hover:via-slate-800/80 group-hover:to-slate-900/80">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full text-sm font-bold shadow-lg shadow-purple-500/30">Aula 4</span>
+              <span class="text-gray-400 group-hover:text-purple-400 transition-colors transform group-hover:translate-x-1">→</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">CSS Grid com Tailwind</h3>
+            <p class="text-gray-300 text-sm mb-4">Layouts bidimensionais, grid-template-areas, spanning e grid responsivo.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-purple-600/20 border border-purple-500/30 text-purple-300 rounded text-xs">Grid</span>
+              <span class="px-2 py-1 bg-pink-600/20 border border-pink-500/30 text-pink-300 rounded text-xs">Layouts</span>
+              <span class="px-2 py-1 bg-purple-600/20 border border-purple-500/30 text-purple-300 rounded text-xs">Spanning</span>
+            </div>
           </div>
         </div>
       </a>
 
       <!-- Aula 5 -->
       <a href="aula-05-responsividade/index.html" class="group">
-        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border-2 border-transparent hover:border-red-500 h-full">
-          <div class="flex items-center justify-between mb-4">
-            <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm font-bold">Aula 5</span>
-            <span class="text-gray-400 group-hover:text-red-600 transition-colors">→</span>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Responsividade (Mobile-First)</h3>
-          <p class="text-gray-600 text-sm mb-4">Breakpoints, mobile-first, utilities responsivas e layouts adaptativos.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Breakpoints</span>
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Mobile-First</span>
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Adaptativo</span>
+        <div class="gradient-border h-full">
+          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 via-slate-800/60 to-slate-900/60 backdrop-blur-sm transition-all duration-300 group-hover:from-slate-800/80 group-hover:via-slate-800/80 group-hover:to-slate-900/80">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 bg-gradient-to-r from-pink-600 to-purple-600 text-white rounded-full text-sm font-bold shadow-lg shadow-pink-500/30">Aula 5</span>
+              <span class="text-gray-400 group-hover:text-pink-400 transition-colors transform group-hover:translate-x-1">→</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Responsividade (Mobile-First)</h3>
+            <p class="text-gray-300 text-sm mb-4">Breakpoints, mobile-first, utilities responsivas e layouts adaptativos.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-pink-600/20 border border-pink-500/30 text-pink-300 rounded text-xs">Breakpoints</span>
+              <span class="px-2 py-1 bg-purple-600/20 border border-purple-500/30 text-purple-300 rounded text-xs">Mobile-First</span>
+              <span class="px-2 py-1 bg-pink-600/20 border border-pink-500/30 text-pink-300 rounded text-xs">Adaptativo</span>
+            </div>
           </div>
         </div>
       </a>
 
       <!-- Aula 6 -->
       <a href="aula-06-estados/index.html" class="group">
-        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border-2 border-transparent hover:border-indigo-500 h-full">
-          <div class="flex items-center justify-between mb-4">
-            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-bold">Aula 6</span>
-            <span class="text-gray-400 group-hover:text-indigo-600 transition-colors">→</span>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Estados e Interatividade</h3>
-          <p class="text-gray-600 text-sm mb-4">Hover, focus, active, transições, animações e transform utilities.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Hover</span>
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Transições</span>
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Animações</span>
+        <div class="gradient-border h-full">
+          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm transition-all duration-300 group-hover:from-slate-800/80 group-hover:to-slate-900/80">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full text-sm font-bold shadow-lg shadow-purple-500/30">Aula 6</span>
+              <span class="text-gray-400 group-hover:text-purple-400 transition-colors transform group-hover:translate-x-1">→</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Estados e Interatividade</h3>
+            <p class="text-gray-300 text-sm mb-4">Hover, focus, active, transições, animações e transform utilities.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-purple-600/20 border border-purple-500/30 text-purple-300 rounded text-xs">Hover</span>
+              <span class="px-2 py-1 bg-pink-600/20 border border-pink-500/30 text-pink-300 rounded text-xs">Transições</span>
+              <span class="px-2 py-1 bg-purple-600/20 border border-purple-500/30 text-purple-300 rounded text-xs">Animações</span>
+            </div>
           </div>
         </div>
       </a>
 
       <!-- Aula 7 -->
       <a href="aula-07-componentes/index.html" class="group">
-        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border-2 border-transparent hover:border-pink-500 h-full">
-          <div class="flex items-center justify-between mb-4">
-            <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm font-bold">Aula 7</span>
-            <span class="text-gray-400 group-hover:text-pink-600 transition-colors">→</span>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Componentes e @apply</h3>
-          <p class="text-gray-600 text-sm mb-4">Criando componentes reutilizáveis, diretiva @apply e organização.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">@apply</span>
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Componentes</span>
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Reutilização</span>
+        <div class="gradient-border h-full">
+          <div class="gradient-border-inner p-6 bg-gradient-to-br from-pink-900/30 via-purple-900/30 to-gray-800/50 backdrop-blur-sm transition-all duration-300 group-hover:from-pink-900/50 group-hover:via-purple-900/50 group-hover:to-gray-800/70">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 bg-gradient-to-r from-pink-600 to-purple-600 text-white rounded-full text-sm font-bold shadow-lg shadow-pink-500/30">Aula 7</span>
+              <span class="text-gray-400 group-hover:text-pink-400 transition-colors transform group-hover:translate-x-1">→</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Componentes e @apply</h3>
+            <p class="text-gray-300 text-sm mb-4">Criando componentes reutilizáveis, diretiva @apply e organização.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-pink-600/20 border border-pink-500/30 text-pink-300 rounded text-xs">@apply</span>
+              <span class="px-2 py-1 bg-purple-600/20 border border-purple-500/30 text-purple-300 rounded text-xs">Componentes</span>
+              <span class="px-2 py-1 bg-pink-600/20 border border-pink-500/30 text-pink-300 rounded text-xs">Reutilização</span>
+            </div>
           </div>
         </div>
       </a>
 
       <!-- Aula 8 -->
       <a href="aula-08-customizacao/index.html" class="group">
-        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border-2 border-transparent hover:border-teal-500 h-full">
-          <div class="flex items-center justify-between mb-4">
-            <span class="px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-sm font-bold">Aula 8</span>
-            <span class="text-gray-400 group-hover:text-teal-600 transition-colors">→</span>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Customização e Configuração</h3>
-          <p class="text-gray-600 text-sm mb-4">tailwind.config.js, customizar cores, espaçamento, breakpoints e utilitários.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Config</span>
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Customização</span>
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Tema</span>
+        <div class="gradient-border h-full">
+          <div class="gradient-border-inner p-6 bg-gradient-to-br from-gray-800/50 to-purple-900/30 backdrop-blur-sm transition-all duration-300 group-hover:from-gray-800/70 group-hover:to-purple-900/50">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full text-sm font-bold shadow-lg shadow-purple-500/30">Aula 8</span>
+              <span class="text-gray-400 group-hover:text-purple-400 transition-colors transform group-hover:translate-x-1">→</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Customização e Configuração</h3>
+            <p class="text-gray-300 text-sm mb-4">tailwind.config.js, customizar cores, espaçamento, breakpoints e utilitários.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-purple-600/20 border border-purple-500/30 text-purple-300 rounded text-xs">Config</span>
+              <span class="px-2 py-1 bg-pink-600/20 border border-pink-500/30 text-pink-300 rounded text-xs">Customização</span>
+              <span class="px-2 py-1 bg-purple-600/20 border border-purple-500/30 text-purple-300 rounded text-xs">Tema</span>
+            </div>
           </div>
         </div>
       </a>
 
       <!-- Aula 9 -->
       <a href="aula-09-plugins/index.html" class="group">
-        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border-2 border-transparent hover:border-cyan-500 h-full">
-          <div class="flex items-center justify-between mb-4">
-            <span class="px-3 py-1 bg-cyan-100 text-cyan-800 rounded-full text-sm font-bold">Aula 9</span>
-            <span class="text-gray-400 group-hover:text-cyan-600 transition-colors">→</span>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Plugins e Extensões</h3>
-          <p class="text-gray-600 text-sm mb-4">Plugins oficiais, plugins da comunidade e criação de plugins customizados.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Plugins</span>
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Typography</span>
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Forms</span>
+        <div class="gradient-border h-full">
+          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm transition-all duration-300 group-hover:from-slate-800/80 group-hover:to-slate-900/80">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full text-sm font-bold shadow-lg shadow-purple-500/30">Aula 9</span>
+              <span class="text-gray-400 group-hover:text-purple-400 transition-colors transform group-hover:translate-x-1">→</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Plugins e Extensões</h3>
+            <p class="text-gray-300 text-sm mb-4">Plugins oficiais, plugins da comunidade e criação de plugins customizados.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-purple-600/20 border border-purple-500/30 text-purple-300 rounded text-xs">Plugins</span>
+              <span class="px-2 py-1 bg-pink-600/20 border border-pink-500/30 text-pink-300 rounded text-xs">Typography</span>
+              <span class="px-2 py-1 bg-purple-600/20 border border-purple-500/30 text-purple-300 rounded text-xs">Forms</span>
+            </div>
           </div>
         </div>
       </a>
 
       <!-- Aula 10 -->
       <a href="aula-10-performance/index.html" class="group">
-        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border-2 border-transparent hover:border-orange-500 h-full">
-          <div class="flex items-center justify-between mb-4">
-            <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm font-bold">Aula 10</span>
-            <span class="text-gray-400 group-hover:text-orange-600 transition-colors">→</span>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Performance e Otimização</h3>
-          <p class="text-gray-600 text-sm mb-4">PurgeCSS, JIT mode, tree-shaking, otimização de bundle e análise.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Performance</span>
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">JIT</span>
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Otimização</span>
+        <div class="gradient-border h-full">
+          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 via-slate-800/60 to-slate-900/60 backdrop-blur-sm transition-all duration-300 group-hover:from-slate-800/80 group-hover:via-slate-800/80 group-hover:to-slate-900/80">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 bg-gradient-to-r from-pink-600 to-purple-600 text-white rounded-full text-sm font-bold shadow-lg shadow-pink-500/30">Aula 10</span>
+              <span class="text-gray-400 group-hover:text-pink-400 transition-colors transform group-hover:translate-x-1">→</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Performance e Otimização</h3>
+            <p class="text-gray-300 text-sm mb-4">PurgeCSS, JIT mode, tree-shaking, otimização de bundle e análise.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-pink-600/20 border border-pink-500/30 text-pink-300 rounded text-xs">Performance</span>
+              <span class="px-2 py-1 bg-purple-600/20 border border-purple-500/30 text-purple-300 rounded text-xs">JIT</span>
+              <span class="px-2 py-1 bg-pink-600/20 border border-pink-500/30 text-pink-300 rounded text-xs">Otimização</span>
+            </div>
           </div>
         </div>
       </a>
 
       <!-- Aula 11 -->
       <a href="aula-11-boas-praticas/index.html" class="group">
-        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border-2 border-transparent hover:border-rose-500 h-full">
-          <div class="flex items-center justify-between mb-4">
-            <span class="px-3 py-1 bg-rose-100 text-rose-800 rounded-full text-sm font-bold">Aula 11</span>
-            <span class="text-gray-400 group-hover:text-rose-600 transition-colors">→</span>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Boas Práticas e Padrões</h3>
-          <p class="text-gray-600 text-sm mb-4">Organização de código, padrões de nomenclatura, trabalho em equipe e manutenibilidade.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Padrões</span>
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Organização</span>
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Equipe</span>
+        <div class="gradient-border h-full">
+          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm transition-all duration-300 group-hover:from-slate-800/80 group-hover:to-slate-900/80">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full text-sm font-bold shadow-lg shadow-purple-500/30">Aula 11</span>
+              <span class="text-gray-400 group-hover:text-purple-400 transition-colors transform group-hover:translate-x-1">→</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Boas Práticas e Padrões</h3>
+            <p class="text-gray-300 text-sm mb-4">Organização de código, padrões de nomenclatura, trabalho em equipe e manutenibilidade.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-purple-600/20 border border-purple-500/30 text-purple-300 rounded text-xs">Padrões</span>
+              <span class="px-2 py-1 bg-pink-600/20 border border-pink-500/30 text-pink-300 rounded text-xs">Organização</span>
+              <span class="px-2 py-1 bg-purple-600/20 border border-purple-500/30 text-purple-300 rounded text-xs">Equipe</span>
+            </div>
           </div>
         </div>
       </a>
 
       <!-- Aula 12 -->
       <a href="aula-12-integracao/index.html" class="group">
-        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border-2 border-transparent hover:border-violet-500 h-full">
-          <div class="flex items-center justify-between mb-4">
-            <span class="px-3 py-1 bg-violet-100 text-violet-800 rounded-full text-sm font-bold">Aula 12</span>
-            <span class="text-gray-400 group-hover:text-violet-600 transition-colors">→</span>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Integração com Frameworks</h3>
-          <p class="text-gray-600 text-sm mb-4">React, Next.js, PostCSS, build tools e processo de build completo.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">React</span>
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Next.js</span>
-            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Build Tools</span>
+        <div class="gradient-border h-full">
+          <div class="gradient-border-inner p-6 bg-gradient-to-br from-pink-900/30 via-purple-900/30 to-gray-800/50 backdrop-blur-sm transition-all duration-300 group-hover:from-pink-900/50 group-hover:via-purple-900/50 group-hover:to-gray-800/70">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 bg-gradient-to-r from-pink-600 to-purple-600 text-white rounded-full text-sm font-bold shadow-lg shadow-pink-500/30">Aula 12</span>
+              <span class="text-gray-400 group-hover:text-pink-400 transition-colors transform group-hover:translate-x-1">→</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Integração com Frameworks</h3>
+            <p class="text-gray-300 text-sm mb-4">React, Next.js, PostCSS, build tools e processo de build completo.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-pink-600/20 border border-pink-500/30 text-pink-300 rounded text-xs">React</span>
+              <span class="px-2 py-1 bg-purple-600/20 border border-purple-500/30 text-purple-300 rounded text-xs">Next.js</span>
+              <span class="px-2 py-1 bg-pink-600/20 border border-pink-500/30 text-pink-300 rounded text-xs">Build Tools</span>
+            </div>
           </div>
         </div>
       </a>
 
       <!-- Aula 13 -->
       <a href="aula-13-projeto-completo/index.html" class="group">
-        <div class="bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border-2 border-transparent hover:border-white h-full">
-          <div class="flex items-center justify-between mb-4">
-            <span class="px-3 py-1 bg-white text-blue-600 rounded-full text-sm font-bold">Aula 13</span>
-            <span class="text-white group-hover:text-yellow-300 transition-colors">→</span>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">Projeto Prático Completo</h3>
-          <p class="text-white/90 text-sm mb-4">Aplicando todos os conceitos aprendidos em um projeto real e funcional.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-2 py-1 bg-white/20 text-white rounded text-xs">Projeto Real</span>
-            <span class="px-2 py-1 bg-white/20 text-white rounded text-xs">Todos Conceitos</span>
-            <span class="px-2 py-1 bg-white/20 text-white rounded text-xs">Produção</span>
+        <div class="gradient-border h-full">
+          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 via-slate-800/60 to-slate-900/60 backdrop-blur-sm transition-all duration-300 group-hover:from-purple-600/40 group-hover:via-pink-600/40 group-hover:to-purple-600/40">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 bg-white/20 backdrop-blur-sm text-white rounded-full text-sm font-bold shadow-lg border border-white/30">Aula 13</span>
+              <span class="text-white/80 group-hover:text-yellow-300 transition-colors transform group-hover:translate-x-1">→</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Projeto Prático Completo</h3>
+            <p class="text-white/90 text-sm mb-4">Aplicando todos os conceitos aprendidos em um projeto real e funcional.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-white/20 backdrop-blur-sm border border-white/30 text-white rounded text-xs">Projeto Real</span>
+              <span class="px-2 py-1 bg-white/20 backdrop-blur-sm border border-white/30 text-white rounded text-xs">Todos Conceitos</span>
+              <span class="px-2 py-1 bg-white/20 backdrop-blur-sm border border-white/30 text-white rounded text-xs">Produção</span>
+            </div>
           </div>
         </div>
       </a>
@@ -282,23 +350,23 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 py-12 mt-20">
+  <footer class="bg-slate-900/95 backdrop-blur-lg border-t border-slate-700/50 text-slate-300 py-12 mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center">
         <h3 class="text-2xl font-bold text-white mb-4">Curso Prático de Tailwind CSS</h3>
-        <p class="text-gray-400 mb-6">
+        <p class="text-slate-400 mb-6">
           Aprenda Tailwind CSS de forma prática e detalhada. Cada projeto demonstra todos os conceitos da aula.
         </p>
         <div class="flex justify-center space-x-6">
-          <a href="../demonstracao-completa/index.html" class="text-blue-400 hover:text-blue-300 transition-colors">
+          <a href="../demonstracao-completa/index.html" class="text-slate-300 hover:text-purple-400 transition-colors">
             Demonstração Completa
           </a>
-          <span class="text-gray-600">|</span>
-          <a href="../curso/README.md" class="text-blue-400 hover:text-blue-300 transition-colors">
+          <span class="text-slate-600">|</span>
+          <a href="../curso/README.md" class="text-slate-300 hover:text-pink-400 transition-colors">
             Roteiro do Curso
           </a>
         </div>
-        <p class="mt-8 text-sm text-gray-500">
+        <p class="mt-8 text-sm text-slate-500">
           &copy; <script>document.write(new Date().getFullYear());</script> - Curso Didático Tailwind CSS
         </p>
       </div>
