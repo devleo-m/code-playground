@@ -5,28 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Demonstração Completa - Tailwind CSS (Aulas 1-13)</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Configuração do Tailwind para processar @apply
+    tailwind.config = {
+      theme: {
+        extend: {}
+      }
+    }
+  </script>
   <style>
     /* AULA 7: Componentes e @apply - Criando componentes reutilizáveis */
-    @layer components {
-      .btn-demo {
-        @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300;
-      }
-      .btn-primary {
-        @apply btn-demo bg-blue-600 text-white hover:bg-blue-700 hover:shadow-lg;
-      }
-      .btn-secondary {
-        @apply btn-demo bg-gray-200 text-gray-800 hover:bg-gray-300;
-      }
-      .card-demo {
-        @apply bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow duration-300;
-      }
+    /* Nota: Com CDN, usamos CSS direto equivalente às classes Tailwind */
+    .btn-demo {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .btn-primary {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      transition: all 0.3s;
+      background-color: rgb(37 99 235);
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: rgb(29 78 216);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    .btn-secondary {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      transition: all 0.3s;
+      background-color: rgb(229 231 235);
+      color: rgb(31 41 55);
+    }
+    .btn-secondary:hover {
+      background-color: rgb(209 213 219);
+    }
+    .card-demo {
+      background-color: white;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s;
+    }
+    .card-demo:hover {
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
     }
     
     /* AULA 8: Customização - Adicionando utilitários customizados */
-    @layer utilities {
-      .text-shadow {
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-      }
+    .text-shadow {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     }
   </style>
 </head>
@@ -653,10 +685,10 @@
       </div>
 
       <div class="mb-12">
-        <h3 class="text-2xl font-semibold mb-6 text-gray-800">Componentes Criados com @apply</h3>
+        <h3 class="text-2xl font-semibold mb-6 text-gray-800">Componentes Reutilizáveis</h3>
         <div class="bg-white rounded-lg p-6 shadow-md mb-6">
-          <p class="text-sm font-mono text-gray-500 mb-4">No &lt;style&gt; definimos:</p>
-          <pre class="bg-gray-100 p-4 rounded text-sm overflow-x-auto"><code>@layer components {
+          <p class="text-sm font-mono text-gray-500 mb-2">Com build process (tailwind.config.js):</p>
+          <pre class="bg-gray-100 p-4 rounded text-sm overflow-x-auto mb-4"><code>@layer components {
   .btn-primary {
     @apply px-6 py-3 rounded-lg font-semibold 
            bg-blue-600 text-white 
@@ -664,6 +696,20 @@
            transition-all duration-300;
   }
 }</code></pre>
+          <p class="text-sm text-gray-600 mb-2">Com CDN (usado aqui), criamos CSS equivalente:</p>
+          <pre class="bg-gray-100 p-4 rounded text-sm overflow-x-auto"><code>.btn-primary {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  background-color: rgb(37 99 235);
+  color: white;
+  transition: all 0.3s;
+}
+.btn-primary:hover {
+  background-color: rgb(29 78 216);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}</code></pre>
+          <p class="text-xs text-gray-500 mt-2">💡 Em produção, use build process para @apply funcionar!</p>
         </div>
         <div class="flex gap-4">
           <button class="btn-primary">Botão Primary</button>
@@ -676,7 +722,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="card-demo">
             <h4 class="text-xl font-semibold mb-2">Card 1</h4>
-            <p class="text-gray-600">Usando a classe .card-demo definida com @apply</p>
+            <p class="text-gray-600">Usando a classe .card-demo (equivalente ao @apply)</p>
           </div>
           <div class="card-demo">
             <h4 class="text-xl font-semibold mb-2">Card 2</h4>
@@ -793,7 +839,7 @@
           <a href="#aula5" class="text-blue-400 hover:text-blue-300 transition-colors">Aula 5</a>
         </div>
         <p class="mt-8 text-sm text-gray-500">
-          &copy; 2024 - Projeto Didático Tailwind CSS
+          &copy; <script>document.write(new Date().getFullYear());</script> - Projeto Didático Tailwind CSS
         </p>
       </div>
     </div>
