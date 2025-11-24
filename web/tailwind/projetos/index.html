@@ -27,11 +27,15 @@
       padding: 2px;
       border-radius: 0.75rem;
       transition: all 0.3s ease;
+      /* Otimização: isola o elemento para melhor performance */
+      contain: layout style paint;
     }
     .gradient-border:hover {
       background: linear-gradient(90deg, #9333ea, #000000, #ec4899, #9333ea);
       background-size: 300% 300%;
       animation: gradient-border 3s ease infinite;
+      /* Otimização: avisa o navegador que vai animar */
+      will-change: background-position;
     }
     .gradient-border-inner {
       background: #0f172a;
@@ -45,13 +49,17 @@
       background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: gradient-text 3s ease infinite;
+      /* Otimização: avisa o navegador que vai animar */
+      will-change: background-position;
+      /* Otimização: usa GPU para aceleração */
+      transform: translateZ(0);
     }
   </style>
 </head>
 <body class="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 min-h-screen">
   
   <!-- Header -->
-  <header class="bg-slate-900/95 backdrop-blur-lg border-b border-slate-700/50 sticky top-0 z-50 shadow-lg shadow-black/20">
+  <header class="bg-slate-900/95 backdrop-blur-sm border-b border-slate-700/50 sticky top-0 z-50 shadow-lg shadow-black/20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20">
         <div class="flex items-center space-x-3">
@@ -82,13 +90,13 @@
         Aprenda Tailwind CSS na prática! Cada projeto demonstra todos os conceitos da aula de forma detalhada e didática.
       </p>
       <div class="flex flex-wrap justify-center gap-4">
-        <div class="px-4 py-2 bg-slate-800/60 border border-slate-700/50 text-slate-200 rounded-full text-sm font-semibold backdrop-blur-sm hover:border-purple-500/50 hover:text-purple-300 transition-colors">
+        <div class="px-4 py-2 bg-slate-800/60 border border-slate-700/50 text-slate-200 rounded-full text-sm font-semibold hover:border-purple-500/50 hover:text-purple-300 transition-colors">
           🎯 Projetos Práticos
         </div>
-        <div class="px-4 py-2 bg-slate-800/60 border border-slate-700/50 text-slate-200 rounded-full text-sm font-semibold backdrop-blur-sm hover:border-pink-500/50 hover:text-pink-300 transition-colors">
+        <div class="px-4 py-2 bg-slate-800/60 border border-slate-700/50 text-slate-200 rounded-full text-sm font-semibold hover:border-pink-500/50 hover:text-pink-300 transition-colors">
           📚 13 Aulas Completas
         </div>
-        <div class="px-4 py-2 bg-slate-800/60 border border-slate-700/50 text-slate-200 rounded-full text-sm font-semibold backdrop-blur-sm hover:border-purple-500/50 hover:text-purple-300 transition-colors">
+        <div class="px-4 py-2 bg-slate-800/60 border border-slate-700/50 text-slate-200 rounded-full text-sm font-semibold hover:border-purple-500/50 hover:text-purple-300 transition-colors">
           💡 Exemplos Detalhados
         </div>
       </div>
@@ -102,7 +110,7 @@
       <!-- Aula 1 -->
       <a href="aula-01-introducao/index.html" class="group">
         <div class="gradient-border h-full">
-          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm transition-all duration-300 group-hover:from-slate-800/80 group-hover:to-slate-900/80">
+          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 transition-all duration-300 group-hover:from-slate-800/80 group-hover:to-slate-900/80">
             <div class="flex items-center justify-between mb-4">
               <span class="px-3 py-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full text-sm font-bold shadow-lg shadow-purple-500/30">Aula 1</span>
               <span class="text-gray-400 group-hover:text-purple-400 transition-colors transform group-hover:translate-x-1">→</span>
@@ -121,7 +129,7 @@
       <!-- Aula 2 -->
       <a href="aula-02-fundamentos/index.html" class="group">
         <div class="gradient-border h-full">
-          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm transition-all duration-300 group-hover:from-slate-800/80 group-hover:to-slate-900/80">
+          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 transition-all duration-300 group-hover:from-slate-800/80 group-hover:to-slate-900/80">
             <div class="flex items-center justify-between mb-4">
               <span class="px-3 py-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full text-sm font-bold shadow-lg shadow-purple-500/30">Aula 2</span>
               <span class="text-gray-400 group-hover:text-purple-400 transition-colors transform group-hover:translate-x-1">→</span>
@@ -140,7 +148,7 @@
       <!-- Aula 3 -->
       <a href="aula-03-layout/index.html" class="group">
         <div class="gradient-border h-full">
-          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm transition-all duration-300 group-hover:from-slate-800/80 group-hover:to-slate-900/80">
+          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 transition-all duration-300 group-hover:from-slate-800/80 group-hover:to-slate-900/80">
             <div class="flex items-center justify-between mb-4">
               <span class="px-3 py-1 bg-gradient-to-r from-pink-600 to-purple-600 text-white rounded-full text-sm font-bold shadow-lg shadow-pink-500/30">Aula 3</span>
               <span class="text-gray-400 group-hover:text-pink-400 transition-colors transform group-hover:translate-x-1">→</span>
@@ -159,7 +167,7 @@
       <!-- Aula 4 -->
       <a href="aula-04-grid/index.html" class="group">
         <div class="gradient-border h-full">
-          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 via-slate-800/60 to-slate-900/60 backdrop-blur-sm transition-all duration-300 group-hover:from-slate-800/80 group-hover:via-slate-800/80 group-hover:to-slate-900/80">
+          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 via-slate-800/60 to-slate-900/60 transition-all duration-300 group-hover:from-slate-800/80 group-hover:via-slate-800/80 group-hover:to-slate-900/80">
             <div class="flex items-center justify-between mb-4">
               <span class="px-3 py-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full text-sm font-bold shadow-lg shadow-purple-500/30">Aula 4</span>
               <span class="text-gray-400 group-hover:text-purple-400 transition-colors transform group-hover:translate-x-1">→</span>
@@ -178,7 +186,7 @@
       <!-- Aula 5 -->
       <a href="aula-05-responsividade/index.html" class="group">
         <div class="gradient-border h-full">
-          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 via-slate-800/60 to-slate-900/60 backdrop-blur-sm transition-all duration-300 group-hover:from-slate-800/80 group-hover:via-slate-800/80 group-hover:to-slate-900/80">
+          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 via-slate-800/60 to-slate-900/60 transition-all duration-300 group-hover:from-slate-800/80 group-hover:via-slate-800/80 group-hover:to-slate-900/80">
             <div class="flex items-center justify-between mb-4">
               <span class="px-3 py-1 bg-gradient-to-r from-pink-600 to-purple-600 text-white rounded-full text-sm font-bold shadow-lg shadow-pink-500/30">Aula 5</span>
               <span class="text-gray-400 group-hover:text-pink-400 transition-colors transform group-hover:translate-x-1">→</span>
@@ -197,7 +205,7 @@
       <!-- Aula 6 -->
       <a href="aula-06-estados/index.html" class="group">
         <div class="gradient-border h-full">
-          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm transition-all duration-300 group-hover:from-slate-800/80 group-hover:to-slate-900/80">
+          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 transition-all duration-300 group-hover:from-slate-800/80 group-hover:to-slate-900/80">
             <div class="flex items-center justify-between mb-4">
               <span class="px-3 py-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full text-sm font-bold shadow-lg shadow-purple-500/30">Aula 6</span>
               <span class="text-gray-400 group-hover:text-purple-400 transition-colors transform group-hover:translate-x-1">→</span>
@@ -216,7 +224,7 @@
       <!-- Aula 7 -->
       <a href="aula-07-componentes/index.html" class="group">
         <div class="gradient-border h-full">
-          <div class="gradient-border-inner p-6 bg-gradient-to-br from-pink-900/30 via-purple-900/30 to-gray-800/50 backdrop-blur-sm transition-all duration-300 group-hover:from-pink-900/50 group-hover:via-purple-900/50 group-hover:to-gray-800/70">
+          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 via-slate-800/60 to-slate-900/60 transition-all duration-300 group-hover:from-slate-800/80 group-hover:via-slate-800/80 group-hover:to-slate-900/80">
             <div class="flex items-center justify-between mb-4">
               <span class="px-3 py-1 bg-gradient-to-r from-pink-600 to-purple-600 text-white rounded-full text-sm font-bold shadow-lg shadow-pink-500/30">Aula 7</span>
               <span class="text-gray-400 group-hover:text-pink-400 transition-colors transform group-hover:translate-x-1">→</span>
@@ -235,7 +243,7 @@
       <!-- Aula 8 -->
       <a href="aula-08-customizacao/index.html" class="group">
         <div class="gradient-border h-full">
-          <div class="gradient-border-inner p-6 bg-gradient-to-br from-gray-800/50 to-purple-900/30 backdrop-blur-sm transition-all duration-300 group-hover:from-gray-800/70 group-hover:to-purple-900/50">
+          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 transition-all duration-300 group-hover:from-slate-800/80 group-hover:to-slate-900/80">
             <div class="flex items-center justify-between mb-4">
               <span class="px-3 py-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full text-sm font-bold shadow-lg shadow-purple-500/30">Aula 8</span>
               <span class="text-gray-400 group-hover:text-purple-400 transition-colors transform group-hover:translate-x-1">→</span>
@@ -254,7 +262,7 @@
       <!-- Aula 9 -->
       <a href="aula-09-plugins/index.html" class="group">
         <div class="gradient-border h-full">
-          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm transition-all duration-300 group-hover:from-slate-800/80 group-hover:to-slate-900/80">
+          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 transition-all duration-300 group-hover:from-slate-800/80 group-hover:to-slate-900/80">
             <div class="flex items-center justify-between mb-4">
               <span class="px-3 py-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full text-sm font-bold shadow-lg shadow-purple-500/30">Aula 9</span>
               <span class="text-gray-400 group-hover:text-purple-400 transition-colors transform group-hover:translate-x-1">→</span>
@@ -273,7 +281,7 @@
       <!-- Aula 10 -->
       <a href="aula-10-performance/index.html" class="group">
         <div class="gradient-border h-full">
-          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 via-slate-800/60 to-slate-900/60 backdrop-blur-sm transition-all duration-300 group-hover:from-slate-800/80 group-hover:via-slate-800/80 group-hover:to-slate-900/80">
+          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 via-slate-800/60 to-slate-900/60 transition-all duration-300 group-hover:from-slate-800/80 group-hover:via-slate-800/80 group-hover:to-slate-900/80">
             <div class="flex items-center justify-between mb-4">
               <span class="px-3 py-1 bg-gradient-to-r from-pink-600 to-purple-600 text-white rounded-full text-sm font-bold shadow-lg shadow-pink-500/30">Aula 10</span>
               <span class="text-gray-400 group-hover:text-pink-400 transition-colors transform group-hover:translate-x-1">→</span>
@@ -292,7 +300,7 @@
       <!-- Aula 11 -->
       <a href="aula-11-boas-praticas/index.html" class="group">
         <div class="gradient-border h-full">
-          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm transition-all duration-300 group-hover:from-slate-800/80 group-hover:to-slate-900/80">
+          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 transition-all duration-300 group-hover:from-slate-800/80 group-hover:to-slate-900/80">
             <div class="flex items-center justify-between mb-4">
               <span class="px-3 py-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full text-sm font-bold shadow-lg shadow-purple-500/30">Aula 11</span>
               <span class="text-gray-400 group-hover:text-purple-400 transition-colors transform group-hover:translate-x-1">→</span>
@@ -311,7 +319,7 @@
       <!-- Aula 12 -->
       <a href="aula-12-integracao/index.html" class="group">
         <div class="gradient-border h-full">
-          <div class="gradient-border-inner p-6 bg-gradient-to-br from-pink-900/30 via-purple-900/30 to-gray-800/50 backdrop-blur-sm transition-all duration-300 group-hover:from-pink-900/50 group-hover:via-purple-900/50 group-hover:to-gray-800/70">
+          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 via-slate-800/60 to-slate-900/60 transition-all duration-300 group-hover:from-slate-800/80 group-hover:via-slate-800/80 group-hover:to-slate-900/80">
             <div class="flex items-center justify-between mb-4">
               <span class="px-3 py-1 bg-gradient-to-r from-pink-600 to-purple-600 text-white rounded-full text-sm font-bold shadow-lg shadow-pink-500/30">Aula 12</span>
               <span class="text-gray-400 group-hover:text-pink-400 transition-colors transform group-hover:translate-x-1">→</span>
@@ -330,17 +338,17 @@
       <!-- Aula 13 -->
       <a href="aula-13-projeto-completo/index.html" class="group">
         <div class="gradient-border h-full">
-          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 via-slate-800/60 to-slate-900/60 backdrop-blur-sm transition-all duration-300 group-hover:from-purple-600/40 group-hover:via-pink-600/40 group-hover:to-purple-600/40">
+          <div class="gradient-border-inner p-6 bg-gradient-to-br from-slate-800/60 via-slate-800/60 to-slate-900/60 transition-all duration-300 group-hover:from-purple-600/40 group-hover:via-pink-600/40 group-hover:to-purple-600/40">
             <div class="flex items-center justify-between mb-4">
-              <span class="px-3 py-1 bg-white/20 backdrop-blur-sm text-white rounded-full text-sm font-bold shadow-lg border border-white/30">Aula 13</span>
+              <span class="px-3 py-1 bg-white/20 text-white rounded-full text-sm font-bold shadow-lg border border-white/30">Aula 13</span>
               <span class="text-white/80 group-hover:text-yellow-300 transition-colors transform group-hover:translate-x-1">→</span>
             </div>
             <h3 class="text-xl font-bold text-white mb-2">Projeto Prático Completo</h3>
             <p class="text-white/90 text-sm mb-4">Aplicando todos os conceitos aprendidos em um projeto real e funcional.</p>
             <div class="flex flex-wrap gap-2">
-              <span class="px-2 py-1 bg-white/20 backdrop-blur-sm border border-white/30 text-white rounded text-xs">Projeto Real</span>
-              <span class="px-2 py-1 bg-white/20 backdrop-blur-sm border border-white/30 text-white rounded text-xs">Todos Conceitos</span>
-              <span class="px-2 py-1 bg-white/20 backdrop-blur-sm border border-white/30 text-white rounded text-xs">Produção</span>
+              <span class="px-2 py-1 bg-white/20 border border-white/30 text-white rounded text-xs">Projeto Real</span>
+              <span class="px-2 py-1 bg-white/20 border border-white/30 text-white rounded text-xs">Todos Conceitos</span>
+              <span class="px-2 py-1 bg-white/20 border border-white/30 text-white rounded text-xs">Produção</span>
             </div>
           </div>
         </div>
@@ -350,7 +358,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-slate-900/95 backdrop-blur-lg border-t border-slate-700/50 text-slate-300 py-12 mt-20">
+  <footer class="bg-slate-900/95 backdrop-blur-sm border-t border-slate-700/50 text-slate-300 py-12 mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center">
         <h3 class="text-2xl font-bold text-white mb-4">Curso Prático de Tailwind CSS</h3>
