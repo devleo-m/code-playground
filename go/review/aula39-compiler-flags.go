@@ -20,3 +20,4 @@ func main() {
 	fmt.Println("Otimizações: -N (desabilita), -l (inline)")
 }
 
+

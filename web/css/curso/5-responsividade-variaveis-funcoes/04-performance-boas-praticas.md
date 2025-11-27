@@ -609,3 +609,4 @@ A chave para usar responsividade, variáveis e funções CSS de forma eficiente 
 
 Lembre-se: código que funciona hoje mas é difícil de manter amanhã não é código bom. Priorize manutenibilidade, acessibilidade e performance. Seu futuro eu (e seus usuários) agradecerão!
 
+

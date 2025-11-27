@@ -799,3 +799,4 @@ Antes de prosseguir, certifique-se de que você:
 **Lembre-se**: Pratique muito! Execute todas as queries no banco de dados real e experimente variações. A prática é essencial para dominar JOINs!
 
 
+

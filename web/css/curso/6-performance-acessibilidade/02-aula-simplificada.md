@@ -310,3 +310,4 @@ Agora que você entendeu os conceitos de forma simples, vamos praticar! Na próx
 
 Lembre-se: performance e acessibilidade não são opcionais - são fundamentais para criar sites que funcionam bem para todos!
 
+

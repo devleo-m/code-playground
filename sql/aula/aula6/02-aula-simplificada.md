@@ -787,3 +787,4 @@ Agora que você entende os conceitos básicos:
 **Lembre-se**: JOINs são como conectar peças de um quebra-cabeça. Com prática, você vai dominar essa habilidade essencial!
 
 
+

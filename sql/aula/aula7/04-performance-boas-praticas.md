@@ -750,3 +750,4 @@ Subqueries são poderosas, mas requerem cuidado com performance:
 **Bons estudos! 🚀**
 
 
+

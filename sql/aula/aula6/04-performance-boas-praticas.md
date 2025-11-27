@@ -652,3 +652,4 @@ Agora que você entende performance de JOINs:
 **Lembre-se**: JOINs bem otimizados são rápidos e eficientes. Pratique muito e sempre verifique performance!
 
 
+

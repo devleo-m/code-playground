@@ -599,3 +599,4 @@ Agora que você entende performance e boas práticas com expressões e operadore
 Lembre-se: **Código claro e correto primeiro, otimização depois!**
 
 
+

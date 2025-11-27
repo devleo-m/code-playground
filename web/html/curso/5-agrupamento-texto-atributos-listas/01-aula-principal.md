@@ -804,3 +804,4 @@ Agora que você aprendeu sobre agrupamento, atributos e listas, você está pron
 **Lembre-se**: Sempre prefira elementos semânticos quando apropriado, e use div/span apenas quando necessário para estruturação ou estilização!
 
 
+

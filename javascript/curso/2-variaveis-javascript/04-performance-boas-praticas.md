@@ -695,3 +695,4 @@ Agora que você entendeu performance, boas práticas e otimização com variáve
 - JavaScript: The Good Parts (Douglas Crockford)
 
 
+

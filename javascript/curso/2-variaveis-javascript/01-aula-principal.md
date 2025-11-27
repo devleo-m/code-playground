@@ -1065,3 +1065,4 @@ Agora que você entendeu as variáveis tecnicamente, está pronto para a **Aula 
 **Arquivo seguinte**: `02-aula-simplificada.md`
 
 
+

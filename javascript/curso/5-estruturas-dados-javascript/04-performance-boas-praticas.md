@@ -665,3 +665,4 @@ Agora que você entende performance e boas práticas:
 Boa prática! 💪
 
 
+

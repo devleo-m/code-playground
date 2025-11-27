@@ -517,3 +517,4 @@ Agora que você entendeu variáveis de forma simples e visual, está pronto para
 Lembre-se: A prática é essencial! Não pule os exercícios! 💪
 
 
+

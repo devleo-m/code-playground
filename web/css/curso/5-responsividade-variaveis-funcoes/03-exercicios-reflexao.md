@@ -404,3 +404,4 @@ Crie um sistema simples de tema claro/escuro usando CSS Variables. O objetivo é
 
 Após completar estes exercícios e reflexões, você terá uma base sólida em responsividade, variáveis e funções CSS. Na próxima etapa, você aprenderá sobre performance, boas práticas e otimização para aplicar esses conceitos de forma profissional.
 
+

@@ -27,3 +27,4 @@ func main() {
 	fmt.Println("Use apenas quando necessário (overhead)")
 }
 
+

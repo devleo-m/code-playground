@@ -584,3 +584,4 @@ Agora que você entendeu os sistemas de layout e animações, você está pronto
 
 Na próxima aula, você aprenderá mais sobre responsividade, media queries e como fazer seus layouts funcionarem em diferentes dispositivos.
 
+

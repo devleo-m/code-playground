@@ -34,3 +34,4 @@ Ao final desta aula, você será capaz de:
 
 Esta aula foca em **explicações claras** e **conceitos fundamentais**. O código será apresentado de forma gradual e didática, sempre acompanhado de explicações detalhadas. O objetivo é que você **entenda** os conceitos antes de aplicar, por isso há mais texto explicativo do que código.
 
+

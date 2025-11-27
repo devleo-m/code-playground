@@ -682,3 +682,4 @@ Agora que você conhece as boas práticas:
 
 Lembre-se: boas práticas evoluem. O importante é entender o "porquê" por trás de cada uma, não apenas decorá-las.
 
+

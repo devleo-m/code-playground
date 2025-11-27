@@ -251,3 +251,4 @@ Após completar estes exercícios e reflexões, você deve ter uma compreensão 
 
 Na próxima etapa, você verá as boas práticas e otimizações para aplicar esses conceitos de forma profissional.
 
+

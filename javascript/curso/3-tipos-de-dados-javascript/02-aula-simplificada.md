@@ -527,3 +527,4 @@ Agora que você entende os tipos de dados como **diferentes compartimentos na su
 **Continue para os Exercícios Práticos para testar seu conhecimento!**
 
 
+

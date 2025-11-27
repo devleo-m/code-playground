@@ -462,3 +462,4 @@ Após completar os exercícios e refletir sobre as perguntas, você estará pron
 Lembre-se: a prática constante é essencial para dominar expressões e operadores. Experimente criar seus próprios exemplos e testar diferentes cenários!
 
 
+

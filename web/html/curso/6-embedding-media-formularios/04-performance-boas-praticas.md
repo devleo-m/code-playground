@@ -801,3 +801,4 @@ if (!isValidEmail(req.body.email)) {
 **Lembre-se:** Performance e acessibilidade não são opcionais - são essenciais para uma boa experiência do usuário! 🚀
 
 
+

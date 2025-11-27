@@ -384,3 +384,4 @@ Agora que você entende expressões e operadores como ferramentas do dia a dia (
 Na próxima parte, você vai praticar com exercícios reais! 🎯
 
 
+
