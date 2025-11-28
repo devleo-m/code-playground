@@ -1,16 +1,52 @@
-# React + Vite
+# 📚 Guia de Estudos React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Um guia interativo para aprender os fundamentos do React de forma prática e organizada.
 
-Currently, two official plugins are available:
+## 🎯 Como Funciona
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Escolha um tópico na lista de estudos
+2. Clique no card do tópico que deseja aprender
+3. O conteúdo aparecerá abaixo para você estudar
 
-## React Compiler
+## 📁 Estrutura do Projeto
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```
+src/
+├── components/          # Componentes reutilizáveis
+│   ├── Header.jsx      # Cabeçalho da aplicação
+│   ├── TopicList.jsx   # Lista de tópicos para escolher
+│   └── ContentViewer.jsx # Visualizador de conteúdo
+├── data/               # Dados da aplicação
+│   └── topics.js      # Array com todos os tópicos de estudo
+├── App.jsx            # Componente principal
+└── main.jsx           # Ponto de entrada
+```
 
-## Expanding the ESLint configuration
+## 🎨 Organização
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **components/**: Todos os componentes React organizados por funcionalidade
+- **data/**: Dados estáticos da aplicação (tópicos, conteúdo, etc)
+- Cada componente tem seu próprio arquivo CSS para manter organizado
+
+## 🚀 Como Adicionar Novos Tópicos
+
+Edite o arquivo `src/data/topics.js` e adicione um novo objeto ao array:
+
+```javascript
+{
+  id: 7,
+  title: "Seu Tópico",
+  description: "Descrição do tópico",
+  content: `
+    <h2>Seu Conteúdo</h2>
+    <p>Conteúdo em HTML aqui...</p>
+  `
+}
+```
+
+## 💡 Conceitos Usados
+
+- **useState**: Para gerenciar qual tópico está selecionado
+- **Props**: Para passar dados entre componentes
+- **Componentes Funcionais**: Forma moderna de criar componentes
+- **Eventos**: onClick para selecionar tópicos
