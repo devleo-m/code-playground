@@ -2,14 +2,14 @@ export default function Menu() {
     return (
         <nav>
             <div className="logo">
-                <Link to="/">
+                <a href="/">
                     <img src="logo.png" alt="Logo" />
-                </Link>
+                </a>
             </div>
             <ul className="menu">
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/about">About</Link></li>
-                <li><Link to="/contact">Contact</Link></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
             <div className="actions">
                 <button>Login</button>

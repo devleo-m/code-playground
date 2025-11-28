@@ -7,12 +7,13 @@ import './App.css'
 function App() {
   return (
     <>
+      <div className="container">
         <h1>Hello World</h1>
-
-      {/* <Menu />
-      <Banner />
-      <Button />
-      <Footer /> */}
+        <Menu />
+        <Banner />
+        <Button />
+        <Footer />
+      </div>
     </>
   )
 }
