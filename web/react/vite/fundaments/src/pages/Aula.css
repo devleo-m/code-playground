@@ -1,0 +1,64 @@
+.aula-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.aula-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+  border-bottom: 2px solid #3498db;
+}
+
+.aula-header h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.aula-subtitle {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+}
+
+.aula-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.aula-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.aula-section h2 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #ecf0f1;
+}
+
+.aula-theory {
+  line-height: 1.8;
+  color: #555;
+}
+
+.aula-theory p {
+  margin-bottom: 1rem;
+}
+
+.aula-practice {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 6px;
+  border-left: 4px solid #3498db;
+}
+
+.aula-practice p {
+  color: #555;
+}
+

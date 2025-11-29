@@ -1,0 +1,58 @@
+.home-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.home-hero {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+}
+
+.home-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.home-hero p {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  margin-bottom: 0.5rem;
+}
+
+.home-description {
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.home-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.home-content h2 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.home-instructions {
+  list-style: none;
+  padding: 0;
+}
+
+.home-instructions li {
+  padding: 0.75rem 0;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.home-instructions li:last-child {
+  border-bottom: none;
+}
+

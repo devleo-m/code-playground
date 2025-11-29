@@ -1,29 +1,21 @@
-import { useState } from 'react'
-import Header from './components/Header'
-import TopicList from './components/TopicList'
-import ContentViewer from './components/ContentViewer'
-import { topics } from './data/topics'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Layout from './components/Layout'
+import Home from './pages/Home'
+import Aulas from './pages/Aulas'
+import Aula from './pages/Aula'
 import './App.css'
 
 function App() {
-  const [selectedTopic, setSelectedTopic] = useState(null)
-
-  const handleSelectTopic = (topic) => {
-    setSelectedTopic(topic)
-  }
-
   return (
-    <div className="app">
-      <Header />
-      <div className="app-container">
-        <TopicList
-          topics={topics}
-          onSelectTopic={handleSelectTopic}
-          selectedTopicId={selectedTopic?.id}
-        />
-        <ContentViewer topic={selectedTopic} />
-      </div>
-    </div>
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/aulas" element={<Aulas />} />
+          <Route path="/aula/:aulaId" element={<Aula />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
   )
 }
 

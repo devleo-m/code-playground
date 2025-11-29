@@ -1,0 +1,72 @@
+.code-example {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.code-example-header {
+  margin-bottom: 1rem;
+}
+
+.code-example-header h3 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.code-example-description {
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.code-example-demo {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border-left: 4px solid #3498db;
+}
+
+.code-example-demo-label {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.code-example-demo-content {
+  background: white;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.code-example-code {
+  margin-top: 1.5rem;
+}
+
+.code-example-toggle {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  transition: background-color 0.3s;
+}
+
+.code-example-toggle:hover {
+  background: #2980b9;
+}
+
+.code-example-code pre {
+  margin: 0;
+  border-radius: 4px;
+}
+
