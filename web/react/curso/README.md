@@ -27,6 +27,23 @@ Este curso segue uma metodologia sequencial e construtiva:
 - `aula1-cli-tools-vite.md` - Aula principal
 - `aula1-exemplos/` - Exemplos práticos executáveis
 
+### Aula 2: Components - Os Blocos de Construção do React
+- ✅ Components: conceito fundamental e importância
+- ✅ Functional Components: forma moderna de criar componentes
+- ✅ JSX e TSX: sintaxe e regras
+- ✅ Props vs State: diferenças e quando usar cada um
+- ✅ Conditional Rendering: renderização baseada em condições
+- ✅ Composition vs Inheritance: construindo com componentes menores
+- ✅ Performance e boas práticas
+- ✅ Padrões e anti-padrões comuns
+
+**Arquivos:**
+- `aula2-components/01-aula-principal.md` - Aula principal completa
+- `aula2-components/02-aula-simplificada.md` - Aula com analogias
+- `aula2-components/03-exercicios-reflexao.md` - Exercícios e reflexão
+- `aula2-components/04-performance-boas-praticas.md` - Performance e boas práticas
+- `aula2-components/README.md` - Guia da aula
+
 ## 🚀 Como Usar Este Curso
 
 1. **Leia a aula principal** com atenção
@@ -60,13 +77,19 @@ curso/
 │   ├── exemplo3-componentes-props.jsx
 │   ├── exemplo4-app-completo.jsx
 │   └── README.md
+├── aula2-components/
+│   ├── README.md
+│   ├── 01-aula-principal.md
+│   ├── 02-aula-simplificada.md
+│   ├── 03-exercicios-reflexao.md
+│   └── 04-performance-boas-praticas.md
 └── [próximas aulas...]
 ```
 
 ## 🎓 Progresso
 
 - [x] Aula 1: CLI Tools e Vite
-- [ ] Aula 2: [Próxima aula]
+- [x] Aula 2: Components
 - [ ] Aula 3: [Próxima aula]
 
 ## 💡 Dicas de Estudo
