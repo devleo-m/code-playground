@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
+import { AULAS } from '../constants/aulas'
 import './Aulas.css'
 
 function Aulas() {
-  // Por enquanto, lista vazia. Depois vamos adicionar as aulas aqui
-  const aulas = []
+  const aulas = AULAS
 
   return (
     <div className="aulas-page">

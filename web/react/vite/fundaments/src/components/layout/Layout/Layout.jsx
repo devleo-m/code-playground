@@ -1,5 +1,5 @@
-import Menu from './interface/Menu'
-import Footer from './interface/Footer'
+import Menu from '../Menu/Menu'
+import Footer from '../Footer/Footer'
 import './Layout.css'
 
 function Layout({ children }) {

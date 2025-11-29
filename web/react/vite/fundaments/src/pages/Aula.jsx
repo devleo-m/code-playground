@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-import CodeExample from '../components/CodeExample'
+import { CodeExample } from '../components/ui'
 import './Aula.css'
 
 function Aula() {
