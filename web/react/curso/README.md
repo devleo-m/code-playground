@@ -44,6 +44,19 @@ Este curso segue uma metodologia sequencial e construtiva:
 - `aula2-components/04-performance-boas-praticas.md` - Performance e boas práticas
 - `aula2-components/README.md` - Guia da aula
 
+### Aula 3: Rendering e Conceitos Avançados do React
+- ✅ Rendering: abordagem declarativa, Virtual DOM, reconciliação
+- ✅ Component Life Cycle: Mounting, Updating, Unmounting
+- ✅ Lists and Keys: renderização eficiente de listas
+- ✅ Render Props: padrão para compartilhar lógica
+- ✅ Refs: acesso direto a elementos DOM e componentes
+- ✅ Events: sistema de eventos do React, SyntheticEvent
+- ✅ Higher-Order Components (HOCs): padrão avançado de reutilização
+
+**Arquivos:**
+- `aula3-rendering-avancado/01-aula-principal.md` - Aula principal completa
+- `aula3-rendering-avancado/README.md` - Guia da aula
+
 ## 🚀 Como Usar Este Curso
 
 1. **Leia a aula principal** com atenção
@@ -83,6 +96,9 @@ curso/
 │   ├── 02-aula-simplificada.md
 │   ├── 03-exercicios-reflexao.md
 │   └── 04-performance-boas-praticas.md
+├── aula3-rendering-avancado/
+│   ├── README.md
+│   └── 01-aula-principal.md
 └── [próximas aulas...]
 ```
 
@@ -90,7 +106,7 @@ curso/
 
 - [x] Aula 1: CLI Tools e Vite
 - [x] Aula 2: Components
-- [ ] Aula 3: [Próxima aula]
+- [x] Aula 3: Rendering e Conceitos Avançados
 
 ## 💡 Dicas de Estudo
 

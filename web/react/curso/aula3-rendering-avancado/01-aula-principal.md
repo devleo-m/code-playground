@@ -2253,18 +2253,1171 @@ Até agora, cobrimos:
 
 ---
 
-## ⏭️ O Que Falta Cobrir
+## 6. Events (Eventos)
 
-Ainda precisamos abordar os seguintes tópicos:
+### 6.1 Sistema de Eventos do React
 
-### 🔲 Events
+Manipular eventos com elementos React é muito similar a manipular eventos em elementos DOM, mas há algumas diferenças importantes de sintaxe e comportamento.
+
+#### Diferenças Principais
+
+1. **Nomenclatura em camelCase**: Em vez de `onclick`, React usa `onClick`
+2. **Função como handler**: Em vez de string, você passa uma função
+3. **SyntheticEvent**: React usa um wrapper chamado SyntheticEvent
+4. **Event pooling**: Em versões antigas, eventos eram reutilizados (não mais no React 17+)
+
+#### Comparação: HTML vs React
+
+```html
+<!-- HTML tradicional -->
+<button onclick="handleClick()">Clique aqui</button>
+```
+
+```jsx
+// React
+<button onClick={handleClick}>Clique aqui</button>
+```
+
+### 6.2 Sintaxe de Event Handlers
+
+#### Handler Inline
+
+```jsx
+function Button() {
+  return (
+    <button onClick={() => console.log('Clicado!')}>
+      Clique aqui
+    </button>
+  );
+}
+```
+
+#### Handler como Função Nomeada
+
+```jsx
+function Button() {
+  const handleClick = () => {
+    console.log('Clicado!');
+  };
+  
+  return <button onClick={handleClick}>Clique aqui</button>;
+}
+```
+
+#### Handler com Parâmetros
+
+```jsx
+function TodoList({ todos, onToggle }) {
+  return (
+    <ul>
+      {todos.map(todo => (
+        <li key={todo.id}>
+          <button onClick={() => onToggle(todo.id)}>
+            {todo.completed ? 'Desmarcar' : 'Marcar'}
+          </button>
+          {todo.text}
+        </li>
+      ))}
+    </ul>
+  );
+}
+```
+
+### 6.3 SyntheticEvent
+
+React envolve eventos nativos do navegador em um objeto chamado **SyntheticEvent**. Isso garante que eventos funcionem de forma consistente em todos os navegadores.
+
+#### Propriedades do SyntheticEvent
+
+```jsx
+function EventExample() {
+  const handleClick = (e) => {
+    // e é um SyntheticEvent
+    console.log(e.type);           // "click"
+    console.log(e.target);          // Elemento que disparou o evento
+    console.log(e.currentTarget);   // Elemento onde o handler está anexado
+    console.log(e.nativeEvent);     // Evento nativo do navegador
+  };
+  
+  return <button onClick={handleClick}>Clique</button>;
+}
+```
+
+#### Propriedades Comuns
+
+```jsx
+function FormExample() {
+  const handleSubmit = (e) => {
+    e.preventDefault();        // Previne comportamento padrão
+    e.stopPropagation();       // Para propagação do evento
+    console.log(e.target);     // Elemento que disparou
+    console.log(e.type);       // Tipo do evento
+  };
+  
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type="text" />
+      <button type="submit">Enviar</button>
+    </form>
+  );
+}
+```
+
+### 6.4 Tipos de Eventos Comuns
+
+#### Eventos de Mouse
+
+```jsx
+function MouseEvents() {
+  const handleClick = (e) => console.log('Click', e.clientX, e.clientY);
+  const handleDoubleClick = () => console.log('Double click');
+  const handleMouseEnter = () => console.log('Mouse entrou');
+  const handleMouseLeave = () => console.log('Mouse saiu');
+  const handleMouseOver = () => console.log('Mouse sobre');
+  const handleMouseMove = (e) => console.log('Mouse moveu', e.clientX, e.clientY);
+  
+  return (
+    <div
+      onClick={handleClick}
+      onDoubleClick={handleDoubleClick}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onMouseOver={handleMouseOver}
+      onMouseMove={handleMouseMove}
+      style={{ padding: '20px', background: 'lightblue' }}
+    >
+      Passe o mouse aqui
+    </div>
+  );
+}
+```
+
+#### Eventos de Teclado
+
+```jsx
+function KeyboardEvents() {
+  const handleKeyDown = (e) => {
+    console.log('Tecla pressionada:', e.key);
+    if (e.key === 'Enter') {
+      console.log('Enter pressionado!');
+    }
+    if (e.ctrlKey && e.key === 's') {
+      e.preventDefault();
+      console.log('Salvar (Ctrl+S)');
+    }
+  };
+  
+  const handleKeyUp = (e) => {
+    console.log('Tecla solta:', e.key);
+  };
+  
+  return (
+    <input
+      type="text"
+      onKeyDown={handleKeyDown}
+      onKeyUp={handleKeyUp}
+      placeholder="Digite algo..."
+    />
+  );
+}
+```
+
+#### Eventos de Formulário
+
+```jsx
+function FormEvents() {
+  const [value, setValue] = useState('');
+  
+  const handleChange = (e) => {
+    setValue(e.target.value);
+    console.log('Valor mudou:', e.target.value);
+  };
+  
+  const handleFocus = () => {
+    console.log('Input recebeu foco');
+  };
+  
+  const handleBlur = () => {
+    console.log('Input perdeu foco');
+  };
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Formulário submetido:', value);
+  };
+  
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={value}
+        onChange={handleChange}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        placeholder="Digite algo..."
+      />
+      <button type="submit">Enviar</button>
+    </form>
+  );
+}
+```
+
+### 6.5 Prevenção de Comportamento Padrão
+
+#### preventDefault()
+
+Previne o comportamento padrão do navegador:
+
+```jsx
+function LinkExample() {
+  const handleClick = (e) => {
+    e.preventDefault();
+    console.log('Link clicado, mas navegação prevenida');
+    // Fazer algo customizado em vez de navegar
+  };
+  
+  return (
+    <a href="/page" onClick={handleClick}>
+      Clique aqui (não navega)
+    </a>
+  );
+}
+```
+
+#### stopPropagation()
+
+Para a propagação do evento (bubbling):
+
+```jsx
+function PropagationExample() {
+  const handleParentClick = () => {
+    console.log('Parent clicado');
+  };
+  
+  const handleChildClick = (e) => {
+    e.stopPropagation(); // Para aqui, não propaga para o parent
+    console.log('Child clicado');
+  };
+  
+  return (
+    <div onClick={handleParentClick} style={{ padding: '20px', background: 'lightblue' }}>
+      <p>Parent</p>
+      <button onClick={handleChildClick}>
+        Child (não propaga)
+      </button>
+    </div>
+  );
+}
+```
+
+#### stopPropagation() + preventDefault()
+
+```jsx
+function CombinedExample() {
+  const handleClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('Comportamento padrão e propagação prevenidos');
+  };
+  
+  return (
+    <form>
+      <button type="submit" onClick={handleClick}>
+        Enviar (não submete formulário)
+      </button>
+    </form>
+  );
+}
+```
+
+### 6.6 Event Bubbling e Capturing
+
+React usa **event delegation** - todos os eventos são delegados ao elemento raiz e depois propagam (bubbling).
+
+```jsx
+function BubblingExample() {
+  const handleGrandparent = () => console.log('Grandparent');
+  const handleParent = () => console.log('Parent');
+  const handleChild = () => console.log('Child');
+  
+  return (
+    <div onClick={handleGrandparent} style={{ padding: '30px', background: 'lightgray' }}>
+      <div onClick={handleParent} style={{ padding: '20px', background: 'lightblue' }}>
+        <div onClick={handleChild} style={{ padding: '10px', background: 'lightgreen' }}>
+          Clique aqui
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Ao clicar no elemento mais interno:
+// Output: "Child", "Parent", "Grandparent"
+// (bubbling: do mais interno para o mais externo)
+```
+
+### 6.7 Passando Argumentos para Event Handlers
+
+#### Usando Arrow Functions
+
+```jsx
+function TodoList({ todos, onDelete }) {
+  return (
+    <ul>
+      {todos.map(todo => (
+        <li key={todo.id}>
+          {todo.text}
+          <button onClick={() => onDelete(todo.id)}>
+            Deletar
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
+}
+```
+
+#### Usando bind
+
+```jsx
+function TodoList({ todos, onDelete }) {
+  return (
+    <ul>
+      {todos.map(todo => (
+        <li key={todo.id}>
+          {todo.text}
+          <button onClick={onDelete.bind(null, todo.id)}>
+            Deletar
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
+}
+```
+
+#### Handler que Retorna Função
+
+```jsx
+function TodoList({ todos, onDelete }) {
+  const handleDelete = (id) => () => {
+    onDelete(id);
+  };
+  
+  return (
+    <ul>
+      {todos.map(todo => (
+        <li key={todo.id}>
+          {todo.text}
+          <button onClick={handleDelete(todo.id)}>
+            Deletar
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
+}
+```
+
+### 6.8 Eventos Customizados
+
+Você pode criar eventos customizados usando `CustomEvent`:
+
+```jsx
+function CustomEventExample() {
+  const handleCustomEvent = (e) => {
+    console.log('Evento customizado:', e.detail);
+  };
+  
+  useEffect(() => {
+    const event = new CustomEvent('myCustomEvent', {
+      detail: { message: 'Hello from custom event!' }
+    });
+    
+    window.addEventListener('myCustomEvent', handleCustomEvent);
+    
+    // Disparar evento após 2 segundos
+    setTimeout(() => {
+      window.dispatchEvent(event);
+    }, 2000);
+    
+    return () => {
+      window.removeEventListener('myCustomEvent', handleCustomEvent);
+    };
+  }, []);
+  
+  return <div>Esperando evento customizado...</div>;
+}
+```
+
+### 6.9 Exemplo Completo: Formulário com Validação
+
+```jsx
+import { useState } from 'react';
+
+function ContactForm() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
+  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    
+    // Limpar erro quando usuário começa a digitar
+    if (errors[name]) {
+      setErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors[name];
+        return newErrors;
+      });
+    }
+  };
+  
+  const handleBlur = (e) => {
+    const { name } = e.target;
+    setTouched(prev => ({ ...prev, [name]: true }));
+    validateField(name, formData[name]);
+  };
+  
+  const validateField = (name, value) => {
+    const newErrors = { ...errors };
+    
+    if (name === 'name' && !value.trim()) {
+      newErrors.name = 'Nome é obrigatório';
+    }
+    
+    if (name === 'email') {
+      if (!value.trim()) {
+        newErrors.email = 'Email é obrigatório';
+      } else if (!value.includes('@')) {
+        newErrors.email = 'Email inválido';
+      }
+    }
+    
+    if (name === 'message' && !value.trim()) {
+      newErrors.message = 'Mensagem é obrigatória';
+    }
+    
+    setErrors(newErrors);
+  };
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    // Validar todos os campos
+    Object.keys(formData).forEach(key => {
+      validateField(key, formData[key]);
+      setTouched(prev => ({ ...prev, [key]: true }));
+    });
+    
+    // Se não há erros, submeter
+    if (Object.keys(errors).length === 0) {
+      console.log('Enviando:', formData);
+      // Enviar dados...
+    }
+  };
+  
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label>Nome:</label>
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          onBlur={handleBlur}
+        />
+        {touched.name && errors.name && (
+          <span style={{ color: 'red' }}>{errors.name}</span>
+        )}
+      </div>
+      
+      <div>
+        <label>Email:</label>
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          onBlur={handleBlur}
+        />
+        {touched.email && errors.email && (
+          <span style={{ color: 'red' }}>{errors.email}</span>
+        )}
+      </div>
+      
+      <div>
+        <label>Mensagem:</label>
+        <textarea
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          rows="4"
+        />
+        {touched.message && errors.message && (
+          <span style={{ color: 'red' }}>{errors.message}</span>
+        )}
+      </div>
+      
+      <button type="submit">Enviar</button>
+    </form>
+  );
+}
+```
+
+### 6.10 Boas Práticas com Eventos
+
+#### 1. Não Criar Handlers Dentro do Render (sem otimização)
+
+```jsx
+// ❌ ERRADO: Nova função criada a cada render
+function Component({ items }) {
+  return (
+    <ul>
+      {items.map(item => (
+        <li key={item.id}>
+          <button onClick={() => handleClick(item.id)}>
+            {item.name}
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+// ✅ CORRETO: Handler estável (se não precisar de otimização, arrow function é OK)
+function Component({ items, onItemClick }) {
+  return (
+    <ul>
+      {items.map(item => (
+        <li key={item.id}>
+          <button onClick={() => onItemClick(item.id)}>
+            {item.name}
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
+}
+```
+
+#### 2. Usar useCallback para Handlers Complexos
+
+```jsx
+import { useCallback } from 'react';
+
+function Component({ items, onItemClick }) {
+  const handleClick = useCallback((id) => {
+    // Lógica complexa aqui
+    onItemClick(id);
+  }, [onItemClick]);
+  
+  return (
+    <ul>
+      {items.map(item => (
+        <li key={item.id}>
+          <button onClick={() => handleClick(item.id)}>
+            {item.name}
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
+}
+```
+
+#### 3. Sempre Validar Dados de Eventos
+
+```jsx
+function SafeComponent() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    const formData = new FormData(e.target);
+    const email = formData.get('email');
+    
+    // Validar antes de usar
+    if (!email || !email.includes('@')) {
+      alert('Email inválido');
+      return;
+    }
+    
+    // Usar dados validados
+    console.log('Email válido:', email);
+  };
+  
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type="email" name="email" />
+      <button type="submit">Enviar</button>
+    </form>
+  );
+}
+```
+
+---
+
+## 7. Higher-Order Components (HOCs)
+
+### 7.1 O Que São HOCs?
+
+Um **Higher-Order Component (HOC)** é uma função que recebe um componente e retorna um novo componente com funcionalidades adicionais. HOCs são um padrão avançado de reutilização de lógica em React.
+
+**Definição formal:**
+> Um Higher-Order Component é uma função que recebe um componente e retorna um novo componente.
+
+#### Estrutura Básica
+
+```jsx
+// HOC básico
+function withSomething(Component) {
+  return function EnhancedComponent(props) {
+    // Lógica adicional aqui
+    return <Component {...props} />;
+  };
+}
+
+// Uso
+const EnhancedButton = withSomething(Button);
+```
+
+### 7.2 Por Que Usar HOCs?
+
+HOCs permitem:
+1. **Reutilizar lógica** entre componentes
+2. **Adicionar funcionalidades** sem modificar o componente original
+3. **Separar preocupações** (lógica vs apresentação)
+4. **Compartilhar código** de forma composável
+
+**Nota importante:** Com a introdução de Hooks, HOCs são menos comuns. Hooks geralmente são preferidos para reutilização de lógica. Mas entender HOCs é importante para código legado e alguns casos específicos.
+
+### 7.3 Criando um HOC Simples
+
+#### Exemplo 1: HOC que Adiciona Loading
+
+```jsx
+// HOC que adiciona funcionalidade de loading
+function withLoading(Component) {
+  return function WithLoadingComponent({ isLoading, ...props }) {
+    if (isLoading) {
+      return <div>Carregando...</div>;
+    }
+    return <Component {...props} />;
+  };
+}
+
+// Componente original
+function UserList({ users }) {
+  return (
+    <ul>
+      {users.map(user => (
+        <li key={user.id}>{user.name}</li>
+      ))}
+    </ul>
+  );
+}
+
+// Componente aprimorado com HOC
+const UserListWithLoading = withLoading(UserList);
+
+// Uso
+function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [users, setUsers] = useState([]);
+  
+  return (
+    <UserListWithLoading isLoading={isLoading} users={users} />
+  );
+}
+```
+
+#### Exemplo 2: HOC que Adiciona Autenticação
+
+```jsx
+// HOC que verifica autenticação
+function withAuth(Component) {
+  return function AuthenticatedComponent(props) {
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [isChecking, setIsChecking] = useState(true);
+    
+    useEffect(() => {
+      // Verificar autenticação
+      checkAuth().then(auth => {
+        setIsAuthenticated(auth);
+        setIsChecking(false);
+      });
+    }, []);
+    
+    if (isChecking) {
+      return <div>Verificando autenticação...</div>;
+    }
+    
+    if (!isAuthenticated) {
+      return <div>Por favor, faça login</div>;
+    }
+    
+    return <Component {...props} />;
+  };
+}
+
+// Componente protegido
+function Dashboard() {
+  return <div>Conteúdo do Dashboard</div>;
+}
+
+// Componente com autenticação
+const ProtectedDashboard = withAuth(Dashboard);
+```
+
+### 7.4 HOCs com Props Adicionais
+
+HOCs podem adicionar props ao componente:
+
+```jsx
+// HOC que adiciona dados de usuário
+function withUserData(Component) {
+  return function WithUserDataComponent(props) {
+    const [user, setUser] = useState(null);
+    
+    useEffect(() => {
+      fetchUser().then(setUser);
+    }, []);
+    
+    return <Component {...props} user={user} />;
+  };
+}
+
+// Componente que recebe user como prop
+function Profile({ user }) {
+  if (!user) return <div>Carregando usuário...</div>;
+  
+  return (
+    <div>
+      <h1>{user.name}</h1>
+      <p>{user.email}</p>
+    </div>
+  );
+}
+
+// Componente com dados de usuário
+const ProfileWithUser = withUserData(Profile);
+```
+
+### 7.5 HOCs que Modificam Props
+
+```jsx
+// HOC que transforma props
+function withUpperCase(Component) {
+  return function WithUpperCaseComponent({ text, ...props }) {
+    const upperText = text ? text.toUpperCase() : '';
+    return <Component {...props} text={upperText} />;
+  };
+}
+
+// Componente original
+function DisplayText({ text }) {
+  return <p>{text}</p>;
+}
+
+// Componente com texto em maiúsculas
+const DisplayTextUpper = withUpperCase(DisplayText);
+
+// Uso
+<DisplayTextUpper text="hello world" />
+// Renderiza: <p>HELLO WORLD</p>
+```
+
+### 7.6 HOCs com Nomes de Exibição
+
+Para facilitar debugging, é bom dar nomes aos componentes retornados:
+
+```jsx
+function withLoading(Component) {
+  function WithLoadingComponent({ isLoading, ...props }) {
+    if (isLoading) {
+      return <div>Carregando...</div>;
+    }
+    return <Component {...props} />;
+  }
+  
+  // Dar nome ao componente para debugging
+  WithLoadingComponent.displayName = `withLoading(${Component.displayName || Component.name || 'Component'})`;
+  
+  return WithLoadingComponent;
+}
+```
+
+### 7.7 HOCs Compostos (Composição de HOCs)
+
+Você pode compor múltiplos HOCs:
+
+```jsx
+// HOC 1: Loading
+function withLoading(Component) {
+  return function WithLoading({ isLoading, ...props }) {
+    if (isLoading) return <div>Carregando...</div>;
+    return <Component {...props} />;
+  };
+}
+
+// HOC 2: Error handling
+function withError(Component) {
+  return function WithError({ error, ...props }) {
+    if (error) return <div>Erro: {error.message}</div>;
+    return <Component {...props} />;
+  };
+}
+
+// HOC 3: User data
+function withUser(Component) {
+  return function WithUser(props) {
+    const [user, setUser] = useState(null);
+    useEffect(() => {
+      fetchUser().then(setUser);
+    }, []);
+    return <Component {...props} user={user} />;
+  };
+}
+
+// Composição de HOCs
+const EnhancedComponent = withLoading(
+  withError(
+    withUser(UserProfile)
+  )
+);
+
+// Ou usando uma função auxiliar
+function compose(...hocs) {
+  return (Component) => hocs.reduceRight((acc, hoc) => hoc(acc), Component);
+}
+
+const EnhancedComponent = compose(
+  withLoading,
+  withError,
+  withUser
+)(UserProfile);
+```
+
+### 7.8 HOCs vs Hooks
+
+#### Com HOC (Antigo)
+
+```jsx
+// HOC
+function withWindowSize(Component) {
+  return function WithWindowSize(props) {
+    const [size, setSize] = useState({ width: window.innerWidth, height: window.innerHeight });
+    
+    useEffect(() => {
+      const handleResize = () => {
+        setSize({ width: window.innerWidth, height: window.innerHeight });
+      };
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
+    
+    return <Component {...props} windowSize={size} />;
+  };
+}
+
+// Uso
+const ComponentWithSize = withWindowSize(MyComponent);
+```
+
+#### Com Hook (Moderno - Preferido)
+
+```jsx
+// Hook customizado
+function useWindowSize() {
+  const [size, setSize] = useState({ width: window.innerWidth, height: window.innerHeight });
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setSize({ width: window.innerWidth, height: window.innerHeight });
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  return size;
+}
+
+// Uso
+function MyComponent() {
+  const windowSize = useWindowSize();
+  return <div>Tamanho: {windowSize.width}x{windowSize.height}</div>;
+}
+```
+
+**Por que hooks são preferidos:**
+- Mais simples e diretos
+- Não criam camadas extras de componentes
+- Mais fáceis de testar
+- Melhor para debugging
+- Mais flexíveis
+
+### 7.9 Quando Usar HOCs?
+
+Use HOCs quando:
+- Você precisa adicionar funcionalidade a múltiplos componentes
+- Você está trabalhando com código legado que usa HOCs
+- Você precisa de um padrão específico que HOCs facilitam
+
+**Mas considere usar Hooks primeiro:**
+- Hooks são geralmente mais simples
+- Hooks são mais modernos e recomendados
+- Hooks são mais fáceis de entender e manter
+
+### 7.10 Exemplo Completo: HOC de Logging
+
+```jsx
+// HOC que adiciona logging
+function withLogging(Component, componentName) {
+  return function WithLoggingComponent(props) {
+    useEffect(() => {
+      console.log(`${componentName} montado`);
+      return () => {
+        console.log(`${componentName} desmontado`);
+      };
+    }, []);
+    
+    useEffect(() => {
+      console.log(`${componentName} props atualizadas:`, props);
+    });
+    
+    const handleClick = (...args) => {
+      console.log(`${componentName} clicado:`, args);
+      if (props.onClick) {
+        props.onClick(...args);
+      }
+    };
+    
+    return <Component {...props} onClick={handleClick} />;
+  };
+}
+
+// Componente original
+function Button({ children, onClick }) {
+  return <button onClick={onClick}>{children}</button>;
+}
+
+// Componente com logging
+const LoggedButton = withLogging(Button, 'Button');
+
+// Uso
+function App() {
+  return (
+    <LoggedButton onClick={() => console.log('Button clicado!')}>
+      Clique aqui
+    </LoggedButton>
+  );
+}
+```
+
+### 7.11 Padrões Comuns de HOCs
+
+#### 1. HOC de Autenticação
+
+```jsx
+function withAuth(Component) {
+  return function AuthenticatedComponent(props) {
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+    
+    useEffect(() => {
+      checkAuth().then(userData => {
+        setUser(userData);
+        setLoading(false);
+      });
+    }, []);
+    
+    if (loading) return <div>Verificando...</div>;
+    if (!user) return <div>Faça login</div>;
+    
+    return <Component {...props} user={user} />;
+  };
+}
+```
+
+#### 2. HOC de Dados (Data Fetching)
+
+```jsx
+function withData(url) {
+  return function(Component) {
+    return function WithDataComponent(props) {
+      const [data, setData] = useState(null);
+      const [loading, setLoading] = useState(true);
+      const [error, setError] = useState(null);
+      
+      useEffect(() => {
+        fetch(url)
+          .then(res => res.json())
+          .then(data => {
+            setData(data);
+            setLoading(false);
+          })
+          .catch(err => {
+            setError(err);
+            setLoading(false);
+          });
+      }, [url]);
+      
+      return (
+        <Component
+          {...props}
+          data={data}
+          loading={loading}
+          error={error}
+        />
+      );
+    };
+  };
+}
+
+// Uso
+const UserListWithData = withData('/api/users')(UserList);
+```
+
+#### 3. HOC de Estilização
+
+```jsx
+function withStyles(styles) {
+  return function(Component) {
+    return function StyledComponent(props) {
+      return (
+        <div style={styles.container}>
+          <Component {...props} style={styles.content} />
+        </div>
+      );
+    };
+  };
+}
+
+// Uso
+const StyledCard = withStyles({
+  container: { padding: '20px', border: '1px solid #ccc' },
+  content: { background: '#f5f5f5' }
+})(Card);
+```
+
+### 7.12 Problemas Comuns com HOCs
+
+#### 1. Props Colisão
+
+```jsx
+// ❌ PROBLEMA: HOC pode sobrescrever props
+function withUser(Component) {
+  return function WithUser({ user, ...props }) {
+    const fetchedUser = useFetchUser();
+    return <Component {...props} user={fetchedUser} />;
+  };
+}
+
+// Se o componente já recebe 'user' como prop, há conflito
+```
+
+**Solução:** Usar nomes específicos ou mesclar props:
+
+```jsx
+function withUser(Component) {
+  return function WithUser(props) {
+    const fetchedUser = useFetchUser();
+    return <Component {...props} fetchedUser={fetchedUser} />;
+  };
+}
+```
+
+#### 2. Refs Não São Passadas
+
+```jsx
+// ❌ PROBLEMA: Refs não são passadas automaticamente
+function withSomething(Component) {
+  return function WithSomething(props) {
+    return <Component {...props} />; // ref não é passada
+  };
+}
+```
+
+**Solução:** Usar `forwardRef`:
+
+```jsx
+import { forwardRef } from 'react';
+
+function withSomething(Component) {
+  return forwardRef(function WithSomething(props, ref) {
+    return <Component {...props} ref={ref} />;
+  });
+}
+```
+
+### 7.13 Resumo: HOCs vs Hooks
+
+| Aspecto | HOCs | Hooks |
+|---------|------|-------|
+| **Sintaxe** | Função que retorna componente | Função que retorna valor |
+| **Complexidade** | Mais complexo | Mais simples |
+| **Debugging** | Mais difícil (camadas extras) | Mais fácil |
+| **Composição** | Composição de funções | Composição natural |
+| **Performance** | Pode adicionar camadas | Sem overhead |
+| **Recomendação** | Código legado | Novo código |
+
+**Regra geral:** Use Hooks para novo código. Use HOCs apenas se necessário para código legado ou casos específicos.
+
+---
+
+## 📝 Resumo Completo da Aula
+
+Cobrimos todos os tópicos fundamentais sobre Rendering e Conceitos Avançados do React:
+
+### ✅ Rendering (Renderização)
+- Abordagem declarativa vs imperativa
+- Processo de renderização no React
+- Virtual DOM e sua importância
+- Reconciliation (reconciliação)
+- Quando React renderiza componentes
+
+### ✅ Component Life Cycle (Ciclo de Vida)
+- Fase de Mounting (montagem)
+- Fase de Updating (atualização)
+- Fase de Unmounting (desmontagem)
+- Lifecycle methods vs Hooks modernos
+- Uso correto de `useEffect`
+
+### ✅ Lists and Keys
+- Por que keys são essenciais
+- Como escolher boas keys
+- Problemas comuns e soluções
+- Renderização eficiente de listas
+
+### ✅ Render Props
+- Conceito de render props
+- Quando usar render props
+- Padrões comuns
+- Comparação com outros padrões
+
+### ✅ Refs
+- O que são refs e quando usar
+- `useRef` hook
+- Refs para elementos DOM
+- Refs para componentes
+- Callback refs
+
+### ✅ Events
 - Sistema de eventos do React
 - SyntheticEvent
 - Manipulação de eventos
 - Event handlers
 - Prevenção de comportamento padrão
+- Event bubbling e capturing
 
-### 🔲 Higher-Order Components (HOCs)
+### ✅ Higher-Order Components (HOCs)
 - Conceito de HOCs
 - Como criar HOCs
 - Quando usar HOCs
@@ -2273,5 +3426,17 @@ Ainda precisamos abordar os seguintes tópicos:
 
 ---
 
-**Continue na próxima parte para completar a aula!**
+## 🎯 Próximos Passos
+
+Agora que você entendeu esses conceitos fundamentais:
+
+1. **Pratique** cada conceito isoladamente
+2. **Experimente** combinar diferentes padrões
+3. **Leia a Aula Simplificada** para reforçar com analogias
+4. **Complete os Exercícios** para consolidar o conhecimento
+5. **Estude Performance e Boas Práticas** para escrever código profissional
+
+---
+
+**Parabéns por completar a Aula 3! 🎉**
 
