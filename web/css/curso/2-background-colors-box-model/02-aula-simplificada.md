@@ -409,3 +409,5 @@ None remove o elemento completamente - é como se não existisse.
 Lembre-se: entender os conceitos é mais importante do que decorar código. Uma vez que você entende o "porquê", o "como" fica muito mais fácil!
 
 
+
+

@@ -332,3 +332,5 @@ A segunda versão é melhor em todos os aspectos.
 Agora que você entende os conceitos fundamentais de performance e acessibilidade, na próxima parte da aula você verá versões simplificadas com analogias do dia a dia, exercícios práticos e boas práticas avançadas. Esses conceitos devem ser parte do seu processo de desenvolvimento desde o início - não são algo para adicionar depois.
 
 
+
+

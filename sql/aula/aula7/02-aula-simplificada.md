@@ -677,3 +677,5 @@ Subqueries são como **perguntas auxiliares** que ajudam a responder perguntas p
 
 
 
+
+

@@ -972,3 +972,5 @@ Agora que você entende os tipos de dados em JavaScript, você está pronto para
 
 
 
+
+

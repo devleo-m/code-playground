@@ -1223,3 +1223,5 @@ Agora que você entendeu os fundamentos de cores, backgrounds, box model e displ
 Na próxima aula, você aprenderá sobre posicionamento, layouts mais complexos e como combinar esses conceitos para criar designs profissionais.
 
 
+
+

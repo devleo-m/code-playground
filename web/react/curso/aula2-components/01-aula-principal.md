@@ -1214,3 +1214,5 @@ Na próxima aula, vamos aprofundar em hooks, eventos, e padrões avançados de c
 
 **Lembre-se**: A melhor forma de aprender components é praticando. Crie componentes pequenos, combine-os, experimente diferentes padrões. A prática é essencial para internalizar esses conceitos!
 
+
+

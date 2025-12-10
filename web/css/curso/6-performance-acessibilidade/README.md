@@ -35,3 +35,5 @@ Ao final desta aula, você será capaz de:
 Esta aula foca em **explicações conceituais claras** e **compreensão dos fundamentos**. O código será apresentado de forma mínima e apenas quando necessário para ilustrar conceitos. O objetivo é que você **entenda o porquê** das práticas de performance e acessibilidade, não apenas o como. Por isso, há muito mais texto explicativo do que código.
 
 
+
+

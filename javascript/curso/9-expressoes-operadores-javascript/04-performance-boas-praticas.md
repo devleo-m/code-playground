@@ -600,3 +600,5 @@ Lembre-se: **Código claro e correto primeiro, otimização depois!**
 
 
 
+
+

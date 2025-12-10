@@ -919,3 +919,5 @@ export default App;
 
 **Próximo Passo**: Após completar os exercícios e reflexões, aguarde o feedback e análise do seu desempenho antes de prosseguir para a seção de Performance e Boas Práticas.
 
+
+

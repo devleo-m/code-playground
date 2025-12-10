@@ -1066,3 +1066,5 @@ Agora que você entendeu as variáveis tecnicamente, está pronto para a **Aula 
 
 
 
+
+

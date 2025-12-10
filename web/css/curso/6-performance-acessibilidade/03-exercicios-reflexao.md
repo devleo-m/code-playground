@@ -223,3 +223,5 @@ Após completar estes exercícios e reflexões, você terá uma base sólida sob
 Lembre-se: performance e acessibilidade não são "extras" - são fundamentais para criar sites que funcionam bem para todos!
 
 
+
+

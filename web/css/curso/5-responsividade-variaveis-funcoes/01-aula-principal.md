@@ -650,3 +650,5 @@ Juntas, essas ferramentas permitem criar websites que são ao mesmo tempo bonito
 Agora que você entendeu os conceitos fundamentais de responsividade, variáveis e funções em CSS, você está pronto para praticar. Na próxima etapa, você verá uma versão simplificada desses conceitos com analogias do dia a dia, seguida de exercícios práticos para consolidar seu aprendizado.
 
 
+
+

@@ -609,3 +609,5 @@ Agora que você completou esta aula sobre Performance e Acessibilidade, você te
 **Qual será o tópico da próxima aula?**
 
 
+
+

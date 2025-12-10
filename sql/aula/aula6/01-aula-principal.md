@@ -905,3 +905,5 @@ Agora que você entende os diferentes tipos de JOIN, pratique:
 
 
 
+
+

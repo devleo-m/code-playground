@@ -1100,3 +1100,5 @@ Dominar subqueries, junto com JOINs e aggregate queries, permite criar consultas
 
 
 
+
+

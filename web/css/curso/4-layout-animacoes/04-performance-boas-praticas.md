@@ -438,3 +438,5 @@ Agora que você entendeu as boas práticas, você está pronto para:
 Na próxima aula, você aprenderá sobre responsividade avançada e como fazer seus layouts funcionarem perfeitamente em todos os dispositivos.
 
 
+
+

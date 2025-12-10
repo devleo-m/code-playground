@@ -306,3 +306,5 @@ Pense em um holograma:
 Agora que você entendeu os conceitos de forma simples, volte para a aula principal e veja como aplicar isso na prática. Lembre-se: é como aprender a dirigir - primeiro você entende o conceito, depois pratica!
 
 
+
+

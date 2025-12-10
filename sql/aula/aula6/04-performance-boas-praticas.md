@@ -653,3 +653,5 @@ Agora que você entende performance de JOINs:
 
 
 
+
+

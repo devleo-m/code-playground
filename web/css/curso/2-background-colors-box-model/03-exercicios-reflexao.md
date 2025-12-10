@@ -389,3 +389,5 @@ Depois de completar estes exercícios, você deve:
 Se algum conceito ainda estiver confuso, revise a aula principal e simplificada antes de avançar para a próxima aula.
 
 
+
+
