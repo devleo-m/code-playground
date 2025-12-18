@@ -1,4 +1,9 @@
 // Exemplo 7: Props.children
+// 💡 O que é 'children'?
+// É uma prop mágica! ✨
+// Tudo que você coloca DENTRO de um componente (<Comp>AQUI</Comp>)
+// aparece automaticamente na prop 'children'.
+
 function Caixa({ children, titulo, cor = '#e3f2fd' }) {
   return (
     <div style={{
@@ -8,9 +13,12 @@ function Caixa({ children, titulo, cor = '#e3f2fd' }) {
       border: '2px solid #2196f3',
       marginBottom: '1rem'
     }}>
+      {/* Se tiver título, mostra o título */}
       {titulo && (
         <h4 style={{ margin: '0 0 0.5rem 0', color: '#1976d2' }}>{titulo}</h4>
       )}
+      
+      {/* Aqui é onde o conteúdo "filho" será renderizado */}
       <div style={{ color: '#555' }}>
         {children}
       </div>
@@ -21,22 +29,26 @@ function Caixa({ children, titulo, cor = '#e3f2fd' }) {
 function Exemplo7Children() {
   return (
     <div>
-      <Caixa titulo="Caixa com Título e Conteúdo Simples" cor="#e8f5e9">
-        <p style={{ margin: 0 }}>Este é um parágrafo dentro da caixa usando children.</p>
+      {/* 1. Passando texto simples como children */}
+      <Caixa titulo="Texto Simples" cor="#e8f5e9">
+        <p style={{ margin: 0 }}>Eu sou um parágrafo passado como children!</p>
       </Caixa>
 
-      <Caixa titulo="Caixa com Múltiplos Elementos" cor="#fff3e0">
-        <p style={{ margin: '0 0 0.5rem 0' }}>Você pode colocar qualquer coisa dentro:</p>
+      {/* 2. Passando HTML complexo como children */}
+      <Caixa titulo="HTML Complexo" cor="#fff3e0">
+        <p style={{ margin: '0 0 0.5rem 0' }}>Olha o que dá pra fazer:</p>
         <ul style={{ margin: 0, paddingLeft: '1.5rem' }}>
-          <li>Lista de itens</li>
-          <li>Mais elementos</li>
-          <li>Qualquer JSX válido</li>
+          <li>Listas</li>
+          <li><strong>Negrito</strong></li>
+          <li><em>Itálico</em></li>
         </ul>
       </Caixa>
 
-      <Caixa titulo="Caixa com Botões e Texto" cor="#fce4ec">
-        <p style={{ margin: '0 0 0.5rem 0' }}>Até mesmo botões podem ser children:</p>
+      {/* 3. Passando Outros Componentes como children (Composição!) */}
+      <Caixa titulo="Interatividade" cor="#fce4ec">
+        <p style={{ margin: '0 0 0.5rem 0' }}>Botões funcionam aqui dentro:</p>
         <button 
+          onClick={() => alert('Clicou!')}
           style={{
             padding: '0.5rem 1rem',
             background: '#e91e63',
@@ -46,28 +58,11 @@ function Exemplo7Children() {
             cursor: 'pointer'
           }}
         >
-          Botão dentro da caixa!
+          Clique em mim
         </button>
       </Caixa>
-
-      <div style={{ 
-        marginTop: '1rem', 
-        padding: '1rem', 
-        background: '#fff9c4', 
-        borderRadius: '8px',
-        border: '1px solid #fbc02d'
-      }}>
-        <p style={{ margin: 0, fontSize: '0.9rem', color: '#f57f17' }}>
-          <strong>💡 Dica:</strong> <code>children</code> é uma prop especial que contém 
-          tudo que você coloca entre as tags de abertura e fechamento do componente. 
-          É muito útil para criar componentes genéricos e reutilizáveis!
-        </p>
-      </div>
     </div>
   )
 }
 
 export default Exemplo7Children
-
-
-

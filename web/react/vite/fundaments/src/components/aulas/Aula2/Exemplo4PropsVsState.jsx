@@ -1,6 +1,11 @@
 import { useState } from 'react'
 
 // Exemplo 4: Props vs State
+// 💡 Qual a diferença?
+// - Props: Passadas de pai para filho. São LEITURA (read-only). O filho não muda suas props.
+// - State: Pertence ao componente. É MUTÁVEL. O componente pode mudar seu próprio state.
+
+// Componente que apenas RECEBE dados (Props)
 function DisplayProps({ mensagem }) {
   return (
     <div style={{ 
@@ -13,12 +18,13 @@ function DisplayProps({ mensagem }) {
       <h4 style={{ color: '#1976d2', margin: '0 0 0.5rem 0' }}>Props (Read-Only)</h4>
       <p style={{ color: '#555', margin: 0 }}>Mensagem recebida: <strong>{mensagem}</strong></p>
       <p style={{ color: '#666', margin: '0.5rem 0 0 0', fontSize: '0.85rem' }}>
-        Esta mensagem vem do componente pai e não pode ser modificada aqui.
+        Esta mensagem vem do pai. Se o pai mudar, eu atualizo.
       </p>
     </div>
   )
 }
 
+// Componente que GERENCIA dados (State)
 function DisplayState() {
   const [mensagem, setMensagem] = useState('Estado inicial')
 
@@ -33,67 +39,53 @@ function DisplayState() {
       <p style={{ color: '#555', margin: '0 0 1rem 0' }}>
         Mensagem atual: <strong>{mensagem}</strong>
       </p>
+      
       <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
         <button 
           onClick={() => setMensagem('Olá do State!')}
-          style={{
-            padding: '0.4rem 0.8rem',
-            background: '#9c27b0',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: 'pointer',
-            fontSize: '0.9rem'
-          }}
+          style={buttonStyle}
         >
-          Mudar para "Olá do State!"
+          Mudar Texto 1
         </button>
+        
         <button 
-          onClick={() => setMensagem('Estado foi atualizado!')}
-          style={{
-            padding: '0.4rem 0.8rem',
-            background: '#9c27b0',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: 'pointer',
-            fontSize: '0.9rem'
-          }}
+          onClick={() => setMensagem('Estado Atualizado!')}
+          style={buttonStyle}
         >
-          Mudar para "Estado foi atualizado!"
+          Mudar Texto 2
         </button>
+        
         <button 
           onClick={() => setMensagem('Estado inicial')}
-          style={{
-            padding: '0.4rem 0.8rem',
-            background: '#757575',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: 'pointer',
-            fontSize: '0.9rem'
-          }}
+          style={{ ...buttonStyle, background: '#757575' }}
         >
           Resetar
         </button>
       </div>
-      <p style={{ color: '#666', margin: '1rem 0 0 0', fontSize: '0.85rem' }}>
-        Este estado pode ser modificado pelo próprio componente.
-      </p>
     </div>
   )
+}
+
+const buttonStyle = {
+  padding: '0.4rem 0.8rem',
+  background: '#9c27b0',
+  color: 'white',
+  border: 'none',
+  borderRadius: '4px',
+  cursor: 'pointer',
+  fontSize: '0.9rem'
 }
 
 function Exemplo4PropsVsState() {
   return (
     <div>
-      <DisplayProps mensagem="Esta mensagem vem via props e não pode ser modificada" />
+      {/* Aqui passamos uma string fixa como prop */}
+      <DisplayProps mensagem="Esta mensagem vem via props" />
+      
+      {/* Este componente gerencia seu próprio estado interno */}
       <DisplayState />
     </div>
   )
 }
 
 export default Exemplo4PropsVsState
-
-
-

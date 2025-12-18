@@ -1,9 +1,15 @@
 // Exemplo 6: Composition (Composição)
+// 💡 O poder da Composição
+// Em vez de herança (como em OOP clássica), o React usa composição.
+// Criamos componentes pequenos e genéricos e os "encaixamos" para criar componentes maiores.
+
+// 1. Botão Genérico
+// Recebe children (texto/ícone) e variant (cor)
 function Botao({ children, onClick, variant = 'primary' }) {
-  const styles = {
-    primary: { background: '#2196f3', color: 'white' },
-    secondary: { background: '#757575', color: 'white' },
-    danger: { background: '#f44336', color: 'white' }
+  const colors = {
+    primary: '#2196f3',
+    secondary: '#757575',
+    danger: '#f44336'
   }
 
   return (
@@ -15,7 +21,8 @@ function Botao({ children, onClick, variant = 'primary' }) {
         borderRadius: '4px',
         cursor: 'pointer',
         fontSize: '0.9rem',
-        ...styles[variant]
+        background: colors[variant],
+        color: 'white'
       }}
     >
       {children}
@@ -23,14 +30,19 @@ function Botao({ children, onClick, variant = 'primary' }) {
   )
 }
 
+// 2. Card Genérico
+// Define a ESTRUTURA, mas não o CONTEÚDO específico.
+// Aceita `title` (opcional), `children` (corpo) e `footer` (rodapé opcional)
 function Card({ title, children, footer }) {
   return (
     <div style={{
       border: '2px solid #e0e0e0',
       borderRadius: '8px',
       overflow: 'hidden',
-      marginBottom: '1rem'
+      marginBottom: '1rem',
+      background: 'white'
     }}>
+      {/* Renderiza título apenas se existir */}
       {title && (
         <div style={{
           padding: '0.75rem',
@@ -42,9 +54,13 @@ function Card({ title, children, footer }) {
           {title}
         </div>
       )}
+      
+      {/* Área de conteúdo flexível */}
       <div style={{ padding: '1rem' }}>
         {children}
       </div>
+
+      {/* Rodapé flexível */}
       {footer && (
         <div style={{
           padding: '0.75rem',
@@ -58,6 +74,7 @@ function Card({ title, children, footer }) {
   )
 }
 
+// 3. Container
 function Container({ children, title }) {
   return (
     <div style={{
@@ -72,46 +89,49 @@ function Container({ children, title }) {
   )
 }
 
+// Juntando tudo!
 function Exemplo6Composition() {
   return (
     <div>
-      <Container title="Exemplo de Composição">
+      <Container title="Loja de Eletrônicos (Exemplo de Composição)">
+        
+        {/* Usando Card para um Notebook */}
         <Card 
-          title="Produto: Notebook"
+          title="💻 Notebook Pro"
           footer={
             <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'flex-end' }}>
-              <Botao variant="secondary">Cancelar</Botao>
-              <Botao variant="primary">Adicionar ao Carrinho</Botao>
+              <Botao variant="secondary">Detalhes</Botao>
+              <Botao variant="primary">Comprar</Botao>
             </div>
           }
         >
-          <p style={{ margin: '0 0 0.5rem 0' }}>Preço: R$ 2.500,00</p>
+          <p style={{ margin: '0 0 0.5rem 0', fontWeight: 'bold' }}>R$ 4.500,00</p>
           <p style={{ margin: 0, color: '#666', fontSize: '0.9rem' }}>
-            Notebook de alta performance com 16GB RAM e SSD 512GB
+            Processador i7, 16GB RAM, SSD 512GB. Ideal para desenvolvedores.
           </p>
         </Card>
 
+        {/* Usando o MESMO componente Card para um Mouse, mas com conteúdo diferente */}
         <Card 
-          title="Produto: Mouse"
+          title="🖱️ Mouse Gamer"
           footer={
             <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'flex-end' }}>
-              <Botao variant="secondary">Cancelar</Botao>
               <Botao variant="danger">Remover</Botao>
             </div>
           }
         >
-          <p style={{ margin: '0 0 0.5rem 0' }}>Preço: R$ 50,00</p>
+          <p style={{ margin: '0 0 0.5rem 0', fontWeight: 'bold' }}>R$ 150,00</p>
           <p style={{ margin: 0, color: '#666', fontSize: '0.9rem' }}>
-            Mouse óptico sem fio com design ergonômico
+            Mouse RGB com 6 botões programáveis.
           </p>
         </Card>
+
       </Container>
       
       <div style={{ marginTop: '1rem', padding: '1rem', background: '#e8f5e9', borderRadius: '8px' }}>
         <p style={{ margin: 0, fontSize: '0.9rem', color: '#2e7d32' }}>
-          <strong>💡 Observe:</strong> Este exemplo mostra como componentes pequenos 
-          (<code>Botao</code>, <code>Card</code>, <code>Container</code>) são combinados 
-          para criar interfaces mais complexas. Isso é <strong>composição</strong>!
+          <strong>💡 Dica:</strong> Veja como reutilizamos <code>Card</code> e <code>Botao</code> 
+          para criar interfaces diferentes apenas passando props e children diferentes!
         </p>
       </div>
     </div>
@@ -119,6 +139,3 @@ function Exemplo6Composition() {
 }
 
 export default Exemplo6Composition
-
-
-
