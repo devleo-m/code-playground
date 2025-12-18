@@ -21,31 +21,138 @@ export const AULAS = [
   {
     id: '1',
     titulo: 'Aula 1: CLI Tools e Vite - Introdução ao React',
-    descricao: 'Aprenda os conceitos básicos do React: State, Props e como o Vite funciona.',
+    descricao: 'Domine a base do React: Virtual DOM, Vite e a estrutura inicial do projeto.',
     teoria: `
         <div style="line-height: 1.8; color: #333;">
-            <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">O Que é React?</h2>
-            <p><strong>React</strong> é uma biblioteca JavaScript para construir interfaces de usuário (UI). Ele é baseado em <strong>Componentes</strong>, que são como peças de LEGO que você junta para criar seu site.</p>
+            <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">1. A Revolução do React</h2>
             
-            <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">Conceitos Fundamentais</h2>
+            <p><strong>React</strong> não é apenas uma biblioteca; é uma mudança de paradigma. Criado pelo Facebook em 2013, ele resolveu um problema gigante: <strong>como atualizar interfaces complexas de forma eficiente e sem dor de cabeça?</strong></p>
             
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;">
-                <div style="background: #e3f2fd; padding: 1rem; border-radius: 8px; border-left: 4px solid #2196f3;">
-                    <h3 style="margin-top: 0; color: #1565c0;">Props (Propriedades)</h3>
-                    <p>São dados que passamos para os componentes. Como argumentos de uma função. São <strong>leitura (read-only)</strong>.</p>
-                </div>
-                <div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; border-left: 4px solid #4caf50;">
-                    <h3 style="margin-top: 0; color: #2e7d32;">State (Estado)</h3>
-                    <p>É a memória do componente. Dados que mudam com o tempo (como um contador). Quando muda, o React atualiza a tela.</p>
+            <div style="background: #e3f2fd; padding: 1.5rem; border-radius: 8px; border-left: 5px solid #1565c0; margin: 1.5rem 0;">
+                <h3 style="margin-top: 0; color: #1565c0;">Imperativo vs Declarativo: A Grande Sacada</h3>
+                <p>Para entender o React, você precisa entender essa diferença. Imagine que você quer um táxi.</p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                    <div style="background: #fff; padding: 1rem; border-radius: 4px; border: 1px solid #bbdefb;">
+                        <strong style="color: #d32f2f;">Abordagem Imperativa (jQuery/JS Puro)</strong>
+                        <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">Você diz COMO fazer passo-a-passo:</p>
+                        <ol style="font-size: 0.85rem; padding-left: 1.2rem;">
+                            <li>Saia de casa.</li>
+                            <li>Vá até a esquina.</li>
+                            <li>Levante a mão.</li>
+                            <li>Espere um táxi parar.</li>
+                            <li>Entre no táxi.</li>
+                        </ol>
+                        <code style="display: block; background: #f5f5f5; padding: 0.5rem; margin-top: 0.5rem; font-size: 0.8rem;">
+                            const btn = document.createElement('button');<br>
+                            btn.innerText = 'Táxi';<br>
+                            btn.className = 'blue';<br>
+                            parent.appendChild(btn);
+                        </code>
+                    </div>
+                    
+                    <div style="background: #fff; padding: 1rem; border-radius: 4px; border: 1px solid #c8e6c9;">
+                        <strong style="color: #2e7d32;">Abordagem Declarativa (React)</strong>
+                        <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">Você diz O QUE você quer:</p>
+                        <ul style="font-size: 0.85rem; padding-left: 1.2rem;">
+                            <li>"Quero um táxi aqui."</li>
+                            <li>(O aplicativo resolve como o táxi chega até você)</li>
+                        </ul>
+                        <code style="display: block; background: #f5f5f5; padding: 0.5rem; margin-top: 0.5rem; font-size: 0.8rem;">
+                            return &lt;Button color="blue"&gt;Táxi&lt;/Button&gt;
+                        </code>
+                    </div>
                 </div>
             </div>
 
-            <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">Por que Vite?</h2>
-            <p><strong>Vite</strong> é a ferramenta que usamos para criar e rodar o projeto. Ele é extremamente rápido e moderno.</p>
-            <ul style="background: #f5f5f5; padding: 1rem; border-radius: 8px;">
-                <li>🚀 Inicia o servidor instantaneamente</li>
-                <li>⚡ Atualiza a tela muito rápido (HMR)</li>
-                <li>📦 Já vem configurado para React</li>
+            <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">2. O Motor do React: Virtual DOM</h2>
+
+            <p>O <strong>DOM (Document Object Model)</strong> é a árvore de elementos do seu navegador. Ele é lento para atualizar. Se você mudar uma cor de fundo 1000 vezes, o navegador recalcula o layout 1000 vezes.</p>
+
+            <div style="background: #fff3e0; padding: 1rem; border-radius: 8px; border-left: 4px solid #ff9800; margin: 1rem 0;">
+                <h3 style="margin-top: 0; color: #e65100;">A Analogia do Garçom 🍽️</h3>
+                <p>Imagine o DOM como a cozinha de um restaurante e você é o cliente (React).</p>
+                <ul>
+                    <li><strong>Sem Virtual DOM:</strong> Você grita cada pedido para a cozinha. "Quero água!", a cozinha para e pega água. "Quero pão!", a cozinha para e pega pão. É ineficiente.</li>
+                    <li><strong>Com Virtual DOM:</strong> Você fala com o garçom (Virtual DOM). Você faz vários pedidos ("água, pão, sopa"). O garçom anota tudo, otimiza a ordem e entrega um pedido único para a cozinha.</li>
+                </ul>
+            </div>
+
+            <h3 style="color: #2c3e50;">Como funciona tecnicamente (Reconciliação):</h3>
+            <ol>
+                <li><strong>Render:</strong> Quando o estado muda, o React cria uma nova árvore Virtual DOM.</li>
+                <li><strong>Diffing:</strong> Ele compara essa nova árvore com a anterior. Ele vê: "Ah, só o texto do botão mudou de 'Entrar' para 'Sair'".</li>
+                <li><strong>Commit:</strong> Ele vai no DOM real e muda <em>apenas</em> aquele texto. O resto da página nem pisca.</li>
+            </ol>
+
+            <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">3. Vite: Velocidade Supersônica</h2>
+
+            <p>Por que usamos Vite e não o antigo <code>create-react-app</code>? A diferença é arquitetural.</p>
+
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 250px; background: #f5f5f5; padding: 1rem; border-radius: 8px;">
+                    <h4 style="margin-top: 0;">🐢 Webpack (Antigo)</h4>
+                    <p>Precisava ler <strong>TODOS</strong> os seus arquivos, empacotar tudo em um arquivo gigante (bundle.js) antes de iniciar o servidor. Em projetos grandes, isso levava minutos.</p>
+                </div>
+                <div style="flex: 1; min-width: 250px; background: #e8f5e9; padding: 1rem; border-radius: 8px; border: 1px solid #4caf50;">
+                    <h4 style="margin-top: 0;">⚡ Vite (Novo)</h4>
+                    <p>Usa <strong>ES Modules</strong> nativos do navegador. Ele não empacota nada para iniciar. Ele serve os arquivos conforme o navegador pede. O início é instantâneo (ms).</p>
+                </div>
+            </div>
+
+            <h3 style="color: #2c3e50; margin-top: 1rem;">HMR (Hot Module Replacement)</h3>
+            <p>O Vite tem um HMR incrível. Se você editar um componente <code>Botao.jsx</code>, ele troca apenas esse arquivo no navegador rodando, mantendo o estado da aplicação (ex: o texto que você digitou num formulário não some).</p>
+
+            <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">4. Anatomia de um Componente React</h2>
+
+            <p>Vamos dissecar um componente simples para entender cada parte:</p>
+
+            <pre style="background: #282c34; color: #abb2bf; padding: 1.5rem; border-radius: 8px; overflow-x: auto; font-family: 'Fira Code', monospace;">
+<span style="color: #c678dd;">import</span> { useState } <span style="color: #c678dd;">from</span> <span style="color: #98c379;">'react'</span> <span style="color: #5c6370;">// 1. Importação de Hooks</span>
+
+<span style="color: #c678dd;">function</span> <span style="color: #e5c07b;">MeuBotao</span>() {              <span style="color: #5c6370;">// 2. Declaração (PascalCase)</span>
+  <span style="color: #5c6370;">// 3. Lógica e Estado (JavaScript puro)</span>
+  <span style="color: #c678dd;">const</span> [ativo, setAtivo] = <span style="color: #61afef;">useState</span>(<span style="color: #d19a66;">false</span>)
+
+  <span style="color: #c678dd;">return</span> (
+    <span style="color: #5c6370;">// 4. O Retorno (JSX - O que aparece na tela)</span>
+    &lt;<span style="color: #e06c75;">button</span> 
+      <span style="color: #d19a66;">onClick</span>={() => <span style="color: #61afef;">setAtivo</span>(!ativo)}
+      <span style="color: #d19a66;">className</span>={ativo ? <span style="color: #98c379;">"ligado"</span> : <span style="color: #98c379;">"desligado"</span>}
+    &gt;
+      {ativo ? <span style="color: #98c379;">"LIGADO"</span> : <span style="color: #98c379;">"DESLIGADO"</span>}
+    &lt;/<span style="color: #e06c75;">button</span>&gt;
+  )
+}
+            </pre>
+
+            <ul>
+                <li><strong>PascalCase:</strong> Componentes devem sempre começar com letra maiúscula (ex: <code>MeuComponente</code>), senão o React acha que é uma tag HTML normal.</li>
+                <li><strong>Hooks:</strong> Funções que começam com <code>use</code> (como <code>useState</code>). Elas "gancham" funcionalidades do React na sua função.</li>
+                <li><strong>JSX:</strong> Parece HTML, mas aceita lógica JavaScript dentro de <code>{}</code>.</li>
+            </ul>
+
+            <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">5. Dicas de Ouro para Iniciantes 💎</h2>
+            
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 1rem; display: flex; align-items: start;">
+                    <span style="font-size: 1.5rem; margin-right: 0.5rem;">🚫</span>
+                    <div>
+                        <strong>Não manipule o DOM diretamente:</strong> Esqueça <code>document.getElementById</code> ou <code>classList.add</code>. Se algo tem que mudar na tela, mude o <strong>Estado</strong> e deixe o React reagir.
+                    </div>
+                </li>
+                <li style="margin-bottom: 1rem; display: flex; align-items: start;">
+                    <span style="font-size: 1.5rem; margin-right: 0.5rem;">🔄</span>
+                    <div>
+                        <strong>Fluxo Unidirecional:</strong> Dados descem (Pai para Filho via Props). Eventos sobem (Filho chama função do Pai). Nunca tente passar dados "de lado" sem usar gerenciamento de estado global.
+                    </div>
+                </li>
+                <li style="margin-bottom: 1rem; display: flex; align-items: start;">
+                    <span style="font-size: 1.5rem; margin-right: 0.5rem;">🧩</span>
+                    <div>
+                        <strong>Pense em Componentes:</strong> Olhe para uma interface (ex: Instagram). O que você vê? Navbar, Story, FeedItem, LikeButton. Quebre tudo em pedaços pequenos.
+                    </div>
+                </li>
             </ul>
         </div>
         `,
@@ -100,154 +207,71 @@ setTarefas(tarefas.filter((_, i) => i !== index))`,
   {
     id: '2',
     titulo: 'Aula 2: Components - Os Blocos de Construção do React',
-    descricao: 'Aprenda a criar e usar componentes React, entender props, state, JSX e composição',
+    descricao: 'Aprofunde-se em Components, JSX, Props, State e Composição.',
     teoria: `
       <div style="line-height: 1.8; color: #333;">
         <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">O Que São Components?</h2>
         
-        <p><strong>Components</strong> (Componentes) são os blocos fundamentais de construção de aplicações React. Eles são unidades independentes e reutilizáveis de código que encapsulam tanto a lógica quanto a apresentação de uma parte da interface do usuário.</p>
-        
-        <p>Pense em components como peças de Lego: cada peça tem uma função específica, e você combina várias peças para construir algo maior e mais complexo. Da mesma forma, em React, você constrói interfaces complexas combinando componentes menores e mais simples.</p>
+        <p><strong>Components</strong> são como peças de LEGO. Em vez de construir o site inteiro de uma vez, você constrói pequenas peças (Botão, Cabeçalho, Card) e as junta.</p>
         
         <div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; border-left: 4px solid #4caf50; margin: 1rem 0;">
-          <h3 style="margin-top: 0; color: #2e7d32;">Por Que Components São Importantes?</h3>
+          <h3 style="margin-top: 0; color: #2e7d32;">Pilares dos Componentes</h3>
           <ul style="margin-bottom: 0;">
-            <li><strong>Reutilização:</strong> Escreva uma vez, use em qualquer lugar</li>
-            <li><strong>Manutenibilidade:</strong> Código organizado e fácil de manter</li>
-            <li><strong>Testabilidade:</strong> Componentes isolados são mais fáceis de testar</li>
-            <li><strong>Colaboração:</strong> Diferentes desenvolvedores podem trabalhar em componentes diferentes</li>
-            <li><strong>Abstração:</strong> Escondem complexidade, expondo apenas o necessário</li>
+            <li><strong>Reutilização:</strong> Crie uma vez, use quantas vezes quiser.</li>
+            <li><strong>Isolamento:</strong> Se um botão quebra, o resto do site continua funcionando.</li>
+            <li><strong>Composição:</strong> Componentes podem conter outros componentes.</li>
           </ul>
         </div>
 
-        <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">Functional Components</h2>
+        <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">Functional Components e JSX</h2>
         
-        <p><strong>Functional Components</strong> são componentes React definidos como funções JavaScript. Eles são a forma moderna e recomendada de criar componentes em React.</p>
-        
-        <p>A forma mais simples de um functional component é uma função que retorna JSX:</p>
-        
-        <div style="background: #f5f5f5; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
-          <pre style="margin: 0; overflow-x: auto;"><code>function Welcome() {
-  return &lt;h1&gt;Bem-vindo ao React!&lt;/h1&gt;;
-}</code></pre>
-        </div>
-
-        <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">JSX (JavaScript XML)</h2>
-        
-        <p><strong>JSX</strong> é uma extensão de sintaxe do JavaScript que permite escrever código que parece HTML dentro do JavaScript. JSX não é HTML - é uma forma de descrever a estrutura da UI de forma declarativa.</p>
+        <p>Hoje em dia, usamos <strong>Functional Components</strong>. São apenas funções JavaScript que retornam <strong>JSX</strong>.</p>
+        <p>JSX parece HTML, mas é JavaScript disfarçado. Ele permite misturar lógica (JS) com marcação (HTML).</p>
         
         <div style="background: #fff3e0; padding: 1rem; border-radius: 8px; border-left: 4px solid #ff9800; margin: 1rem 0;">
-          <h3 style="margin-top: 0; color: #e65100;">Regras Importantes do JSX:</h3>
-          <ul style="margin-bottom: 0;">
-            <li><strong>Um único elemento raiz:</strong> JSX deve retornar um único elemento (ou usar Fragment <code>&lt;&gt;&lt;/&gt;</code>)</li>
-            <li><strong>Atributos em camelCase:</strong> <code>class</code> vira <code>className</code>, <code>onclick</code> vira <code>onClick</code></li>
-            <li><strong>Expressões JavaScript:</strong> Use <code>{}</code> para inserir variáveis e expressões</li>
-            <li><strong>Segurança:</strong> JSX previne XSS automaticamente escapando valores</li>
+          <h3 style="margin-top: 0; color: #e65100;">Regras de Ouro do JSX:</h3>
+          <ul>
+            <li>Retorne sempre <strong>um único elemento pai</strong> (ou use <code>&lt;&gt;...&lt;/&gt;</code>).</li>
+            <li>Use <code>className</code> em vez de <code>class</code>.</li>
+            <li>Abra chaves <code>{}</code> para escrever JavaScript dentro do HTML.</li>
+            <li>Feche todas as tags (mesmo <code>&lt;br /&gt;</code>).</li>
           </ul>
         </div>
 
-        <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">Props vs State</h2>
+        <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">A Batalha: Props vs State</h2>
         
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;">
           <div style="background: #e3f2fd; padding: 1rem; border-radius: 8px; border: 2px solid #2196f3;">
-            <h3 style="margin-top: 0; color: #1976d2;">Props (Propriedades)</h3>
-            <ul style="margin-bottom: 0;">
-              <li>Dados passados do componente pai</li>
-              <li><strong>Read-only</strong> (somente leitura)</li>
-              <li>Unidirecionais (pai → filho)</li>
-              <li>Não podem ser modificadas</li>
+            <h3 style="margin-top: 0; color: #1976d2;">Props (Externo)</h3>
+            <ul>
+                <li>Vêm do Pai para o Filho.</li>
+                <li>São <strong>Imutáveis</strong> (Read-Only).</li>
+                <li>São como argumentos de função.</li>
+                <li>Ex: Cor de um botão, Título de um card.</li>
             </ul>
           </div>
           
           <div style="background: #f3e5f5; padding: 1rem; border-radius: 8px; border: 2px solid #9c27b0;">
-            <h3 style="margin-top: 0; color: #7b1fa2;">State (Estado)</h3>
-            <ul style="margin-bottom: 0;">
-              <li>Memória interna do componente</li>
-              <li><strong>Mutável</strong> (pode ser atualizado)</li>
-              <li>Local ao componente</li>
-              <li>Causa re-renderização quando muda</li>
+            <h3 style="margin-top: 0; color: #7b1fa2;">State (Interno)</h3>
+            <ul>
+                <li>Nasce e morre dentro do componente.</li>
+                <li>É <strong>Mutável</strong> (via setState).</li>
+                <li>É como a memória local.</li>
+                <li>Ex: O texto digitado em um input, se um modal está aberto.</li>
             </ul>
           </div>
         </div>
 
-        <div style="background: #fff9c4; padding: 1rem; border-radius: 8px; border-left: 4px solid #fbc02d; margin: 1rem 0;">
-          <p style="margin: 0;"><strong>💡 Dica:</strong> Use <strong>Props</strong> quando os dados vêm de fora. Use <strong>State</strong> quando os dados são internos e podem mudar.</p>
-        </div>
+        <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">Renderização Condicional</h2>
+        <p>Não existe <code>v-if</code> ou <code>ng-if</code> no React. Usamos JavaScript puro!</p>
+        <ul>
+            <li><strong>Ternário (<code>? :</code>):</strong> Para "Se isso, então aquilo, senão aquilo outro".</li>
+            <li><strong>AND (<code>&&</code>):</strong> Para "Se isso for verdade, mostre isso".</li>
+        </ul>
 
-        <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">Conditional Rendering (Renderização Condicional)</h2>
-        
-        <p><strong>Conditional Rendering</strong> é a técnica de renderizar diferentes elementos ou componentes baseado em condições. Em React, isso funciona da mesma forma que condições em JavaScript.</p>
-        
-        <div style="background: #f5f5f5; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
-          <h3 style="margin-top: 0;">Métodos Comuns:</h3>
-          <ul>
-            <li><strong>Operador Ternário:</strong> <code>{'condicao ? <ComponenteA /> : <ComponenteB />'}</code></li>
-            <li><strong>Operador &&:</strong> <code>{'condicao && <Componente />'}</code></li>
-            <li><strong>Early Return:</strong> Retornar cedo se a condição não for satisfeita</li>
-            <li><strong>Múltiplas Condições:</strong> Usar <code>if/else</code> ou <code>switch</code></li>
-          </ul>
-        </div>
-
-        <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">Composition (Composição)</h2>
-        
-        <p>React tem um <strong>modelo de composição poderoso</strong> e recomenda usar composição em vez de herança para reutilizar código entre componentes.</p>
-        
-        <p><strong>Composição</strong> significa construir componentes maiores combinando componentes menores. É como construir com blocos de Lego.</p>
-        
-        <div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; border-left: 4px solid #4caf50; margin: 1rem 0;">
-          <h3 style="margin-top: 0; color: #2e7d32;">Vantagens da Composição:</h3>
-          <ul style="margin-bottom: 0;">
-            <li><strong>Flexibilidade:</strong> Fácil de modificar e estender</li>
-            <li><strong>Reutilização:</strong> Componentes pequenos podem ser combinados de várias formas</li>
-            <li><strong>Testabilidade:</strong> Componentes pequenos são mais fáceis de testar</li>
-            <li><strong>Manutenibilidade:</strong> Mudanças em um componente não afetam outros</li>
-          </ul>
-        </div>
-
-        <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">Props.children</h2>
-        
-        <p><strong>children</strong> é uma prop especial que contém o conteúdo entre as tags de abertura e fechamento de um componente. É muito útil para criar componentes genéricos e reutilizáveis.</p>
-        
-        <div style="background: #f5f5f5; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
-          <pre style="margin: 0; overflow-x: auto;"><code>function Card({ children }) {
-  return (
-    &lt;div className="card"&gt;
-      {children}
-    &lt;/div&gt;
-  );
-}
-
-// Uso:
-&lt;Card&gt;
-  &lt;p&gt;Conteúdo aqui&lt;/p&gt;
-  &lt;button&gt;Clique&lt;/button&gt;
-&lt;/Card&gt;</code></pre>
-        </div>
-
-        <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">Conceitos-Chave</h2>
-        
-        <div style="background: #f0f0f0; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
-          <ul style="margin: 0; line-height: 2;">
-            <li><strong>Components:</strong> Blocos de construção reutilizáveis</li>
-            <li><strong>Functional Components:</strong> Forma moderna de criar componentes</li>
-            <li><strong>JSX:</strong> Sintaxe que permite HTML-like em JavaScript</li>
-            <li><strong>Props:</strong> Dados passados de pai para filho (read-only)</li>
-            <li><strong>State:</strong> Memória interna do componente (mutável)</li>
-            <li><strong>Conditional Rendering:</strong> Renderizar baseado em condições</li>
-            <li><strong>Composition:</strong> Combinar componentes menores para criar maiores</li>
-          </ul>
-        </div>
-
-        <div style="background: #e3f2fd; padding: 1.5rem; border-radius: 8px; border: 2px solid #2196f3; margin: 2rem 0;">
-          <h3 style="margin-top: 0; color: #1976d2;">🎯 Próximos Passos</h3>
-          <p style="margin-bottom: 0;">Agora que você entende components, você pode:</p>
-          <ul style="margin-top: 0.5rem; margin-bottom: 0;">
-            <li>Criar componentes reutilizáveis</li>
-            <li>Gerenciar estado e props</li>
-            <li>Renderizar condicionalmente</li>
-            <li>Compor interfaces complexas</li>
-          </ul>
-        </div>
+        <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">Composição vs Herança</h2>
+        <p>No React, preferimos <strong>Composição</strong>. Em vez de estender classes, passamos componentes como props (geralmente via <code>children</code>).</p>
+        <p>A prop <code>children</code> é mágica: ela pega tudo o que você coloca dentro das tags de abertura e fechamento do seu componente.</p>
       </div>
     `,
     exemplos: [
