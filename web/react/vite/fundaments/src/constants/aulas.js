@@ -1,21 +1,107 @@
 // Dados estáticos das aulas
 import {
-    Exemplo1ComponenteBasico,
-    Exemplo2Props,
-    Exemplo3State,
-    Exemplo4PropsVsState,
-    Exemplo5ConditionalRendering,
-    Exemplo6Composition,
-    Exemplo7Children,
-    Exemplo8JSX
+  Exemplo1Contador,
+  Exemplo2ListaTarefas,
+  Exemplo3ComponentesProps,
+  Exemplo4AppCompleto
+} from '../components/aulas/Aula1'
+
+import {
+  Exemplo1ComponenteBasico,
+  Exemplo2Props,
+  Exemplo3State,
+  Exemplo4PropsVsState,
+  Exemplo5ConditionalRendering,
+  Exemplo6Composition,
+  Exemplo7Children,
+  Exemplo8JSX
 } from '../components/aulas/Aula2'
 
 export const AULAS = [
-    {
-        id: '2',
-        titulo: 'Aula 2: Components - Os Blocos de Construção do React',
-        descricao: 'Aprenda a criar e usar componentes React, entender props, state, JSX e composição',
-        teoria: `
+  {
+    id: '1',
+    titulo: 'Aula 1: CLI Tools e Vite - Introdução ao React',
+    descricao: 'Aprenda os conceitos básicos do React: State, Props e como o Vite funciona.',
+    teoria: `
+        <div style="line-height: 1.8; color: #333;">
+            <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">O Que é React?</h2>
+            <p><strong>React</strong> é uma biblioteca JavaScript para construir interfaces de usuário (UI). Ele é baseado em <strong>Componentes</strong>, que são como peças de LEGO que você junta para criar seu site.</p>
+            
+            <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">Conceitos Fundamentais</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;">
+                <div style="background: #e3f2fd; padding: 1rem; border-radius: 8px; border-left: 4px solid #2196f3;">
+                    <h3 style="margin-top: 0; color: #1565c0;">Props (Propriedades)</h3>
+                    <p>São dados que passamos para os componentes. Como argumentos de uma função. São <strong>leitura (read-only)</strong>.</p>
+                </div>
+                <div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; border-left: 4px solid #4caf50;">
+                    <h3 style="margin-top: 0; color: #2e7d32;">State (Estado)</h3>
+                    <p>É a memória do componente. Dados que mudam com o tempo (como um contador). Quando muda, o React atualiza a tela.</p>
+                </div>
+            </div>
+
+            <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">Por que Vite?</h2>
+            <p><strong>Vite</strong> é a ferramenta que usamos para criar e rodar o projeto. Ele é extremamente rápido e moderno.</p>
+            <ul style="background: #f5f5f5; padding: 1rem; border-radius: 8px;">
+                <li>🚀 Inicia o servidor instantaneamente</li>
+                <li>⚡ Atualiza a tela muito rápido (HMR)</li>
+                <li>📦 Já vem configurado para React</li>
+            </ul>
+        </div>
+        `,
+    exemplos: [
+      {
+        title: '1. Contador Simples',
+        description: 'Aprenda o básico de State com useState. Veja como o número muda quando você clica.',
+        code: `// O useState cria uma variável que o React "observa"
+const [count, setCount] = useState(0)
+
+// Para mudar o valor, usamos a função setCount
+<button onClick={() => setCount(count + 1)}>
+  Incrementar
+</button>`,
+        ExampleComponent: Exemplo1Contador
+      },
+      {
+        title: '2. Lista de Tarefas',
+        description: 'Gerenciando listas e inputs. Aprenda a adicionar e remover itens de um array no State.',
+        code: `// Adicionando item (Imutabilidade)
+setTarefas([...tarefas, novaTarefa])
+
+// Removendo item (Filter)
+setTarefas(tarefas.filter((_, i) => i !== index))`,
+        ExampleComponent: Exemplo2ListaTarefas
+      },
+      {
+        title: '3. Componentes e Props',
+        description: 'Como criar componentes reutilizáveis e passar dados para eles via Props.',
+        code: `function Card({ titulo, cor }) {
+  return <div style={{ borderColor: cor }}>{titulo}</div>
+}
+
+// Reutilizando:
+<Card titulo="React" cor="blue" />
+<Card titulo="Vite" cor="purple" />`,
+        ExampleComponent: Exemplo3ComponentesProps
+      },
+      {
+        title: '4. Mini Loja (App Completo)',
+        description: 'Juntando tudo: State, Props, Renderização Condicional e Listas em um app de verdade.',
+        code: `// Renderização Condicional
+{inCart ? (
+  <button>Remover</button>
+) : (
+  <button>Comprar</button>
+)}`,
+        ExampleComponent: Exemplo4AppCompleto
+      }
+    ]
+  },
+  {
+    id: '2',
+    titulo: 'Aula 2: Components - Os Blocos de Construção do React',
+    descricao: 'Aprenda a criar e usar componentes React, entender props, state, JSX e composição',
+    teoria: `
       <div style="line-height: 1.8; color: #333;">
         <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">O Que São Components?</h2>
         
@@ -164,11 +250,11 @@ export const AULAS = [
         </div>
       </div>
     `,
-        exemplos: [
-            {
-                title: '1. Componente Básico',
-                description: 'O exemplo mais simples de um componente React. Uma função que retorna JSX.',
-                code: `function Exemplo1ComponenteBasico() {
+    exemplos: [
+      {
+        title: '1. Componente Básico',
+        description: 'O exemplo mais simples de um componente React. Uma função que retorna JSX.',
+        code: `function Exemplo1ComponenteBasico() {
   return (
     <div>
       <h3>Olá, React!</h3>
@@ -176,12 +262,12 @@ export const AULAS = [
     </div>
   )
 }`,
-                ExampleComponent: Exemplo1ComponenteBasico
-            },
-            {
-                title: '2. Componente com Props',
-                description: 'Props são dados passados de um componente pai para um filho. Veja como o mesmo componente pode ser usado com dados diferentes.',
-                code: `function Saudacao({ nome, idade }) {
+        ExampleComponent: Exemplo1ComponenteBasico
+      },
+      {
+        title: '2. Componente com Props',
+        description: 'Props são dados passados de um componente pai para um filho. Veja como o mesmo componente pode ser usado com dados diferentes.',
+        code: `function Saudacao({ nome, idade }) {
   return (
     <div>
       <h3>Olá, {nome}!</h3>
@@ -194,12 +280,12 @@ export const AULAS = [
 // Uso:
 <Saudacao nome="Maria" idade={25} />
 <Saudacao nome="João" idade={30} />`,
-                ExampleComponent: Exemplo2Props
-            },
-            {
-                title: '3. Componente com State',
-                description: 'State é a memória interna do componente. Quando o state muda, o componente re-renderiza automaticamente. Use useState para criar estado.',
-                code: `import { useState } from 'react'
+        ExampleComponent: Exemplo2Props
+      },
+      {
+        title: '3. Componente com State',
+        description: 'State é a memória interna do componente. Quando o state muda, o componente re-renderiza automaticamente. Use useState para criar estado.',
+        code: `import { useState } from 'react'
 
 function Exemplo3State() {
   const [count, setCount] = useState(0)
@@ -217,12 +303,12 @@ function Exemplo3State() {
     </div>
   )
 }`,
-                ExampleComponent: Exemplo3State
-            },
-            {
-                title: '4. Props vs State - Diferenças',
-                description: 'Veja a diferença prática entre Props (read-only, vêm de fora) e State (mutável, interno ao componente).',
-                code: `// Props: Read-only, vêm do componente pai
+        ExampleComponent: Exemplo3State
+      },
+      {
+        title: '4. Props vs State - Diferenças',
+        description: 'Veja a diferença prática entre Props (read-only, vêm de fora) e State (mutável, interno ao componente).',
+        code: `// Props: Read-only, vêm do componente pai
 function DisplayProps({ mensagem }) {
   return <p>Mensagem: {mensagem}</p>
   // Não pode modificar mensagem aqui!
@@ -241,12 +327,12 @@ function DisplayState() {
     </div>
   )
 }`,
-                ExampleComponent: Exemplo4PropsVsState
-            },
-            {
-                title: '5. Conditional Rendering',
-                description: 'Diferentes formas de renderizar condicionalmente: operador ternário, operador &&, e múltiplas condições.',
-                code: `// Operador Ternário
+        ExampleComponent: Exemplo4PropsVsState
+      },
+      {
+        title: '5. Conditional Rendering',
+        description: 'Diferentes formas de renderizar condicionalmente: operador ternário, operador &&, e múltiplas condições.',
+        code: `// Operador Ternário
 {estaLogado ? (
   <p>Bem-vindo de volta!</p>
 ) : (
@@ -262,12 +348,12 @@ function DisplayState() {
 {status === 'loading' && <p>Carregando...</p>}
 {status === 'success' && <p>Sucesso!</p>}
 {status === 'error' && <p>Erro!</p>}`,
-                ExampleComponent: Exemplo5ConditionalRendering
-            },
-            {
-                title: '6. Composition (Composição)',
-                description: 'Construa componentes maiores combinando componentes menores. Veja como Botao, Card e Container são combinados para criar uma interface complexa.',
-                code: `// Componentes pequenos
+        ExampleComponent: Exemplo5ConditionalRendering
+      },
+      {
+        title: '6. Composition (Composição)',
+        description: 'Construa componentes maiores combinando componentes menores. Veja como Botao, Card e Container são combinados para criar uma interface complexa.',
+        code: `// Componentes pequenos
 function Botao({ children, onClick, variant }) {
   return <button onClick={onClick}>{children}</button>
 }
@@ -297,12 +383,12 @@ function ProductCard({ product }) {
     </Card>
   )
 }`,
-                ExampleComponent: Exemplo6Composition
-            },
-            {
-                title: '7. Props.children',
-                description: 'children é uma prop especial que contém tudo que você coloca entre as tags de abertura e fechamento do componente.',
-                code: `function Caixa({ children, titulo }) {
+        ExampleComponent: Exemplo6Composition
+      },
+      {
+        title: '7. Props.children',
+        description: 'children é uma prop especial que contém tudo que você coloca entre as tags de abertura e fechamento do componente.',
+        code: `function Caixa({ children, titulo }) {
   return (
     <div>
       {titulo && <h4>{titulo}</h4>}
@@ -316,12 +402,12 @@ function ProductCard({ product }) {
   <p>Este parágrafo é children</p>
   <button>Este botão também é children</button>
 </Caixa>`,
-                ExampleComponent: Exemplo7Children
-            },
-            {
-                title: '8. JSX - Expressões e Regras',
-                description: 'Veja como usar expressões JavaScript dentro do JSX: variáveis, cálculos, operadores ternários, e renderização de arrays.',
-                code: `function Exemplo8JSX() {
+        ExampleComponent: Exemplo7Children
+      },
+      {
+        title: '8. JSX - Expressões e Regras',
+        description: 'Veja como usar expressões JavaScript dentro do JSX: variáveis, cálculos, operadores ternários, e renderização de arrays.',
+        code: `function Exemplo8JSX() {
   const nome = 'React'
   const versao = 18
   const tecnologias = ['JSX', 'Hooks', 'Components']
@@ -347,8 +433,8 @@ function ProductCard({ product }) {
     </div>
   )
 }`,
-                ExampleComponent: Exemplo8JSX
-            }
-        ]
-    }
+        ExampleComponent: Exemplo8JSX
+      }
+    ]
+  }
 ]
