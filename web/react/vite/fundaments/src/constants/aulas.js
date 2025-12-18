@@ -25,6 +25,13 @@ import {
   Exemplo5Events
 } from '../components/aulas/Aula3'
 
+import {
+  Exemplo1UseState,
+  Exemplo2UseEffect,
+  Exemplo3Cronometro,
+  Exemplo4DataFetch
+} from '../components/aulas/Aula4'
+
 export const AULAS = [
   {
     id: '1',
@@ -562,6 +569,100 @@ function focar() {
 
 <button onClick={handleClick}>Clique</button>`,
         ExampleComponent: Exemplo5Events
+      }
+    ]
+  },
+  {
+    id: '4',
+    titulo: 'Aula 4: Hooks - useState e useEffect',
+    descricao: 'Mergulhe fundo nos Hooks. Entenda updates funcionais, array de dependências e cleanup.',
+    teoria: `
+      <div style="line-height: 1.8; color: #333;">
+        <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">A Era dos Hooks (React 16.8+)</h2>
+        <p>Os <strong>Hooks</strong> mudaram tudo. Eles permitem que você use recursos do React (como estado e efeitos) dentro de funções simples.</p>
+
+        <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">1. useState: O "Pulo do Gato"</h2>
+        <p>O <code>useState</code> é simples, mas tem um segredo: <strong>Updates Funcionais</strong>. Quando você atualiza o estado com base no estado anterior, você DEVE usar uma função.</p>
+        
+        <pre style="background: #282c34; color: #abb2bf; padding: 1rem; border-radius: 8px;">
+// Errado (Race condition)
+setCount(count + 1);
+
+// Correto (Seguro)
+setCount(prevCount => prevCount + 1);
+        </pre>
+
+        <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">2. useEffect: O Robô Assistente</h2>
+        <p>O <code>useEffect</code> serve para <strong>sincronizar</strong> seu componente com o mundo externo (DOM, API, Timers).</p>
+
+        <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+          <tr style="background: #e3f2fd;">
+            <th style="padding: 8px; border: 1px solid #ddd;">Dependências</th>
+            <th style="padding: 8px; border: 1px solid #ddd;">Quando roda?</th>
+          </tr>
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;"><code>(sem nada)</code></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">Todo Render (Cuidado!)</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;"><code>[]</code> (Vazio)</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">Apenas no Mount (Início)</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;"><code>[id]</code></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">Quando <code>id</code> muda</td>
+          </tr>
+        </table>
+
+        <h3 style="color: #d32f2f;">Cleanup Function (A Faxina)</h3>
+        <p>Se o seu efeito cria algo "vivo" (setInterval, addEventListener), ele precisa ser morto quando o componente sai da tela. Isso é feito retornando uma função no <code>useEffect</code>.</p>
+      </div>
+    `,
+    exemplos: [
+      {
+        title: '1. Updates Funcionais (useState)',
+        description: 'Veja por que atualizar o estado usando o valor anterior direto pode falhar, e como a forma funcional resolve isso.',
+        code: `// Errado: Se chamado 3x, só soma 1
+setCount(count + 1)
+
+// Correto: Se chamado 3x, soma 3
+setCount(c => c + 1)`,
+        ExampleComponent: Exemplo1UseState
+      },
+      {
+        title: '2. Anatomia do useEffect',
+        description: 'Observe o console para entender quando cada tipo de efeito roda (Mount, Update, Unmount).',
+        code: `useEffect(() => {
+  console.log('Roda sempre que [count] mudar')
+}, [count])
+
+useEffect(() => {
+  console.log('Roda só no Mount')
+  return () => console.log('Roda no Unmount (Cleanup)')
+}, [])`,
+        ExampleComponent: Exemplo2UseEffect
+      },
+      {
+        title: '3. Cronômetro com Cleanup',
+        description: 'Um exemplo prático de onde a limpeza do efeito é obrigatória. Sem ela, o timer ficaria "zumbi".',
+        code: `useEffect(() => {
+  const interval = setInterval(...)
+  
+  // Cleanup
+  return () => clearInterval(interval)
+}, [])`,
+        ExampleComponent: Exemplo3Cronometro
+      },
+      {
+        title: '4. Data Fetching',
+        description: 'Como buscar dados de uma API real usando useEffect e gerenciar estados de Loading.',
+        code: `useEffect(() => {
+  setLoading(true)
+  fetch('/api/user/' + id)
+    .then(data => setUser(data))
+    .finally(() => setLoading(false))
+}, [id])`,
+        ExampleComponent: Exemplo4DataFetch
       }
     ]
   }
