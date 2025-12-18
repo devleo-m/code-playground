@@ -17,6 +17,14 @@ import {
   Exemplo8JSX
 } from '../components/aulas/Aula2'
 
+import {
+  Exemplo1Lifecycle,
+  Exemplo2ListsKeys,
+  Exemplo3RenderProps,
+  Exemplo4Refs,
+  Exemplo5Events
+} from '../components/aulas/Aula3'
+
 export const AULAS = [
   {
     id: '1',
@@ -458,6 +466,102 @@ function ProductCard({ product }) {
   )
 }`,
         ExampleComponent: Exemplo8JSX
+      }
+    ]
+  },
+  {
+    id: '3',
+    titulo: 'Aula 3: Rendering e Ciclo de Vida',
+    descricao: 'Entenda como o React renderiza, o Virtual DOM, Ciclo de Vida, Listas e Hooks avançados.',
+    teoria: `
+      <div style="line-height: 1.8; color: #333;">
+        <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">O Motor do React: Rendering</h2>
+        
+        <p>Como o React sabe o que mudar na tela? Ele usa uma <strong>Abordagem Declarativa</strong>. Você diz "Quero um botão azul" e ele se vira para atualizar o DOM.</p>
+
+        <div style="background: #e3f2fd; padding: 1rem; border-radius: 8px; border-left: 4px solid #2196f3; margin: 1rem 0;">
+          <h3 style="margin-top: 0; color: #1565c0;">O Processo de Reconciliação (Reconciliation)</h3>
+          <ol>
+            <li><strong>Render Phase:</strong> O React chama seus componentes e cria um novo <strong>Virtual DOM</strong>.</li>
+            <li><strong>Diffing:</strong> Ele compara esse novo Virtual DOM com o anterior.</li>
+            <li><strong>Commit Phase:</strong> Ele aplica apenas as mudanças necessárias no <strong>DOM Real</strong>.</li>
+          </ol>
+        </div>
+
+        <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">Ciclo de Vida (Life Cycle)</h2>
+        <p>Todo componente nasce (Mount), vive (Update) e morre (Unmount). Com Hooks, usamos o <code>useEffect</code> para controlar isso.</p>
+
+        <ul style="background: #f5f5f5; padding: 1.5rem; border-radius: 8px;">
+          <li><strong>Mounting (Nascer):</strong> <code>useEffect(() => {}, [])</code> - Executa uma vez ao aparecer.</li>
+          <li><strong>Updating (Viver):</strong> <code>useEffect(() => {}, [dep])</code> - Executa quando 'dep' muda.</li>
+          <li><strong>Unmounting (Morrer):</strong> A função de retorno do <code>useEffect</code> (Cleanup).</li>
+        </ul>
+
+        <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">Listas e Keys 🔑</h2>
+        <p>Ao renderizar listas (arrays), o React precisa de uma <strong>Key</strong> única para cada item. Isso ajuda ele a saber qual item mudou, foi adicionado ou removido.</p>
+        <p style="color: red;"><strong>Nunca use o índice do array como key se a lista puder mudar de ordem!</strong></p>
+
+        <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">Render Props</h2>
+        <p>É uma técnica onde você passa uma função como prop para um componente, e ele usa essa função para saber o que renderizar. É ótimo para compartilhar lógica (ex: rastrear mouse, scroll).</p>
+
+        <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1rem;">Refs (Referências)</h2>
+        <p>As vezes você precisa "sair" do React e tocar no DOM diretamente (focar um input, medir um elemento). Para isso usamos <code>useRef</code>.</p>
+        <p>O <code>useRef</code> também serve para guardar valores que persistem entre renders mas NÃO causam re-render.</p>
+      </div>
+    `,
+    exemplos: [
+      {
+        title: '1. Ciclo de Vida (useEffect)',
+        description: 'Entenda Mounting, Updating e Unmounting com um Timer.',
+        code: `useEffect(() => {
+  // Mount
+  const timer = setInterval(() => console.log('Tick'), 1000);
+
+  // Unmount (Cleanup)
+  return () => clearInterval(timer);
+}, []); // [] = Apenas no mount`,
+        ExampleComponent: Exemplo1Lifecycle
+      },
+      {
+        title: '2. Listas e Keys',
+        description: 'A importância de usar keys únicas para performance e evitar bugs.',
+        code: `// Errado (Index)
+{items.map((item, index) => <li key={index}>{item}</li>)}
+
+// Correto (ID único)
+{items.map(item => <li key={item.id}>{item.text}</li>)}`,
+        ExampleComponent: Exemplo2ListsKeys
+      },
+      {
+        title: '3. Render Props',
+        description: 'Compartilhando lógica de posição do mouse via props.',
+        code: `<MouseTracker render={({ x, y }) => (
+  <h1>O mouse está em {x}, {y}</h1>
+)} />`,
+        ExampleComponent: Exemplo3RenderProps
+      },
+      {
+        title: '4. Refs e DOM',
+        description: 'Acessando elementos do DOM imperativamente com useRef.',
+        code: `const inputRef = useRef(null);
+
+function focar() {
+  inputRef.current.focus();
+}
+
+<input ref={inputRef} />`,
+        ExampleComponent: Exemplo4Refs
+      },
+      {
+        title: '5. Eventos (SyntheticEvent)',
+        description: 'Como o React lida com eventos de forma consistente entre navegadores.',
+        code: `function handleClick(e) {
+  e.preventDefault(); // Funciona igual em todo lugar
+  console.log(e.target);
+}
+
+<button onClick={handleClick}>Clique</button>`,
+        ExampleComponent: Exemplo5Events
       }
     ]
   }

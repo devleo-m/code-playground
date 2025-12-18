@@ -55,6 +55,9 @@ Este curso segue uma metodologia sequencial e construtiva:
 
 **Arquivos:**
 - `aula3-rendering-avancado/01-aula-principal.md` - Aula principal completa
+- `aula3-rendering-avancado/02-aula-simplificada.md` - Aula com analogias
+- `aula3-rendering-avancado/03-exercicios-reflexao.md` - Exercícios e reflexão
+- `aula3-rendering-avancado/04-performance-boas-praticas.md` - Performance e boas práticas
 - `aula3-rendering-avancado/README.md` - Guia da aula
 
 ## 🚀 Como Usar Este Curso
@@ -98,7 +101,10 @@ curso/
 │   └── 04-performance-boas-praticas.md
 ├── aula3-rendering-avancado/
 │   ├── README.md
-│   └── 01-aula-principal.md
+│   ├── 01-aula-principal.md
+│   ├── 02-aula-simplificada.md
+│   ├── 03-exercicios-reflexao.md
+│   └── 04-performance-boas-praticas.md
 └── [próximas aulas...]
 ```
 
