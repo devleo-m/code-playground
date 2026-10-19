@@ -2,6 +2,9 @@ package main
 
 import "fmt"
 
+var nome string = "Leonardo"
+
 func main() {
-	fmt.Println("Hello, World!")
+	idade := 30
+	fmt.Printf("Olá, %s! Você tem %d anos.", nome, idade)
 }
